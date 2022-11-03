@@ -1,0 +1,2 @@
+# BFO-SOSA-SSN
+SSN/SOSA mapped into BFO-ISO
