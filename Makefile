@@ -5,9 +5,9 @@
 # ----------------------------------------
 #### Configuration / details about our project
 # Project essentials
-config.ONTOLOGY_FILE	:= src/ontology/bfo.owl
-config.ONTOLOGY_PREFIX	:= BFO
-config.ONTOLOGY-IRI		:= http://purl.obolibrary.org/obo/bfo/2.0
+config.ONTOLOGY_FILE	:= PROV/prov-o-edit.ttl
+config.ONTOLOGY_PREFIX	:= prov-o
+config.ONTOLOGY-IRI		:= http://www.w3.org/ns/prov-o
 config.BASE_IRI			:= $(config.ONTOLOGY-IRI)_
 config.DEV_IRI			:= $(config.ONTOLOGY-IRI)/dev
 config.MODULES_IRI		:= $(config.DEV_IRI)/modules
@@ -17,7 +17,7 @@ config.SOURCE_DIR		:= src/ontology
 config.TEMP_DIR			:= build/artifacts
 config.RELEASE_DIR		:= /
 config.REPORTS_DIR		:= $(config.TEMP_DIR)
-config.QUERIES_DIR		:= $(config.SOURCE_DIR)/sparql
+config.QUERIES_DIR		:= sparql
 config.LIBRARY_DIR		:= build/lib
 
 # Settings
@@ -57,7 +57,7 @@ test-edit:				REPORT_FILE_INPUT = $(EDITOR_REPORT_FILE)
 test-release:				TEST_INPUT = $(RELEASE_BUILD_FILE)
 test-release:				REPORT_FILE_INPUT = $(RELEASE_REPORT_FILE)
 # (This is a disjunction mapped to a conjunction: either target maps to all of these targets)
-test-edit test-release: reason verify report
+test-edit test-release: reason report verify 
 
 .PHONY: 				report-edit report-release
 report-edit:				TEST_INPUT = $(EDITOR_BUILD_FILE)
@@ -96,7 +96,7 @@ $(REQUIRED_DIRS):
 # ROBOT
 ROBOT_FILE := $(config.LIBRARY_DIR)/robot.jar
 $(ROBOT_FILE): | $(config.LIBRARY_DIR)
-	curl -L -o $@ https://github.com/ontodev/robot/releases/download/v1.8.4/robot.jar
+	curl -L -o $@ https://github.com/ontodev/robot/releases/download/v1.9.3/robot.jar
 
 ROBOT := java -jar $(ROBOT_FILE)
 
