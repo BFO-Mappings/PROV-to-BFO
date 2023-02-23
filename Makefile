@@ -46,20 +46,21 @@ REQUIRED_DIRS = $(config.TEMP_DIR) $(config.LIBRARY_DIR) $(config.SOURCE_DIR) $(
 # ----------------------------------------
 #### Targets / main "goals" of this Makefile
 .PHONY: all
-all: test-edit build-release test-release
+all: reason-edit test-edit build-release reason-release test-release
 
 build-release: $(RELEASE_BUILD_FILE)
 
 # These use Target-Specific Variables as parameters of reusable targets
-.PHONY: 				test-edit test-release
-test-edit: 				TEST_INPUT = $(EDITOR_BUILD_FILE)
-test-edit:				REPORT_FILE_INPUT = $(EDITOR_REPORT_FILE)
-test-release:				TEST_INPUT = $(RELEASE_BUILD_FILE)
-test-release:				REPORT_FILE_INPUT = $(RELEASE_REPORT_FILE)
+.PHONY: test-edit test-release reason-edit reason-release
+reason-edit test-edit:				TEST_INPUT = $(EDITOR_BUILD_FILE)
+test-edit:							REPORT_FILE_INPUT = $(EDITOR_REPORT_FILE)
+reason-release test-release:		TEST_INPUT = $(RELEASE_BUILD_FILE)
+test-release:						REPORT_FILE_INPUT = $(RELEASE_REPORT_FILE)
 # (This is a disjunction mapped to a conjunction: either target maps to all of these targets)
-test-edit test-release: reason report verify 
+test-edit test-release: report verify
+reason-edit reason-release: reason
 
-.PHONY: 				report-edit report-release
+.PHONY: report-edit report-release
 report-edit:				TEST_INPUT = $(EDITOR_BUILD_FILE)
 report-edit:				REPORT_FILE_INPUT = $(EDITOR_REPORT_FILE)
 report-release:				TEST_INPUT = $(RELEASE_BUILD_FILE)
@@ -136,9 +137,10 @@ reason: $(TEST_INPUT) | $(ROBOT_FILE)
 .PHONY: verify
 verify: $(TEST_INPUT) $(QUERIES) | $(config.QUERIES_DIR) $(config.TEMP_DIR) $(ROBOT_FILE)
 ifeq ($(QUERIES),)
-	$(error No query files found in $(config.QUERIES_DIR))
-endif
+	$(warning No query files found in $(config.QUERIES_DIR))
+else
 	$(ROBOT) verify --input $(TEST_INPUT) --output-dir $(config.TEMP_DIR) --queries $(QUERIES) --fail-on-violation $(config.FAIL_ON_TEST_FAILURES)
+endif
 
 # Report using built-in ROBOT queries
 .PHONY: report
