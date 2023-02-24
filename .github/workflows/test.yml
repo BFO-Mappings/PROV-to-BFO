@@ -1,7 +1,7 @@
 name: Test Ontology Changes
 on:
   push:
-    branches-ignore: [ master ]
+    branches-ignore: [ main ]
 
 env:
   cache-path: build/lib
@@ -25,8 +25,12 @@ jobs:
           key: ${{ runner.os }}-${{ env.cache-key }}
 
       # Run the main steps here
-      - name: Run ontology tests
+      - name: Check for inconsistency with Reasoner
+        run: make reason-edit
+
+      - name: Run automated tests and generate reports
         run: make test-edit
+        if: always()
 
       # Save any artifact files produced even if tests fail
       - name: Save artifacts

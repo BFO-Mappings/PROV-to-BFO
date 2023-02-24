@@ -1,7 +1,7 @@
-name: Build & Test Release
+name: Build, Test, Draft Release
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 permissions:
   contents: write
