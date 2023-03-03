@@ -18,6 +18,6 @@ subClassOf
 includeAllIntermediates
 
 [Source annotation URIs]
-includeAllAxiomsRecursively
+includeAllAxioms
 
 [Source annotation URIs to be excluded]
