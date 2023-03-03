@@ -1,4 +1,5 @@
 name: Test Ontology Changes
+on: workflow_dispatch
 
 env:
   cache-path: build/lib
