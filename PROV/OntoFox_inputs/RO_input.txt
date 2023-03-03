@@ -6,11 +6,12 @@ RO
 
 [Low level source term URIs]
 http://purl.obolibrary.org/obo/RO_0000087 #has role
+http://purl.obolibrary.org/obo/RO_0000081 #role of
 
 [Top level source term URIs and target direct superclass URIs]
-http://purl.obolibrary.org/obo/RO_0000053 #has characteristic
-subClassOf
 http://purl.obolibrary.org/obo/RO_0000052 #characteristic of
+subClassOf
+http://purl.obolibrary.org/obo/RO_0000053 #has characteristic
 subClassOf
 
 [Source term retrieval setting]
