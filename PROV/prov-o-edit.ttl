@@ -9,6 +9,7 @@
 <http://www.w3.org/ns/prov#> rdf:type owl:Ontology ;
                               owl:versionIRI <http://www.w3.org/ns/prov-o-20130430> ;
                               owl:imports <http://purl.obolibrary.org/obo/bfo/2020/bfo.owl> ,
+                                          <http://www.w3.org/2002/07/owl> ,
                                           <http://www.w3.org/ns/prov-o/dev/import/RO_imports.owl> ;
                               rdfs:comment """This document is published by the Provenance Working Group (http://www.w3.org/2011/prov/wiki/Main_Page). 
 
@@ -16,9 +17,7 @@ If you wish to make comments regarding this document, please send them to public
                               rdfs:label "W3C PROVenance Interchange Ontology (PROV-O)"@en ;
                               rdfs:seeAlso <http://www.w3.org/TR/prov-o/> ,
                                            <http://www.w3.org/ns/prov> ;
-                              owl:versionInfo "Recommendation version 2013-04-30"@en ;
-                              :specializationOf <http://www.w3.org/ns/prov-o> ;
-                              :wasRevisionOf <http://www.w3.org/ns/prov-o-20130312> .
+                              owl:versionInfo "Recommendation version 2013-04-30"@en .
 
 #################################################################
 #    Annotation properties
@@ -1051,8 +1050,13 @@ owl:Thing rdf:type owl:Class .
 
 ###  http://www.w3.org/ns/prov#Activity
 :Activity rdf:type owl:Class ;
-          rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000015> ;
+          rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000015> ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000167> ;
+                            owl:someValuesFrom :Agent
+                          ] ;
           owl:disjointWith :Entity ;
+          <http://purl.obolibrary.org/obo/IAO_0000115> "An activity is a process that has some participant that acts upon some continuant." ;
           rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
           rdfs:label "Activity" ;
           :category "starting-point" ;
@@ -1111,7 +1115,8 @@ owl:Thing rdf:type owl:Class .
 
 ###  http://www.w3.org/ns/prov#AgentRole
 :AgentRole rdf:type owl:Class ;
-           rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000023> .
+           rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000023> ;
+           <http://purl.obolibrary.org/obo/IAO_0000115> "An agent role is a role borne by some material entity, that, if realized, is realized in an activity taking place" .
 
 
 ###  http://www.w3.org/ns/prov#Association
@@ -1222,8 +1227,7 @@ For example, a student acted on behalf of his supervisor, who acted on behalf of
 
 ###  http://www.w3.org/ns/prov#End
 :End rdf:type owl:Class ;
-     rdfs:subClassOf :EntityInfluence ,
-                     :InstantaneousEvent ;
+     rdfs:subClassOf :EntityInfluence ;
      rdfs:comment "An instance of prov:End provides additional descriptions about the binary prov:wasEndedBy relation from some ended prov:Activity to an prov:Entity that ended it. For example, :ball_game prov:wasEndedBy :buzzer; prov:qualifiedEnd [ a prov:End; prov:entity :buzzer; :foo :bar; prov:atTime '2012-03-09T08:05:08-05:00'^^xsd:dateTime ]."@en ;
      rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
      rdfs:label "End" ;
@@ -1263,8 +1267,7 @@ For example, a student acted on behalf of his supervisor, who acted on behalf of
 
 ###  http://www.w3.org/ns/prov#Generation
 :Generation rdf:type owl:Class ;
-            rdfs:subClassOf :ActivityInfluence ,
-                            :InstantaneousEvent ;
+            rdfs:subClassOf :ActivityInfluence ;
             rdfs:comment "An instance of prov:Generation provides additional descriptions about the binary prov:wasGeneratedBy relation from a generated prov:Entity to the prov:Activity that generated it. For example, :cake prov:wasGeneratedBy :baking; prov:qualifiedGeneration [ a prov:Generation; prov:activity :baking; :foo :bar ]."@en ;
             rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
             rdfs:label "Generation" ;
@@ -1279,7 +1282,8 @@ For example, a student acted on behalf of his supervisor, who acted on behalf of
 
 ###  http://www.w3.org/ns/prov#Influence
 :Influence rdf:type owl:Class ;
-           rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000016> ;
+           rdfs:subClassOf :Activity ;
+           <http://purl.obolibrary.org/obo/IAO_0000115> "Influence is a prov:activity that has an effect on the character, development, or behavior of another entity, activity, or agent" ;
            rdfs:comment "An instance of prov:Influence provides additional descriptions about the binary prov:wasInfluencedBy relation from some influenced Activity, Entity, or Agent to the influencing Activity, Entity, or Agent. For example, :stomach_ache prov:wasInfluencedBy :spoon; prov:qualifiedInfluence [ a prov:Influence; prov:entity :spoon; :foo :bar ] . Because prov:Influence is a broad relation, the more specific relations (Communication, Delegation, End, etc.) should be used when applicable."@en ,
                         "Because prov:Influence is a broad relation, its most specific subclasses (e.g. prov:Communication, prov:Delegation, prov:End, prov:Revision, etc.) should be used when applicable."@en ;
            rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
@@ -1306,8 +1310,7 @@ For example, a student acted on behalf of his supervisor, who acted on behalf of
 
 ###  http://www.w3.org/ns/prov#Invalidation
 :Invalidation rdf:type owl:Class ;
-              rdfs:subClassOf :ActivityInfluence ,
-                              :InstantaneousEvent ;
+              rdfs:subClassOf :ActivityInfluence ;
               rdfs:comment "An instance of prov:Invalidation provides additional descriptions about the binary prov:wasInvalidatedBy relation from an invalidated prov:Entity to the prov:Activity that invalidated it. For example, :uncracked_egg prov:wasInvalidatedBy :baking; prov:qualifiedInvalidation [ a prov:Invalidation; prov:activity :baking; :foo :bar ]."@en ;
               rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
               rdfs:label "Invalidation" ;
@@ -1444,8 +1447,7 @@ A primary source relation is a particular case of derivation of secondary materi
 
 ###  http://www.w3.org/ns/prov#Start
 :Start rdf:type owl:Class ;
-       rdfs:subClassOf :EntityInfluence ,
-                       :InstantaneousEvent ;
+       rdfs:subClassOf :EntityInfluence ;
        rdfs:comment "An instance of prov:Start provides additional descriptions about the binary prov:wasStartedBy relation from some started prov:Activity to an prov:Entity that started it. For example, :foot_race prov:wasStartedBy :bang; prov:qualifiedStart [ a prov:Start; prov:entity :bang; :foo :bar; prov:atTime '2012-03-09T08:05:08-05:00'^^xsd:dateTime ] ."@en ;
        rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
        rdfs:label "Start" ;
@@ -1460,8 +1462,7 @@ A primary source relation is a particular case of derivation of secondary materi
 
 ###  http://www.w3.org/ns/prov#Usage
 :Usage rdf:type owl:Class ;
-       rdfs:subClassOf :EntityInfluence ,
-                       :InstantaneousEvent ;
+       rdfs:subClassOf :EntityInfluence ;
        rdfs:comment "An instance of prov:Usage provides additional descriptions about the binary prov:used relation from some prov:Activity to an prov:Entity that it used. For example, :keynote prov:used :podium; prov:qualifiedUsage [ a prov:Usage; prov:entity :podium; :foo :bar ]."@en ;
        rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
        rdfs:label "Usage" ;
@@ -1487,7 +1488,9 @@ A primary source relation is a particular case of derivation of secondary materi
 
 
 ###  http://www.w3.org/ns/prov#
-<http://www.w3.org/ns/prov#> rdf:type owl:NamedIndividual .
+<http://www.w3.org/ns/prov#> rdf:type owl:NamedIndividual ;
+                             :specializationOf <http://www.w3.org/ns/prov-o> ;
+                             :wasRevisionOf <http://www.w3.org/ns/prov-o-20130312> .
 
 
 ###  http://www.w3.org/ns/prov#EmptyCollection
@@ -1512,8 +1515,8 @@ A primary source relation is a particular case of derivation of secondary materi
                   :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-specialization"^^xsd:anyURI ;
                   :category "expanded" ;
                   :definition "An entity that is a specialization of another shares all aspects of the latter, and additionally presents more specific aspects of the same thing as the latter. In particular, the lifetime of the entity being specialized contains that of any specialization. Examples of aspects include a time period, an abstraction, and a context associated with the entity."@en ;
-                  :inverse "generalizationOf" ;
                   :component "alternate" ;
+                  :inverse "generalizationOf" ;
                   :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-specialization"^^xsd:anyURI .
 
 
