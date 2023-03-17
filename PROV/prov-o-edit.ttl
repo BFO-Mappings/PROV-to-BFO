@@ -10,6 +10,7 @@
 <http://www.w3.org/ns/prov#> rdf:type owl:Ontology ;
                               owl:versionIRI <http://www.w3.org/ns/prov-o-20130430> ;
                               owl:imports <http://purl.obolibrary.org/obo/bfo/2020/bfo.owl> ,
+                                          <http://www.ontologyrepository.com/CommonCoreOntologies/affects> ,
                                           <http://www.w3.org/ns/prov-o/dev/import/RO_imports.owl> ;
                               dc:contributor "Alec Sculley" ,
                                              "Ali Hasanzadeh" ,
@@ -1315,6 +1316,7 @@ For example, a student acted on behalf of his supervisor, who acted on behalf of
                     rdfs:comment "An instantaneous event, or event for short, happens in the world and marks a change in the world, in its activities and in its entities. The term 'event' is commonly used in process algebra with a similar meaning. Events represent communications or interactions; they are assumed to be atomic and instantaneous."@en ;
                     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
                     rdfs:label "InstantaneousEvent" ;
+                    owl:deprecated "true"^^xsd:boolean ;
                     :category "qualified" ;
                     :component "entities-activities" ;
                     :constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#dfn-event"^^xsd:anyURI ;
@@ -1514,8 +1516,8 @@ A primary source relation is a particular case of derivation of secondary materi
 
 :EmptyCollection :definition "An empty collection is a collection without members."@en ;
                  rdfs:label "EmptyCollection"@en ;
-                 rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
                  :category "expanded" ;
+                 rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
                  :component "collections" .
 
 
@@ -1523,11 +1525,11 @@ A primary source relation is a particular case of derivation of secondary materi
                   rdfs:label "specializationOf" ;
                   rdfs:seeAlso :alternateOf ;
                   rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-                  :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-specialization"^^xsd:anyURI ;
                   :category "expanded" ;
+                  :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-specialization"^^xsd:anyURI ;
                   :definition "An entity that is a specialization of another shares all aspects of the latter, and additionally presents more specific aspects of the same thing as the latter. In particular, the lifetime of the entity being specialized contains that of any specialization. Examples of aspects include a time period, an abstraction, and a context associated with the entity."@en ;
-                  :inverse "generalizationOf" ;
                   :component "alternate" ;
+                  :inverse "generalizationOf" ;
                   :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-specialization"^^xsd:anyURI .
 
 
