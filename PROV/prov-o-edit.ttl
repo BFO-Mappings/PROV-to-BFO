@@ -4,6 +4,7 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @base <http://www.w3.org/ns/prov#> .
 
 <http://www.w3.org/ns/prov#> rdf:type owl:Ontology ;
@@ -15,6 +16,13 @@
 
 If you wish to make comments regarding this document, please send them to public-prov-comments@w3.org (subscribe public-prov-comments-request@w3.org, archives http://lists.w3.org/Archives/Public/public-prov-comments/). All feedback is welcome."""@en ;
                               rdfs:label "W3C PROVenance Interchange Ontology (PROV-O)"@en ;
+                              dc:contributor "Sydney Cohen";
+                              dc:contributor "Giacomo De Colle";
+                              dc:contributor "Ali Hasanzadeh";
+                              dc:contributor "Austin Liebers";
+                              dc:contributor "Tim Prudhomme";
+                              dc:contributor "Alec Sculley";
+                              dc:contributor "Peihong Karl Xie";
                               rdfs:seeAlso <http://www.w3.org/TR/prov-o/> ,
                                            <http://www.w3.org/ns/prov> ;
                               owl:versionInfo "Recommendation version 2013-04-30"@en .
