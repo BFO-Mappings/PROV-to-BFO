@@ -1,0 +1,86 @@
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix my:   <http://www.example.org/vocab#> .
+@prefix :     <http://www.example.org#> .
+@base         <http://www.example.com/derek-bundle.ttl> .
+
+<> 
+   a prov:Bundle, prov:Entity;
+   prov:wasAttributedTo :postEditor;
+   prov:generatedAtTime "2011-07-16T02:52:02Z"^^xsd:dateTime;
+.
+
+:derek
+   a prov:Person, prov:Agent; ## prov:Agent is inferred from prov:Person
+   foaf:givenName       "Derek";
+   foaf:mbox            <mailto:derek@example.org>;
+   prov:actedOnBehalfOf :national_newspaper_inc;
+.
+
+:national_newspaper_inc 
+   a prov:Organization, prov:Agent;        ## prov:Agent is inferred from prov:Organization
+   foaf:name "National Newspaper, Inc.";
+.
+
+:postEditor 
+   a prov:SoftwareAgent, prov:Agent;       ## prov:Agent is inferred from prov:SoftwareAgent
+   foaf:name "Post Editor 3000";
+.   
+
+:more-crime-happens-in-cities
+   a sioc:Post, prov:Entity;
+   sioc:latest_version   :post9821v2;
+   sioc:previous_version :post9821v1;
+.
+
+## Version 1 of the post
+
+:post9821v1
+   a sioc:Post, prov:Entity;   
+   prov:specializationOf  :more-crime-happens-in-cities; ## PERMALINK to the latest revision.
+   sioc:title             "More crime happens in cities";
+   prov:value             "I was currius...";            ## The text of this version (with a typo).
+   prov:generatedAtTime   "2011-07-16T01:52:02Z"^^xsd:dateTime;
+   prov:wasGeneratedBy    :publicationActivity1123;
+   prov:wasInfluencedBy   :aggregatedByRegions; ## This blog was influenced by Derek's data analysis.
+   prov:hadPrimarySource  :crimeData;           ## Derek's blog derives from the crime data originally
+                                                ## gathered by the government.
+   prov:invalidatedAtTime "2011-07-16T02:02:02Z"^^xsd:dateTime;
+.
+
+:publicationActivity1123 
+   a prov:Activity;
+   prov:startedAtTime     "2011-07-16T01:01:01Z"^^xsd:dateTime;
+   prov:wasStartedBy      :derek;
+   prov:wasAssociatedWith :postEditor;
+   prov:generated         :post9821v1;
+   prov:endedAtTime       "2011-07-16T01:52:02Z"^^xsd:dateTime;
+   prov:wasEndedBy        :derek;
+.
+
+:aggregatedByRegions
+   a prov:Entity;
+   prov:atLocation <file://Users/aggr.txt>;
+.
+<file://Users/aggr.txt> a prov:Location .
+
+:crimeData
+   a prov:Entity;
+   prov:wasAttributedTo :government;
+.
+:government 
+   a prov:Organization, prov:Agent;
+.
+
+## Version 2 of the post
+
+:post9821v2
+   a sioc:Post, prov:Entity;
+   prov:specializationOf :more-crime-happens-in-cities; ## PERMALINK to the latest revision.
+   prov:value            "I was curious...";            ## The text of this version (with fixed typo).
+   prov:generatedAtTime  "2011-07-16T02:02:02Z"^^xsd:dateTime;
+   prov:wasRevisionOf    :post9821v1;
+   prov:alternateOf      :post9821v1;
+.

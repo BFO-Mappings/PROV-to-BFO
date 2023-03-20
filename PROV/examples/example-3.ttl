@@ -1,0 +1,31 @@
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix :     <http://www.example.org#> .
+@base         <http://www.example.com/monica-bundle.ttl> .
+
+<>
+   a prov:Bundle, prov:Entity;
+   prov:wasAttributedTo :postEditor;
+   prov:wasDerivedFrom  <http://www.example.com/derek-bundle.ttl> .
+   prov:generatedAtTime "2011-07-16T03:03:03Z"^^xsd:dateTime;
+.
+
+:monica
+   a prov:Person, prov:Agent;
+   foaf:givenName "Monica";
+   foaf:mbox      <mailto:monica@example.org>;
+.
+
+## Revised post for a different audience is a new resource.
+
+:post9822
+   a sioc:Post, prov:Entity;
+   sioc:title "More crime happens in cities (for dummies)";
+   prov:wasAttributedTo  :monica,
+                         :postEditor;
+   prov:alternateOf      :more-crime-happens-in-cities;    ## This post is an alternate of Derek's blog.
+   prov:value            "A quick overview of Derek's..."; ## Snapshot with the content of this version
+   prov:wasRevisionOf    :post9821v2;                      ## Monica rewrote Derek's version 2 to create hers.
+.
