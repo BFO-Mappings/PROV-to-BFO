@@ -1,6 +1,9 @@
 #### Basic Ontology Pipeline
-# Heavily adapted from https://github.com/obi-ontology/obi/blob/master/Makefile
+# Heavily adapted from https://github.com/obi-ontology/obi/blob/master/Makefile by James A. Overton <james@overton.ca>
 # Tim Prudhomme <tmprdh@gmail.com>
+
+# WARN: This file contains significant whitespace, i.e. tabs!
+# Ensure that your text editor shows you those characters.
 
 # ----------------------------------------
 #### Configuration / details about our project
@@ -13,11 +16,12 @@ config.DEV_IRI			:= $(config.ONTOLOGY-IRI)/dev
 config.MODULES_IRI		:= $(config.DEV_IRI)/modules
 
 # Local project directories
-config.SOURCE_DIR		:= src/ontology
+config.SOURCE_DIR		:= PROV
 config.TEMP_DIR			:= build/artifacts
 config.RELEASE_DIR		:= /
 config.REPORTS_DIR		:= $(config.TEMP_DIR)
 config.QUERIES_DIR		:= sparql
+config.IMPORTS_DIR		:= $(config.SOURCE_DIR)/OntoFox_outputs
 config.LIBRARY_DIR		:= build/lib
 
 # Settings
@@ -48,26 +52,20 @@ REQUIRED_DIRS = $(config.TEMP_DIR) $(config.LIBRARY_DIR) $(config.SOURCE_DIR) $(
 .PHONY: all
 all: reason-edit test-edit build-release reason-release test-release
 
-build-release: $(RELEASE_BUILD_FILE)
+# These are parameterized targets, which assign "target-specific variables" to be used in a resuable target
+.PHONY: reason-edit reason-release test-edit test-release report-edit report-
+reason-edit test-edit report-edit: 				TEST_INPUT = $(EDITOR_BUILD_FILE)
+reason-release test-release report-release:		TEST_INPUT = $(RELEASE_BUILD_FILE)
+report-edit:									REPORT_FILE_INPUT = $(EDITOR_REPORT_FILE)
+report-release:									REPORT_FILE_INPUT = $(RELEASE_REPORT_FILE)
 
-# These use Target-Specific Variables as parameters of reusable targets
-.PHONY: test-edit test-release reason-edit reason-release
-reason-edit test-edit:				TEST_INPUT = $(EDITOR_BUILD_FILE)
-test-edit:							REPORT_FILE_INPUT = $(EDITOR_REPORT_FILE)
-reason-release test-release:		TEST_INPUT = $(RELEASE_BUILD_FILE)
-test-release:						REPORT_FILE_INPUT = $(RELEASE_REPORT_FILE)
-# (This is a disjunction mapped to a conjunction: either target maps to all of these targets)
-test-edit test-release: report verify
-reason-edit reason-release: reason
+# Map to reusable targets (this is a disjunction mapped to a conjunction: either target maps to all of these targets)
 
-.PHONY: report-edit report-release
-report-edit:				TEST_INPUT = $(EDITOR_BUILD_FILE)
-report-edit:				REPORT_FILE_INPUT = $(EDITOR_REPORT_FILE)
-report-release:				TEST_INPUT = $(RELEASE_BUILD_FILE)
-report-release:				REPORT_FILE_INPUT = $(RELEASE_REPORT_FILE)
+reason-edit reason-release: reason 
+test-edit test-release: verify
 report-edit report-release: report
 
-# These simply output certain variables that are useful to a Github Action
+# Output variables that are useful to a Github Action
 .PHONY: output-release-filepath
 output-release-filepath:
 	@echo $(RELEASE_BUILD_FILE)
@@ -75,6 +73,7 @@ output-release-filepath:
 .PHONY: output-release-version
 output-release-name:
 	@echo $(config.RELEASE_NAME)
+
 
 # ----------------------------------------
 #### Setup / configure Make to use with our project
@@ -87,8 +86,8 @@ SHELL := bash # need bash to use `pipefail`
 .SHELLFLAGS := -eu -o pipefail -c
 .DEFAULT_GOAL := all # default target running Make without arguments
 .DELETE_ON_ERROR: # delete target if recipe fails
-.SUFFIXES: # ?
-.SECONDARY: # ?
+.SUFFIXES: # ignore default suffix rules
+.SECONDARY: # keep all files created by pattern rules
 
 # Create any of these directories if they don't exist
 $(REQUIRED_DIRS):
@@ -111,24 +110,27 @@ clean:
 
 # ----------------------------------------
 #### Build / different versions of the ontology
-$(RELEASE_BUILD_FILE): $(EDITOR_BUILD_FILE)
-	$(ROBOT) reason --input $< --reasoner HermiT \
-	annotate ${call annotation-inputs,$@}
 
-# Function using parameter `$@` to build arguments for `annnotate`, which could be reused in other builds
+# Release build has import declarations removed
+$(RELEASE_BUILD_FILE): $(EDITOR_BUILD_FILE)
+	$(ROBOT) remove --input $< --select imports \
+	reason --reasoner HermiT \
+	annotate ${call annotation-inputs,$@,$@}
+
+# Function (aka "canned recipe") using parameters to build arguments for `annnotate`
 define annotation-inputs
 	--ontology-iri "$(config.ONTOLOGY-IRI)/$1" \
 	--version-iri "$(config.ONTOLOGY-IRI)/$(TODAY)/$1" \
 	--annotation owl:versionInfo "$(TODAY)" \
-	--output $@ 
+	--output $2
 endef
-
 
 # ----------------------------------------
 #### Test / test ontology with reasoners and queries
 QUERIES = $(wildcard $(config.QUERIES_DIR)/*.rq)
 
 # Check for inconsistency
+# Note: $(TEST_INPUT) is a "target-specific variable" that's set before calling this target, so it isn't a prerequisite
 .PHONY: reason
 reason: $(TEST_INPUT) | $(ROBOT_FILE)
 	$(ROBOT) reason --input $(TEST_INPUT) --reasoner ELK
