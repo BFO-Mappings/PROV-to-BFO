@@ -2,6 +2,3 @@
 
 # This is where Makefile artifacts and dependencies go
 build
-
-# Protege artifact
-catalog-v001.xml
