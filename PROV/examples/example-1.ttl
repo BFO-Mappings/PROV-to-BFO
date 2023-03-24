@@ -2,7 +2,11 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix :     <http://example.org#> .
+@base <https://www.w3.org/TR/prov-o/example-1.ttl> .
 
+[ rdf:type owl:Ontology
+ ] .
+ 
 :bar_chart
    a prov:Entity;
    prov:wasGeneratedBy  :illustrationActivity;
