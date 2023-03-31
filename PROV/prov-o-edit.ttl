@@ -12,7 +12,8 @@
                               owl:imports <http://purl.obolibrary.org/obo/bfo/2020/bfo.owl> ,
                                           <http://www.ontologyrepository.com/CommonCoreOntologies/affects> ,
                                           <http://www.w3.org/ns/prov-o/dev/import/RO_imports.owl> ,
-                                          <https://www.w3.org/TR/prov-o/example-1.ttl>;
+                                          <https://www.w3.org/TR/prov-o/example-1.ttl> ,
+                                          <https://www.w3.org/TR/prov-o/example-2.ttl> ;
                               dc:contributor "Alec Sculley" ,
                                              "Ali Hasanzadeh" ,
                                              "Austin Liebers" ,
@@ -232,6 +233,9 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 :alternateOf rdf:type owl:ObjectProperty ;
              rdfs:domain :Entity ;
              rdfs:range :Entity ;
+             <http://purl.obolibrary.org/obo/IAO_0000115> "Two alternate entities (re)present aspects of the same content entity (TODO make this elucidation)" ;
+             rdfs:comment "Domain and range as generically dependent continuant?" ,
+                          "Requirement RE6 (Alternate). prov is to model the relation between entities that present alternative fixed attribute views of the same resource. – source: “The rationale of PROV”, 2015, 235-257" ;
              rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
              rdfs:label "alternateOf" ;
              rdfs:seeAlso :specializationOf ;
@@ -1540,12 +1544,12 @@ A primary source relation is a particular case of derivation of secondary materi
                  :component "collections" .
 
 
-:specializationOf rdfs:seeAlso :alternateOf ;
-                  rdfs:label "specializationOf" ;
+:specializationOf rdfs:label "specializationOf" ;
                   :constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+                  rdfs:seeAlso :alternateOf ;
                   rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-                  :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-specialization"^^xsd:anyURI ;
                   :category "expanded" ;
+                  :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-specialization"^^xsd:anyURI ;
                   :definition "An entity that is a specialization of another shares all aspects of the latter, and additionally presents more specific aspects of the same thing as the latter. In particular, the lifetime of the entity being specialized contains that of any specialization. Examples of aspects include a time period, an abstraction, and a context associated with the entity."@en ;
                   :inverse "generalizationOf" ;
                   :component "alternate" ;
