@@ -4,7 +4,7 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix my:   <http://www.example.org/vocab#> .
 @prefix :     <http://www.example.org#> .
-@base         <http://www.example.com/derek-bundle.ttl> .
+@base          <https://www.w3.org/TR/prov-o/example-2.ttl> .
 
 <> 
    a prov:Bundle, prov:Entity;

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <uri id="User Entered Import Resolution" name="https://www.w3.org/TR/prov-o/example-1.ttl" uri="examples/example-1.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://www.w3.org/TR/prov-o/example-2.ttl" uri="examples/example-2.ttl"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
         <uri id="Automatically generated entry, Timestamp=1679632846651" name="http://www.ontologyrepository.com/CommonCoreOntologies/affects" uri="OntoFox_outputs/affects.xml"/>
         <uri id="Automatically generated entry, Timestamp=1679632846651" name="http://www.w3.org/ns/prov" uri="prov-o.rdf"/>
