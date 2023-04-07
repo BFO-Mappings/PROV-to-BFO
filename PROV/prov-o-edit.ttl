@@ -11,9 +11,10 @@
                               owl:versionIRI <http://www.w3.org/ns/prov-o-20130430> ;
                               owl:imports <http://purl.obolibrary.org/obo/bfo/2020/bfo.owl> ,
                                           <http://www.ontologyrepository.com/CommonCoreOntologies/affects> ,
-                                          <http://www.w3.org/ns/prov-o/dev/import/RO_imports.owl> ,
+                                          <http://purl.obolibrary.org/obo/ro/releases/2023-02-22/ro.owl> ,
                                           <https://www.w3.org/TR/prov-o/example-1.ttl> ,
-                                          <https://www.w3.org/TR/prov-o/example-2.ttl> ;
+                                          <https://www.w3.org/TR/prov-o/example-2.ttl> ,
+                                          <http://www.w3.org/ns/prov-o/dev/import/RO_imports.owl> ;
                               dc:contributor "Alec Sculley" ,
                                              "Ali Hasanzadeh" ,
                                              "Austin Liebers" ,
@@ -185,9 +186,25 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 #    Object Properties
 #################################################################
 
+
+###  http://www.w3.org/ns/prov#IAO_000000000000
+:IAO_000000000000 rdf:type owl:ObjectProperty ;
+                  rdfs:label "wasInfluencedByEntity"@en .
+
+
+###  http://www.w3.org/ns/prov#IAO_000000000001
+:IAO_000000000001 rdf:type owl:ObjectProperty ;
+                  rdfs:label "wasInfluencedByActivity"@en .
+
+
+###  http://www.w3.org/ns/prov#IAO_000000000002
+:IAO_000000000002 rdf:type owl:ObjectProperty ;
+                  rdfs:label "wasInfluencedByAgent"@en .
+
+
 ###  http://www.w3.org/ns/prov#actedOnBehalfOf
 :actedOnBehalfOf rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf :wasInfluencedBy ;
+                 rdfs:subPropertyOf :IAO_000000000002 ;
                  rdfs:domain :Agent ;
                  rdfs:range :Agent ;
                  owl:propertyChainAxiom ( :qualifiedDelegation
@@ -259,6 +276,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
                         ] ;
             rdfs:range :Location ;
             rdfs:comment "The Location of any resource."@en ,
+                         "Need to split up in order to subsume under 'located in' and 'occurs in spatiotemporal region'. The latter requires an occurent as the range" ,
                          "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>." ;
             rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
             rdfs:label "atLocation" ;
@@ -334,7 +352,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 
 ###  http://www.w3.org/ns/prov#hadMember
 :hadMember rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf :wasInfluencedBy ;
+           rdfs:subPropertyOf :IAO_000000000000 ;
            rdfs:domain :Collection ;
            rdfs:range :Entity ;
            rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
@@ -685,7 +703,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 
 ###  http://www.w3.org/ns/prov#used
 :used rdf:type owl:ObjectProperty ;
-      rdfs:subPropertyOf :wasInfluencedBy ;
+      rdfs:subPropertyOf :IAO_000000000000 ;
       rdfs:domain :Activity ;
       rdfs:range :Entity ;
       owl:propertyChainAxiom ( :qualifiedUsage
@@ -703,7 +721,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 
 ###  http://www.w3.org/ns/prov#wasAssociatedWith
 :wasAssociatedWith rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf :wasInfluencedBy ;
+                   rdfs:subPropertyOf :IAO_000000000002 ;
                    rdfs:domain :Activity ;
                    rdfs:range :Agent ;
                    owl:propertyChainAxiom ( :qualifiedAssociation
@@ -721,7 +739,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 
 ###  http://www.w3.org/ns/prov#wasAttributedTo
 :wasAttributedTo rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf :wasInfluencedBy ;
+                 rdfs:subPropertyOf :IAO_000000000002 ;
                  rdfs:domain :Entity ;
                  rdfs:range :Agent ;
                  owl:propertyChainAxiom ( :qualifiedAttribution
@@ -748,7 +766,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 
 ###  http://www.w3.org/ns/prov#wasDerivedFrom
 :wasDerivedFrom rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf :wasInfluencedBy ;
+                rdfs:subPropertyOf :IAO_000000000000 ;
                 rdfs:domain :Entity ;
                 rdfs:range :Entity ;
                 owl:propertyChainAxiom ( :qualifiedDerivation
@@ -774,7 +792,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 
 ###  http://www.w3.org/ns/prov#wasEndedBy
 :wasEndedBy rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf :wasInfluencedBy ;
+            rdfs:subPropertyOf :IAO_000000000000 ;
             rdfs:domain :Activity ;
             rdfs:range :Entity ;
             owl:propertyChainAxiom ( :qualifiedEnd
@@ -792,7 +810,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 
 ###  http://www.w3.org/ns/prov#wasGeneratedBy
 :wasGeneratedBy rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf :wasInfluencedBy ;
+                rdfs:subPropertyOf :IAO_000000000001 ;
                 rdfs:domain :Entity ;
                 rdfs:range :Activity ;
                 owl:propertyChainAxiom ( :qualifiedGeneration
@@ -809,18 +827,8 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 
 ###  http://www.w3.org/ns/prov#wasInfluencedBy
 :wasInfluencedBy rdf:type owl:ObjectProperty ;
-                 rdfs:domain [ rdf:type owl:Class ;
-                               owl:unionOf ( :Activity
-                                             :Agent
-                                             :Entity
-                                           )
-                             ] ;
-                 rdfs:range [ rdf:type owl:Class ;
-                              owl:unionOf ( :Activity
-                                            :Agent
-                                            :Entity
-                                          )
-                            ] ;
+                 rdfs:domain _:genid36 ;
+                 rdfs:range _:genid41 ;
                  rdfs:comment "Because prov:wasInfluencedBy is a broad relation, its more specific subproperties (e.g. prov:wasInformedBy, prov:actedOnBehalfOf, prov:wasEndedBy, etc.) should be used when applicable."@en ,
                               "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>." ;
                  rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
@@ -838,15 +846,22 @@ prov:wasInfluencedBy should not be used without also using one of its subpropert
                                 :qualifiedInfluence ;
                  :sharesDefinitionWith :Influence .
 
+_:genid36 rdf:type owl:Class ;
+           owl:unionOf ( :Activity
+                         :Agent
+                         :Entity
+                       ) .
+
+_:genid41 rdf:type owl:Class ;
+           owl:unionOf ( :Activity
+                         :Agent
+                         :Entity
+                       ) .
+
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :wasInfluencedBy ;
    owl:annotatedProperty rdfs:domain ;
-   owl:annotatedTarget [ rdf:type owl:Class ;
-                         owl:unionOf ( :Activity
-                                       :Agent
-                                       :Entity
-                                     )
-                       ] ;
+   owl:annotatedTarget _:genid36 ;
    :definition "influencee: an identifier (o2) for an entity, activity, or agent; " ;
    :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-influence"
  ] .
@@ -854,12 +869,7 @@ prov:wasInfluencedBy should not be used without also using one of its subpropert
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :wasInfluencedBy ;
    owl:annotatedProperty rdfs:range ;
-   owl:annotatedTarget [ rdf:type owl:Class ;
-                         owl:unionOf ( :Activity
-                                       :Agent
-                                       :Entity
-                                     )
-                       ] ;
+   owl:annotatedTarget _:genid41 ;
    :definition "influencer: an identifier (o1) for an ancestor entity, activity, or agent that the former depends on;" ;
    :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-influence"
  ] .
@@ -867,13 +877,14 @@ prov:wasInfluencedBy should not be used without also using one of its subpropert
 
 ###  http://www.w3.org/ns/prov#wasInformedBy
 :wasInformedBy rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf :wasInfluencedBy ;
+               rdfs:subPropertyOf :IAO_000000000001 ;
                rdfs:domain :Activity ;
                rdfs:range :Activity ;
                owl:propertyChainAxiom ( :qualifiedCommunication
                                         :activity
                                       ) ;
-               rdfs:comment "An activity a2 is dependent on or informed by another activity a1, by way of some unspecified entity that is generated by a1 and used by a2."@en ;
+               rdfs:comment "An activity a2 is dependent on or informed by another activity a1, by way of some unspecified entity that is generated by a1 and used by a2."@en ,
+                            "Can't be subsumed under 'affects' or 'has participant' because the range is Activity" ;
                rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
                rdfs:label "wasInformedBy" ;
                :category "starting-point" ;
@@ -885,7 +896,7 @@ prov:wasInfluencedBy should not be used without also using one of its subpropert
 
 ###  http://www.w3.org/ns/prov#wasInvalidatedBy
 :wasInvalidatedBy rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf :wasInfluencedBy ;
+                  rdfs:subPropertyOf :IAO_000000000001 ;
                   rdfs:domain :Entity ;
                   rdfs:range :Activity ;
                   owl:propertyChainAxiom ( :qualifiedInvalidation
@@ -944,7 +955,7 @@ http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#term-Revision 23 April 
 
 ###  http://www.w3.org/ns/prov#wasStartedBy
 :wasStartedBy rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf :wasInfluencedBy ;
+              rdfs:subPropertyOf :IAO_000000000000 ;
               rdfs:domain :Activity ;
               rdfs:range :Entity ;
               owl:propertyChainAxiom ( :qualifiedStart
@@ -1045,8 +1056,8 @@ http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#term-Revision 23 April 
        :component "entities-activities" ;
        :definition "Provides a value that is a direct representation of an entity."@en ;
        :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-attribute-value"^^xsd:anyURI ;
-       :editorialNote "The editor's definition comes from http://www.w3.org/TR/rdf-primer/#rdfvalue" ,
-                      "This property serves the same purpose as rdf:value, but has been reintroduced to avoid some of the definitional ambiguity in the RDF specification (specifically, 'may be used in describing structured values')."@en .
+       :editorialNote "This property serves the same purpose as rdf:value, but has been reintroduced to avoid some of the definitional ambiguity in the RDF specification (specifically, 'may be used in describing structured values')."@en ,
+                      "The editor's definition comes from http://www.w3.org/TR/rdf-primer/#rdfvalue" .
 
 
 #################################################################
@@ -1054,7 +1065,8 @@ http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#term-Revision 23 April 
 #################################################################
 
 ###  http://purl.obolibrary.org/obo/BFO_0000002
-<http://purl.obolibrary.org/obo/BFO_0000002> owl:equivalentClass :Entity .
+<http://purl.obolibrary.org/obo/BFO_0000002> rdf:type owl:Class ;
+                                             owl:equivalentClass :Entity .
 
 
 ###  http://www.w3.org/2002/07/owl#Thing
@@ -1132,7 +1144,11 @@ owl:Thing rdf:type owl:Class .
 
 ###  http://www.w3.org/ns/prov#AgentRole
 :AgentRole rdf:type owl:Class ;
-           rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000023> ;
+           rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000023> ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty <http://purl.obolibrary.org/obo/BFO_0000054> ;
+                             owl:someValuesFrom :Activity
+                           ] ;
            <http://purl.obolibrary.org/obo/IAO_0000115> "An agent role is a role borne by some material entity, that, if realized, is realized in an activity taking place" .
 
 
@@ -1537,33 +1553,33 @@ A primary source relation is a particular case of derivation of secondary materi
 #    Annotations
 #################################################################
 
-:EmptyCollection :definition "An empty collection is a collection without members."@en ;
+:EmptyCollection rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
                  rdfs:label "EmptyCollection"@en ;
-                 rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
                  :category "expanded" ;
-                 :component "collections" .
+                 :component "collections" ;
+                 :definition "An empty collection is a collection without members."@en .
 
 
-:specializationOf rdfs:label "specializationOf" ;
-                  :constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+:specializationOf rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                  rdfs:label "specializationOf" ;
                   rdfs:seeAlso :alternateOf ;
-                  rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
                   :category "expanded" ;
-                  :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-specialization"^^xsd:anyURI ;
-                  :definition "An entity that is a specialization of another shares all aspects of the latter, and additionally presents more specific aspects of the same thing as the latter. In particular, the lifetime of the entity being specialized contains that of any specialization. Examples of aspects include a time period, an abstraction, and a context associated with the entity."@en ;
-                  :inverse "generalizationOf" ;
                   :component "alternate" ;
+                  :constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+                  :definition "An entity that is a specialization of another shares all aspects of the latter, and additionally presents more specific aspects of the same thing as the latter. In particular, the lifetime of the entity being specialized contains that of any specialization. Examples of aspects include a time period, an abstraction, and a context associated with the entity."@en ;
+                  :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-specialization"^^xsd:anyURI ;
+                  :inverse "generalizationOf" ;
                   :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-specialization"^^xsd:anyURI .
 
 
-:wasRevisionOf rdfs:label "wasRevisionOf" ;
-               :component "derivations" ;
-               :qualifiedForm :Revision ;
+:wasRevisionOf rdfs:comment "A revision is a derivation that revises an entity into a revised version."@en ;
                rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-               :qualifiedForm :qualifiedRevision ;
+               rdfs:label "wasRevisionOf" ;
                :category "expanded" ;
+               :component "derivations" ;
                :inverse "hadRevision" ;
-               rdfs:comment "A revision is a derivation that revises an entity into a revised version."@en .
+               :qualifiedForm :Revision ,
+                              :qualifiedRevision .
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
