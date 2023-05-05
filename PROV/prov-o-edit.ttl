@@ -179,11 +179,6 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
                   rdfs:label "wasInfluencedByEntity"@en .
 
 
-###  http://www.w3.org/ns/prov#IAO_000000000001
-:IAO_000000000001 rdf:type owl:ObjectProperty ;
-                  rdfs:label "wasInfluencedByActivity"@en .
-
-
 ###  http://www.w3.org/ns/prov#IAO_000000000002
 :IAO_000000000002 rdf:type owl:ObjectProperty ;
                   rdfs:label "wasInfluencedByAgent"@en .
@@ -286,7 +281,8 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 
 ###  http://www.w3.org/ns/prov#generated
 :generated rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf :influenced ;
+           rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0000057> ,
+                              :influenced ;
            owl:inverseOf :wasGeneratedBy ;
            rdfs:domain :Activity ;
            rdfs:range :Entity ;
@@ -452,7 +448,8 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 
 ###  http://www.w3.org/ns/prov#invalidated
 :invalidated rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf :influenced ;
+             rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0000057> ,
+                                :influenced ;
              owl:inverseOf :wasInvalidatedBy ;
              rdfs:domain :Activity ;
              rdfs:range :Entity ;
@@ -705,7 +702,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 
 ###  http://www.w3.org/ns/prov#wasAssociatedWith
 :wasAssociatedWith rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf :IAO_000000000002 ;
+                   rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0000057> ;
                    rdfs:domain :Activity ;
                    rdfs:range :Agent ;
                    owl:propertyChainAxiom ( :qualifiedAssociation
@@ -723,7 +720,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 
 ###  http://www.w3.org/ns/prov#wasAttributedTo
 :wasAttributedTo rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf :IAO_000000000002 ;
+                 rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0002559> ;
                  rdfs:domain :Entity ;
                  rdfs:range :Agent ;
                  owl:propertyChainAxiom ( :qualifiedAttribution
@@ -750,7 +747,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 
 ###  http://www.w3.org/ns/prov#wasDerivedFrom
 :wasDerivedFrom rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf :IAO_000000000000 ;
+                rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0002559> ;
                 rdfs:domain :Entity ;
                 rdfs:range :Entity ;
                 owl:propertyChainAxiom ( :qualifiedDerivation
@@ -794,9 +791,9 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 
 ###  http://www.w3.org/ns/prov#wasGeneratedBy
 :wasGeneratedBy rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf :IAO_000000000001 ;
+                rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0000056> ;
                 rdfs:domain :Entity ;
-                rdfs:range :Activity ;
+                rdfs:range :Generation ;
                 owl:propertyChainAxiom ( :qualifiedGeneration
                                          :activity
                                        ) ;
@@ -861,7 +858,7 @@ _:genid41 rdf:type owl:Class ;
 
 ###  http://www.w3.org/ns/prov#wasInformedBy
 :wasInformedBy rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf :IAO_000000000001 ;
+               rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0002501> ;
                rdfs:domain :Activity ;
                rdfs:range :Activity ;
                owl:propertyChainAxiom ( :qualifiedCommunication
@@ -880,7 +877,7 @@ _:genid41 rdf:type owl:Class ;
 
 ###  http://www.w3.org/ns/prov#wasInvalidatedBy
 :wasInvalidatedBy rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf :IAO_000000000001 ;
+                  rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0000056> ;
                   rdfs:domain :Entity ;
                   rdfs:range :Activity ;
                   owl:propertyChainAxiom ( :qualifiedInvalidation
