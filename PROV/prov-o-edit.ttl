@@ -243,6 +243,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 
 ###  http://www.w3.org/ns/prov#alternateOf
 :alternateOf rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0002559> ;
              rdfs:domain :Entity ;
              rdfs:range :Entity ;
              <http://purl.obolibrary.org/obo/IAO_0000115> "Two alternate entities (re)present aspects of the same content entity (TODO make this elucidation)" ;
@@ -736,7 +737,8 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 
 ###  http://www.w3.org/ns/prov#wasAttributedTo
 :wasAttributedTo rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0002559> ;
+                 rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0002559> ,
+                                    :wasInfluencedBy ;
                  rdfs:domain :Entity ;
                  rdfs:range :Agent ;
                  owl:propertyChainAxiom ( :qualifiedAttribution
@@ -763,7 +765,8 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 
 ###  http://www.w3.org/ns/prov#wasDerivedFrom
 :wasDerivedFrom rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0002559> ;
+                rdfs:subPropertyOf :alternateOf ,
+                                   :wasInfluencedBy ;
                 rdfs:domain :Entity ;
                 rdfs:range :Entity ;
                 owl:propertyChainAxiom ( :qualifiedDerivation
