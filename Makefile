@@ -43,11 +43,15 @@ RELEASE_REPORT_FILE = $(config.REPORTS_DIR)/$(config.ONTOLOGY_PREFIX)-release-re
 REQUIRED_DIRS = $(config.TEMP_DIR) $(config.LIBRARY_DIR) $(config.SOURCE_DIR) $(config.QUERIES_DIR) $(config.REPORTS_DIR)
 
 
-#--- custom diff report
+#--- custom targets
 SOURCE_ONTOLOGY_FILE 	:= PROV/prov-o-original.ttl
 DIFF_REPORT_FILE		:= PROV/diff.md
 diff: $(RELEASE_BUILD_FILE)
-	$(ROBOT) diff --left $(RELEASE_BUILD_FILE) --right $(SOURCE_ONTOLOGY_FILE) --labels true --output $(DIFF_REPORT_FILE)
+	$(ROBOT) diff --left $(RELEASE_BUILD_FILE) --right $(SOURCE_ONTOLOGY_FILE) -output $(DIFF_REPORT_FILE)
+
+MAPPINGS_FILE			:= PROV/prov-bfo-mappings.sssom.tsv
+mappings: 
+	$(ROBOT) query --input $(RELEASE_BUILD_FILE) -q $(config.QUERIES_DIR)/get-mappings.rq $(MAPPINGS_FILE);
 
 
 # ----------------------------------------

@@ -1,4 +1,3 @@
-```turtle
 91 axioms in left ontology but not in right ontology:
 - Annotation(<http://purl.org/dc/elements/1.1/contributor> "Alec Sculley"^^xsd:string)
 - Annotation(<http://purl.org/dc/elements/1.1/contributor> "Ali Hasanzadeh"^^xsd:string)
@@ -117,4 +116,3 @@
 + SubObjectPropertyOf(<http://www.w3.org/ns/prov#wasInformedBy> <http://www.w3.org/ns/prov#wasInfluencedBy>)
 + SubObjectPropertyOf(<http://www.w3.org/ns/prov#wasInvalidatedBy> <http://www.w3.org/ns/prov#wasInfluencedBy>)
 + SubObjectPropertyOf(<http://www.w3.org/ns/prov#wasStartedBy> <http://www.w3.org/ns/prov#wasInfluencedBy>)
-```
