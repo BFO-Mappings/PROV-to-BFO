@@ -34,13 +34,20 @@ config.RELEASE_NAME := $(config.ONTOLOGY_PREFIX) $(TIMESTAMP)
 
 # Generic files
 EDITOR_BUILD_FILE = $(config.ONTOLOGY_FILE) # "editors ontology module" http://purl.obolibrary.org/obo/IAO_8000002
-RELEASE_BUILD_FILE = $(config.ONTOLOGY_PREFIX).owl # "main release ontology module" http://purl.obolibrary.org/obo/IAO_8000003
+RELEASE_BUILD_FILE = $(config.ONTOLOGY_PREFIX).ttl # "main release ontology module" http://purl.obolibrary.org/obo/IAO_8000003
 
 EDITOR_REPORT_FILE = $(config.REPORTS_DIR)/$(config.ONTOLOGY_PREFIX)-edit-report.tsv
 RELEASE_REPORT_FILE = $(config.REPORTS_DIR)/$(config.ONTOLOGY_PREFIX)-release-report.tsv
 
 # Generic directories to create if needed
 REQUIRED_DIRS = $(config.TEMP_DIR) $(config.LIBRARY_DIR) $(config.SOURCE_DIR) $(config.QUERIES_DIR) $(config.REPORTS_DIR)
+
+
+#--- custom diff report
+SOURCE_ONTOLOGY_FILE 	:= PROV/prov-o-original.ttl
+DIFF_REPORT_FILE		:= PROV/diff.md
+diff: $(RELEASE_BUILD_FILE)
+	$(ROBOT) diff --left $(RELEASE_BUILD_FILE) --right $(SOURCE_ONTOLOGY_FILE) --labels true --output $(DIFF_REPORT_FILE)
 
 
 # ----------------------------------------
@@ -150,7 +157,6 @@ report: $(TEST_INPUT) | $(config.REPORTS_DIR) $(ROBOT_FILE)
 	--fail-on $(config.REPORT_FAIL_ON) \
 	--print 10 \
 	--output $(REPORT_FILE_INPUT)
-
 
 # ----------------------------------------
 #### Make syntax cheatsheet
