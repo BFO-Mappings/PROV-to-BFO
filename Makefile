@@ -20,7 +20,7 @@ config.SOURCE_DIR		:= PROV
 config.TEMP_DIR			:= build/artifacts
 config.RELEASE_DIR		:= /
 config.REPORTS_DIR		:= $(config.TEMP_DIR)
-config.QUERIES_DIR		:= sparql
+config.QUERIES_DIR		:= PROV/sparql
 config.IMPORTS_DIR		:= $(config.SOURCE_DIR)/OntoFox_outputs
 config.LIBRARY_DIR		:= build/lib
 
@@ -38,7 +38,7 @@ config.RELEASE_NAME := $(config.ONTOLOGY_PREFIX) $(TIMESTAMP)
 
 # Generic files
 EDITOR_BUILD_FILE = $(config.ONTOLOGY_FILE) # "editors ontology module" http://purl.obolibrary.org/obo/IAO_8000002
-RELEASE_BUILD_FILE = $(config.ONTOLOGY_PREFIX).owl # "main release ontology module" http://purl.obolibrary.org/obo/IAO_8000003
+RELEASE_BUILD_FILE = $(config.ONTOLOGY_PREFIX).ttl # "main release ontology module" http://purl.obolibrary.org/obo/IAO_8000003
 
 EDITOR_REPORT_FILE = $(config.REPORTS_DIR)/$(config.ONTOLOGY_PREFIX)-edit-report.tsv
 RELEASE_REPORT_FILE = $(config.REPORTS_DIR)/$(config.ONTOLOGY_PREFIX)-release-report.tsv
@@ -47,13 +47,22 @@ RELEASE_REPORT_FILE = $(config.REPORTS_DIR)/$(config.ONTOLOGY_PREFIX)-release-re
 REQUIRED_DIRS = $(config.TEMP_DIR) $(config.LIBRARY_DIR) $(config.SOURCE_DIR) $(config.QUERIES_DIR) $(config.REPORTS_DIR)
 
 
+#--- custom diff report
+SOURCE_ONTOLOGY_FILE 	:= PROV/prov-o-original.ttl
+DIFF_REPORT_FILE		:= PROV/diff.md
+diff: $(RELEASE_BUILD_FILE)
+	$(ROBOT) diff --left $(RELEASE_BUILD_FILE) --right $(SOURCE_ONTOLOGY_FILE) --labels true --output $(DIFF_REPORT_FILE)
+
+
 # ----------------------------------------
 #### Targets / main "goals" of this Makefile
 .PHONY: all
 all: reason-edit test-edit build-release reason-release test-release
 
+build-release: $(RELEASE_BUILD_FILE)
+
 # These are parameterized targets, which assign "target-specific variables" to be used in a resuable target
-.PHONY: reason-edit reason-release test-edit test-release report-edit report-
+.PHONY: reason-edit reason-release test-edit test-release report-edit report-release
 reason-edit test-edit report-edit: 				TEST_INPUT = $(EDITOR_BUILD_FILE)
 reason-release test-release report-release:		TEST_INPUT = $(RELEASE_BUILD_FILE)
 report-edit:									REPORT_FILE_INPUT = $(EDITOR_REPORT_FILE)
@@ -113,7 +122,7 @@ clean:
 
 # Release build has import declarations removed
 $(RELEASE_BUILD_FILE): $(EDITOR_BUILD_FILE)
-	$(ROBOT) remove --input $< --select imports \
+	$(ROBOT) remove --input $< --select "imports individuals" \
 	reason --reasoner HermiT \
 	annotate ${call annotation-inputs,$@,$@}
 
@@ -130,7 +139,7 @@ endef
 QUERIES = $(wildcard $(config.QUERIES_DIR)/*.rq)
 
 # Check for inconsistency
-# Note: $(TEST_INPUT) is a "target-specific variable" that's set before calling this target, so it isn't a prerequisite
+# Note: $(TEST_INPUT) is a "target-specific variable" that isn't a evaluated as a prerequisite here
 .PHONY: reason
 reason: $(TEST_INPUT) | $(ROBOT_FILE)
 	$(ROBOT) reason --input $(TEST_INPUT) --reasoner ELK
@@ -152,7 +161,6 @@ report: $(TEST_INPUT) | $(config.REPORTS_DIR) $(ROBOT_FILE)
 	--fail-on $(config.REPORT_FAIL_ON) \
 	--print 10 \
 	--output $(REPORT_FILE_INPUT)
-
 
 # ----------------------------------------
 #### Make syntax cheatsheet
