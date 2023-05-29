@@ -1,0 +1,18 @@
+?subject_id	?predicate_id	?object_id	?mapping_justification
+<http://www.w3.org/ns/prov#Bundle>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<http://purl.obolibrary.org/obo/BFO_0000002>	
+<http://www.w3.org/ns/prov#Collection>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<http://purl.obolibrary.org/obo/BFO_0000002>	
+<http://www.w3.org/ns/prov#Plan>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<http://purl.obolibrary.org/obo/BFO_0000002>	
+<http://www.w3.org/ns/prov#Activity>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<http://purl.obolibrary.org/obo/BFO_0000015>	
+<http://www.w3.org/ns/prov#AgentRole>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<http://purl.obolibrary.org/obo/BFO_0000023>	
+<http://www.w3.org/ns/prov#Location>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<http://purl.obolibrary.org/obo/BFO_0000029>	
+<http://www.w3.org/ns/prov#Role>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<http://purl.obolibrary.org/obo/BFO_0000034>	
+<http://www.w3.org/ns/prov#InstantaneousEvent>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<http://purl.obolibrary.org/obo/BFO_0000035>	
+<http://www.w3.org/ns/prov#Agent>	<http://www.w3.org/2000/01/rdf-schema#subClassOf>	<http://purl.obolibrary.org/obo/BFO_0000040>	
+<http://www.w3.org/ns/prov#wasGeneratedBy>	<http://www.w3.org/2000/01/rdf-schema#subPropertyOf>	<http://purl.obolibrary.org/obo/RO_0000056>	
+<http://www.w3.org/ns/prov#wasInvalidatedBy>	<http://www.w3.org/2000/01/rdf-schema#subPropertyOf>	<http://purl.obolibrary.org/obo/RO_0000056>	
+<http://www.w3.org/ns/prov#generated>	<http://www.w3.org/2000/01/rdf-schema#subPropertyOf>	<http://purl.obolibrary.org/obo/RO_0000057>	
+<http://www.w3.org/ns/prov#invalidated>	<http://www.w3.org/2000/01/rdf-schema#subPropertyOf>	<http://purl.obolibrary.org/obo/RO_0000057>	
+<http://www.w3.org/ns/prov#wasAssociatedWith>	<http://www.w3.org/2000/01/rdf-schema#subPropertyOf>	<http://purl.obolibrary.org/obo/RO_0000057>	
+<http://www.w3.org/ns/prov#wasInformedBy>	<http://www.w3.org/2000/01/rdf-schema#subPropertyOf>	<http://purl.obolibrary.org/obo/RO_0002501>	
+<http://www.w3.org/ns/prov#alternateOf>	<http://www.w3.org/2000/01/rdf-schema#subPropertyOf>	<http://purl.obolibrary.org/obo/RO_0002559>	
+<http://www.w3.org/ns/prov#wasAttributedTo>	<http://www.w3.org/2000/01/rdf-schema#subPropertyOf>	<http://purl.obolibrary.org/obo/RO_0002559>	
