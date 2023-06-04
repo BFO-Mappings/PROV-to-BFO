@@ -349,7 +349,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 
 ###  http://www.w3.org/ns/prov#hadMember
 :hadMember rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf :IAO_000000000000 ;
+           rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0002351> ;
            rdfs:domain :Collection ;
            rdfs:range :Entity ;
            rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
@@ -440,6 +440,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 
 ###  http://www.w3.org/ns/prov#influenced
 :influenced rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0002410> ;
             owl:inverseOf :wasInfluencedBy ;
             rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
             rdfs:label "influenced" ;
@@ -737,8 +738,7 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 
 ###  http://www.w3.org/ns/prov#wasAttributedTo
 :wasAttributedTo rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0002559> ,
-                                    :wasInfluencedBy ;
+                 rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0002559> ;
                  rdfs:domain :Entity ;
                  rdfs:range :Agent ;
                  owl:propertyChainAxiom ( :qualifiedAttribution
@@ -765,8 +765,8 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 
 ###  http://www.w3.org/ns/prov#wasDerivedFrom
 :wasDerivedFrom rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf :alternateOf ,
-                                   :wasInfluencedBy ;
+                rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0002559> ,
+                                   :alternateOf ;
                 rdfs:domain :Entity ;
                 rdfs:range :Entity ;
                 owl:propertyChainAxiom ( :qualifiedDerivation
