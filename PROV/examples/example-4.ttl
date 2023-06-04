@@ -5,6 +5,8 @@
 @prefix :     <http://www.example.org#> .
 @base         <http://www.example.com/john-bundle.ttl> .
 
+<https://www.w3.org/TR/prov-o/example-4.ttl> rdf:type owl:Ontology .
+
 <> 
    a prov:Bundle, prov:Entity;
    prov:wasAttributedTo :postEditor;

@@ -10,11 +10,9 @@
 <http://www.w3.org/ns/prov#> rdf:type owl:Ontology ;
                               owl:versionIRI <http://www.w3.org/ns/prov-o-20130430> ;
                               owl:imports <http://purl.obolibrary.org/obo/bfo/2020/bfo.owl> ,
-                                          <http://www.ontologyrepository.com/CommonCoreOntologies/affects> ,
                                           <http://purl.obolibrary.org/obo/ro/releases/2023-02-22/ro.owl> ,
                                           <https://www.w3.org/TR/prov-o/example-1.ttl> ,
-                                          <https://www.w3.org/TR/prov-o/example-2.ttl> ,
-                                          <http://www.w3.org/ns/prov-o/dev/import/RO_imports.owl> ;
+                                          <https://www.w3.org/TR/prov-o/example-2.ttl> ;
                               dc:contributor "Alec Sculley" ,
                                              "Ali Hasanzadeh" ,
                                              "Austin Liebers" ,
@@ -185,7 +183,6 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 #################################################################
 #    Object Properties
 #################################################################
-
 
 ###  http://www.w3.org/ns/prov#IAO_000000000000
 :IAO_000000000000 rdf:type owl:ObjectProperty ;
@@ -738,7 +735,8 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 
 ###  http://www.w3.org/ns/prov#wasAttributedTo
 :wasAttributedTo rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0002559> ;
+                 rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0002559> ,
+                                    :wasInfluencedBy ;
                  rdfs:domain :Entity ;
                  rdfs:range :Agent ;
                  owl:propertyChainAxiom ( :qualifiedAttribution
@@ -766,7 +764,8 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 ###  http://www.w3.org/ns/prov#wasDerivedFrom
 :wasDerivedFrom rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf <http://purl.obolibrary.org/obo/RO_0002559> ,
-                                   :alternateOf ;
+                                   :alternateOf ,
+                                   :wasInfluencedBy ;
                 rdfs:domain :Entity ;
                 rdfs:range :Entity ;
                 owl:propertyChainAxiom ( :qualifiedDerivation
@@ -827,8 +826,8 @@ Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1)
 
 ###  http://www.w3.org/ns/prov#wasInfluencedBy
 :wasInfluencedBy rdf:type owl:ObjectProperty ;
-                 rdfs:domain _:genid36 ;
-                 rdfs:range _:genid41 ;
+                 rdfs:domain _:genid38 ;
+                 rdfs:range _:genid43 ;
                  rdfs:comment "Because prov:wasInfluencedBy is a broad relation, its more specific subproperties (e.g. prov:wasInformedBy, prov:actedOnBehalfOf, prov:wasEndedBy, etc.) should be used when applicable."@en ,
                               "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>." ;
                  rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
@@ -846,13 +845,13 @@ prov:wasInfluencedBy should not be used without also using one of its subpropert
                                 :qualifiedInfluence ;
                  :sharesDefinitionWith :Influence .
 
-_:genid36 rdf:type owl:Class ;
+_:genid38 rdf:type owl:Class ;
            owl:unionOf ( :Activity
                          :Agent
                          :Entity
                        ) .
 
-_:genid41 rdf:type owl:Class ;
+_:genid43 rdf:type owl:Class ;
            owl:unionOf ( :Activity
                          :Agent
                          :Entity
@@ -861,7 +860,7 @@ _:genid41 rdf:type owl:Class ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :wasInfluencedBy ;
    owl:annotatedProperty rdfs:domain ;
-   owl:annotatedTarget _:genid36 ;
+   owl:annotatedTarget _:genid38 ;
    :definition "influencee: an identifier (o2) for an entity, activity, or agent; " ;
    :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-influence"
  ] .
@@ -869,7 +868,7 @@ _:genid41 rdf:type owl:Class ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource :wasInfluencedBy ;
    owl:annotatedProperty rdfs:range ;
-   owl:annotatedTarget _:genid41 ;
+   owl:annotatedTarget _:genid43 ;
    :definition "influencer: an identifier (o1) for an ancestor entity, activity, or agent that the former depends on;" ;
    :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-influence"
  ] .

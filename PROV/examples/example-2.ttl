@@ -6,6 +6,8 @@
 @prefix :     <http://www.example.org#> .
 @base          <https://www.w3.org/TR/prov-o/example-2.ttl> .
 
+<https://www.w3.org/TR/prov-o/example-2.ttl> rdf:type owl:Ontology .
+
 <> 
    a prov:Bundle, prov:Entity;
    prov:wasAttributedTo :postEditor;
