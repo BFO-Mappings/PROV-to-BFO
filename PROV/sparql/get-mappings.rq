@@ -10,7 +10,7 @@ PREFIX ro: <http://purl.obolibrary.org/obo/RO_>
 
 # see https://mapping-commons.github.io/sssom/spec/#common-mapping-predicates
 
-SELECT DISTINCT ?subject_id	?predicate_id ?object_id ?mapping_justification WHERE {
+SELECT DISTINCT ?subject_id	?subject_label ?predicate_id ?object_id ?object_label ?mapping_justification WHERE {
     ?subject_id ?predicate_id ?object_id .
 
     # mapping predicates
@@ -25,5 +25,7 @@ SELECT DISTINCT ?subject_id	?predicate_id ?object_id ?mapping_justification WHER
 
     # mapping destination
     FILTER( STRSTARTS( STR(?object_id), str(bfo:) ) || STRSTARTS( STR(?object_id), str(ro:) ) ) .
+
+    OPTIONAL { ?subject_id rdfs:label ?subject_label } .
+    OPTIONAL { ?object_id rdfs:label ?object_label } . 
 }
-ORDER BY ?term

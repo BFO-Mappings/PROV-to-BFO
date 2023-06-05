@@ -55,7 +55,7 @@ diff: $(RELEASE_BUILD_FILE)
 
 MAPPINGS_FILE			:= PROV/prov-bfo-mappings.sssom.tsv
 mappings: 
-	$(ROBOT) query --input $(RELEASE_BUILD_FILE) -q $(config.QUERIES_DIR)/get-mappings.rq $(MAPPINGS_FILE);
+	$(ROBOT) query --input $(EDITOR_BUILD_FILE) -q $(config.QUERIES_DIR)/get-mappings.rq $(MAPPINGS_FILE) --use-graphs true
 
 
 # ----------------------------------------
