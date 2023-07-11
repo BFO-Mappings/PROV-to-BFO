@@ -53,7 +53,7 @@ DIFF_REPORT_FILE		:= PROV/diff.md
 diff: $(RELEASE_BUILD_FILE)
 	$(ROBOT) diff --left $(RELEASE_BUILD_FILE) --right $(SOURCE_ONTOLOGY_FILE) -output $(DIFF_REPORT_FILE)
 
-MAPPINGS_FILE			:= PROV/prov-bfo-mappings.sssom.tsv
+MAPPINGS_FILE			:= PROV/prov-bfo-mappings.sssom.csv # csv for importing into google sheets
 mappings: 
 	$(ROBOT) query --input $(EDITOR_BUILD_FILE) -q $(config.QUERIES_DIR)/get-mappings.rq $(MAPPINGS_FILE) --use-graphs true
 
