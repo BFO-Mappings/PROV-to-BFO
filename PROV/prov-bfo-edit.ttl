@@ -7,7 +7,8 @@
 
 <http://www.w3.org/ns/prov-bfo-directmappings-edit#>
    a owl:Ontology;
-   rdfs:label "Editor's file for PROV-BFO Mapping"@en;
+   rdfs:label "Editor's file for PROV-BFO Mapping."@en ;
+   rdfs:comment "Open this in Protege to view the full mapping in context. Test the mapping with the imports in this file. This keeps imports out of the release version."@en ;
    owl:imports <http://www.w3.org/ns/prov-bfo-directmappings#> , # This is the release version containing the actual mappings
 
                # Source ontologies for alignment

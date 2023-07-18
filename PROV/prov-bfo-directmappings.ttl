@@ -7,7 +7,7 @@
 
 <http://www.w3.org/ns/prov-bfo-directmappings#> # TODO pick a different temporary namespace
    a                     owl:Ontology;
-   rdfs:label           "Basic Formal Ontology (BFO) mappings for W3C PROVenance Interchange Ontology (PROV-O)"@en;
+   rdfs:label           "Basic Formal Ontology (BFO) mappings for W3C PROVenance Interchange Ontology (PROV-O)"@en ;
    owl:versionInfo      "2023-07-18"@en ;
    owl:versionIRI       <http://www.w3.org/ns/prov-bfo-directmappings-20230718> ;
    rdfs:seeAlso         <http://www.w3.org/ns/prov> ,

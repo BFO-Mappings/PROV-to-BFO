@@ -1,24 +1,26 @@
 #### Basic Ontology Pipeline
-# Heavily adapted from https://github.com/obi-ontology/obi/blob/master/Makefile
+# https://github.com/tmprd/ontology-pipeline/
+# Heavily adapted from https://github.com/obi-ontology/obi/blob/master/Makefile by James A. Overton <james@overton.ca>
 # Tim Prudhomme <tmprdh@gmail.com>
 
 # ----------------------------------------
 #### Configuration / details about our project
 # Project essentials
-config.ONTOLOGY_FILE	:= PROV/prov-bfo-edit.ttl
+config.ONTOLOGY_FILE	:= prov-bfo-edit.ttl
 config.ONTOLOGY_PREFIX	:= prov-bfo-directmappings
-config.ONTOLOGY-IRI		:= http://www.w3.org/ns/prov-o
+config.ONTOLOGY-IRI		:= http://www.w3.org/ns/prov-bfo-directmappings
 config.BASE_IRI			:= $(config.ONTOLOGY-IRI)_
 config.DEV_IRI			:= $(config.ONTOLOGY-IRI)/dev
 config.MODULES_IRI		:= $(config.DEV_IRI)/modules
 
 # Local project directories
-config.SOURCE_DIR		:= src/ontology
+config.SOURCE_DIR		:= /
 config.TEMP_DIR			:= build/artifacts
-config.RELEASE_DIR		:= PROV
+config.RELEASE_DIR		:= /
 config.REPORTS_DIR		:= $(config.TEMP_DIR)
 config.QUERIES_DIR		:= sparql
-config.LIBRARY_DIR		:= build/lib
+config.IMPORTS_DIR		:= $(config.SOURCE_DIR)/OntoFox_outputs
+config.LIBRARY_DIR		:= ../build/lib
 
 # Settings
 # These will cause targets run by a Github Action to fail, if desired
@@ -44,12 +46,13 @@ REQUIRED_DIRS = $(config.TEMP_DIR) $(config.LIBRARY_DIR) $(config.SOURCE_DIR) $(
 
 
 #--- custom targets
-SOURCE_ONTOLOGY_FILE 	:= PROV/prov-o-original.ttl
-DIFF_REPORT_FILE		:= PROV/diff.md
-diff: $(RELEASE_BUILD_FILE)
-	$(ROBOT) diff --left $(RELEASE_BUILD_FILE) --right $(SOURCE_ONTOLOGY_FILE) -output $(DIFF_REPORT_FILE)
+# NOTE: diff is not needed anymore for the extension approach
+# SOURCE_ONTOLOGY_FILE 	:= prov-bfo-merged/prov-o-original.ttl
+# DIFF_REPORT_FILE		:= prov-bfo-merged/diff.md
+# diff: $(RELEASE_BUILD_FILE)
+# 	$(ROBOT) diff --left $(RELEASE_BUILD_FILE) --right $(SOURCE_ONTOLOGY_FILE) -output $(DIFF_REPORT_FILE)
 
-MAPPINGS_FILE			:= PROV/prov-bfo-mappings.sssom.csv # csv for importing into google sheets
+MAPPINGS_FILE			:= prov-bfo-mappings.sssom.csv # csv for importing into google sheets
 mappings: 
 	$(ROBOT) query --input $(EDITOR_BUILD_FILE) -q $(config.QUERIES_DIR)/get-mappings.rq $(MAPPINGS_FILE) --use-graphs true
 
@@ -57,7 +60,7 @@ mappings:
 # ----------------------------------------
 #### Targets / main "goals" of this Makefile
 .PHONY: all
-all: reason-edit test-edit build-release reason-release test-release
+all: reason-edit test-edit build-release reason-release test-release mappings
 
 build-release: $(RELEASE_BUILD_FILE)
 
