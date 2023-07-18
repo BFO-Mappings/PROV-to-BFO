@@ -6,7 +6,7 @@
 
 rdfs:comment
     a owl:AnnotationProperty ;
-    rdfs:comment ""@en ;
+    rdfs:comment "DO NOT USE THIS. This is for comparing with the edited version of prov."@en ;
     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
 
 rdfs:isDefinedBy

@@ -2,6 +2,10 @@
 
 This repo is intended to be a sandbox for mapping W3C rdf standards into Basic Formal Ontology. 
 
+# Projects
+* [PROV-BFO Extension](PROV)
+* [SSN-BFO Extension](SSN)
+
 # Imports
 * Imported terms are specified in text files in each `OntoFox_inputs` folder
 * These text files are generated using https://ontofox.hegroup.org/
