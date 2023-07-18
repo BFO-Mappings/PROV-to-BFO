@@ -3,41 +3,31 @@
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix obo:  <http://purl.obolibrary.org/obo/> .
+@base <http://www.w3.org/ns/prov-o/prov-bfo-directmappings.ttl> .
 
-<http://www.w3.org/ns/prov-bfo-directmappings#>
-   a owl:Ontology;
-   rdfs:label "Basic Formal Ontology (BFO) mappings for W3C PROVenance Interchange Ontology (PROV-O)"@en;
-   owl:imports <https://www.w3.org/ns/prov-o>, 
-               <http://purl.obolibrary.org/obo/bfo/2020/bfo.owl> ,
-              #  <http://purl.obolibrary.org/obo/ro/releases/2023-02-22/ro.owl> , # TODO only import used terms and their dependents for reasoner
-               <https://www.w3.org/TR/prov-o/example-1.ttl> ,
-               <https://www.w3.org/TR/prov-o/example-2.ttl> ,
-               <https://www.w3.org/TR/prov-o/example-3.ttl> ,
-              #  <https://www.w3.org/TR/prov-o/example-4.ttl> ;
-              <https://www.w3.org/TR/prov-o/example-5.ttl> ,
-              <https://www.w3.org/TR/prov-o/example-7.ttl> ,
-              <https://www.w3.org/TR/prov-o/example-8.ttl> ,
-              <https://www.w3.org/TR/prov-o/example-9.ttl> ,
-              <https://www.w3.org/TR/prov-o/example-10.ttl> ,
-              <https://www.w3.org/TR/prov-o/example-11.ttl> ;
-   owl:versionInfo "2023-07-18"@en;
-   owl:versionIRI <http://www.w3.org/ns/prov-bfo-directmappings-20230718>;
-   rdfs:seeAlso        <http://www.w3.org/ns/prov>;
+<http://www.w3.org/ns/prov-bfo-directmappings#> # TODO pick a different temporary namespace
+   a                     owl:Ontology;
+   rdfs:label           "Basic Formal Ontology (BFO) mappings for W3C PROVenance Interchange Ontology (PROV-O)"@en;
+   owl:versionInfo      "2023-07-18"@en ;
+   owl:versionIRI       <http://www.w3.org/ns/prov-bfo-directmappings-20230718> ;
+   rdfs:seeAlso         <http://www.w3.org/ns/prov> ,
+                        <https://basic-formal-ontology.org/> ,
+                        <https://github.com/bfo-ontology/bfo-2020> ;
 .
 
-# Classes
+# Class mappings
 prov:Entity               rdfs:subClassOf obo:BFO_0000002 . # continuant
 prov:Agent                rdfs:subClassOf obo:BFO_0000040 . # material entity
 prov:Activity             rdfs:subClassOf obo:BFO_0000015 . # process
 prov:Role                 rdfs:subClassOf obo:BFO_0000034 . # function
-#prov:AgentRole           rdfs:subClassOf obo:BFO_0000023 . # role
 prov:Location             rdfs:subClassOf obo:BFO_0000029 . # site
 prov:InstantaneousEvent   rdfs:subClassOf obo:BFO_0000035 . # process boundary
 
 
-# Object Properties
+
+# Object Property mappings
 prov:influenced           rdfs:subPropertyOf obo:RO_0002410 .  # causally related to
-prov:wasAttributedTo      rdfs:subPropertyOf obo:RO_0002559 .  # causally influenced by # TODO inconsistent with example-4:  <:publicationActivity1124, prov:wasAttributedTo, :postEditor> because Domain is Entity (occurrent not continuant)
+prov:wasAttributedTo      rdfs:subPropertyOf obo:RO_0002559 .  # causally influenced by
 prov:alternateOf          rdfs:subPropertyOf obo:RO_0002559 .  # causally influenced by
 prov:wasDerivedFrom       rdfs:subPropertyOf obo:RO_0002559 .  # causally influenced by
 
@@ -59,3 +49,28 @@ prov:qualifiedCommunication   rdfs:subPropertyOf obo:RO_0002501 .  # causal rela
 prov:qualifiedStart           rdfs:subPropertyOf obo:RO_0002501 .  # causal relation between processes
 
 prov:hadMember                rdfs:subPropertyOf obo:RO_0002351 .  # has member
+
+
+
+# New terms
+prov:AgentRole rdf:type owl:Class ;
+               rdfs:subClassOf   obo:BFO_0000023 , # role
+                                 [  rdf:type owl:Restriction ;
+                                    owl:onProperty obo:BFO_0000054 ; # realized in
+                                    owl:someValuesFrom prov:Activity
+                                 ] ;
+               prov:definition "An agent role is a role borne by some material entity, that, if realized, is realized in an activity taking place"@en .
+
+
+
+# Complex mappings
+prov:Agent     rdfs:subClassOf   [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:RO_0000087 ; # has role
+                                    owl:someValuesFrom prov:AgentRole
+                                 ] ;
+               rdfs:comment      "An agent is something that plays an agent role"@en .
+
+prov:Activity  rdfs:subClassOf   [ rdf:type owl:Restriction ;
+                                    owl:onProperty obo:BFO_0000167 ; # has participant at all times
+                                    owl:someValuesFrom prov:Agent
+                                 ] .
