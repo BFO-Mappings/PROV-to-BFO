@@ -71,6 +71,6 @@ prov:Agent     rdfs:subClassOf   [ rdf:type owl:Restriction ;
                rdfs:comment      "An agent is something that plays an agent role"@en .
 
 prov:Activity  rdfs:subClassOf   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:BFO_0000167 ; # has participant at all times
+                                    owl:onProperty obo:RO_0000057 ; # has participant
                                     owl:someValuesFrom prov:Agent
                                  ] .
