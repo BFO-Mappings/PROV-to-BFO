@@ -1,7 +1,5 @@
-name: Test Ontology Changes
-on:
-  push:
-    branches-ignore: [ main ]
+name: Test PROV-BFO Mapping Changes
+on: workflow_dispatch
 
 env:
   cache-path: build/lib
@@ -26,10 +24,10 @@ jobs:
 
       # Run the main steps here
       - name: Check for inconsistency with Reasoner
-        run: make reason-edit
+        run: make -C PROV reason-edit
 
       - name: Run automated tests and generate reports
-        run: make test-edit
+        run: make -C PROV test-edit
         if: always()
 
       # Save any artifact files produced even if tests fail
