@@ -1,0 +1,20 @@
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix :     <http://example.org#> .
+@base         <https://www.w3.org/TR/prov-o/example-7.ttl> .
+
+<https://www.w3.org/TR/prov-o/example-7.ttl> rdf:type owl:Ontology .
+
+:e1 
+   a prov:Entity;
+   prov:wasGeneratedBy      :a1;
+   prov:qualifiedGeneration :e1Gen; # Add the qualification.
+.
+
+:e1Gen 
+   a prov:Generation;
+   prov:activity            :a1;    # Cite the influencing Activity.
+   :foo                   :bar;   # Describe the Activity :a1's influence upon the Entity :e1.
+.
+
+:a1 a prov:Activity .
