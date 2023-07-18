@@ -1,0 +1,24 @@
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix :     <http://example.org#> .
+@base         <https://www.w3.org/TR/prov-o/example-11.ttl> .
+
+<https://www.w3.org/TR/prov-o/example-11.ttl> rdf:type owl:Ontology .
+
+:bar_chart
+   a prov:Entity;                             ## Using Starting Point terms,
+   prov:wasDerivedFrom :aggregatedByRegions;  ##   the chart was derived from the aggregated dataset.
+.
+
+:aggregatedByRegions a prov:Entity .
+
+:bar_chart
+   prov:qualifiedDerivation [                      ## Qualify
+      a prov:Derivation;                           ##   how :bar_chart was derived from
+      prov:entity        :aggregatedByRegions;     ##     the dataset Entity :aggregatedByRegions.
+
+      prov:hadActivity   :aggregating_activity;    ## Qualification: The activity that derived the :bar_chart.
+      prov:hadUsage      :use_of_aggregatedData;   ## Qualification: How the activity used :aggregatedByRegions.
+      prov:hadGeneration :generation_of_bar_chart; ## Qualification: How the activity generated the :bar_chart.
+   ];
+.

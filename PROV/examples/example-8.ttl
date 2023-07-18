@@ -1,0 +1,23 @@
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix :     <http://example.org#> .
+@base         <https://www.w3.org/TR/prov-o/example-8.ttl> .
+
+<https://www.w3.org/TR/prov-o/example-8.ttl> rdf:type owl:Ontology .
+
+:illustrationActivity 
+   a prov:Activity;                ## Using Starting Point terms,
+   prov:used :aggregatedByRegions; ##   the illustration activity used the aggregated data (to create the bar chart).
+.
+
+:aggregatedByRegions a prov:Entity .
+
+:illustrationActivity      
+   prov:qualifiedUsage [                                ## Qualify how the :illustrationActivity
+      a prov:Usage;                                     ##   used
+      prov:entity :aggregatedByRegions;                 ##     the Entity :aggregatedByRegions
+
+      prov:atTime "2011-07-14T03:03:03Z"^^xsd:dateTime; ## Qualification: The aggregated data was used 
+                                                        ##   at a particular time to create the bar chart..
+   ];
+.

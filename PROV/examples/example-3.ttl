@@ -3,14 +3,14 @@
 @prefix sioc: <http://rdfs.org/sioc/ns#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix :     <http://www.example.org#> .
-@base         <http://www.example.com/monica-bundle.ttl> .
+@base         <https://www.w3.org/TR/prov-o/example-3.ttl> .
 
 <https://www.w3.org/TR/prov-o/example-3.ttl> rdf:type owl:Ontology .
 
 <>
    a prov:Bundle, prov:Entity;
    prov:wasAttributedTo :postEditor;
-   prov:wasDerivedFrom  <http://www.example.com/derek-bundle.ttl> .
+   prov:wasDerivedFrom  <http://www.example.com/derek-bundle.ttl> ;
    prov:generatedAtTime "2011-07-16T03:03:03Z"^^xsd:dateTime;
 .
 
