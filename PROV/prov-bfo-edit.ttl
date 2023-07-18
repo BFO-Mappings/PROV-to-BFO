@@ -21,11 +21,12 @@
                <https://www.w3.org/TR/prov-o/example-1.ttl> ,
                <https://www.w3.org/TR/prov-o/example-2.ttl> ,
                <https://www.w3.org/TR/prov-o/example-3.ttl> ,
-               # <https://www.w3.org/TR/prov-o/example-4.ttl> ; # TODO inconsistent with example-4:  <:publicationActivity1124, prov:wasAttributedTo, :postEditor> because prov:wasAttributedTo has domain Entity (continuant not occurrent), while :publicationActivity1124 is an Activity (occurrent not continuant)
+               #<https://www.w3.org/TR/prov-o/example-4.ttl> , # TODO inconsistent <:publicationActivity1124, prov:wasAttributedTo, :postEditor> because Activity and Entity are disjoint, but prov:wasAttributedTo has domain Entity, while :publicationActivity1124 is an Activity
                <https://www.w3.org/TR/prov-o/example-5.ttl> ,
                <https://www.w3.org/TR/prov-o/example-7.ttl> ,
                <https://www.w3.org/TR/prov-o/example-8.ttl> ,
                <https://www.w3.org/TR/prov-o/example-9.ttl> ,
                <https://www.w3.org/TR/prov-o/example-10.ttl> ,
-               <https://www.w3.org/TR/prov-o/example-11.ttl> ;
+               <https://www.w3.org/TR/prov-o/example-11.ttl> ,
+               <https://www.w3.org/TR/prov-o/other-examples.ttl> ;
 .
