@@ -8,8 +8,8 @@
 # ----------------------------------------
 #### Configuration / details about our project
 # Project essentials
-config.ONTOLOGY_FILE	:= PROV/prov-o-edit.ttl
-config.ONTOLOGY_PREFIX	:= prov-o
+config.ONTOLOGY_FILE	:= PROV/prov-bfo-edit.ttl
+config.ONTOLOGY_PREFIX	:= prov-bfo-directmappings
 config.ONTOLOGY-IRI		:= http://www.w3.org/ns/prov-o
 config.BASE_IRI			:= $(config.ONTOLOGY-IRI)_
 config.DEV_IRI			:= $(config.ONTOLOGY-IRI)/dev
@@ -18,7 +18,7 @@ config.MODULES_IRI		:= $(config.DEV_IRI)/modules
 # Local project directories
 config.SOURCE_DIR		:= PROV
 config.TEMP_DIR			:= build/artifacts
-config.RELEASE_DIR		:= /
+config.RELEASE_DIR		:= PROV
 config.REPORTS_DIR		:= $(config.TEMP_DIR)
 config.QUERIES_DIR		:= PROV/sparql
 config.IMPORTS_DIR		:= $(config.SOURCE_DIR)/OntoFox_outputs
@@ -146,7 +146,7 @@ QUERIES = $(wildcard $(config.QUERIES_DIR)/*.rq)
 # Note: $(TEST_INPUT) is a "target-specific variable" that isn't a evaluated as a prerequisite here
 .PHONY: reason
 reason: $(TEST_INPUT) | $(ROBOT_FILE)
-	$(ROBOT) reason --input $(TEST_INPUT) --reasoner ELK
+	$(ROBOT) reason --input $(TEST_INPUT) --reasoner HermiT
 
 # Test using specific queries
 .PHONY: verify

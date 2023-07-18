@@ -1519,31 +1519,11 @@ A primary source relation is a particular case of derivation of secondary materi
 
 
 ###  http://www.w3.org/ns/prov#
-<http://www.w3.org/ns/prov#> rdf:type owl:NamedIndividual .
+: rdf:type owl:NamedIndividual .
 
 
 ###  http://www.w3.org/ns/prov#EmptyCollection
 :EmptyCollection rdf:type owl:NamedIndividual .
-
-
-###  http://www.w3.org/ns/prov#someActivity
-:someActivity rdf:type owl:NamedIndividual ,
-                       :Activity ;
-              :used :someEntity ;
-              :wasAssociatedWith :someAgent .
-
-
-###  http://www.w3.org/ns/prov#someAgent
-:someAgent rdf:type owl:NamedIndividual ,
-                    :Agent ;
-           :actedOnBehalfOf :someAgent .
-
-
-###  http://www.w3.org/ns/prov#someEntity
-:someEntity rdf:type owl:NamedIndividual ,
-                     :Entity ;
-            :wasAttributedTo :someAgent ;
-            :wasGeneratedBy :someActivity .
 
 
 #################################################################
