@@ -16,12 +16,15 @@ Sydney Cohen, Giacomo De Colle, Austin Liebers, Tim Prudhomme, Alec Sculley, Kar
 
 # Methods
 ### Development
-1. A new PROV-BFO extension ontology is created
-    * (Previously, the mappings were added directly to a new version of PROV. These are kept in [this folder](prov-bfo-merged) for historical documentation but should not be used.)
+1. A new PROV-BFO extension ontology is created.
 2. BFO and RO are temporarily imported into PROV-BFO to help visualize the mappings in the class hierarchy using Protege
-3. [SPARQL queries](sparql) are used for finding unsubsumed classes and object properties, and also "candidate" superproperties
-4. PROV-BFO adds triples which relate terms from each ontology using the following "mapping" predicates: `rdfs:subClassOf`, `rdfs:subPropertyOf`, and `owl:equivalentClass`, similar to the [PROV-DC extension](https://www.w3.org/ns/prov-dc-directmappings.ttl)
+    * For testing and reasoning, only terms we use are extracted from RO -- plus their logical dependencies using the [MIREOT](https://www.nature.com/articles/npre.2009.3576.1.pdf) strategy with [OntoFox](https://ontofox.hegroup.org/). 
+    * The list of RO terms to import is specified in the [OntoFox_inputs](OntoFox_inputs) folder.
+    * The subset of RO extracted from OntoFox is stored locally in the [OntoFox_outputs](OntoFox_outputs) folder. This subset is imported into the editor's version of the mapping.
+3. [SPARQL queries](sparql) are used for finding unsubsumed classes and object properties, and also "candidate" superproperties.
+4. PROV-BFO adds triples which relate terms from each ontology using the following "mapping" predicates: `rdfs:subClassOf`, `rdfs:subPropertyOf`, and `owl:equivalentClass`, similar to the [PROV-DC extension](https://www.w3.org/ns/prov-dc-directmappings.ttl).
 
+* (Previously, the alignment mappings were added directly to a new version of PROV. These are kept in [this folder](prov-bfo-merged) for historical documentation but should not be used.)
 
 ### Metadata
 * The mappings should include the following metadata:

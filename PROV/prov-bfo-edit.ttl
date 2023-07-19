@@ -12,10 +12,13 @@
    owl:imports <http://www.w3.org/ns/prov-bfo-directmappings#> , # This is the release version containing the actual mappings
 
                # Source ontologies for alignment
-               <https://www.w3.org/ns/prov-o> , 
-               <http://purl.obolibrary.org/obo/bfo/2020/bfo.owl> ,
-               # <http://purl.obolibrary.org/obo/ro/releases/2023-02-22/ro.owl> , # TODO only import used terms and their dependents for reasoner
-               # <https://raw.githubusercontent.com/CommonCoreOntology/CommonCoreOntologies/master/cco-merged/MergedAllCoreOntology-v1.4-2023-04-07.ttl>,
+               <https://www.w3.org/ns/prov-o> , # PROVO
+               <http://purl.obolibrary.org/obo/bfo/2020/bfo.owl> , # BFO
+
+               # <http://purl.obolibrary.org/obo/ro/releases/2023-02-22/ro.owl> , # Don't import all of RO, only import dependent terms below:
+               <http://www.w3.org/ns/prov-o/prov-bfo/import/RO_imports.ttl>, # RO imports
+
+               # <https://raw.githubusercontent.com/CommonCoreOntology/CommonCoreOntologies/master/cco-merged/MergedAllCoreOntology-v1.4-2023-04-07.ttl>, # CCO
 
                # Test instances
                <https://www.w3.org/TR/prov-o/example-1.ttl> ,
