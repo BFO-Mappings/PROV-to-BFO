@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri name="http://www.w3.org/ns/prov-bfo-directmappings#" uri="prov-bfo-directmappings.ttl"/>
+    <uri name="http://www.w3.org/ns/prov-ro-directmappings#" uri="prov-ro-directmappings.ttl"/>
+    <uri name="http://www.w3.org/ns/prov-cco-directmappings#" uri="prov-cco-directmappings.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-o/example-1.ttl" uri="examples/example-1.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-o/example-2.ttl" uri="examples/example-2.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-o/example-3.ttl" uri="examples/example-3.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-o/example-4.ttl" uri="examples/example-4.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-o/example-5.ttl" uri="examples/example-5.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-o/example-6.ttl" uri="examples/example-6.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-o/example-7.ttl" uri="examples/example-7.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-o/example-8.ttl" uri="examples/example-8.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-o/example-9.ttl" uri="examples/example-9.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-o/example-10.ttl" uri="examples/example-10.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-o/example-11.ttl" uri="examples/example-11.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-o/other-examples.ttl" uri="examples/other-examples.ttl"/>
+</catalog>
