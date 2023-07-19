@@ -4,7 +4,7 @@ Sydney Cohen, Giacomo De Colle, Austin Liebers, Tim Prudhomme, Alec Sculley, Kar
 
 # Usage
 * [Release version here.](prov-bfo-directmappings.ttl) This contains only the mapped and extended terms. Use this one in production.
-* [Editor's development version here.](prov-bfo-edit.ttl) This contains imports of BFO, RO, and example instances to test with. Open this one in Protege to view the mapping in full context of each aligned ontology.
+* [Editor's development version here.](prov-bfo-edit.ttl) This contains imports of BFO, RO, and 91 example instances from the PROV-O docs to test with. Open this one in Protege to view the mapping in full context of each aligned ontology.
 
 # Scope
 * The mapping goal is to subsume every [PROV-O](https://www.w3.org/TR/prov-o/) term under some [BFO (Basic Formal Ontology)](https://basic-formal-ontology.org/) or [RO (Relation Ontology)](https://oborel.github.io/) term. A separate extension which maps PROV-O to [CCO (Common Core Ontologies)](https://github.com/CommonCoreOntology/CommonCoreOntologies) is also proposed. 
@@ -29,7 +29,7 @@ Sydney Cohen, Giacomo De Colle, Austin Liebers, Tim Prudhomme, Alec Sculley, Kar
 * The SSSOM template is generated from the mapping file using a SPARQL query and the [Makefile](Makefile)
 
 ### Testing
-* Example instances from the [PROV-O documentation](https://www.w3.org/TR/prov-o/) are temporarily imported into the extended ontology
+* 91 example instances from the [PROV-O documentation](https://www.w3.org/TR/prov-o/) are temporarily imported into the extended ontology
 * The HermiT reasoner is used to check if the example instance data is consistent with the extended ontology
 
 * How to run tests automatically:
