@@ -3,14 +3,17 @@
 Sydney Cohen, Giacomo De Colle, Austin Liebers, Tim Prudhomme, Alec Sculley, Karl Xie
 
 # Usage
-* [PROV-BFO Release version here.](prov-bfo-directmappings.ttl) This contains only the mapped and extended terms from BFO. Use this one in production.
-* [Editor's development version here.](prov-mappings-edit.ttl) This contains imports of BFO, CCO, RO, and 91 example instances from the PROV-O docs to test with. Open this one in Protege to view the mapping in full context of each aligned ontology.
+### Development
+* [Editor's development version here.](prov-mappings-edit.ttl) This contains imports of BFO, CCO, RO, and 91 example instances from the PROV-O docs to test with. Open this file in Protege to view the mapping in full context of each aligned ontology. Test this file to ensure consistency among the extensions.
+
+### PROV-BFO
+* [PROV-BFO Release version here.](prov-bfo-directmappings.ttl) This contains only the mapped and extended terms from BFO. Use this file in production.
 
 ### PROV-RO
-* [PROV-CC Release version here.](prov-cco-directmappings.ttl) This contains only the mapped and extended terms from RO. Use this one in production.
+* [PROV-CC Release version here.](prov-cco-directmappings.ttl) This contains only the mapped and extended terms from RO. Use this file in production.
 
 ### PROV-CCO
-* [PROV-CCO Release version here.](prov-cco-directmappings.ttl) This contains only the mapped and extended terms from CCO. Use this one in production.
+* [PROV-CCO Release version here.](prov-cco-directmappings.ttl) This contains only the mapped and extended terms from CCO. Use this file in production.
 
 # Scope
 * The mapping goal is to subsume every [PROV-O](https://www.w3.org/TR/prov-o/) term under some [BFO (Basic Formal Ontology)](https://basic-formal-ontology.org/) or [RO (Relation Ontology)](https://oborel.github.io/) term. A separate extension which maps PROV-O to [CCO (Common Core Ontologies)](https://github.com/CommonCoreOntology/CommonCoreOntologies) is also proposed. 
@@ -52,3 +55,4 @@ Sydney Cohen, Giacomo De Colle, Austin Liebers, Tim Prudhomme, Alec Sculley, Kar
 
 ### Release
 * Release files are indicated with `-directmappings` prefix in the file names. These are edited and annotated directly, and imported in the Editor's file for development and testing.
+* Turtle (.ttl) versions of the release are not currently automatically built in order to ensure precise formatting, but RDF/XML versions could be automatically built from the Turtle versions.
