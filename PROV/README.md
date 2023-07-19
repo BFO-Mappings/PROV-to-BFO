@@ -16,17 +16,19 @@ Sydney Cohen, Giacomo De Colle, Austin Liebers, Tim Prudhomme, Alec Sculley, Kar
 
 # Methods
 ### Development
-* BFO and RO are temporarily imported into PROV-O to help visualize the mappings in the class hierarchy using Protege
-* SPARQL queries are used for finding unsubsumed classes and object properties
-* The final result includes triples which relate terms from each ontology using the following "mapping" predicates: `rdfs:subClassOf`, `rdfs:subPropertyOf`, and `owl:equivalentClass`, similar to the [PROV-DC extension](https://www.w3.org/ns/prov-dc-directmappings.ttl)
-* Previously, the mappings were added directly to an editor's version of PROV. These are kept in [this folder](prov-bfo-merged) for historical documentation but should not be used.
+1. A new PROV-BFO extension ontology is created
+    * (Previously, the mappings were added directly to a new version of PROV. These are kept in [this folder](prov-bfo-merged) for historical documentation but should not be used.)
+2. BFO and RO are temporarily imported into PROV-BFO to help visualize the mappings in the class hierarchy using Protege
+3. [SPARQL queries](sparql) are used for finding unsubsumed classes and object properties, and also "candidate" superproperties
+4. PROV-BFO adds triples which relate terms from each ontology using the following "mapping" predicates: `rdfs:subClassOf`, `rdfs:subPropertyOf`, and `owl:equivalentClass`, similar to the [PROV-DC extension](https://www.w3.org/ns/prov-dc-directmappings.ttl)
+
 
 ### Metadata
-* The mappings include the following metadata:
+* The mappings should include the following metadata:
     * A justification for each mapping
     * A confidence score for each mapping
 * This metadata could be specified either with some standardized annotation properties or an [SSSOM template](https://mapping-commons.github.io/sssom/)
-* The SSSOM template is generated from the mapping file using a SPARQL query and the [Makefile](Makefile)
+* The SSSOM template is generated from the mapping file using a [SPARQL](sparql) query and the [Makefile](Makefile)
 
 ### Testing
 * 91 example instances from the [PROV-O documentation](https://www.w3.org/TR/prov-o/) are temporarily imported into the extended ontology

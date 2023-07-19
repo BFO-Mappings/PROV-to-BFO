@@ -23,6 +23,7 @@
                <https://www.w3.org/TR/prov-o/example-3.ttl> ,
                #<https://www.w3.org/TR/prov-o/example-4.ttl> , # TODO inconsistent <:publicationActivity1124, prov:wasAttributedTo, :postEditor> because Activity and Entity are disjoint, but prov:wasAttributedTo has domain Entity, while :publicationActivity1124 is an Activity
                <https://www.w3.org/TR/prov-o/example-5.ttl> ,
+               <https://www.w3.org/TR/prov-o/example-6.ttl> ,
                <https://www.w3.org/TR/prov-o/example-7.ttl> ,
                <https://www.w3.org/TR/prov-o/example-8.ttl> ,
                <https://www.w3.org/TR/prov-o/example-9.ttl> ,
