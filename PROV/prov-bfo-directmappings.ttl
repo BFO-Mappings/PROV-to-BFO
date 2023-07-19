@@ -16,7 +16,19 @@
 .
 
 # Class mappings
-prov:Entity               rdfs:subClassOf obo:BFO_0000002 . # continuant
+# Entities are continuants, except for spatial regions (which are causally inert and may not participate in processes)
+prov:Entity               rdfs:subClassOf [ rdf:type owl:Class ;
+                                            owl:unionOf ( obo:BFO_0000020  # specifically dependent continuant
+                                                          obo:BFO_0000031  # generically dependent continuant
+                                                          [ owl:intersectionOf ( obo:BFO_0000004  # independent continuant
+                                                                                [ rdf:type owl:Class ;
+                                                                                  owl:complementOf obo:BFO_0000006  # spatial region
+                                                                                ]
+                                                                               ) ;
+                                                            rdf:type owl:Class ;
+                                                          ]
+                                                        )
+                                          ] . 
 prov:Agent                rdfs:subClassOf obo:BFO_0000040 . # material entity
 prov:Activity             rdfs:subClassOf obo:BFO_0000015 . # process
 prov:Role                 rdfs:subClassOf obo:BFO_0000034 . # function
