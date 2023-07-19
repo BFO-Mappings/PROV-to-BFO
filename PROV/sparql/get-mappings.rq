@@ -1,0 +1,31 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX bfo: <http://purl.obolibrary.org/obo/BFO_>
+PREFIX ro: <http://purl.obolibrary.org/obo/RO_>
+
+# provo classes that are subclasses of BFO classes
+# provo properties that are subproperties of BFO or RO properties
+
+# see https://mapping-commons.github.io/sssom/spec/#common-mapping-predicates
+
+SELECT DISTINCT ?subject_id	?subject_label ?predicate_id ?object_id ?object_label ?mapping_justification WHERE {
+    ?subject_id ?predicate_id ?object_id .
+
+    # mapping predicates
+    # TODO `robot relax` to get subClassOf axioms from equivalentClass
+    FILTER( ?predicate_id = rdfs:subClassOf 
+            || ?predicate_id = rdfs:subPropertyOf 
+            || ?predicate_id = owl:equivalentClass
+            || ?predicate_id = owl:equivalentProperty) .
+
+    # mapping source
+    FILTER( STRSTARTS( STR(?subject_id), str(prov:) ) ) .
+
+    # mapping destination
+    FILTER( STRSTARTS( STR(?object_id), str(bfo:) ) || STRSTARTS( STR(?object_id), str(ro:) ) ) .
+
+    OPTIONAL { ?subject_id rdfs:label ?subject_label } .
+    OPTIONAL { ?object_id rdfs:label ?object_label } . 
+}

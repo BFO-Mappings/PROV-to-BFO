@@ -1,0 +1,52 @@
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix :     <http://www.example.org#> .
+@base         <https://www.w3.org/TR/prov-o/example-4.ttl> .
+
+<https://www.w3.org/TR/prov-o/example-4.ttl> rdf:type owl:Ontology .
+
+<> 
+   a prov:Bundle, prov:Entity;
+   prov:wasAttributedTo :postEditor;
+   prov:wasDerivedFrom <http://www.example.com/derek-bundle.ttl>,
+                       <http://www.example.com/monica-bundle.ttl>;
+   prov:generatedAtTime "2012-08-08T08:08:08Z"^^xsd:dateTime;
+.
+
+:publicationActivity1124
+   a prov:Activity;
+   prov:wasAttributedTo :postEditor,
+                        :john;
+   prov:generated :post19201;
+.
+
+:post19201
+   a sioc:Post, prov:Entity;
+   prov:wasAttributedTo :john;
+   prov:value "I'm not so sure that...";
+   prov:wasDerivedFrom :quote_from_derek,
+                       :quote_from_monica,
+                       :aggregatedByRegions;
+   prov:wasGeneratedBy :publicationActivity1124;
+.
+
+:john 
+   a prov:Person, prov:Agent;
+   foaf:name "John";
+.
+
+:quote_from_derek
+   a prov:Entity;
+   prov:value "Analysis of the datasets demonstrates that there is more crime.";
+   prov:wasQuotedFrom   :more-crime-happens-in-cities;
+   prov:generatedAtTime "2012-08-08T01:01:01Z"^^xsd:dateTime;
+.
+   
+:quote_from_monica
+   a prov:Entity;
+   prov:value "In summary, there are clearly more crimes in the country.";
+   prov:wasQuotedFrom   :post9822;
+   prov:generatedAtTime "2012-08-08T02:02:02Z"^^xsd:dateTime;
+.

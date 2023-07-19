@@ -1,0 +1,32 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix obo:  <http://purl.obolibrary.org/obo/> .
+@base <http://www.w3.org/ns/prov-o/prov-bfo-directmappings-edit.ttl> .
+
+<http://www.w3.org/ns/prov-bfo-directmappings-edit#>
+   a owl:Ontology;
+   rdfs:label "Editor's file for PROV-BFO Mapping."@en ;
+   rdfs:comment "Open this in Protege to view the full mapping in context. Test the mapping with the imports in this file. This keeps imports out of the release version."@en ;
+   owl:imports <http://www.w3.org/ns/prov-bfo-directmappings#> , # This is the release version containing the actual mappings
+
+               # Source ontologies for alignment
+               <https://www.w3.org/ns/prov-o> , 
+               <http://purl.obolibrary.org/obo/bfo/2020/bfo.owl> ,
+               # <http://purl.obolibrary.org/obo/ro/releases/2023-02-22/ro.owl> , # TODO only import used terms and their dependents for reasoner
+               # <https://raw.githubusercontent.com/CommonCoreOntology/CommonCoreOntologies/master/cco-merged/MergedAllCoreOntology-v1.4-2023-04-07.ttl>,
+
+               # Test instances
+               <https://www.w3.org/TR/prov-o/example-1.ttl> ,
+               <https://www.w3.org/TR/prov-o/example-2.ttl> ,
+               <https://www.w3.org/TR/prov-o/example-3.ttl> ,
+               #<https://www.w3.org/TR/prov-o/example-4.ttl> , # TODO inconsistent <:publicationActivity1124, prov:wasAttributedTo, :postEditor> because Activity and Entity are disjoint, but prov:wasAttributedTo has domain Entity, while :publicationActivity1124 is an Activity
+               <https://www.w3.org/TR/prov-o/example-5.ttl> ,
+               <https://www.w3.org/TR/prov-o/example-7.ttl> ,
+               <https://www.w3.org/TR/prov-o/example-8.ttl> ,
+               <https://www.w3.org/TR/prov-o/example-9.ttl> ,
+               <https://www.w3.org/TR/prov-o/example-10.ttl> ,
+               <https://www.w3.org/TR/prov-o/example-11.ttl> ,
+               <https://www.w3.org/TR/prov-o/other-examples.ttl> ;
+.

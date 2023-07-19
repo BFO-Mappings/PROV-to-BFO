@@ -1,0 +1,1562 @@
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix :        <http://example.com/> .
+@prefix ex:   <http://example.com/vocab#> .
+@prefix w3:   <http://example.com/w3/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix my:      <http://example.com/my#> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix frbr:    <http://purl.org/vocab/frbr/core#> .
+@prefix lang:    <http://lexvo.org/id/iso639-3/> .
+@prefix tr:   <http://example.com/tech-report/> .
+@prefix eg:   <http://example.com/vocab#> .
+@prefix bbc:  <http://www.bbc.co.uk/> .
+@prefix wgs:  <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@base          <https://www.w3.org/TR/prov-o/other-examples.ttl> .
+
+<https://www.w3.org/TR/prov-o/other-examples.ttl> rdf:type owl:Ontology .
+
+:bar_chart 
+   a prov:Entity;
+   dcterms:title "Aggregated statistics from the crime file"^^xsd:string;
+   prov:wasAttributedTo :derek;
+.
+
+:derek a prov:Agent .
+
+:graduation
+   a prov:Activity, :Graduation;
+   prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
+   prov:used          :ms_smith;
+   prov:generated     :doctor_smith;
+   prov:endedAtTime   "2012-04-15T14:30:00-04:00"^^xsd:dateTime;
+.
+:ms_smith     a prov:Entity .
+:doctor_smith a prov:Entity .
+
+
+:derek
+   a prov:Agent, prov:Person;
+   foaf:givenName      "Derek"^^xsd:string;
+   foaf:mbox           <mailto:derek@example.org>;
+   foaf:homePage       <http://derek.example.com>;
+   prov:actedOnBehalfOf :national_newspaper_inc;
+.
+
+:national_newspaper_inc
+   a prov:Agent, prov:Organization;
+   foaf:name "National Newspaper, Inc.";
+. 
+
+
+:bar_chart
+   a prov:Entity;
+   prov:wasGeneratedBy :illustrating;
+.
+
+:illustrating a prov:Activity .
+
+
+:bar_chart 
+   a prov:Entity, ex:Barchart;
+   prov:wasDerivedFrom :aggregatedByRegions;
+.
+
+:aggregatedByRegions
+   a prov:Entity, ex:Dataset;
+.
+
+:geneSequencing
+   a prov:Activity;
+   prov:startedAtTime "2012-04-25T01:30:00Z"^^xsd:dateTime;
+   prov:used              :drosophilaSample-84;
+   prov:wasAssociatedWith :lab-technician-GH-32;
+   prov:endedAtTime   "2012-04-25T03:40:00Z"^^xsd:dateTime;
+.
+
+:drosophilaSample-84  
+   a prov:Entity;
+   prov:wasAttributedTo :lab-technician-FE-56;
+.
+
+:lab-technician-GH-32 a prov:Agent .
+:lab-technician-FE-56 a prov:Agent .
+
+
+:geneSequencing
+   a prov:Activity;
+   prov:startedAtTime "2012-04-25T01:30:00Z"^^xsd:dateTime;
+   prov:used              :drosophilaSample-84;
+   prov:wasAssociatedWith :lab-technician-GH-32;
+   prov:endedAtTime   "2012-04-25T03:40:00Z"^^xsd:dateTime;
+.
+
+:drosophilaSample-84  a prov:Entity .
+:lab-technician-GH-32 a prov:Agent .
+
+# :sortActivity
+#    a prov:Activity;
+#    prov:atTime     "2011-07-16T01:52:02Z"^^xsd:dateTime; # TODO inconsistent because atTime has domain InstantaneousEvent
+#    prov:used       :datasetA;
+#    prov:generated  :datasetB;
+# .
+
+:datasetA a prov:Entity.
+:datasetB a prov:Entity.
+
+# See qualified Usage for example on how the role of :datasetA can be described for this Activity
+
+:writing-celebrity-gossip 
+   a prov:Activity;
+   prov:wasInformedBy :voicemail-interception;
+.
+
+:voicemail-interception a prov:Activity .
+
+
+:geneSequencing
+   a prov:Activity;
+   prov:startedAtTime "2012-04-25T01:30:00Z"^^xsd:dateTime;
+   prov:used              :drosophilaSample-84;
+   prov:wasAssociatedWith :lab-technician-GH-32;
+   prov:endedAtTime   "2012-04-25T03:40:00Z"^^xsd:dateTime;
+.
+
+:drosophilaSample-84  a prov:Entity .
+:lab-technician-GH-32 a prov:Agent .
+
+
+:illustrating
+   a prov:Activity; 
+   prov:wasAssociatedWith :derek;
+.
+
+:derek a prov:Person, prov:Agent, prov:Entity .
+
+
+:derek
+   a prov:Agent;
+   foaf:givenName "Derek"^^xsd:string;
+   foaf:mbox      <mailto:derek@example.org>;
+   prov:actedOnBehalfOf :national_newspaper_inc; 
+.
+
+:national_newspaper_inc 
+   a prov:Agent, prov:Organization;
+   foaf:name "National Newspaper, Inc.";
+.
+
+
+:todays-us-supreme-court
+   a prov:Collection, :RobertsCourt;
+
+   prov:qualifiedGeneration [
+      a prov:Generation;
+      
+      # The generation is being qualified to be imprecise;
+      # prov:generatedAtTime and prov:atTime specify exact instants in time.
+      dcterms:date "2012"^^xsd:gYear; 
+   ];                                 
+
+   prov:hadMember
+      <http://dbpedia.org/resource/John_Glover_Roberts,_Jr.>,
+      <http://dbpedia.org/resource/Antonin_Scalia>, 
+      <http://dbpedia.org/resource/Anthony_Kennedy>, 
+      <http://dbpedia.org/resource/Clarence_Thomas>, 
+      <http://dbpedia.org/resource/Ruth_Bader_Ginsburg>,
+      <http://dbpedia.org/resource/Stephen_Breyer>,     
+      <http://dbpedia.org/resource/Samuel_Alito>,      
+      <http://dbpedia.org/resource/Sonia_Sotomayor>,  
+      <http://dbpedia.org/resource/Elena_Kagan>;   
+
+   prov:wasDerivedFrom :the-first-us-supreme-court;
+
+   dcterms:description :copied-string;
+.
+
+:copied-string
+   a prov:Entity;
+   prov:value """2010–present: A. Scalia A. Kennedy C. Thomas R.B. Ginsburg 
+                 S. Breyer S. Alito S. Sotomayor E. Kagan""";
+   prov:wasQuotedFrom :page-by-composition;
+.
+
+:page-by-seat
+   a prov:Entity, ex:WikipediaPage;
+   prov:specializationOf <http://purl.org/twc/page/wikipedia/us-supreme-court-by-seat>;
+   prov:generatedAtTime "2011-08-31T12:51:00"^^xsd:dateTime;
+.
+
+:page-by-composition
+   a prov:Entity, ex:WikipediaPage;
+   prov:specializationOf <http://purl.org/twc/page/wikipedia/us-supreme-court-by-composition>;
+   prov:generatedAtTime "2012-05-16T14:33:00"^^xsd:dateTime;
+.
+
+<> # A provenance file located at http://www.example.com/example.ttl
+   a prov:Bundle;
+   prov:generatedAtTime "2012-05-24T09:30:00"^^xsd:dateTime;
+   prov:wasAttributedTo :bob;
+.
+
+:report1
+   a my:Report, prov:Entity;
+   my:version "1";
+   prov:generatedAtTime "2012-05-24T01:00:00"^^xsd:dateTime;
+   prov:wasAttributedTo :bob;
+.
+
+
+<http://dbpedia.org/resource/Pablo_Picasso>
+   a prov:Person, prov:Agent;
+   foaf:depiction <http://upload.wikimedia.org/wikipedia/commons/9/98/Pablo_picasso_1.jpg>;
+.
+
+
+# Googlebot is Google's web crawling bot; 
+# it can initiate and participate in web-crawling activities.
+
+:googlebot
+   a prov:SoftwareAgent;
+   rdfs:label "Googlebot"^^xsd:string;
+.
+
+:W3C 
+   a prov:Agent, prov:Organization;
+   foaf:name "World Wide Web Consortium";
+. 
+
+# A Location can be a path or a geographical location.
+
+:post9821 
+   a prov:Entity, sioc:Post;   
+   prov:wasGeneratedBy :publicationActivity1123;
+   prov:atLocation     :more-crime-happens-in-cities;
+   prov:qualifiedGeneration [
+      a prov:Generation;
+      prov:activity    :publicationActivity1123;
+      prov:atTime     "2011-07-16T01:52:02Z"^^xsd:dateTime; 
+      prov:atLocation <http://dbpedia.org/resource/Madrid>;
+   ];
+.
+
+:publicationActivity1123      a prov:Activity.
+:more-crime-happens-in-cities a prov:Location.
+<http://dbpedia.org/resource/Madrid> a prov:Location. 
+
+
+:bbc a prov:Agent .
+
+:london_forecast_0412 
+   a prov:Entity;
+   prov:wasAttributedTo :bbc;
+   prov:wasGeneratedBy [
+      a prov:Activity;
+      prov:endedAtTime "2012-04-12T00:00:00-04:00"^^xsd:dateTime;
+   ];
+   prov:alternateOf :london_forecast_0413;
+.
+
+:london_forecast_0413 
+   a prov:Entity;
+   prov:wasAttributedTo :bbc;
+   prov:wasGeneratedBy [
+      a prov:Activity;
+      prov:endedAtTime "2012-04-13T00:00:00-04:00"^^xsd:dateTime;
+   ];
+   prov:alternateOf :london_forecast_0412;
+.
+
+## :london_forecast_0412 and :london_forecast_0413 are both 
+## specialization of the more general entity :london_forecast
+
+:london_forecast 
+   a prov:Entity;
+   prov:wasAttributedTo :bbc;
+.
+
+:london_forecast_0412
+   prov:specializationOf :london_forecast;
+.
+:london_forecast_0413
+   prov:specializationOf :london_forecast;
+.
+
+:london_forecast_0412 
+   a prov:Entity;
+   prov:wasAttributedTo :bbc;
+   prov:wasGeneratedBy [
+      a prov:Activity;
+      prov:endedAtTime "2012-04-12T00:00:00-04:00"^^xsd:dateTime;
+   ];
+.
+
+:london_forecast_0413 
+   a prov:Entity;
+   prov:wasAttributedTo :bbc;
+   prov:wasGeneratedBy [
+      a prov:Activity;
+      prov:endedAtTime "2012-04-13T00:00:00-04:00"^^xsd:dateTime;
+   ];
+.
+
+:london_forecast 
+   a prov:Entity;
+   prov:wasAttributedTo :bbc;
+.
+
+## :london_forecast_0412 and :london_forecast_0413 are both 
+## specialization of the more general entity :london_forecast
+
+:london_forecast_0412  
+   prov:alternateOf      :london_forecast_0413;
+   prov:specializationOf :london_forecast;
+.
+
+# A widget was generated 1:35:23 PM on April 3, 2012 UTC
+
+:widget-789532
+   a prov:Entity;
+   prov:generatedAtTime "2012-04-03T13:35:23Z"^^xsd:dateTime;
+.
+
+# The above statement is equivalent to:
+# :widget-789532 prov:qualifiedGeneration [ prov:atTime "2012-04-03T13:35:23Z"^^xsd:dateTime ] .
+
+## Having an primary source is a particular case of derivation.
+
+<http://www.gutenberg.org/ebooks/996>
+   a prov:Entity, frbr:Work;
+   dcterms:title          "Don Quixote";
+   prov:wasAttributedTo   :ormsby;
+   dcterms:language       lang:eng;
+   prov:hadPrimarySource <http://cultura.linkeddata.es/BNE/resource/C1001/XX2197892>;
+.
+
+#### The English version book is a translation that is based on the original Spanish book
+
+<http://cultura.linkeddata.es/BNE/resource/C1001/XX2197892>
+    a prov:Entity, frbr:Work;
+    prov:wasAttributedTo :cervantes;
+    dcterms:language     lang:spa;
+.
+
+:cervantes
+   a prov:Person;
+   foaf:name "Miguel de Cervantes";
+.
+
+:ormsby
+   a prov:Person;
+   foaf:name "John Ormsby";
+.
+
+:copied-string
+   a prov:Entity;
+   prov:value 
+      """2010–present: A. Scalia A. Kennedy C. Thomas R.B. Ginsburg 
+         S. Breyer S. Alito S. Sotomayor E. Kagan""";
+   prov:wasQuotedFrom 
+      <http://purl.org/twc/page/wikipedia/us-supreme-court-by-composition>;
+.
+
+:bl-dagstuhl
+   a prov:Entity;
+
+   prov:value """During the workshop, it became clear to me that the consensus
+   based models (which are often graphical in nature) can not only be
+   formalized but also be directly connected to these database focused
+   formalizations. I just needed to get over the differences in syntax.
+   This could imply that we could have nice way to trace provenance across
+   systems and through databases and be able to understand the
+   mathematical properties of this interconnection.""";
+
+   prov:wasQuotedFrom <http://purl.org/twc/page/thoughts-from-the-dagstuhl-workshop>;
+.
+
+<http://purl.org/twc/page/thoughts-from-the-dagstuhl-workshop>
+   a prov:Entity;
+.
+
+:post9821v1
+   a prov:Entity, sioc:Post;
+   prov:wasRevisionOf :post9821;
+   rdfs:comment ":post9821v1 is a post, which is a revision of the original post :post9821.";
+.    
+
+:the-Painter 
+   a prov:Entity, ex:Painting;
+   rdfs:label "Le Peintre"@fr, "The Painter"@en;
+   prov:wasAttributedTo <http://dbpedia.org/resource/Pablo_Picasso>;
+   prov:invalidatedAtTime "1998-09-02T01:31:00Z"^^xsd:dateTime;
+.
+
+:the-Painter 
+   a prov:Entity, :Painting;
+   rdfs:label "Le Peintre"@fr, "The Painter"@en;
+   prov:wasAttributedTo <http://dbpedia.org/resource/Pablo_Picasso>;
+   prov:wasInvalidatedBy :Swissair_Flight_111_crash; #The painting was destroyed in an airplane crash
+.
+
+<http://dbpedia.org/resource/Pablo_Picasso> 
+   a prov:Agent;
+   foaf:depiction <http://upload.wikimedia.org/wikipedia/commons/9/98/Pablo_picasso_1.jpg>;
+.
+
+:Swissair_Flight_111_crash 
+   a prov:Activity;
+   prov:used <http://dbpedia.org/resource/Swissair_Flight_111>;
+.
+
+:todays-us-supreme-court
+   a prov:Collection, ex:RobertsCourt;
+   dcterms:description [
+      a prov:Entity;
+      prov:value """2010–present: A. Scalia A. Kennedy C. Thomas R.B. Ginsburg S. 
+                  Breyer S. Alito S. Sotomayor E. Kagan""";
+      prov:wasQuotedFrom :page-by-composition;
+   ];
+   prov:qualifiedGeneration [
+      a prov:Generation;
+      
+      # Since we need to be imprecise, we can't use prov:generatedAtTime or prov:atTime
+      dcterms:date "2012"^^xsd:gYear;
+   ];
+
+   prov:wasDerivedFrom :the-first-us-supreme-court;
+
+   prov:hadMember
+      <http://dbpedia.org/resource/John_Glover_Roberts,_Jr.>,
+      <http://dbpedia.org/resource/Antonin_Scalia>, 
+      <http://dbpedia.org/resource/Anthony_Kennedy>, 
+      <http://dbpedia.org/resource/Clarence_Thomas>, 
+      <http://dbpedia.org/resource/Ruth_Bader_Ginsburg>,
+      <http://dbpedia.org/resource/Stephen_Breyer>,     
+      <http://dbpedia.org/resource/Samuel_Alito>,      
+      <http://dbpedia.org/resource/Sonia_Sotomayor>,  
+      <http://dbpedia.org/resource/Elena_Kagan>;   
+.
+
+:page-by-seat
+   a prov:Entity, ex:WikipediaPage;
+   prov:specializationOf <http://purl.org/twc/page/wikipedia/us-supreme-court-by-seat>;
+   prov:generatedAtTime "2011-08-31T12:51:00"^^xsd:dateTime;
+.
+
+:page-by-composition
+   a prov:Entity, ex:WikipediaPage;
+   prov:specializationOf <http://purl.org/twc/page/wikipedia/us-supreme-court-by-composition>;
+   prov:generatedAtTime "2012-05-16T14:33:00"^^xsd:dateTime;
+.
+
+# Use prov:qualifiedStart to see when and where the activity was started
+
+:experiment
+   a prov:Activity;
+   prov:wasStartedBy :researcher;
+.
+
+:researcher a prov:Agent .
+
+:experiment 
+   a prov:Activity;
+   prov:wasEndedBy :inconsistentResult;
+   prov:qualifiedEnd [
+      a prov:End;
+      prov:entity     :inconsistentResult;
+      prov:atTime    "2011-07-16T01:52:02Z"^^xsd:dateTime;
+      prov:atLocation :scienceLab_003;
+   ];
+.
+
+:inconsistentResult a prov:Entity .
+:scienceLab_003     a prov:Location .
+
+:swissair_Flight_111_crash 
+   a prov:Activity;
+   prov:used        <http://dbpedia.org/resource/Swissair_Flight_111>;
+   prov:invalidated :the-Painter;
+.
+
+:the-Painter 
+   a prov:Entity, ex:Painting;
+   rdfs:label "Le Peintre"@fr, "The Painter"@en;
+   prov:wasAttributedTo <http://dbpedia.org/resource/Pablo_Picasso>;
+   
+   # Inferred from prov:invalidated
+   prov:wasInvalidatedBy :swissair_Flight_111_crash;   
+.
+
+<http://dbpedia.org/resource/Pablo_Picasso> 
+   a prov:Agent;
+   foaf:depiction <http://upload.wikimedia.org/wikipedia/commons/9/98/Pablo_picasso_1.jpg>;
+.
+
+# prov:influenced is a top-level property that links any
+# Entity, Activity, or Agent to any other 
+# Entity, Activity, or Agent that it had an effect upon.
+
+w3:Consortium 
+   a prov:Agent;
+   prov:influenced tr:WD-prov-dm-20111215;
+.
+
+
+# A Location can be a path or a geographical location.
+
+:post9821 
+   a prov:Entity, sioc:Post;   
+   prov:wasGeneratedBy :publicationActivity1123;
+   prov:atLocation     :more-crime-happens-in-cities;
+   prov:qualifiedGeneration [
+      a prov:Generation;
+      prov:activity    :publicationActivity1123;
+      prov:atTime     "2011-07-16T01:52:02Z"^^xsd:dateTime; 
+      prov:atLocation <http://dbpedia.org/resource/Madrid>;
+   ];
+.
+
+:publicationActivity1123      a prov:Activity .
+:more-crime-happens-in-cities        a prov:Location .
+<http://dbpedia.org/resource/Madrid> a prov:Location .
+
+
+:proteinDigestion
+   a prov:Activity;
+   prov:generated :peptideSample1;
+.
+
+:peptideSample1 a prov:Entity .
+
+# Although a domain extension (e.g. ':wasConductedBy') is not defined by PROV-O,
+# the relation between a surgery and an agent can still be qualified
+# by reusing prov:Influence and one of its three subclasses 
+# (depending on the type of influencer):
+# AgentInfluence, EntityInfluence, and ActivityInfluence.
+
+my:wasConductedBy rdfs:subPropertyOf prov:wasAssociatedWith .
+
+:conductingSurgery_1
+   a prov:Activity;
+   
+   # This unqualified influence is unknown in PROV, 
+   # but would be a subproperty of wasAssociatedWith.
+   my:wasConductedBy :bob;     
+   
+   # Even though PROV systems do not understand my:wasConductedBy, 
+   prov:qualifiedAssociation [ 
+      # they can recognize that the unknown relation 
+      # is being qualified with a prov:hadRole.
+      a prov:Association,     
+        prov:AgentInfluence,   # Inferred
+        prov:Influence;        # Inferred
+      prov:agent   :bob;       # The object of my:wasConductedBy
+      prov:hadRole my:surgeon;
+   ];
+.
+
+:bob       a prov:Agent .
+my:surgeon a prov:Role .
+
+:sortActivity
+   a prov:Activity;
+   prov:used :rawData;
+   prov:qualifiedUsage [
+      a prov:Usage, 
+        prov:EntityInfluence; ## Instances of Start, End, Usage, Derivation, and Invalidation
+      prov:entity  :datasetA; ## qualify the influenced of an Entity (cited by prov:entity).
+      prov:hadRole :inputToBeSorted;
+   ];
+   prov:generated :sortedData;
+.
+
+:rawData    a prov:Entity .
+:sortedData a prov:Entity .
+
+:sortActivity 
+   a prov:Activity;
+   prov:startedAtTime  "2011-07-16T01:52:02Z"^^xsd:dateTime; 
+   prov:qualifiedUsage [
+      a prov:Usage;
+      prov:entity    :datasetA;         ## The entity used by the prov:Usage
+      prov:hadRole   :inputToBeSorted;  ## the role of the entity in this prov:Usage        
+   ];
+   prov:generated :datasetB;
+.
+
+:datasetA        a prov:Entity .
+:datasetB        a prov:Entity .
+:inputToBeSorted a prov:Role .
+
+## The role of :datasetA cannot be expressed using only starting-point terms:
+
+:sortActivity
+   a prov:Activity;
+   prov:startedAtTime     "2011-07-16T01:52:02Z"^^xsd:dateTime;
+   prov:used       :datasetA;
+   prov:generated  :datasetB;
+.
+
+### Start can be used to qualify wasStartedBy with time and location information.
+### In this example, a consistency checking activity is started by the update of a data record.
+
+:consistency_checking
+   a prov:Activity;
+   prov:wasStartedBy :updated_data_record;
+   prov:qualifiedStart [
+      a prov:Start;
+      prov:entity       :updated_data_record;
+      prov:atTime       "2011-07-06T01:48:36Z"^^xsd:dateTime;
+      prov:atLocation   :scienceLab_003;
+      prov:hadActivity  :syntax_checking;
+   ];
+.
+
+:updated_data_record a prov:Entity .
+
+### There is an explicit process of checking the syntax of the updated data record
+
+:syntax_checking
+   a   prov:Activity ;
+   prov:startedAtTime      "2011-07-06T01:48:36Z"^^xsd:dateTime;
+   prov:endedAtTime        "2011-07-06T02:12:36Z"^^xsd:dateTime;
+   prov:wasAssociatedWith  :syntax_checker ;
+.
+
+:syntax_checker   a   prov:SoftwareAgent .
+
+### End can be used to qualify wasEndedBy with time and location information.
+### In this example, an experiment is stopped because an intermediate inconsitent resul.
+
+:experiment 
+   a prov:Activity;
+   prov:wasEndedBy :inconsistentResult;
+   prov:qualifiedEnd [
+      a prov:End;
+      prov:entity       :inconsistentResult;
+      prov:atTime       "2011-07-16T01:52:02Z"^^xsd:dateTime;
+      prov:atLocation   :scienceLab_003;
+      prov:hadActivity  :analyse_intermediate_result ; 
+   ];
+.
+   
+:inconsistentResult a prov:Entity .
+
+### An implicit process analyzes the intermediate result to confirm its expected consistency
+
+:analyse_intermediate_result
+   a   prov:Activity ;
+   prov:startedAtTime   "2011-07-15T12:52:02Z"^^xsd:dateTime;
+   prov:endedAtTime     "2011-07-16T01:52:02Z"^^xsd:dateTime;
+.
+
+# The simplest (and least detailed) form of derivation.
+:bar_chart 
+   a prov:Entity;
+   prov:wasDerivedFrom :aggregatedByRegions;  
+.
+
+# The simple form can be accompanied by a qualified form:
+# which provides more details about how :bar_chart was 
+# derived from :aggregatedRegions.
+
+:bar_chart
+   a prov:Entity;
+   
+   prov:wasDerivedFrom :aggregatedByRegions;  
+   prov:qualifiedDerivation [                  
+      a prov:Derivation;                      
+      prov:entity      :aggregatedByRegions;  
+                          
+      # Derivations can cite the influencing Activity in doing the derivation.
+      prov:hadActivity   :create_the_chart;
+
+      # They can also cite the Usage and Generation that the Activity 
+      # performed to generate :bar_chart.
+      prov:hadUsage      :data_loading;
+      prov:hadGeneration :plot_the_chart;
+   ];
+.
+
+### The process during which the chart was created, from loading the data to the software, to process the data and plot the chart.
+### Additional metadata was recorded, like when it started (before the usage), ended (after the generation of the chart) and who was associated with it.
+
+:create_the_chart 
+   a prov:Activity;
+   prov:wasAssociatedWith :derek;
+   prov:startedAtTime "2012-04-03T00:00:00Z"^^xsd:dateTime;
+   prov:endedAtTime "2012-04-03T00:00:10Z"^^xsd:dateTime;
+.
+
+### The final chart was plotted
+
+:plot_the_chart
+   a prov:Generation, prov:InstantaneousEvent;
+   prov:atTime "2012-04-03T00:00:01Z"^^xsd:dateTime;
+.
+
+### The data was getting used to create the chart
+
+:data_loading
+   a prov:Usage;
+   prov:atTime "2012-04-03T00:00:00Z"^^xsd:dateTime;
+.
+
+:myPost 
+   a prov:Entity;
+   prov:hadPrimarySource :donQuixote;
+   prov:qualifiedPrimarySource [
+      a prov:PrimarySource;
+      prov:entity :donQuixote;
+      :confidenceValue "6"^^xsd:integer;
+      rdfs:comment """Not sure if Don Quixote was the original source, 
+                      so asserting a confidence value of 6 out of 10.""";
+   ];
+.
+
+:donQuixote a prov:Entity.
+
+:dagstuhl-quote
+   a prov:Entity;
+   prov:value   "why would people record and share provenance in the first place?";
+   prov:wasQuotedFrom <http://purl.org/twc/page/thoughts-from-the-dagstuhl-workshop>;
+   prov:qualifiedQuotation [
+      a prov:Quotation;
+      prov:entity     <http://purl.org/twc/page/thoughts-from-the-dagstuhl-workshop>;
+      ex:fromSection 2;
+   ];
+   prov:wasAttributedTo <http://data.semanticweb.org/person/luc-moreau>;
+.
+
+<http://purl.org/twc/page/thoughts-from-the-dagstuhl-workshop> 
+   a prov:Entity;
+   prov:wasAttributedTo <http://data.semanticweb.org/person/paul-groth>;
+.
+
+<http://data.semanticweb.org/person/luc-moreau> a prov:Person, prov:Agent .
+<http://data.semanticweb.org/person/paul-groth> a prov:Person, prov:Agent .
+
+# :draft2 
+#    a prov:Entity;
+#    prov:wasRevisionOf    :draft1;
+#    prov:qualifiedRevision [
+#       a prov:Revision;
+#       prov:entity        :draft1;
+#       ex:peerReviewed     false;
+#    ];
+
+#    prov:wasAssociatedWith :edward;
+#    prov:qualifiedAssociation [
+#       a prov:Association;
+#       prov:agent          :edward;
+#       prov:hadRole        :editor;
+#    ];
+# .
+
+:draft1 a prov:Entity .
+
+:edward 
+   a prov:Person, prov:Agent;
+.
+
+:bar_chart 
+   a prov:Entity;
+   prov:wasGeneratedBy      :illustrating;
+   prov:qualifiedGeneration :making-bar-chart;
+. 
+
+:making-bar-chart
+   a prov:Generation, 
+     prov:ActivityInfluence;  ## Instances of Generation, Invalidation and Communication qualify
+   prov:activity :illustrating; ## the influence of an Activity (cited by prov:activity)
+   rdfs:comment "Ended up with bar chart as line chart looked ugly."@en;
+.
+
+:illustrating a prov:Activity .
+
+:bbcNews2012-04-03 
+   a prov:Entity, eg:DailyNews;
+   rdfs:comment """The BBC news home page on 2012-04-03 contained a reference 
+                   to a given news item, but the BBC news home page on 
+                   the next day did not.""";
+
+   prov:wasGeneratedBy :publishingActivity;
+   prov:qualifiedGeneration [
+      a prov:Generation, prov:InstantaneousEvent;
+      prov:atTime "2012-04-03T00:00:01Z"^^xsd:dateTime;
+      prov:activity :publishingActivity;
+   ];
+   prov:qualifiedInvalidation [
+      a prov:Invalidation, prov:InstantaneousEvent;
+      prov:atTime "2012-04-03T23:59:59Z"^^xsd:dateTime;
+   ];
+.
+
+:publishingActivity 
+   a prov:Activity;
+.
+
+:writing-celebrity-gossip 
+   a prov:Activity;
+   prov:wasInformedBy          :voicemail-interception;
+   prov:qualifiedCommunication :informing-the-journalist;
+.
+
+:informing-the-journalist 
+   a prov:Communication;
+   prov:activity   :voicemail-interception;
+   ex:mediaType "email";
+.
+
+:voicemail-interception a prov:Activity .
+
+:the-Painter 
+   a prov:Entity, :Painting;
+   rdfs:label "Le Peintre"@fr, "The Painter"@en;
+   prov:wasAttributedTo <http://dbpedia.org/resource/Pablo_Picasso>;
+
+   prov:wasInvalidatedBy :swissair_Flight_111_crash;
+   prov:qualifiedInvalidation [
+      a prov:Invalidation;
+      prov:activity    :swissair_Flight_111_crash;
+      prov:atTime      "1998-09-02T01:31:00Z"^^xsd:dateTime;
+      prov:atLocation  <http://purl.org/twc/location/Swissair-Flight-111-crash>;
+   ];
+. 
+
+<http://purl.org/twc/location/Swissair-Flight-111-crash>
+   a prov:Location;
+   wgs:lat   44.409167;
+   wgs:long -63.973611;
+.
+
+<http://dbpedia.org/resource/Pablo_Picasso> 
+   a prov:Agent;
+   foaf:depiction <http://upload.wikimedia.org/wikipedia/commons/9/98/Pablo_picasso_1.jpg>;
+.
+
+:swissair_Flight_111_crash 
+   a prov:Activity;
+   prov:used          <http://dbpedia.org/resource/Swissair_Flight_111>;
+   prov:startedAtTime "1998-09-02T01:31:00Z"^^xsd:dateTime;
+   prov:atLocation    <http://dbpedia.org/resource/Atlantic_ocean>;
+.
+
+:illustrating
+    a prov:Activity; 
+    prov:wasAssociatedWith :derek;
+    prov:qualifiedAssociation [
+       a prov:Association, 
+         prov:AgentInfluence; ## Instances of Generation, Invalidation and Communication qualify
+       prov:agent   :derek;   ## the influence of an Agent (cited by prov:agent)
+       prov:hadRole :illustrationist
+    ];
+.
+
+:derek a prov:Person, prov:Agent, prov:Entity .
+
+:illustratonist a prov:Role .
+
+<http://dbpedia.org/resource/Fallingwater>
+   a prov:Entity;
+   prov:wasAttributedTo <http://dbpedia.org/resource/Edgar_J._Kaufmann>,
+                        <http://dbpedia.org/resource/Frank_Lloyd_Wright>,
+                        :western-Pennsylvania-Conservancy;
+   prov:qualifiedAttribution [
+      a prov:Attribution;
+      prov:agent <http://dbpedia.org/resource/Edgar_J._Kaufmann>;
+      ex:hadRole :owner;
+   ];
+   prov:qualifiedAttribution [
+      a prov:Attribution;
+      prov:agent <http://dbpedia.org/resource/Frank_Lloyd_Wright>;
+      ex:hadRole :architect;
+   ];
+   prov:qualifiedAttribution [
+      a prov:Attribution;
+      prov:agent :western-Pennsylvania-Conservancy;
+      ex:hadRole :conserver;
+   ];
+.
+
+<http://dbpedia.org/resource/Edgar_J._Kaufmann>  a prov:Person, prov:Agent .
+<http://dbpedia.org/resource/Frank_Lloyd_Wright> a prov:Person, prov:Agent .
+:western-Pennsylvania-Conservancy a prov:Organization, prov:Agent . 
+
+:illustrating
+    a prov:Activity; 
+    prov:wasAssociatedWith :derek, 
+                           :steve;
+    prov:qualifiedAssociation [
+        a prov:Association;
+        prov:agent   :derek;
+        prov:hadRole :illustrationist;
+    ];
+    prov:qualifiedAssociation [
+        a prov:Association;
+        prov:agent   :steve;
+        prov:hadRole :stylist;
+        prov:hadPlan :style-guide;
+        rdfs:comment "Steve helped Derek conform with the publisher's style guide."@en;
+    ];
+.
+
+:derek a prov:Person, prov:Agent, prov:Entity .
+:steve a prov:Person, prov:Agent, prov:Entity .
+
+:illustratonist a prov:Role .
+:stylist        a prov:Role .
+
+:style-guide a prov:Plan, prov:Entity .
+
+:illustrating 
+   a prov:Activity;
+   prov:qualifiedAssociation :steve-checking-style-guide;
+.
+
+:steve-checking-style-guide
+   a prov:Association;
+   prov:agent   :steve;
+   prov:hadPlan :style-guide;
+   rdfs:comment "Steve followed the publisher's style guide"@en;
+. 
+
+:style-guide
+   a prov:Plan, prov:Entity;
+   rdfs:comment "Use blue graphs for positive spin, red for negative"@en;
+.
+
+### In this example, Frank (an insurance agent) acts on behalf of his company for performing
+### a policy sale
+ 
+:policySale
+   a prov:Activity;
+   prov:wasAssociatedWith :insuranceAgent_Frank;
+.
+
+:insuranceAgent_Frank
+   a prov:Person;
+   prov:actedOnBehalfOf :insuranceCompany_A;
+   prov:qualifiedDelegation [
+      a prov:Delegation;
+      prov:agent        :insuranceCompany_A;
+      ex:rewardScheme   "commission";
+      prov:hadActivity  :policySale ;
+   ];
+.
+
+:bbcNews2012-04-03 
+   a prov:Entity, :DailyNews;
+   rdfs:comment """The BBC news home page on 2012-04-03 contained 
+                   a reference to a given news item, but the BBC news 
+                   home page on the next day did not.""";
+
+   prov:qualifiedGeneration [
+      a prov:Generation, prov:InstantaneousEvent;
+      prov:atTime "2012-04-03T00:00:01Z"^^xsd:dateTime;
+   ];
+   prov:qualifiedInvalidation [
+      a prov:Invalidation, prov:InstantaneousEvent;
+      prov:atTime "2012-04-03T23:59:59Z"^^xsd:dateTime;
+   ];
+.
+
+:divideActivity 
+   a prov:Activity;   
+   prov:used :variableA, :variableB;
+
+   prov:qualifiedUsage [
+      a prov:Usage;
+      prov:entity  :variableA;
+      prov:hadRole :dividend;          
+   ];
+   prov:qualifiedUsage [
+      a prov:Usage;
+      prov:entity  :variableB;
+      prov:hadRole :divisor;          
+   ];
+
+   prov:generated :result_112234;
+.
+
+:variableA 
+   a prov:Entity;
+   prov:value 10;
+.
+:variableB 
+   a prov:Entity;
+   prov:value 2;
+.
+
+:dividend a prov:Role.
+:divisor  a prov:Role.
+
+:result_112234 
+   a prov:Entity;
+   prov:value 5;
+   prov:wasGeneratedBy :divideActivity;
+.
+
+:illustrationActivity 
+   a prov:Activity;
+   prov:used              :aggregatedByRegions;
+   prov:wasAssociatedWith :derek;
+   prov:wasInformedBy     :aggregationActivity;
+.
+
+:illustrationActivity 
+   a prov:Activity;
+   prov:wasInfluencedBy :aggregatedByRegions, # prov:wasInfluencedBy is a superproperty of
+                        :derek,               # many of the direct binary
+                        :aggregationActivity; # PROV-O properties.
+.
+
+:aggregationActivity a prov:Activity .  
+:derek               a prov:Agent .
+:aggregatedByRegions a prov:Entity .
+
+# Although domain extension 'my:wasConductedBy' is not defined by PROV-O,
+# the relation between a surgery and an agent can still be qualified
+# by reusing prov:Influence and one of its three subclasses:
+# AgentInfluence, EntityInfluence, and ActivityInfluence
+# (depending on the type of the influencing object).
+
+:conductingSurgery_1
+   a prov:Activity;
+
+   # This unqualified influence is unknown in PROV;
+   # it would be a subproperty of prov:wasAssociatedWith.
+   my:wasConductedBy    :bob;
+   prov:wasInfluencedBy :bob;  
+   prov:qualifiedInfluence [   
+      # Even though PROV systems do not understand my:wasConductedBy, 
+      # they will at least understand that :bob influenced the 
+      # surgery in some way.
+      a prov:Influence;      # Inferred
+      prov:agent   :bob;     # The object of my:wasConductedBy
+
+      # Domain extension properties may be used to describe the
+      # influences that an Entity, Activity, or Agent
+      # have upon another Entity, Activity, or Agent.
+      my:degree .72;
+   ];
+.
+
+:bob a prov:Agent .
+
+:bar_chart
+   a prov:Entity;
+   prov:wasGeneratedBy :illustrating;
+   prov:qualifiedGeneration [
+      a prov:Generation;
+      prov:activity :illustrating;
+      rdfs:comment "Ended up with bar chart as line chart looked ugly."@en;
+   ];
+.
+
+:illustrating a prov:Activity .
+
+:bar_chart
+   a prov:Entity;
+   prov:wasDerivedFrom :aggregatedByRegions;
+   prov:qualifiedDerivation [
+      a prov:Derivation;
+      prov:entity :aggregatedByRegions; 
+      
+      ## More details about the activity underpinning the derivation        
+      prov:hadGeneration :chat_plotting; 
+      prov:hadActivity   :chart_creation ;
+   ];
+.
+
+### The process of creating the chart, from loading the data, to process it, and plot it to end users
+
+:chart_creation
+    a    prov:Activity ;
+    prov:wasAssociatedWith :derek;
+    prov:startedAtTime  "2011-07-16T01:52:02Z"^^xsd:dateTime;
+    prov:endedAtTime "2011-07-16T03:00:02Z"^^xsd:dateTime;
+.
+
+#### Now the chart is plotted
+
+:chat_plotting
+    a    prov:Generation ;
+    prov:atTime    "2011-07-16T03:00:02Z"^^xsd:dateTime;
+.
+
+
+:temperatureDisplay
+   a prov:Entity;
+   prov:hadPrimarySource :sensorReading20120510;
+   prov:qualifiedPrimarySource [
+      a prov:PrimarySource;
+      prov:entity        :sensorReading20120510;
+      ex:precisionLoss true;
+      rdfs:comment """The displayed temperature does not show the full precision 
+                      available in the reading.""";
+   ];
+.
+
+:sensorReading20120510 
+   a prov:Entity;
+   prov:wasGeneratedBy :temperatureSensor;
+.
+
+:bl-dagstuhl
+   a prov:Entity;
+   prov:value """During the workshop, it became clear to me that the consensus
+   based models (which are often graphical in nature) can not only be
+   formalized but also be directly connected to these database focused
+   formalizations. I just needed to get over the differences in syntax.
+   This could imply that we could have nice way to trace provenance across
+   systems and through databases and be able to understand the
+   mathematical properties of this interconnection.""";
+   prov:wasQuotedFrom <http://purl.org/twc/page/thoughts-from-the-dagstuhl-workshop>;
+   prov:qualifiedQuotation [
+      a prov:Quotation;
+      prov:entity <http://purl.org/twc/page/thoughts-from-the-dagstuhl-workshop>;
+      my:fromSection 1;
+   ];
+.
+
+<http://purl.org/twc/page/thoughts-from-the-dagstuhl-workshop>
+   a prov:Entity;
+   prov:wasAttributedTo <http://data.semanticweb.org/person/paul-groth>;
+.
+
+<http://data.semanticweb.org/person/luc-moreau> a prov:Person, prov:Agent .
+<http://data.semanticweb.org/person/paul-groth> a prov:Person, prov:Agent .
+
+# :draft2 
+#    a prov:Entity;
+#    prov:wasRevisionOf :draft1;
+#    prov:qualifiedRevision [
+#       a prov:Revision;
+#       prov:entity :draft1
+#    ];
+#    prov:wasAttributedTo :eddie; # TODO inconsistent 
+# .
+
+:draft1 a prov:Entity .
+:eddie  a prov:Person, prov:Agent, prov:Entity .
+
+## When the role of the agent is not known or does not matter:
+
+:nationalRegionsList 
+   a prov:Entity;
+   prov:wasAttributedTo :civil_action_group;
+.
+
+:civil_action_group a prov:Agent .
+
+## If we want to express the role of the agent:
+
+:nationalRegionsList 
+   a prov:Entity;
+   prov:qualifiedAttribution [
+      a prov:Attribution;
+      prov:agent :civil_action_group;
+      ex:hadRole :owner;
+   ]
+.
+
+:the-Painter 
+   a prov:Entity, ex:Painting;
+   rdfs:label "Le Peintre"@fr, "The Painter"@en;
+   prov:wasAttributedTo <http://dbpedia.org/resource/Pablo_Picasso>;
+
+   prov:wasInvalidatedBy :swissair_Flight_111_crash;
+   prov:qualifiedInvalidation [
+      a prov:Invalidation;
+      prov:activity    :swissair_Flight_111_crash;
+      prov:atTime      "1998-09-02T01:31:00Z"^^xsd:dateTime;
+      prov:atLocation  <http://purl.org/twc/location/Swissair-Flight-111-crash>;
+   ];
+. 
+
+:swissair_Flight_111_crash a prov:Activity .
+<http://purl.org/twc/location/Swissair-Flight-111-crash> a prov:Location .
+
+
+# Start can be used to qualify wasStartedBy with time and location information.
+
+:consistency_checking
+   a prov:Activity;
+   prov:wasStartedBy :updated_data_record;
+   prov:qualifiedStart [
+      a prov:Start;
+      prov:entity       :updated_data_record;
+      prov:atTime       "2011-07-06T01:48:36Z"^^xsd:dateTime;
+      prov:atLocation   :scienceLab_003;
+      prov:hadActivity  :syntax_checking;
+   ];
+.
+
+:updated_data_record a prov:Entity .
+
+### There is an explicit process of checking the syntax of the updated data record
+
+:syntax_checking
+   a   prov:Activity ;
+   prov:startedAtTime      "2011-07-06T01:48:36Z"^^xsd:dateTime;
+   prov:endedAtTime        "2011-07-06T02:12:36Z"^^xsd:dateTime;
+   prov:wasAssociatedWith  :syntax_checker ;
+.
+
+:syntax_checker   a   prov:SoftwareAgent .
+
+:newsPublication
+   a prov:Activity;
+   prov:used                    :tsunami_image;
+   prov:qualifiedUsage [
+      a prov:Usage;
+      prov:entity               :tsunami_image;
+      ex:hasCopyrightPermission :licensedUse;  
+      ex:hasOwner               :reuters;
+   ];
+.
+
+:tsunami_image a prov:Entity .
+:reuters       a prov:Agent .
+
+:writing-celebrity-gossip 
+   a prov:Activity;
+   prov:wasAssociatedWith :journalist;
+   prov:wasInformedBy     :voicemail-interception;
+   prov:qualifiedCommunication [
+      a prov:Communication;
+      prov:activity :voicemail-interception;
+      rdfs:comment """The journalist was informed by the private 
+                      investigator, but we don't know how or what he was told."""@en;
+   ];
+.
+
+:voicemail-interception 
+   a prov:Activity;
+   prov:wasAssociatedWith :private-investigator;
+.
+
+:private-investigator a prov:Agent .
+:journalist           a prov:Agent .
+
+
+:illustrating
+    a prov:Activity; 
+    prov:wasAssociatedWith :derek, 
+                           :steve;
+    prov:qualifiedAssociation [
+        a prov:Association;
+        prov:agent   :derek;
+        prov:hadRole :illustrationist;
+        rdfs:comment "Derek made the illustration"@en
+    ];
+    prov:qualifiedAssociation [
+        a prov:Association;
+        prov:agent   :steve;
+        prov:hadRole :stylist;
+        prov:hadPlan :style-guide;
+        rdfs:comment "Steve helped Derek conform with the publisher's style guide."@en 
+    ];
+    prov:qualifiedAssociation [
+        a prov:Association;
+        prov:agent   :derek;
+        prov:hadRole :stylist;
+        rdfs:comment "But Derek also did some styling of his own."@en 
+    ] .
+
+:derek a prov:Person, prov:Agent .
+:steve a prov:Person, prov:Agent .
+
+:illustratonist a prov:Role .
+:stylist        a prov:Role .
+
+:style-guide a prov:Plan, prov:Entity .
+
+
+### End can be used to qualify wasEndedBy with time and location information
+
+:experiment 
+   a prov:Activity;
+   prov:wasEndedBy :inconsistentResult;
+   prov:qualifiedEnd [
+      a prov:End;
+      prov:entity       :inconsistentResult;
+      prov:atTime       "2011-07-16T01:52:02Z"^^xsd:dateTime;
+      prov:atLocation   :scienceLab_003;
+      prov:hadActivity  :analyse_intermediate_result ; 
+   ];
+.
+   
+:inconsistentResult a prov:Entity .
+
+### An implicit process of analysing the intermediate result to confirm its expected consistency
+
+analyse_intermediate_result
+   a   prov:Activity ;
+   prov:startedAtTime   "2011-07-15T12:52:02Z"^^xsd:dateTime;
+   prov:endedAtTime     "2011-07-16T01:52:02Z"^^xsd:dateTime;
+.
+
+:traffic-stop
+   a prov:Activity;
+   prov:wasAssociatedWith :chauffeur, 
+                          :traffic-officer-34;
+   prov:qualifiedAssociation [
+      a prov:Association;
+      prov:agent :chauffeur;
+      
+      # The chauffeur was the one violating traffic rules.
+      prov:hadRole :violator; 
+   ];
+   prov:qualifiedAssociation [
+      a prov:Association;
+      prov:agent :traffic-officer-34;
+      
+      # The officer was the one enforcing the traffic rules.
+      prov:hadRole :enforcer; 
+   ];
+.
+
+:chauffeur       
+   a prov:Person;
+   prov:actedOnBehalfOf :celebrity-in-car;
+   prov:qualifiedDelegation [
+      a prov:Delegation;
+      prov:agent :celebrity-in-car;
+      
+      # The celebrity employed the chauffeur during the enforcement.
+      prov:hadRole :employer; 
+      prov:hadActivity  :driving-during-the-year ;
+   ];
+.
+
+#The chaffeur was employed for a whole year as a driver
+:driving-during-the-year   a   prov:Activity ;
+   prov:wasAssociatedWith :chaffeur;
+   prov:qualifiedAssociation [
+      a prov:Association;
+      prov:hadRole :driver;
+   ];
+   prov:startedAtTime "2011-07-16T01:52:02Z"^^xsd:dateTime;
+   prov:endedAtTime "2012-07-16T01:52:02Z"^^xsd:dateTime;;
+.
+
+:traffic_officer_34 
+   a prov:Person;
+   prov:actedOnBehalfOf :city-of-Paris;
+   prov:qualifiedDelegation [
+      a prov:Delegation;
+      prov:agent :city-of-Paris;
+      
+      # The city of Paris employed the officer during the enforcement.
+      prov:hadRole :employer; 
+      prov:hadActivity      :control-city-traffic ;
+   ];
+.
+
+:control-city-traffic   a   prov:Activity .
+
+
+:illustrationActivity 
+   a prov:Activity;
+   prov:qualifiedUsage         :illustration_usage;
+   prov:qualifiedAssociation   :illustration_association;
+   prov:qualifiedCommunication :illustration_communication;
+.
+
+:illustration_usage
+   a prov:Usage;
+   prov:entity     :aggregatedByRegions;
+   prov:influencer :aggregatedByRegions; # Inferred
+.
+
+:illustration_association
+   a prov:Association;
+   prov:agent      :derek;
+   prov:influencer :derek; # - - - - - - - Inferred
+.
+
+:illustration_communication
+   a prov:Communication;
+   prov:activity   :aggregationActivity;
+   prov:influencer :aggregationActivity; # Inferred
+.
+
+:aggregationActivity a prov:Activity .  
+:derek               a prov:Agent .
+:aggregatedByRegions a prov:Entity .
+
+
+:world-literature-homework-submission-32 
+   a prov:Entity;
+   prov:hadPrimarySource :donQuixote;
+   prov:qualifiedPrimarySource [
+      a prov:PrimarySource;
+      prov:entity :donQuixote;
+      # Other attributes of the relationship
+   ];
+.
+
+:donQuixote a prov:Entity .
+
+
+:digestedProteinSample1
+   a prov:Entity;
+   prov:wasDerivedFrom :proteinSample;
+   prov:qualifiedDerivation [
+      a prov:Derivation;
+      prov:hadUsage [
+         a prov:Usage;
+         prov:entity :Trypsin;
+        prov:hadRole :treatmentEnzyme;
+      ];
+   ];
+   prov:entity :proteinSample;
+.
+:proteinSample a prov:Entity .
+
+
+:bar_chart
+   a prov:Entity, ex:Chart;
+   prov:wasDerivedFrom   :aggregatedByRegions;
+   prov:qualifiedDerivation [
+      a prov:Derivation;
+      prov:entity        :aggregatedByRegions;
+      prov:hadGeneration :illustration;
+   ];
+.
+
+:aggregatedByRegions a ex:Dataset .
+
+:illustration
+   a prov:Generation,
+     prov:InstantaneousEvent;
+   prov:activity :illustrationActivity;
+   prov:atTime   "2012-04-03T00:00:11Z"^^xsd:dateTime;
+.
+
+:illustrationActivity
+   a prov:Activity;
+   prov:startedAtTime "2012-04-03T00:00:00Z"^^xsd:dateTime;
+   prov:endedAtTime   "2012-04-03T00:00:25Z"^^xsd:dateTime;
+.
+
+
+:making-bar-chart
+   a prov:Generation, 
+     prov:ActivityInfluence;
+   prov:activity :illustrating;
+   rdfs:comment "Ended up with bar chart as line chart looked ugly."@en;
+.
+
+:illustrating a prov:Activity .
+
+:bar_chart 
+   a prov:Entity;
+   prov:wasGeneratedBy :illustrating;
+   prov:qualifiedGeneration :making-bar-chart;
+.
+
+
+:world_flight_1937
+   a prov:Activity;
+
+   prov:wasAssociatedWith <http://dbpedia.org/resource/Amelia_Earhart>,
+                          <http://dbpedia.org/resource/Purdue_University>,
+                          <http://dbpedia.org/resource/Lockheed_Aircraft_Company>;
+   prov:qualifiedAssociation [
+      a prov:Association;
+      prov:agent   <http://dbpedia.org/resource/Amelia_Earhart>;
+      prov:hadRole :pilot;
+   ];
+   prov:qualifiedAssociation [
+      a prov:Association;
+      prov:agent   <http://dbpedia.org/resource/Purdue_University>;
+      prov:hadRole :financer;
+   ];
+   prov:qualifiedAssociation [
+      a prov:Association;
+      prov:agent   <http://dbpedia.org/resource/Lockheed_Aircraft_Company>;
+      prov:hadRole :plane_builder;
+   ];
+
+   rdfs:seeAlso <http://en.wikipedia.org/wiki/Amelia_Earhart#1937_world_flight>;
+.
+
+<http://dbpedia.org/resource/Amelia_Earhart>            a prov:Person,       prov:Agent .
+<http://dbpedia.org/resource/Purdue_University>         a prov:Organization, prov:Agent .
+<http://dbpedia.org/resource/Lockheed_Aircraft_Company> a prov:Organization, prov:Agent .
+
+
+   a prov:Activity; 
+   prov:wasAssociatedWith :derek, 
+                          :steve;
+   prov:qualifiedAssociation [
+      a prov:Association;
+      prov:agent   :steve;
+      prov:hadRole :stylist;
+      prov:hadPlan :style-guide;
+      rdfs:comment "Steve followed the style guide"@en;
+   ];
+.
+
+:style-guide
+   a prov:Plan, prov:Entity;
+   rdfs:comment "Use blue graphs for positive spin, red for negative"@en;
+.
+
+
+# or was responsible for the entity. In this qualified Derivation 
+# prov:hadActivity references the activity that generated the bar chart.
+
+:bar_chart
+   a prov:Entity;
+   prov:wasDerivedFrom :aggregatedByRegions;
+   prov:wasGeneratedBy :make_bar_chart;
+   prov:qualifiedDerivation [
+      a prov:Derivation;
+      prov:entity      :aggregatedByRegions;
+      prov:hadActivity :make_bar_chart; # references same activity as prov:wasGeneratedBy
+   ];
+.
+
+:aggregatedByRegions a prov:Entity .
+:make_bar_chart      a prov:Activity .
+
+
+:Timearticle20120430_publication
+   a prov:InstantaneousEvent;
+   prov:atTime "2012-04-30T20:40:40"^^xsd:dateTime;
+. 
+
+
+:divideActivity 
+   a prov:Activity;   
+
+   prov:used         :variableA;
+   prov:qualifiedUsage [
+      a prov:Usage;
+      prov:entity    :variableA;
+      prov:hadRole   :dividend;          
+   ];
+   
+   prov:used         :variableB;
+   prov:qualifiedUsage [
+      a prov:Usage;
+      prov:entity    :variableB;
+      prov:hadRole   :divisor;          
+   ];
+.
+   
+:variableA a prov:Entity .
+:variableB a prov:Entity .
+
+:dividend a prov:Role .
+:divisor  a prov:Role .
+
+

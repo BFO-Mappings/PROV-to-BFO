@@ -1,0 +1,26 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix :     <http://example.org#> .
+@base         <https://www.w3.org/TR/prov-o/example-9.ttl> .
+
+<https://www.w3.org/TR/prov-o/example-9.ttl> rdf:type owl:Ontology .
+
+:illustrationActivity
+   a prov:Activity;                ## Using Starting Point terms,
+   prov:wasAssociatedWith :derek;  ##   the illustration activity was associated with Derek in some way.
+.
+
+:derek a prov:Agent .
+
+:illustrationActivity
+   prov:qualifiedAssociation [       ## Qualify how the :illustrationActivity
+      a prov:Association;            ##   was associated with
+      prov:agent   :derek;            ##     the Agent Derek.
+
+      prov:hadRole :illustrationist; ## Qualification: The role that Derek served.
+      prov:hadPlan :tutorial_blog;   ## Qualification: The plan (or recipe, instructions)
+                                     ##   that Derek followed when creating the graphical chart.
+   ];
+.
+
+:tutorial_blog   a prov:Plan, prov:Entity .
+:illustrationist a prov:Role .
