@@ -63,7 +63,9 @@ mappings:
 # ----------------------------------------
 #### Targets / main "goals" of this Makefile
 .PHONY: all
-all: reason-edit test-edit build-release reason-release test-release mappings
+#all: reason-edit test-edit build-release reason-release test-release mappings
+# NOTE: We aren't building automatically building a release version, but instead editing & testing the release version directly
+all: reason-edit test-edit mappings
 
 build-release: $(RELEASE_BUILD_FILE)
 

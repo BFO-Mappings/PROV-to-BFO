@@ -1296,7 +1296,7 @@ my:surgeon a prov:Role .
 
 ### An implicit process of analysing the intermediate result to confirm its expected consistency
 
-analyse_intermediate_result
+:analyse_intermediate_result
    a   prov:Activity ;
    prov:startedAtTime   "2011-07-15T12:52:02Z"^^xsd:dateTime;
    prov:endedAtTime     "2011-07-16T01:52:02Z"^^xsd:dateTime;
@@ -1343,7 +1343,7 @@ analyse_intermediate_result
       prov:hadRole :driver;
    ];
    prov:startedAtTime "2011-07-16T01:52:02Z"^^xsd:dateTime;
-   prov:endedAtTime "2012-07-16T01:52:02Z"^^xsd:dateTime;;
+   prov:endedAtTime "2012-07-16T01:52:02Z"^^xsd:dateTime;
 .
 
 :traffic_officer_34 
@@ -1492,7 +1492,7 @@ analyse_intermediate_result
 <http://dbpedia.org/resource/Purdue_University>         a prov:Organization, prov:Agent .
 <http://dbpedia.org/resource/Lockheed_Aircraft_Company> a prov:Organization, prov:Agent .
 
-
+:illustrating
    a prov:Activity; 
    prov:wasAssociatedWith :derek, 
                           :steve;
