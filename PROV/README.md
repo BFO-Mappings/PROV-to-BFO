@@ -3,8 +3,14 @@
 Sydney Cohen, Giacomo De Colle, Austin Liebers, Tim Prudhomme, Alec Sculley, Karl Xie
 
 # Usage
-* [Release version here.](prov-bfo-directmappings.ttl) This contains only the mapped and extended terms. Use this one in production.
-* [Editor's development version here.](prov-bfo-edit.ttl) This contains imports of BFO, RO, and 91 example instances from the PROV-O docs to test with. Open this one in Protege to view the mapping in full context of each aligned ontology.
+* [PROV-BFO Release version here.](prov-bfo-directmappings.ttl) This contains only the mapped and extended terms from BFO. Use this one in production.
+* [Editor's development version here.](prov-mappings-edit.ttl) This contains imports of BFO, CCO, RO, and 91 example instances from the PROV-O docs to test with. Open this one in Protege to view the mapping in full context of each aligned ontology.
+
+### PROV-RO
+* [PROV-CC Release version here.](prov-cco-directmappings.ttl) This contains only the mapped and extended terms from RO. Use this one in production.
+
+### PROV-CCO
+* [PROV-CCO Release version here.](prov-cco-directmappings.ttl) This contains only the mapped and extended terms from CCO. Use this one in production.
 
 # Scope
 * The mapping goal is to subsume every [PROV-O](https://www.w3.org/TR/prov-o/) term under some [BFO (Basic Formal Ontology)](https://basic-formal-ontology.org/) or [RO (Relation Ontology)](https://oborel.github.io/) term. A separate extension which maps PROV-O to [CCO (Common Core Ontologies)](https://github.com/CommonCoreOntology/CommonCoreOntologies) is also proposed. 
@@ -43,3 +49,6 @@ Sydney Cohen, Giacomo De Colle, Austin Liebers, Tim Prudhomme, Alec Sculley, Kar
 * How to run tests manually:
     * Requirements: [GNU Make](https://www.gnu.org/software/make/)
     * Run `make` from the PROV directory, or `make -C PROV` from the BFO-Mappings directory
+
+### Release
+* Release files are indicated with `-directmappings` prefix in the file names. These are edited and annotated directly, and imported in the Editor's file for development and testing.

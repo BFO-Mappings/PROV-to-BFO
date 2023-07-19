@@ -1,0 +1,17 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix obo:  <http://purl.obolibrary.org/obo/> .
+@base <http://www.w3.org/ns/prov-o/prov-cco-directmappings.ttl> .
+
+<http://www.w3.org/ns/prov-cco-directmappings#> # TODO pick a different temporary namespace
+   a                     owl:Ontology;
+   rdfs:label           "Common Core Ontologies (CCO) mappings for W3C PROVenance Interchange Ontology (PROV-O)"@en ;
+   owl:versionInfo      "2023-07-19"@en ;
+   owl:versionIRI       <http://www.w3.org/ns/prov-cco-directmappings-20230718> ;
+   rdfs:seeAlso         <http://www.w3.org/ns/prov> ,
+                        <https://github.com/CommonCoreOntology/CommonCoreOntologies> ;
+.
+
+# TODO use PROV-RO mappings as reference for finding similar terms in CCO-ERO
