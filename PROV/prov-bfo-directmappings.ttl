@@ -31,7 +31,7 @@ prov:Entity               rdfs:subClassOf [ rdf:type owl:Class ;
                                           ] . 
 prov:Agent                rdfs:subClassOf obo:BFO_0000040 . # material entity
 prov:Activity             rdfs:subClassOf obo:BFO_0000015 . # process
-prov:Role                 rdfs:subClassOf obo:BFO_0000034 . # function
+prov:Role                 rdfs:subClassOf obo:BFO_0000023 . # role
 prov:Location             rdfs:subClassOf obo:BFO_0000029 . # site
 prov:InstantaneousEvent   rdfs:subClassOf obo:BFO_0000035 . # process boundary
 
@@ -66,9 +66,9 @@ prov:hadMember                rdfs:subPropertyOf obo:RO_0002351 .  # has member
 
 # New terms
 prov:AgentRole rdf:type owl:Class ;
-               rdfs:subClassOf   obo:BFO_0000023 , # role
+               rdfs:subClassOf   obo:BFO_0000023 ,  # role
                                  [  rdf:type owl:Restriction ;
-                                    owl:onProperty obo:BFO_0000054 ; # realized in
+                                    owl:onProperty obo:BFO_0000054 ;  # realized in
                                     owl:someValuesFrom prov:Activity
                                  ] ;
                prov:definition "An agent role is a role borne by some material entity, that, if realized, is realized in an activity taking place"@en .
@@ -77,12 +77,12 @@ prov:AgentRole rdf:type owl:Class ;
 
 # Complex mappings
 prov:Agent     rdfs:subClassOf   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0000087 ; # has role
+                                    owl:onProperty obo:RO_0000087 ;  # has role
                                     owl:someValuesFrom prov:AgentRole
                                  ] ;
                rdfs:comment      "An agent is something that plays an agent role"@en .
 
 prov:Activity  rdfs:subClassOf   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0000057 ; # has participant
+                                    owl:onProperty obo:RO_0000057 ;  # has participant
                                     owl:someValuesFrom prov:Agent
                                  ] .
