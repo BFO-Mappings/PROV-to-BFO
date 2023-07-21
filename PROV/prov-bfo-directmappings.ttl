@@ -35,6 +35,7 @@ prov:Role                 rdfs:subClassOf obo:BFO_0000023 . # role
 prov:Location             rdfs:subClassOf obo:BFO_0000029 . # site
 prov:InstantaneousEvent   rdfs:subClassOf obo:BFO_0000035 . # process boundary
 
+prov:Influence            rdfs:subClassOf prov:Activity . # this should be a bfo:process if not an prov:activity
 
 
 # Object Property mappings
@@ -64,7 +65,7 @@ prov:hadMember                rdfs:subPropertyOf obo:RO_0002351 .  # has member
 
 
 
-# New terms
+# New terms ("refinements")
 prov:AgentRole rdf:type owl:Class ;
                rdfs:subClassOf   obo:BFO_0000023 ,  # role
                                  [  rdf:type owl:Restriction ;
@@ -75,7 +76,7 @@ prov:AgentRole rdf:type owl:Class ;
 
 
 
-# Complex mappings
+# Other property restrictions
 prov:Agent     rdfs:subClassOf   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0000087 ;  # has role
                                     owl:someValuesFrom prov:AgentRole
