@@ -34,8 +34,9 @@ prov:Activity             rdfs:subClassOf obo:BFO_0000015 . # process
 prov:Role                 rdfs:subClassOf obo:BFO_0000023 . # role
 prov:Location             rdfs:subClassOf obo:BFO_0000029 . # site
 prov:InstantaneousEvent   rdfs:subClassOf obo:BFO_0000035 . # process boundary
+prov:Plan                 rdfs:subClassOf obo:BFO_0000031 . # generically dependent continuant
 
-prov:Influence            rdfs:subClassOf prov:Activity . # this should be a bfo:process if not an prov:activity
+prov:Influence            rdfs:subClassOf obo:BFO_0000015 . # process      # Question: Are all influences activities?
 
 
 # Object Property mappings
