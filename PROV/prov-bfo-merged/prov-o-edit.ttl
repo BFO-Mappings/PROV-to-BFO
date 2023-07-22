@@ -13,6 +13,7 @@
                                   rdfs:comment "DO NOT USE THIS! This is a development version which aligned prov to bfo directly instead of mapping them in an extension."@en ;
                                   rdfs:seeAlso <http://www.w3.org/TR/prov-o/> ,
                                                <http://www.w3.org/ns/prov> ;
+.
 
 #################################################################
 #    Annotation properties

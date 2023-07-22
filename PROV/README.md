@@ -21,7 +21,7 @@ Sydney Cohen, Giacomo De Colle, Austin Liebers, Tim Prudhomme, Alec Sculley, Kar
 * At the same time, the mapping is encoded as an extension to maximize compatibility and minimize dependencies for existing PROV-O users.
 * Further BFO interpretations of PROV-O are also offered:
     * An extension of `prov:Agent` using a new term `prov:Agent Role` (a `bfo:role`), which is realized by an instance of `prov:Activity`.
-    * An extension of `prov:StartedAtTime` and `prov:EndedAtTime` in terms of `bfo:temporal region`. 
+    * An extension of `prov:StartedAtTime` and `prov:EndedAtTime` in terms of `bfo:temporal region`. This will be represented using SWRL rules.
 
 # Methods
 ### Development

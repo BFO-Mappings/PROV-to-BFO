@@ -40,14 +40,14 @@ prov:qualifiedStart           rdfs:subPropertyOf obo:RO_0002501 .  # causal rela
 prov:hadMember                rdfs:subPropertyOf obo:RO_0002351 .  # has member
 
 
-# Complex mappings
+# Other property restrictions
 prov:Agent     rdfs:subClassOf   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0000087 ; # has role
+                                    owl:onProperty obo:RO_0000087 ;  # has role
                                     owl:someValuesFrom prov:AgentRole
                                  ] ;
                rdfs:comment      "An agent is something that plays an agent role"@en .
 
 prov:Activity  rdfs:subClassOf   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0000057 ; # has participant
+                                    owl:onProperty obo:RO_0000057 ;  # has participant
                                     owl:someValuesFrom prov:Agent
                                  ] .

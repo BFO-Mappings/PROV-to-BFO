@@ -16,19 +16,34 @@
 .
 
 # Class mappings
-prov:Entity               rdfs:subClassOf obo:BFO_0000002 . # continuant
+# Entities are continuants, except for spatial regions (which are causally inert and may not participate in processes)
+prov:Entity               rdfs:subClassOf [ rdf:type owl:Class ;
+                                            owl:unionOf ( obo:BFO_0000020  # specifically dependent continuant
+                                                          obo:BFO_0000031  # generically dependent continuant
+                                                          [ owl:intersectionOf ( obo:BFO_0000004  # independent continuant
+                                                                                [ rdf:type owl:Class ;
+                                                                                  owl:complementOf obo:BFO_0000006  # spatial region
+                                                                                ]
+                                                                               ) ;
+                                                            rdf:type owl:Class ;
+                                                          ]
+                                                        )
+                                          ] . 
 prov:Agent                rdfs:subClassOf obo:BFO_0000040 . # material entity
 prov:Activity             rdfs:subClassOf obo:BFO_0000015 . # process
-prov:Role                 rdfs:subClassOf obo:BFO_0000034 . # function
+prov:Role                 rdfs:subClassOf obo:BFO_0000023 . # role
 prov:Location             rdfs:subClassOf obo:BFO_0000029 . # site
 prov:InstantaneousEvent   rdfs:subClassOf obo:BFO_0000035 . # process boundary
+prov:Plan                 rdfs:subClassOf obo:BFO_0000031 . # generically dependent continuant
+
+prov:Influence            rdfs:subClassOf obo:BFO_0000015 . # process      # Question: Are all influences activities?
 
 
-# New terms
+# New terms ("refinements")
 prov:AgentRole rdf:type owl:Class ;
-               rdfs:subClassOf   obo:BFO_0000023 , # role
+               rdfs:subClassOf   obo:BFO_0000023 ,  # role
                                  [  rdf:type owl:Restriction ;
-                                    owl:onProperty obo:BFO_0000054 ; # realized in
+                                    owl:onProperty obo:BFO_0000054 ;  # realized in
                                     owl:someValuesFrom prov:Activity
                                  ] ;
                prov:definition "An agent role is a role borne by some material entity, that, if realized, is realized in an activity taking place"@en .
