@@ -3,9 +3,9 @@
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix obo:  <http://purl.obolibrary.org/obo/> .
-@base <http://www.w3.org/ns/prov-o/prov-bfo-directmappings.ttl> .
+@base <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-bfo-directmappings.ttl> .
 
-<http://www.w3.org/ns/prov-bfo-directmappings#> # TODO pick a different temporary namespace
+<https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-bfo-directmappings.ttl>
    a                     owl:Ontology;
    rdfs:label           "Basic Formal Ontology (BFO) mappings for W3C PROVenance Interchange Ontology (PROV-O)"@en ;
    owl:versionInfo      "2023-07-18"@en ;
@@ -42,33 +42,6 @@ prov:Influence            owl:disjointUnionOf ( obo:BFO_0000002  # continuant, e
                                              ) .
 
 
-# Object Property mappings
-prov:influenced           rdfs:subPropertyOf obo:RO_0002410 .  # causally related to
-prov:wasAttributedTo      rdfs:subPropertyOf obo:RO_0002559 .  # causally influenced by
-prov:alternateOf          rdfs:subPropertyOf obo:RO_0002559 .  # causally influenced by
-prov:wasDerivedFrom       rdfs:subPropertyOf obo:RO_0002559 .  # causally influenced by
-
-prov:wasEndedBy           rdfs:subPropertyOf obo:RO_0000057 .  # has participant
-prov:wasStartedBy         rdfs:subPropertyOf obo:RO_0000057 .  # has participant
-prov:wasAssociatedWith    rdfs:subPropertyOf obo:RO_0000057 .  # has participant
-prov:invalidated          rdfs:subPropertyOf obo:RO_0000057 .  # has participant
-prov:used                 rdfs:subPropertyOf obo:RO_0000057 .  # has participant
-prov:generated            rdfs:subPropertyOf obo:RO_0000057 .  # has participant
-
-prov:wasInvalidatedBy     rdfs:subPropertyOf obo:RO_0000056 .  # participates in
-prov:wasGeneratedBy       rdfs:subPropertyOf obo:RO_0000056 .  # participates in
-
-prov:wasInformedBy            rdfs:subPropertyOf obo:RO_0002501 .  # causal relation between processes
-prov:hadGeneration            rdfs:subPropertyOf obo:RO_0002501 .  # causal relation between processes
-prov:hadUsage                 rdfs:subPropertyOf obo:RO_0002501 .  # causal relation between processes
-prov:qualifiedAssociation     rdfs:subPropertyOf obo:RO_0002501 .  # causal relation between processes
-prov:qualifiedCommunication   rdfs:subPropertyOf obo:RO_0002501 .  # causal relation between processes
-prov:qualifiedStart           rdfs:subPropertyOf obo:RO_0002501 .  # causal relation between processes
-
-prov:hadMember                rdfs:subPropertyOf obo:RO_0002351 .  # has member
-
-
-
 # New terms ("refinements")
 prov:AgentRole rdf:type owl:Class ;
                rdfs:subClassOf   obo:BFO_0000023 ,  # role
@@ -77,17 +50,3 @@ prov:AgentRole rdf:type owl:Class ;
                                     owl:someValuesFrom prov:Activity
                                  ] ;
                prov:definition "An agent role is a role borne by some material entity, that, if realized, is realized in an activity taking place"@en .
-
-
-
-# Other property restrictions
-prov:Agent     rdfs:subClassOf   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0000087 ;  # has role
-                                    owl:someValuesFrom prov:AgentRole
-                                 ] ;
-               rdfs:comment      "An agent is something that plays an agent role"@en .
-
-prov:Activity  rdfs:subClassOf   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0000057 ;  # has participant
-                                    owl:someValuesFrom prov:Agent
-                                 ] .
