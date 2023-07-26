@@ -1,0 +1,29 @@
+[URI of the OWL(RDF/XML) output file]
+https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/OntoFox_outputs/RO_imports.xml
+
+[Source ontology]
+RO
+
+[Low level source term URIs]
+http://purl.obolibrary.org/obo/RO_0000053 # has characteristic
+includeAllChildren
+http://purl.obolibrary.org/obo/RO_0000052 # characteristic of
+includeAllChildren
+http://purl.obolibrary.org/obo/RO_0002410 # causally related to
+includeAllChildren
+http://purl.obolibrary.org/obo/RO_0000057 # has participant
+includeAllChildren
+http://purl.obolibrary.org/obo/RO_0000056 # participates in
+includeAllChildren
+http://purl.obolibrary.org/obo/RO_0002351 # has member
+includeAllChildren
+
+[Top level source term URIs and target direct superclass URIs]
+
+[Source term retrieval setting]
+includeNoIntermediates
+
+[Source annotation URIs]
+includeAllAxiomsRecursively
+
+[Source annotation URIs to be excluded]

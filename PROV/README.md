@@ -3,8 +3,17 @@
 Sydney Cohen, Giacomo De Colle, Austin Liebers, Tim Prudhomme, Alec Sculley, Karl Xie
 
 # Usage
-* [Release version here.](prov-bfo-directmappings.ttl) This contains only the mapped and extended terms. Use this one in production.
-* [Editor's development version here.](prov-bfo-edit.ttl) This contains imports of BFO, RO, and 91 example instances from the PROV-O docs to test with. Open this one in Protege to view the mapping in full context of each aligned ontology.
+### Development
+* [Editor's development version here.](prov-mappings-edit.ttl) This contains imports of BFO, CCO, RO, and 91 example instances from the PROV-O docs to test with. Open this file in Protege to view the mapping in full context of each aligned ontology. Test this file to ensure consistency among the extensions.
+
+### PROV-BFO
+* [PROV-BFO Release version here.](prov-bfo-directmappings.ttl) This contains only the mapped and extended terms from BFO. Use this file in production.
+
+### PROV-RO
+* [PROV-CC Release version here.](prov-cco-directmappings.ttl) This contains only the mapped and extended terms from RO. Use this file in production.
+
+### PROV-CCO
+* [PROV-CCO Release version here.](prov-cco-directmappings.ttl) This contains only the mapped and extended terms from CCO. Use this file in production.
 
 # Scope
 * The mapping goal is to subsume every [PROV-O](https://www.w3.org/TR/prov-o/) term under some [BFO (Basic Formal Ontology)](https://basic-formal-ontology.org/) or [RO (Relation Ontology)](https://oborel.github.io/) term. A separate extension which maps PROV-O to [CCO (Common Core Ontologies)](https://github.com/CommonCoreOntology/CommonCoreOntologies) is also proposed. 
@@ -16,12 +25,15 @@ Sydney Cohen, Giacomo De Colle, Austin Liebers, Tim Prudhomme, Alec Sculley, Kar
 
 # Methods
 ### Development
-1. A new PROV-BFO extension ontology is created
-    * (Previously, the mappings were added directly to a new version of PROV. These are kept in [this folder](prov-bfo-merged) for historical documentation but should not be used.)
+1. A new PROV-BFO extension ontology is created.
 2. BFO and RO are temporarily imported into PROV-BFO to help visualize the mappings in the class hierarchy using Protege
-3. [SPARQL queries](sparql) are used for finding unsubsumed classes and object properties, and also "candidate" superproperties
-4. PROV-BFO adds triples which relate terms from each ontology using the following "mapping" predicates: `rdfs:subClassOf`, `rdfs:subPropertyOf`, and `owl:equivalentClass`, similar to the [PROV-DC extension](https://www.w3.org/ns/prov-dc-directmappings.ttl)
+    * For testing and reasoning, only terms we use are extracted from RO -- plus their logical dependencies using the [MIREOT](https://www.nature.com/articles/npre.2009.3576.1.pdf) strategy with [OntoFox](https://ontofox.hegroup.org/). 
+    * The list of RO terms to import is specified in the [OntoFox_inputs](OntoFox_inputs) folder.
+    * The subset of RO extracted from OntoFox is stored locally in the [OntoFox_outputs](OntoFox_outputs) folder. This subset is imported into the editor's version of the mapping.
+3. [SPARQL queries](sparql) are used for finding unsubsumed classes and object properties, and also "candidate" superproperties.
+4. PROV-BFO adds triples which relate terms from each ontology using the following "mapping" predicates: `rdfs:subClassOf`, `rdfs:subPropertyOf`, and `owl:equivalentClass`, similar to the [PROV-DC extension](https://www.w3.org/ns/prov-dc-directmappings.ttl).
 
+* (Previously, the alignment mappings were added directly to a new version of PROV. These are kept in [this folder](prov-bfo-merged) for historical documentation but should not be used.)
 
 ### Metadata
 * The mappings should include the following metadata:
@@ -40,3 +52,7 @@ Sydney Cohen, Giacomo De Colle, Austin Liebers, Tim Prudhomme, Alec Sculley, Kar
 * How to run tests manually:
     * Requirements: [GNU Make](https://www.gnu.org/software/make/)
     * Run `make` from the PROV directory, or `make -C PROV` from the BFO-Mappings directory
+
+### Release
+* Release files are indicated with `-directmappings` prefix in the file names. These are edited and annotated directly, and imported in the Editor's file for development and testing.
+* Turtle (.ttl) versions of the release are not currently automatically built in order to ensure precise formatting, but RDF/XML versions could be automatically built from the Turtle versions.

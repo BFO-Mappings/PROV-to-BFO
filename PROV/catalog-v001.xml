@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-    <uri name="http://www.w3.org/ns/prov-bfo-directmappings#" uri="prov-bfo-directmappings.ttl"/>
-    <uri name="http://www.w3.org/ns/prov-ro-directmappings#" uri="prov-ro-directmappings.ttl"/>
-    <uri name="http://www.w3.org/ns/prov-cco-directmappings#" uri="prov-cco-directmappings.ttl"/>
+    <uri name="https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-bfo-directmappings.ttl" uri="prov-bfo-directmappings.ttl"/>
+    <uri name="https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-ro-directmappings.ttl" uri="prov-ro-directmappings.ttl"/>
+    <uri name="https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-cco-directmappings.ttl" uri="prov-cco-directmappings.ttl"/>
+    <uri name="https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/OntoFox_outputs/RO_imports.xml" uri="OntoFox_outputs/RO_imports.xml"/>
     <uri name="https://www.w3.org/TR/prov-o/example-1.ttl" uri="examples/example-1.ttl"/>
     <uri name="https://www.w3.org/TR/prov-o/example-2.ttl" uri="examples/example-2.ttl"/>
     <uri name="https://www.w3.org/TR/prov-o/example-3.ttl" uri="examples/example-3.ttl"/>

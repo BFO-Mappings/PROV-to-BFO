@@ -9,7 +9,7 @@
 # ----------------------------------------
 #### Configuration / details about our project
 # Project essentials
-config.ONTOLOGY_FILE	:= prov-bfo-edit.ttl
+config.ONTOLOGY_FILE	:= prov-mappings-edit.ttl
 config.ONTOLOGY_PREFIX	:= prov-bfo-directmappings
 config.ONTOLOGY-IRI		:= http://www.w3.org/ns/prov-bfo-directmappings
 config.BASE_IRI			:= $(config.ONTOLOGY-IRI)_
@@ -131,7 +131,7 @@ clean:
 # Release build has import declarations removed
 $(RELEASE_BUILD_FILE): $(EDITOR_BUILD_FILE)
 	$(ROBOT) remove --input $< --select "imports individuals" \
-	reason --reasoner HermiT \
+	reason --reasoner ELK \
 	annotate ${call annotation-inputs,$@,$@}
 
 # Function (aka "canned recipe") using parameters to build arguments for `annnotate`
@@ -150,7 +150,7 @@ QUERIES = $(wildcard $(config.QUERIES_DIR)/*.rq)
 # Note: $(TEST_INPUT) is a "target-specific variable" that isn't a evaluated as a prerequisite here
 .PHONY: reason
 reason: $(TEST_INPUT) | $(ROBOT_FILE)
-	$(ROBOT) reason --input $(TEST_INPUT) --reasoner HermiT
+	$(ROBOT) reason --input $(TEST_INPUT) --reasoner ELK
 
 # Test using specific queries
 .PHONY: verify
