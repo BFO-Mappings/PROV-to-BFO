@@ -1,5 +1,5 @@
 [URI of the OWL(RDF/XML) output file]
-http://www.w3.org/ns/prov-o/prov-bfo/import/RO_imports.owl
+https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/OntoFox_outputs/RO_imports.xml
 
 [Source ontology]
 RO

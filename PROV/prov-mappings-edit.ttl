@@ -18,7 +18,7 @@
                <http://purl.obolibrary.org/obo/bfo/2020/bfo.owl> , # BFO
 
                # <http://purl.obolibrary.org/obo/ro/releases/2023-02-22/ro.owl> , # Don't import all of RO, only import dependent terms below:
-               <http://www.w3.org/ns/prov-o/prov-bfo/import/RO_imports.ttl>, # RO imports
+               <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/OntoFox_outputs/RO_imports.xml>, # RO imports
 
                # <https://raw.githubusercontent.com/CommonCoreOntology/CommonCoreOntologies/master/cco-merged/MergedAllCoreOntology-v1.4-2023-04-07.ttl>, # CCO
 
