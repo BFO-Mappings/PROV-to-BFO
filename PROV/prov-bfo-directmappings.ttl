@@ -36,7 +36,10 @@ prov:Location             rdfs:subClassOf obo:BFO_0000029 . # site
 prov:InstantaneousEvent   rdfs:subClassOf obo:BFO_0000035 . # process boundary
 prov:Plan                 rdfs:subClassOf obo:BFO_0000031 . # generically dependent continuant
 
-prov:Influence            rdfs:subClassOf obo:BFO_0000015 . # process      # Question: Are all influences activities?
+prov:Influence            owl:disjointUnionOf ( obo:BFO_0000002  # continuant, e.g. certain EntityInfluences
+                                                obo:BFO_0000015  # process, e.g. Derivation
+                                                obo:BFO_0000035  # process boundary, e.g. Generation is an InstantaneousEvent
+                                             ) .
 
 
 # Object Property mappings
