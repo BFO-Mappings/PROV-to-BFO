@@ -3,13 +3,14 @@
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix obo:  <http://purl.obolibrary.org/obo/> .
-@base <http://www.w3.org/ns/prov-o/prov-ro-directmappings.ttl> .
+@base <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-ro-directmappings.ttl> .
 
-<http://www.w3.org/ns/prov-ro-directmappings#> # TODO pick a different temporary namespace
+<https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-ro-directmappings.ttl>
    a                     owl:Ontology;
    rdfs:label           "Relation Ontology (RO) mappings for W3C PROVenance Interchange Ontology (PROV-O)"@en ;
    owl:versionInfo      "2023-07-19"@en ;
    owl:versionIRI       <http://www.w3.org/ns/prov-ro-directmappings-20230718> ;
+   owl:imports          <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-bfo-directmappings.ttl> ;
    rdfs:seeAlso         <http://www.w3.org/ns/prov> ,
                         <https://obofoundry.org/ontology/ro.html> ;
 .

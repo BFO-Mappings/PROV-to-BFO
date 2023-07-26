@@ -3,9 +3,9 @@
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix obo:  <http://purl.obolibrary.org/obo/> .
-@base <http://www.w3.org/ns/prov-o/prov-bfo-directmappings.ttl> .
+@base <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-bfo-directmappings.ttl> .
 
-<http://www.w3.org/ns/prov-bfo-directmappings#> # TODO pick a different temporary namespace
+<https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-bfo-directmappings.ttl>
    a                     owl:Ontology;
    rdfs:label           "Basic Formal Ontology (BFO) mappings for W3C PROVenance Interchange Ontology (PROV-O)"@en ;
    owl:versionInfo      "2023-07-18"@en ;
