@@ -29,7 +29,10 @@ prov:Entity               rdfs:subClassOf [ rdf:type owl:Class ;
                                                           ]
                                                         )
                                           ] . 
-prov:Agent                rdfs:subClassOf obo:BFO_0000040 . # material entity
+
+prov:Agent                owl:disjointUnionOf ( obo:BFO_0000040  # material entity
+                                                obo:BFO_0000015  # process, e.g. Activity as per Requirement VI4 in "Rationale of Prov"
+                                              ) .
 prov:Activity             rdfs:subClassOf obo:BFO_0000015 . # process
 prov:Role                 rdfs:subClassOf obo:BFO_0000023 . # role
 prov:Location             rdfs:subClassOf obo:BFO_0000029 . # site
