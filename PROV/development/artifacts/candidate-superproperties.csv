@@ -1,0 +1,330 @@
+targetProperty,superDomainLabel,domainLabel,targetPropertyLabel,rangeLabel,superRangeLabel,otherProperty,otherDomainLabel,otherPropertyLabel,otherRangeLabel
+http://www.w3.org/ns/prov#actedOnBehalfOf,continuant,Agent,actedOnBehalfOf,Agent,continuant,http://purl.obolibrary.org/obo/BFO_0000110,continuant,has continuant part at all times,continuant
+http://www.w3.org/ns/prov#actedOnBehalfOf,continuant,Agent,actedOnBehalfOf,Agent,continuant,http://purl.obolibrary.org/obo/BFO_0000111,continuant,has proper continuant part at all times,continuant
+http://www.w3.org/ns/prov#actedOnBehalfOf,continuant,Agent,actedOnBehalfOf,Agent,continuant,http://purl.obolibrary.org/obo/BFO_0000137,continuant,proper continuant part of at all times,continuant
+http://www.w3.org/ns/prov#actedOnBehalfOf,continuant,Agent,actedOnBehalfOf,Agent,continuant,http://purl.obolibrary.org/obo/BFO_0000174,continuant,has proper continuant part at some time,continuant
+http://www.w3.org/ns/prov#actedOnBehalfOf,continuant,Agent,actedOnBehalfOf,Agent,continuant,http://purl.obolibrary.org/obo/BFO_0000175,continuant,proper continuant part of at some time,continuant
+http://www.w3.org/ns/prov#actedOnBehalfOf,continuant,Agent,actedOnBehalfOf,Agent,continuant,http://purl.obolibrary.org/obo/BFO_0000176,continuant,continuant part of at some time,continuant
+http://www.w3.org/ns/prov#actedOnBehalfOf,continuant,Agent,actedOnBehalfOf,Agent,continuant,http://purl.obolibrary.org/obo/BFO_0000177,continuant,continuant part of at all times,continuant
+http://www.w3.org/ns/prov#actedOnBehalfOf,continuant,Agent,actedOnBehalfOf,Agent,continuant,http://purl.obolibrary.org/obo/BFO_0000178,continuant,has continuant part at some time,continuant
+http://www.w3.org/ns/prov#actedOnBehalfOf,independent continuant,Agent,actedOnBehalfOf,Agent,independent continuant,http://purl.obolibrary.org/obo/RO_0001025,independent continuant,located in,independent continuant
+http://www.w3.org/ns/prov#actedOnBehalfOf,independent continuant,Agent,actedOnBehalfOf,Agent,independent continuant,http://www.ontologyrepository.com/CommonCoreOntologies/is_predecessor_of,independent continuant,is predecessor of,independent continuant
+http://www.w3.org/ns/prov#actedOnBehalfOf,independent continuant,Agent,actedOnBehalfOf,Agent,independent continuant,http://www.ontologyrepository.com/CommonCoreOntologies/is_successor_of,independent continuant,is successor of,independent continuant
+http://www.w3.org/ns/prov#actedOnBehalfOf,material entity,Agent,actedOnBehalfOf,Agent,material entity,http://purl.obolibrary.org/obo/BFO_0000115,material entity,has member part at some time,material entity
+http://www.w3.org/ns/prov#actedOnBehalfOf,material entity,Agent,actedOnBehalfOf,Agent,material entity,http://purl.obolibrary.org/obo/BFO_0000129,material entity,member part of at some time,material entity
+http://www.w3.org/ns/prov#actedOnBehalfOf,material entity,Agent,actedOnBehalfOf,Agent,material entity,http://purl.obolibrary.org/obo/BFO_0000172,material entity,has member part at all times,material entity
+http://www.w3.org/ns/prov#actedOnBehalfOf,material entity,Agent,actedOnBehalfOf,Agent,material entity,http://purl.obolibrary.org/obo/BFO_0000173,material entity,member part of at all times,material entity
+http://www.w3.org/ns/prov#actedOnBehalfOf,material entity,Agent,actedOnBehalfOf,Agent,independent continuant,http://purl.obolibrary.org/obo/RO_0001018,material entity,contained in,independent continuant
+http://www.w3.org/ns/prov#activity,occurrent,ActivityInfluence,activity,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000062,occurrent,preceded by,occurrent
+http://www.w3.org/ns/prov#activity,occurrent,ActivityInfluence,activity,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000063,occurrent,precedes,occurrent
+http://www.w3.org/ns/prov#activity,occurrent,ActivityInfluence,activity,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000117,occurrent,has occurrent part,occurrent
+http://www.w3.org/ns/prov#activity,occurrent,ActivityInfluence,activity,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000118,occurrent,has proper occurrent part,occurrent
+http://www.w3.org/ns/prov#activity,occurrent,ActivityInfluence,activity,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000121,occurrent,has temporal part,occurrent
+http://www.w3.org/ns/prov#activity,occurrent,ActivityInfluence,activity,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000132,occurrent,occurrent part of,occurrent
+http://www.w3.org/ns/prov#activity,occurrent,ActivityInfluence,activity,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000136,occurrent,proper temporal part of,occurrent
+http://www.w3.org/ns/prov#activity,occurrent,ActivityInfluence,activity,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000138,occurrent,proper occurrent part of,occurrent
+http://www.w3.org/ns/prov#activity,occurrent,ActivityInfluence,activity,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000139,occurrent,temporal part of,occurrent
+http://www.w3.org/ns/prov#activity,occurrent,ActivityInfluence,activity,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000181,occurrent,has proper temporal part,occurrent
+http://www.w3.org/ns/prov#activity,occurrent,ActivityInfluence,activity,Activity,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/caused_by,occurrent,caused by,occurrent
+http://www.w3.org/ns/prov#activity,occurrent,ActivityInfluence,activity,Activity,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/is_cause_of,occurrent,is cause of,occurrent
+http://www.w3.org/ns/prov#activity,process,ActivityInfluence,activity,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/disrupts,process,disrupts,process
+http://www.w3.org/ns/prov#activity,process,ActivityInfluence,activity,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/has_process_part,process,has process part,process
+http://www.w3.org/ns/prov#activity,process,ActivityInfluence,activity,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_disrupted_by,process,is disrupted by,process
+http://www.w3.org/ns/prov#activity,process,ActivityInfluence,activity,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_part_of_process,process,is part of process,process
+http://www.w3.org/ns/prov#agent,occurrent,AgentInfluence,agent,Agent,independent continuant,http://purl.obolibrary.org/obo/BFO_0000066,occurrent,occurs in,independent continuant
+http://www.w3.org/ns/prov#agent,occurrent,AgentInfluence,agent,Agent,continuant,http://purl.obolibrary.org/obo/RO_0000057,occurrent,has participant,continuant
+http://www.w3.org/ns/prov#agent,process,AgentInfluence,agent,Agent,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/affects,process,affects,continuant
+http://www.w3.org/ns/prov#agent,process,AgentInfluence,agent,Agent,material entity,http://www.ontologyrepository.com/CommonCoreOntologies/has_accessory,process,has accessory,material entity
+http://www.w3.org/ns/prov#agent,process,AgentInfluence,agent,Agent,material entity,http://www.ontologyrepository.com/CommonCoreOntologies/has_accomplice,process,has accomplice,material entity
+http://www.w3.org/ns/prov#agent,process,AgentInfluence,agent,Agent,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_input,process,has input,continuant
+http://www.w3.org/ns/prov#agent,process,AgentInfluence,agent,Agent,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_output,process,has output,continuant
+http://www.w3.org/ns/prov#alternateOf,continuant,Entity,alternateOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000110,continuant,has continuant part at all times,continuant
+http://www.w3.org/ns/prov#alternateOf,continuant,Entity,alternateOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000111,continuant,has proper continuant part at all times,continuant
+http://www.w3.org/ns/prov#alternateOf,continuant,Entity,alternateOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000137,continuant,proper continuant part of at all times,continuant
+http://www.w3.org/ns/prov#alternateOf,continuant,Entity,alternateOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000174,continuant,has proper continuant part at some time,continuant
+http://www.w3.org/ns/prov#alternateOf,continuant,Entity,alternateOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000175,continuant,proper continuant part of at some time,continuant
+http://www.w3.org/ns/prov#alternateOf,continuant,Entity,alternateOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000176,continuant,continuant part of at some time,continuant
+http://www.w3.org/ns/prov#alternateOf,continuant,Entity,alternateOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000177,continuant,continuant part of at all times,continuant
+http://www.w3.org/ns/prov#alternateOf,continuant,Entity,alternateOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000178,continuant,has continuant part at some time,continuant
+http://www.w3.org/ns/prov#entity,occurrent,EntityInfluence,entity,Entity,continuant,http://purl.obolibrary.org/obo/RO_0000057,occurrent,has participant,continuant
+http://www.w3.org/ns/prov#entity,process,EntityInfluence,entity,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/affects,process,affects,continuant
+http://www.w3.org/ns/prov#entity,process,EntityInfluence,entity,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_input,process,has input,continuant
+http://www.w3.org/ns/prov#entity,process,EntityInfluence,entity,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_output,process,has output,continuant
+http://www.w3.org/ns/prov#generated,occurrent,Activity,generated,Entity,continuant,http://purl.obolibrary.org/obo/RO_0000057,occurrent,has participant,continuant
+http://www.w3.org/ns/prov#generated,process,Activity,generated,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/affects,process,affects,continuant
+http://www.w3.org/ns/prov#generated,process,Activity,generated,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_input,process,has input,continuant
+http://www.w3.org/ns/prov#generated,process,Activity,generated,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_output,process,has output,continuant
+http://www.w3.org/ns/prov#hadActivity,occurrent,Influence,hadActivity,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000062,occurrent,preceded by,occurrent
+http://www.w3.org/ns/prov#hadActivity,occurrent,Influence,hadActivity,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000063,occurrent,precedes,occurrent
+http://www.w3.org/ns/prov#hadActivity,occurrent,Influence,hadActivity,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000117,occurrent,has occurrent part,occurrent
+http://www.w3.org/ns/prov#hadActivity,occurrent,Influence,hadActivity,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000118,occurrent,has proper occurrent part,occurrent
+http://www.w3.org/ns/prov#hadActivity,occurrent,Influence,hadActivity,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000121,occurrent,has temporal part,occurrent
+http://www.w3.org/ns/prov#hadActivity,occurrent,Influence,hadActivity,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000132,occurrent,occurrent part of,occurrent
+http://www.w3.org/ns/prov#hadActivity,occurrent,Influence,hadActivity,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000136,occurrent,proper temporal part of,occurrent
+http://www.w3.org/ns/prov#hadActivity,occurrent,Influence,hadActivity,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000138,occurrent,proper occurrent part of,occurrent
+http://www.w3.org/ns/prov#hadActivity,occurrent,Influence,hadActivity,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000139,occurrent,temporal part of,occurrent
+http://www.w3.org/ns/prov#hadActivity,occurrent,Influence,hadActivity,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000181,occurrent,has proper temporal part,occurrent
+http://www.w3.org/ns/prov#hadActivity,occurrent,Influence,hadActivity,Activity,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/caused_by,occurrent,caused by,occurrent
+http://www.w3.org/ns/prov#hadActivity,occurrent,Influence,hadActivity,Activity,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/is_cause_of,occurrent,is cause of,occurrent
+http://www.w3.org/ns/prov#hadActivity,process,Influence,hadActivity,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/disrupts,process,disrupts,process
+http://www.w3.org/ns/prov#hadActivity,process,Influence,hadActivity,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/has_process_part,process,has process part,process
+http://www.w3.org/ns/prov#hadActivity,process,Influence,hadActivity,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_disrupted_by,process,is disrupted by,process
+http://www.w3.org/ns/prov#hadActivity,process,Influence,hadActivity,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_part_of_process,process,is part of process,process
+http://www.w3.org/ns/prov#hadGeneration,occurrent,Derivation,hadGeneration,Generation,occurrent,http://purl.obolibrary.org/obo/BFO_0000062,occurrent,preceded by,occurrent
+http://www.w3.org/ns/prov#hadGeneration,occurrent,Derivation,hadGeneration,Generation,occurrent,http://purl.obolibrary.org/obo/BFO_0000063,occurrent,precedes,occurrent
+http://www.w3.org/ns/prov#hadGeneration,occurrent,Derivation,hadGeneration,Generation,occurrent,http://purl.obolibrary.org/obo/BFO_0000117,occurrent,has occurrent part,occurrent
+http://www.w3.org/ns/prov#hadGeneration,occurrent,Derivation,hadGeneration,Generation,occurrent,http://purl.obolibrary.org/obo/BFO_0000118,occurrent,has proper occurrent part,occurrent
+http://www.w3.org/ns/prov#hadGeneration,occurrent,Derivation,hadGeneration,Generation,occurrent,http://purl.obolibrary.org/obo/BFO_0000121,occurrent,has temporal part,occurrent
+http://www.w3.org/ns/prov#hadGeneration,occurrent,Derivation,hadGeneration,Generation,occurrent,http://purl.obolibrary.org/obo/BFO_0000132,occurrent,occurrent part of,occurrent
+http://www.w3.org/ns/prov#hadGeneration,occurrent,Derivation,hadGeneration,Generation,occurrent,http://purl.obolibrary.org/obo/BFO_0000136,occurrent,proper temporal part of,occurrent
+http://www.w3.org/ns/prov#hadGeneration,occurrent,Derivation,hadGeneration,Generation,occurrent,http://purl.obolibrary.org/obo/BFO_0000138,occurrent,proper occurrent part of,occurrent
+http://www.w3.org/ns/prov#hadGeneration,occurrent,Derivation,hadGeneration,Generation,occurrent,http://purl.obolibrary.org/obo/BFO_0000139,occurrent,temporal part of,occurrent
+http://www.w3.org/ns/prov#hadGeneration,occurrent,Derivation,hadGeneration,Generation,occurrent,http://purl.obolibrary.org/obo/BFO_0000181,occurrent,has proper temporal part,occurrent
+http://www.w3.org/ns/prov#hadGeneration,occurrent,Derivation,hadGeneration,Generation,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/caused_by,occurrent,caused by,occurrent
+http://www.w3.org/ns/prov#hadGeneration,occurrent,Derivation,hadGeneration,Generation,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/is_cause_of,occurrent,is cause of,occurrent
+http://www.w3.org/ns/prov#hadGeneration,process,Derivation,hadGeneration,Generation,process,http://www.ontologyrepository.com/CommonCoreOntologies/disrupts,process,disrupts,process
+http://www.w3.org/ns/prov#hadGeneration,process,Derivation,hadGeneration,Generation,process,http://www.ontologyrepository.com/CommonCoreOntologies/has_process_part,process,has process part,process
+http://www.w3.org/ns/prov#hadGeneration,process,Derivation,hadGeneration,Generation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_disrupted_by,process,is disrupted by,process
+http://www.w3.org/ns/prov#hadGeneration,process,Derivation,hadGeneration,Generation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_part_of_process,process,is part of process,process
+http://www.w3.org/ns/prov#hadMember,continuant,Collection,hadMember,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000110,continuant,has continuant part at all times,continuant
+http://www.w3.org/ns/prov#hadMember,continuant,Collection,hadMember,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000111,continuant,has proper continuant part at all times,continuant
+http://www.w3.org/ns/prov#hadMember,continuant,Collection,hadMember,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000137,continuant,proper continuant part of at all times,continuant
+http://www.w3.org/ns/prov#hadMember,continuant,Collection,hadMember,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000174,continuant,has proper continuant part at some time,continuant
+http://www.w3.org/ns/prov#hadMember,continuant,Collection,hadMember,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000175,continuant,proper continuant part of at some time,continuant
+http://www.w3.org/ns/prov#hadMember,continuant,Collection,hadMember,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000176,continuant,continuant part of at some time,continuant
+http://www.w3.org/ns/prov#hadMember,continuant,Collection,hadMember,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000177,continuant,continuant part of at all times,continuant
+http://www.w3.org/ns/prov#hadMember,continuant,Collection,hadMember,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000178,continuant,has continuant part at some time,continuant
+http://www.w3.org/ns/prov#hadPlan,occurrent,Association,hadPlan,Plan,continuant,http://purl.obolibrary.org/obo/RO_0000057,occurrent,has participant,continuant
+http://www.w3.org/ns/prov#hadPlan,process,Association,hadPlan,Plan,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/affects,process,affects,continuant
+http://www.w3.org/ns/prov#hadPlan,process,Association,hadPlan,Plan,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_input,process,has input,continuant
+http://www.w3.org/ns/prov#hadPlan,process,Association,hadPlan,Plan,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_output,process,has output,continuant
+http://www.w3.org/ns/prov#hadPrimarySource,continuant,Entity,hadPrimarySource,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000110,continuant,has continuant part at all times,continuant
+http://www.w3.org/ns/prov#hadPrimarySource,continuant,Entity,hadPrimarySource,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000111,continuant,has proper continuant part at all times,continuant
+http://www.w3.org/ns/prov#hadPrimarySource,continuant,Entity,hadPrimarySource,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000137,continuant,proper continuant part of at all times,continuant
+http://www.w3.org/ns/prov#hadPrimarySource,continuant,Entity,hadPrimarySource,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000174,continuant,has proper continuant part at some time,continuant
+http://www.w3.org/ns/prov#hadPrimarySource,continuant,Entity,hadPrimarySource,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000175,continuant,proper continuant part of at some time,continuant
+http://www.w3.org/ns/prov#hadPrimarySource,continuant,Entity,hadPrimarySource,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000176,continuant,continuant part of at some time,continuant
+http://www.w3.org/ns/prov#hadPrimarySource,continuant,Entity,hadPrimarySource,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000177,continuant,continuant part of at all times,continuant
+http://www.w3.org/ns/prov#hadPrimarySource,continuant,Entity,hadPrimarySource,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000178,continuant,has continuant part at some time,continuant
+http://www.w3.org/ns/prov#hadRole,occurrent,Influence,hadRole,Role,continuant,http://purl.obolibrary.org/obo/RO_0000057,occurrent,has participant,continuant
+http://www.w3.org/ns/prov#hadRole,process,Influence,hadRole,Role,realizable entity,http://purl.obolibrary.org/obo/BFO_0000055,process,realizes,realizable entity
+http://www.w3.org/ns/prov#hadRole,process,Influence,hadRole,Role,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/affects,process,affects,continuant
+http://www.w3.org/ns/prov#hadRole,process,Influence,hadRole,Role,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_input,process,has input,continuant
+http://www.w3.org/ns/prov#hadRole,process,Influence,hadRole,Role,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_output,process,has output,continuant
+http://www.w3.org/ns/prov#hadUsage,occurrent,Derivation,hadUsage,Usage,occurrent,http://purl.obolibrary.org/obo/BFO_0000062,occurrent,preceded by,occurrent
+http://www.w3.org/ns/prov#hadUsage,occurrent,Derivation,hadUsage,Usage,occurrent,http://purl.obolibrary.org/obo/BFO_0000063,occurrent,precedes,occurrent
+http://www.w3.org/ns/prov#hadUsage,occurrent,Derivation,hadUsage,Usage,occurrent,http://purl.obolibrary.org/obo/BFO_0000117,occurrent,has occurrent part,occurrent
+http://www.w3.org/ns/prov#hadUsage,occurrent,Derivation,hadUsage,Usage,occurrent,http://purl.obolibrary.org/obo/BFO_0000118,occurrent,has proper occurrent part,occurrent
+http://www.w3.org/ns/prov#hadUsage,occurrent,Derivation,hadUsage,Usage,occurrent,http://purl.obolibrary.org/obo/BFO_0000121,occurrent,has temporal part,occurrent
+http://www.w3.org/ns/prov#hadUsage,occurrent,Derivation,hadUsage,Usage,occurrent,http://purl.obolibrary.org/obo/BFO_0000132,occurrent,occurrent part of,occurrent
+http://www.w3.org/ns/prov#hadUsage,occurrent,Derivation,hadUsage,Usage,occurrent,http://purl.obolibrary.org/obo/BFO_0000136,occurrent,proper temporal part of,occurrent
+http://www.w3.org/ns/prov#hadUsage,occurrent,Derivation,hadUsage,Usage,occurrent,http://purl.obolibrary.org/obo/BFO_0000138,occurrent,proper occurrent part of,occurrent
+http://www.w3.org/ns/prov#hadUsage,occurrent,Derivation,hadUsage,Usage,occurrent,http://purl.obolibrary.org/obo/BFO_0000139,occurrent,temporal part of,occurrent
+http://www.w3.org/ns/prov#hadUsage,occurrent,Derivation,hadUsage,Usage,occurrent,http://purl.obolibrary.org/obo/BFO_0000181,occurrent,has proper temporal part,occurrent
+http://www.w3.org/ns/prov#hadUsage,occurrent,Derivation,hadUsage,Usage,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/caused_by,occurrent,caused by,occurrent
+http://www.w3.org/ns/prov#hadUsage,occurrent,Derivation,hadUsage,Usage,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/is_cause_of,occurrent,is cause of,occurrent
+http://www.w3.org/ns/prov#hadUsage,process,Derivation,hadUsage,Usage,process,http://www.ontologyrepository.com/CommonCoreOntologies/disrupts,process,disrupts,process
+http://www.w3.org/ns/prov#hadUsage,process,Derivation,hadUsage,Usage,process,http://www.ontologyrepository.com/CommonCoreOntologies/has_process_part,process,has process part,process
+http://www.w3.org/ns/prov#hadUsage,process,Derivation,hadUsage,Usage,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_disrupted_by,process,is disrupted by,process
+http://www.w3.org/ns/prov#hadUsage,process,Derivation,hadUsage,Usage,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_part_of_process,process,is part of process,process
+http://www.w3.org/ns/prov#invalidated,occurrent,Activity,invalidated,Entity,continuant,http://purl.obolibrary.org/obo/RO_0000057,occurrent,has participant,continuant
+http://www.w3.org/ns/prov#invalidated,process,Activity,invalidated,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/affects,process,affects,continuant
+http://www.w3.org/ns/prov#invalidated,process,Activity,invalidated,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_input,process,has input,continuant
+http://www.w3.org/ns/prov#invalidated,process,Activity,invalidated,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_output,process,has output,continuant
+http://www.w3.org/ns/prov#qualifiedAssociation,occurrent,Activity,qualifiedAssociation,Association,occurrent,http://purl.obolibrary.org/obo/BFO_0000062,occurrent,preceded by,occurrent
+http://www.w3.org/ns/prov#qualifiedAssociation,occurrent,Activity,qualifiedAssociation,Association,occurrent,http://purl.obolibrary.org/obo/BFO_0000063,occurrent,precedes,occurrent
+http://www.w3.org/ns/prov#qualifiedAssociation,occurrent,Activity,qualifiedAssociation,Association,occurrent,http://purl.obolibrary.org/obo/BFO_0000117,occurrent,has occurrent part,occurrent
+http://www.w3.org/ns/prov#qualifiedAssociation,occurrent,Activity,qualifiedAssociation,Association,occurrent,http://purl.obolibrary.org/obo/BFO_0000118,occurrent,has proper occurrent part,occurrent
+http://www.w3.org/ns/prov#qualifiedAssociation,occurrent,Activity,qualifiedAssociation,Association,occurrent,http://purl.obolibrary.org/obo/BFO_0000121,occurrent,has temporal part,occurrent
+http://www.w3.org/ns/prov#qualifiedAssociation,occurrent,Activity,qualifiedAssociation,Association,occurrent,http://purl.obolibrary.org/obo/BFO_0000132,occurrent,occurrent part of,occurrent
+http://www.w3.org/ns/prov#qualifiedAssociation,occurrent,Activity,qualifiedAssociation,Association,occurrent,http://purl.obolibrary.org/obo/BFO_0000136,occurrent,proper temporal part of,occurrent
+http://www.w3.org/ns/prov#qualifiedAssociation,occurrent,Activity,qualifiedAssociation,Association,occurrent,http://purl.obolibrary.org/obo/BFO_0000138,occurrent,proper occurrent part of,occurrent
+http://www.w3.org/ns/prov#qualifiedAssociation,occurrent,Activity,qualifiedAssociation,Association,occurrent,http://purl.obolibrary.org/obo/BFO_0000139,occurrent,temporal part of,occurrent
+http://www.w3.org/ns/prov#qualifiedAssociation,occurrent,Activity,qualifiedAssociation,Association,occurrent,http://purl.obolibrary.org/obo/BFO_0000181,occurrent,has proper temporal part,occurrent
+http://www.w3.org/ns/prov#qualifiedAssociation,occurrent,Activity,qualifiedAssociation,Association,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/caused_by,occurrent,caused by,occurrent
+http://www.w3.org/ns/prov#qualifiedAssociation,occurrent,Activity,qualifiedAssociation,Association,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/is_cause_of,occurrent,is cause of,occurrent
+http://www.w3.org/ns/prov#qualifiedAssociation,process,Activity,qualifiedAssociation,Association,process,http://www.ontologyrepository.com/CommonCoreOntologies/disrupts,process,disrupts,process
+http://www.w3.org/ns/prov#qualifiedAssociation,process,Activity,qualifiedAssociation,Association,process,http://www.ontologyrepository.com/CommonCoreOntologies/has_process_part,process,has process part,process
+http://www.w3.org/ns/prov#qualifiedAssociation,process,Activity,qualifiedAssociation,Association,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_disrupted_by,process,is disrupted by,process
+http://www.w3.org/ns/prov#qualifiedAssociation,process,Activity,qualifiedAssociation,Association,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_part_of_process,process,is part of process,process
+http://www.w3.org/ns/prov#qualifiedAttribution,continuant,Entity,qualifiedAttribution,Attribution,occurrent,http://purl.obolibrary.org/obo/RO_0000056,continuant,participates in,occurrent
+http://www.w3.org/ns/prov#qualifiedAttribution,continuant,Entity,qualifiedAttribution,Attribution,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_affected_by,continuant,is affected by,process
+http://www.w3.org/ns/prov#qualifiedAttribution,continuant,Entity,qualifiedAttribution,Attribution,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of,continuant,is input of,process
+http://www.w3.org/ns/prov#qualifiedAttribution,continuant,Entity,qualifiedAttribution,Attribution,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_output_of,continuant,is output of,process
+http://www.w3.org/ns/prov#qualifiedCommunication,occurrent,Activity,qualifiedCommunication,Communication,occurrent,http://purl.obolibrary.org/obo/BFO_0000062,occurrent,preceded by,occurrent
+http://www.w3.org/ns/prov#qualifiedCommunication,occurrent,Activity,qualifiedCommunication,Communication,occurrent,http://purl.obolibrary.org/obo/BFO_0000063,occurrent,precedes,occurrent
+http://www.w3.org/ns/prov#qualifiedCommunication,occurrent,Activity,qualifiedCommunication,Communication,occurrent,http://purl.obolibrary.org/obo/BFO_0000117,occurrent,has occurrent part,occurrent
+http://www.w3.org/ns/prov#qualifiedCommunication,occurrent,Activity,qualifiedCommunication,Communication,occurrent,http://purl.obolibrary.org/obo/BFO_0000118,occurrent,has proper occurrent part,occurrent
+http://www.w3.org/ns/prov#qualifiedCommunication,occurrent,Activity,qualifiedCommunication,Communication,occurrent,http://purl.obolibrary.org/obo/BFO_0000121,occurrent,has temporal part,occurrent
+http://www.w3.org/ns/prov#qualifiedCommunication,occurrent,Activity,qualifiedCommunication,Communication,occurrent,http://purl.obolibrary.org/obo/BFO_0000132,occurrent,occurrent part of,occurrent
+http://www.w3.org/ns/prov#qualifiedCommunication,occurrent,Activity,qualifiedCommunication,Communication,occurrent,http://purl.obolibrary.org/obo/BFO_0000136,occurrent,proper temporal part of,occurrent
+http://www.w3.org/ns/prov#qualifiedCommunication,occurrent,Activity,qualifiedCommunication,Communication,occurrent,http://purl.obolibrary.org/obo/BFO_0000138,occurrent,proper occurrent part of,occurrent
+http://www.w3.org/ns/prov#qualifiedCommunication,occurrent,Activity,qualifiedCommunication,Communication,occurrent,http://purl.obolibrary.org/obo/BFO_0000139,occurrent,temporal part of,occurrent
+http://www.w3.org/ns/prov#qualifiedCommunication,occurrent,Activity,qualifiedCommunication,Communication,occurrent,http://purl.obolibrary.org/obo/BFO_0000181,occurrent,has proper temporal part,occurrent
+http://www.w3.org/ns/prov#qualifiedCommunication,occurrent,Activity,qualifiedCommunication,Communication,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/caused_by,occurrent,caused by,occurrent
+http://www.w3.org/ns/prov#qualifiedCommunication,occurrent,Activity,qualifiedCommunication,Communication,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/is_cause_of,occurrent,is cause of,occurrent
+http://www.w3.org/ns/prov#qualifiedCommunication,process,Activity,qualifiedCommunication,Communication,process,http://www.ontologyrepository.com/CommonCoreOntologies/disrupts,process,disrupts,process
+http://www.w3.org/ns/prov#qualifiedCommunication,process,Activity,qualifiedCommunication,Communication,process,http://www.ontologyrepository.com/CommonCoreOntologies/has_process_part,process,has process part,process
+http://www.w3.org/ns/prov#qualifiedCommunication,process,Activity,qualifiedCommunication,Communication,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_disrupted_by,process,is disrupted by,process
+http://www.w3.org/ns/prov#qualifiedCommunication,process,Activity,qualifiedCommunication,Communication,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_part_of_process,process,is part of process,process
+http://www.w3.org/ns/prov#qualifiedDelegation,continuant,Agent,qualifiedDelegation,Delegation,occurrent,http://purl.obolibrary.org/obo/RO_0000056,continuant,participates in,occurrent
+http://www.w3.org/ns/prov#qualifiedDelegation,continuant,Agent,qualifiedDelegation,Delegation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_affected_by,continuant,is affected by,process
+http://www.w3.org/ns/prov#qualifiedDelegation,continuant,Agent,qualifiedDelegation,Delegation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of,continuant,is input of,process
+http://www.w3.org/ns/prov#qualifiedDelegation,continuant,Agent,qualifiedDelegation,Delegation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_output_of,continuant,is output of,process
+http://www.w3.org/ns/prov#qualifiedDelegation,material entity,Agent,qualifiedDelegation,Delegation,process,http://www.ontologyrepository.com/CommonCoreOntologies/accessory_in,material entity,accessory in,process
+http://www.w3.org/ns/prov#qualifiedDelegation,material entity,Agent,qualifiedDelegation,Delegation,process,http://www.ontologyrepository.com/CommonCoreOntologies/accomplice_in,material entity,accomplice in,process
+http://www.w3.org/ns/prov#qualifiedDerivation,continuant,Entity,qualifiedDerivation,Derivation,occurrent,http://purl.obolibrary.org/obo/RO_0000056,continuant,participates in,occurrent
+http://www.w3.org/ns/prov#qualifiedDerivation,continuant,Entity,qualifiedDerivation,Derivation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_affected_by,continuant,is affected by,process
+http://www.w3.org/ns/prov#qualifiedDerivation,continuant,Entity,qualifiedDerivation,Derivation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of,continuant,is input of,process
+http://www.w3.org/ns/prov#qualifiedDerivation,continuant,Entity,qualifiedDerivation,Derivation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_output_of,continuant,is output of,process
+http://www.w3.org/ns/prov#qualifiedEnd,occurrent,Activity,qualifiedEnd,End,occurrent,http://purl.obolibrary.org/obo/BFO_0000062,occurrent,preceded by,occurrent
+http://www.w3.org/ns/prov#qualifiedEnd,occurrent,Activity,qualifiedEnd,End,occurrent,http://purl.obolibrary.org/obo/BFO_0000063,occurrent,precedes,occurrent
+http://www.w3.org/ns/prov#qualifiedEnd,occurrent,Activity,qualifiedEnd,End,occurrent,http://purl.obolibrary.org/obo/BFO_0000117,occurrent,has occurrent part,occurrent
+http://www.w3.org/ns/prov#qualifiedEnd,occurrent,Activity,qualifiedEnd,End,occurrent,http://purl.obolibrary.org/obo/BFO_0000118,occurrent,has proper occurrent part,occurrent
+http://www.w3.org/ns/prov#qualifiedEnd,occurrent,Activity,qualifiedEnd,End,occurrent,http://purl.obolibrary.org/obo/BFO_0000121,occurrent,has temporal part,occurrent
+http://www.w3.org/ns/prov#qualifiedEnd,occurrent,Activity,qualifiedEnd,End,occurrent,http://purl.obolibrary.org/obo/BFO_0000132,occurrent,occurrent part of,occurrent
+http://www.w3.org/ns/prov#qualifiedEnd,occurrent,Activity,qualifiedEnd,End,occurrent,http://purl.obolibrary.org/obo/BFO_0000136,occurrent,proper temporal part of,occurrent
+http://www.w3.org/ns/prov#qualifiedEnd,occurrent,Activity,qualifiedEnd,End,occurrent,http://purl.obolibrary.org/obo/BFO_0000138,occurrent,proper occurrent part of,occurrent
+http://www.w3.org/ns/prov#qualifiedEnd,occurrent,Activity,qualifiedEnd,End,occurrent,http://purl.obolibrary.org/obo/BFO_0000139,occurrent,temporal part of,occurrent
+http://www.w3.org/ns/prov#qualifiedEnd,occurrent,Activity,qualifiedEnd,End,occurrent,http://purl.obolibrary.org/obo/BFO_0000181,occurrent,has proper temporal part,occurrent
+http://www.w3.org/ns/prov#qualifiedEnd,occurrent,Activity,qualifiedEnd,End,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/caused_by,occurrent,caused by,occurrent
+http://www.w3.org/ns/prov#qualifiedEnd,occurrent,Activity,qualifiedEnd,End,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/is_cause_of,occurrent,is cause of,occurrent
+http://www.w3.org/ns/prov#qualifiedEnd,process,Activity,qualifiedEnd,End,process,http://www.ontologyrepository.com/CommonCoreOntologies/disrupts,process,disrupts,process
+http://www.w3.org/ns/prov#qualifiedEnd,process,Activity,qualifiedEnd,End,process,http://www.ontologyrepository.com/CommonCoreOntologies/has_process_part,process,has process part,process
+http://www.w3.org/ns/prov#qualifiedEnd,process,Activity,qualifiedEnd,End,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_disrupted_by,process,is disrupted by,process
+http://www.w3.org/ns/prov#qualifiedEnd,process,Activity,qualifiedEnd,End,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_part_of_process,process,is part of process,process
+http://www.w3.org/ns/prov#qualifiedGeneration,continuant,Entity,qualifiedGeneration,Generation,occurrent,http://purl.obolibrary.org/obo/RO_0000056,continuant,participates in,occurrent
+http://www.w3.org/ns/prov#qualifiedGeneration,continuant,Entity,qualifiedGeneration,Generation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_affected_by,continuant,is affected by,process
+http://www.w3.org/ns/prov#qualifiedGeneration,continuant,Entity,qualifiedGeneration,Generation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of,continuant,is input of,process
+http://www.w3.org/ns/prov#qualifiedGeneration,continuant,Entity,qualifiedGeneration,Generation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_output_of,continuant,is output of,process
+http://www.w3.org/ns/prov#qualifiedInvalidation,continuant,Entity,qualifiedInvalidation,Invalidation,occurrent,http://purl.obolibrary.org/obo/RO_0000056,continuant,participates in,occurrent
+http://www.w3.org/ns/prov#qualifiedInvalidation,continuant,Entity,qualifiedInvalidation,Invalidation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_affected_by,continuant,is affected by,process
+http://www.w3.org/ns/prov#qualifiedInvalidation,continuant,Entity,qualifiedInvalidation,Invalidation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of,continuant,is input of,process
+http://www.w3.org/ns/prov#qualifiedInvalidation,continuant,Entity,qualifiedInvalidation,Invalidation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_output_of,continuant,is output of,process
+http://www.w3.org/ns/prov#qualifiedPrimarySource,continuant,Entity,qualifiedPrimarySource,PrimarySource,occurrent,http://purl.obolibrary.org/obo/RO_0000056,continuant,participates in,occurrent
+http://www.w3.org/ns/prov#qualifiedPrimarySource,continuant,Entity,qualifiedPrimarySource,PrimarySource,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_affected_by,continuant,is affected by,process
+http://www.w3.org/ns/prov#qualifiedPrimarySource,continuant,Entity,qualifiedPrimarySource,PrimarySource,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of,continuant,is input of,process
+http://www.w3.org/ns/prov#qualifiedPrimarySource,continuant,Entity,qualifiedPrimarySource,PrimarySource,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_output_of,continuant,is output of,process
+http://www.w3.org/ns/prov#qualifiedQuotation,continuant,Entity,qualifiedQuotation,Quotation,occurrent,http://purl.obolibrary.org/obo/RO_0000056,continuant,participates in,occurrent
+http://www.w3.org/ns/prov#qualifiedQuotation,continuant,Entity,qualifiedQuotation,Quotation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_affected_by,continuant,is affected by,process
+http://www.w3.org/ns/prov#qualifiedQuotation,continuant,Entity,qualifiedQuotation,Quotation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of,continuant,is input of,process
+http://www.w3.org/ns/prov#qualifiedQuotation,continuant,Entity,qualifiedQuotation,Quotation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_output_of,continuant,is output of,process
+http://www.w3.org/ns/prov#qualifiedRevision,continuant,Entity,qualifiedRevision,Revision,occurrent,http://purl.obolibrary.org/obo/RO_0000056,continuant,participates in,occurrent
+http://www.w3.org/ns/prov#qualifiedRevision,continuant,Entity,qualifiedRevision,Revision,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_affected_by,continuant,is affected by,process
+http://www.w3.org/ns/prov#qualifiedRevision,continuant,Entity,qualifiedRevision,Revision,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of,continuant,is input of,process
+http://www.w3.org/ns/prov#qualifiedRevision,continuant,Entity,qualifiedRevision,Revision,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_output_of,continuant,is output of,process
+http://www.w3.org/ns/prov#qualifiedStart,occurrent,Activity,qualifiedStart,Start,occurrent,http://purl.obolibrary.org/obo/BFO_0000062,occurrent,preceded by,occurrent
+http://www.w3.org/ns/prov#qualifiedStart,occurrent,Activity,qualifiedStart,Start,occurrent,http://purl.obolibrary.org/obo/BFO_0000063,occurrent,precedes,occurrent
+http://www.w3.org/ns/prov#qualifiedStart,occurrent,Activity,qualifiedStart,Start,occurrent,http://purl.obolibrary.org/obo/BFO_0000117,occurrent,has occurrent part,occurrent
+http://www.w3.org/ns/prov#qualifiedStart,occurrent,Activity,qualifiedStart,Start,occurrent,http://purl.obolibrary.org/obo/BFO_0000118,occurrent,has proper occurrent part,occurrent
+http://www.w3.org/ns/prov#qualifiedStart,occurrent,Activity,qualifiedStart,Start,occurrent,http://purl.obolibrary.org/obo/BFO_0000121,occurrent,has temporal part,occurrent
+http://www.w3.org/ns/prov#qualifiedStart,occurrent,Activity,qualifiedStart,Start,occurrent,http://purl.obolibrary.org/obo/BFO_0000132,occurrent,occurrent part of,occurrent
+http://www.w3.org/ns/prov#qualifiedStart,occurrent,Activity,qualifiedStart,Start,occurrent,http://purl.obolibrary.org/obo/BFO_0000136,occurrent,proper temporal part of,occurrent
+http://www.w3.org/ns/prov#qualifiedStart,occurrent,Activity,qualifiedStart,Start,occurrent,http://purl.obolibrary.org/obo/BFO_0000138,occurrent,proper occurrent part of,occurrent
+http://www.w3.org/ns/prov#qualifiedStart,occurrent,Activity,qualifiedStart,Start,occurrent,http://purl.obolibrary.org/obo/BFO_0000139,occurrent,temporal part of,occurrent
+http://www.w3.org/ns/prov#qualifiedStart,occurrent,Activity,qualifiedStart,Start,occurrent,http://purl.obolibrary.org/obo/BFO_0000181,occurrent,has proper temporal part,occurrent
+http://www.w3.org/ns/prov#qualifiedStart,occurrent,Activity,qualifiedStart,Start,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/caused_by,occurrent,caused by,occurrent
+http://www.w3.org/ns/prov#qualifiedStart,occurrent,Activity,qualifiedStart,Start,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/is_cause_of,occurrent,is cause of,occurrent
+http://www.w3.org/ns/prov#qualifiedStart,process,Activity,qualifiedStart,Start,process,http://www.ontologyrepository.com/CommonCoreOntologies/disrupts,process,disrupts,process
+http://www.w3.org/ns/prov#qualifiedStart,process,Activity,qualifiedStart,Start,process,http://www.ontologyrepository.com/CommonCoreOntologies/has_process_part,process,has process part,process
+http://www.w3.org/ns/prov#qualifiedStart,process,Activity,qualifiedStart,Start,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_disrupted_by,process,is disrupted by,process
+http://www.w3.org/ns/prov#qualifiedStart,process,Activity,qualifiedStart,Start,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_part_of_process,process,is part of process,process
+http://www.w3.org/ns/prov#qualifiedUsage,occurrent,Activity,qualifiedUsage,Usage,occurrent,http://purl.obolibrary.org/obo/BFO_0000062,occurrent,preceded by,occurrent
+http://www.w3.org/ns/prov#qualifiedUsage,occurrent,Activity,qualifiedUsage,Usage,occurrent,http://purl.obolibrary.org/obo/BFO_0000063,occurrent,precedes,occurrent
+http://www.w3.org/ns/prov#qualifiedUsage,occurrent,Activity,qualifiedUsage,Usage,occurrent,http://purl.obolibrary.org/obo/BFO_0000117,occurrent,has occurrent part,occurrent
+http://www.w3.org/ns/prov#qualifiedUsage,occurrent,Activity,qualifiedUsage,Usage,occurrent,http://purl.obolibrary.org/obo/BFO_0000118,occurrent,has proper occurrent part,occurrent
+http://www.w3.org/ns/prov#qualifiedUsage,occurrent,Activity,qualifiedUsage,Usage,occurrent,http://purl.obolibrary.org/obo/BFO_0000121,occurrent,has temporal part,occurrent
+http://www.w3.org/ns/prov#qualifiedUsage,occurrent,Activity,qualifiedUsage,Usage,occurrent,http://purl.obolibrary.org/obo/BFO_0000132,occurrent,occurrent part of,occurrent
+http://www.w3.org/ns/prov#qualifiedUsage,occurrent,Activity,qualifiedUsage,Usage,occurrent,http://purl.obolibrary.org/obo/BFO_0000136,occurrent,proper temporal part of,occurrent
+http://www.w3.org/ns/prov#qualifiedUsage,occurrent,Activity,qualifiedUsage,Usage,occurrent,http://purl.obolibrary.org/obo/BFO_0000138,occurrent,proper occurrent part of,occurrent
+http://www.w3.org/ns/prov#qualifiedUsage,occurrent,Activity,qualifiedUsage,Usage,occurrent,http://purl.obolibrary.org/obo/BFO_0000139,occurrent,temporal part of,occurrent
+http://www.w3.org/ns/prov#qualifiedUsage,occurrent,Activity,qualifiedUsage,Usage,occurrent,http://purl.obolibrary.org/obo/BFO_0000181,occurrent,has proper temporal part,occurrent
+http://www.w3.org/ns/prov#qualifiedUsage,occurrent,Activity,qualifiedUsage,Usage,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/caused_by,occurrent,caused by,occurrent
+http://www.w3.org/ns/prov#qualifiedUsage,occurrent,Activity,qualifiedUsage,Usage,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/is_cause_of,occurrent,is cause of,occurrent
+http://www.w3.org/ns/prov#qualifiedUsage,process,Activity,qualifiedUsage,Usage,process,http://www.ontologyrepository.com/CommonCoreOntologies/disrupts,process,disrupts,process
+http://www.w3.org/ns/prov#qualifiedUsage,process,Activity,qualifiedUsage,Usage,process,http://www.ontologyrepository.com/CommonCoreOntologies/has_process_part,process,has process part,process
+http://www.w3.org/ns/prov#qualifiedUsage,process,Activity,qualifiedUsage,Usage,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_disrupted_by,process,is disrupted by,process
+http://www.w3.org/ns/prov#qualifiedUsage,process,Activity,qualifiedUsage,Usage,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_part_of_process,process,is part of process,process
+http://www.w3.org/ns/prov#specializationOf,continuant,Entity,specializationOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000110,continuant,has continuant part at all times,continuant
+http://www.w3.org/ns/prov#specializationOf,continuant,Entity,specializationOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000111,continuant,has proper continuant part at all times,continuant
+http://www.w3.org/ns/prov#specializationOf,continuant,Entity,specializationOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000137,continuant,proper continuant part of at all times,continuant
+http://www.w3.org/ns/prov#specializationOf,continuant,Entity,specializationOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000174,continuant,has proper continuant part at some time,continuant
+http://www.w3.org/ns/prov#specializationOf,continuant,Entity,specializationOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000175,continuant,proper continuant part of at some time,continuant
+http://www.w3.org/ns/prov#specializationOf,continuant,Entity,specializationOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000176,continuant,continuant part of at some time,continuant
+http://www.w3.org/ns/prov#specializationOf,continuant,Entity,specializationOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000177,continuant,continuant part of at all times,continuant
+http://www.w3.org/ns/prov#specializationOf,continuant,Entity,specializationOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000178,continuant,has continuant part at some time,continuant
+http://www.w3.org/ns/prov#used,occurrent,Activity,used,Entity,continuant,http://purl.obolibrary.org/obo/RO_0000057,occurrent,has participant,continuant
+http://www.w3.org/ns/prov#used,process,Activity,used,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/affects,process,affects,continuant
+http://www.w3.org/ns/prov#used,process,Activity,used,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_input,process,has input,continuant
+http://www.w3.org/ns/prov#used,process,Activity,used,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_output,process,has output,continuant
+http://www.w3.org/ns/prov#wasAssociatedWith,occurrent,Activity,wasAssociatedWith,Agent,independent continuant,http://purl.obolibrary.org/obo/BFO_0000066,occurrent,occurs in,independent continuant
+http://www.w3.org/ns/prov#wasAssociatedWith,occurrent,Activity,wasAssociatedWith,Agent,continuant,http://purl.obolibrary.org/obo/RO_0000057,occurrent,has participant,continuant
+http://www.w3.org/ns/prov#wasAssociatedWith,process,Activity,wasAssociatedWith,Agent,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/affects,process,affects,continuant
+http://www.w3.org/ns/prov#wasAssociatedWith,process,Activity,wasAssociatedWith,Agent,material entity,http://www.ontologyrepository.com/CommonCoreOntologies/has_accessory,process,has accessory,material entity
+http://www.w3.org/ns/prov#wasAssociatedWith,process,Activity,wasAssociatedWith,Agent,material entity,http://www.ontologyrepository.com/CommonCoreOntologies/has_accomplice,process,has accomplice,material entity
+http://www.w3.org/ns/prov#wasAssociatedWith,process,Activity,wasAssociatedWith,Agent,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_input,process,has input,continuant
+http://www.w3.org/ns/prov#wasAssociatedWith,process,Activity,wasAssociatedWith,Agent,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_output,process,has output,continuant
+http://www.w3.org/ns/prov#wasAttributedTo,continuant,Entity,wasAttributedTo,Agent,continuant,http://purl.obolibrary.org/obo/BFO_0000110,continuant,has continuant part at all times,continuant
+http://www.w3.org/ns/prov#wasAttributedTo,continuant,Entity,wasAttributedTo,Agent,continuant,http://purl.obolibrary.org/obo/BFO_0000111,continuant,has proper continuant part at all times,continuant
+http://www.w3.org/ns/prov#wasAttributedTo,continuant,Entity,wasAttributedTo,Agent,continuant,http://purl.obolibrary.org/obo/BFO_0000137,continuant,proper continuant part of at all times,continuant
+http://www.w3.org/ns/prov#wasAttributedTo,continuant,Entity,wasAttributedTo,Agent,continuant,http://purl.obolibrary.org/obo/BFO_0000174,continuant,has proper continuant part at some time,continuant
+http://www.w3.org/ns/prov#wasAttributedTo,continuant,Entity,wasAttributedTo,Agent,continuant,http://purl.obolibrary.org/obo/BFO_0000175,continuant,proper continuant part of at some time,continuant
+http://www.w3.org/ns/prov#wasAttributedTo,continuant,Entity,wasAttributedTo,Agent,continuant,http://purl.obolibrary.org/obo/BFO_0000176,continuant,continuant part of at some time,continuant
+http://www.w3.org/ns/prov#wasAttributedTo,continuant,Entity,wasAttributedTo,Agent,continuant,http://purl.obolibrary.org/obo/BFO_0000177,continuant,continuant part of at all times,continuant
+http://www.w3.org/ns/prov#wasAttributedTo,continuant,Entity,wasAttributedTo,Agent,continuant,http://purl.obolibrary.org/obo/BFO_0000178,continuant,has continuant part at some time,continuant
+http://www.w3.org/ns/prov#wasDerivedFrom,continuant,Entity,wasDerivedFrom,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000110,continuant,has continuant part at all times,continuant
+http://www.w3.org/ns/prov#wasDerivedFrom,continuant,Entity,wasDerivedFrom,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000111,continuant,has proper continuant part at all times,continuant
+http://www.w3.org/ns/prov#wasDerivedFrom,continuant,Entity,wasDerivedFrom,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000137,continuant,proper continuant part of at all times,continuant
+http://www.w3.org/ns/prov#wasDerivedFrom,continuant,Entity,wasDerivedFrom,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000174,continuant,has proper continuant part at some time,continuant
+http://www.w3.org/ns/prov#wasDerivedFrom,continuant,Entity,wasDerivedFrom,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000175,continuant,proper continuant part of at some time,continuant
+http://www.w3.org/ns/prov#wasDerivedFrom,continuant,Entity,wasDerivedFrom,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000176,continuant,continuant part of at some time,continuant
+http://www.w3.org/ns/prov#wasDerivedFrom,continuant,Entity,wasDerivedFrom,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000177,continuant,continuant part of at all times,continuant
+http://www.w3.org/ns/prov#wasDerivedFrom,continuant,Entity,wasDerivedFrom,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000178,continuant,has continuant part at some time,continuant
+http://www.w3.org/ns/prov#wasEndedBy,occurrent,Activity,wasEndedBy,Entity,continuant,http://purl.obolibrary.org/obo/RO_0000057,occurrent,has participant,continuant
+http://www.w3.org/ns/prov#wasEndedBy,process,Activity,wasEndedBy,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/affects,process,affects,continuant
+http://www.w3.org/ns/prov#wasEndedBy,process,Activity,wasEndedBy,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_input,process,has input,continuant
+http://www.w3.org/ns/prov#wasEndedBy,process,Activity,wasEndedBy,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_output,process,has output,continuant
+http://www.w3.org/ns/prov#wasGeneratedBy,continuant,Entity,wasGeneratedBy,Activity,occurrent,http://purl.obolibrary.org/obo/RO_0000056,continuant,participates in,occurrent
+http://www.w3.org/ns/prov#wasGeneratedBy,continuant,Entity,wasGeneratedBy,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_affected_by,continuant,is affected by,process
+http://www.w3.org/ns/prov#wasGeneratedBy,continuant,Entity,wasGeneratedBy,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of,continuant,is input of,process
+http://www.w3.org/ns/prov#wasGeneratedBy,continuant,Entity,wasGeneratedBy,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_output_of,continuant,is output of,process
+http://www.w3.org/ns/prov#wasInformedBy,occurrent,Activity,wasInformedBy,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000062,occurrent,preceded by,occurrent
+http://www.w3.org/ns/prov#wasInformedBy,occurrent,Activity,wasInformedBy,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000063,occurrent,precedes,occurrent
+http://www.w3.org/ns/prov#wasInformedBy,occurrent,Activity,wasInformedBy,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000117,occurrent,has occurrent part,occurrent
+http://www.w3.org/ns/prov#wasInformedBy,occurrent,Activity,wasInformedBy,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000118,occurrent,has proper occurrent part,occurrent
+http://www.w3.org/ns/prov#wasInformedBy,occurrent,Activity,wasInformedBy,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000121,occurrent,has temporal part,occurrent
+http://www.w3.org/ns/prov#wasInformedBy,occurrent,Activity,wasInformedBy,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000132,occurrent,occurrent part of,occurrent
+http://www.w3.org/ns/prov#wasInformedBy,occurrent,Activity,wasInformedBy,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000136,occurrent,proper temporal part of,occurrent
+http://www.w3.org/ns/prov#wasInformedBy,occurrent,Activity,wasInformedBy,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000138,occurrent,proper occurrent part of,occurrent
+http://www.w3.org/ns/prov#wasInformedBy,occurrent,Activity,wasInformedBy,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000139,occurrent,temporal part of,occurrent
+http://www.w3.org/ns/prov#wasInformedBy,occurrent,Activity,wasInformedBy,Activity,occurrent,http://purl.obolibrary.org/obo/BFO_0000181,occurrent,has proper temporal part,occurrent
+http://www.w3.org/ns/prov#wasInformedBy,occurrent,Activity,wasInformedBy,Activity,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/caused_by,occurrent,caused by,occurrent
+http://www.w3.org/ns/prov#wasInformedBy,occurrent,Activity,wasInformedBy,Activity,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/is_cause_of,occurrent,is cause of,occurrent
+http://www.w3.org/ns/prov#wasInformedBy,process,Activity,wasInformedBy,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/disrupts,process,disrupts,process
+http://www.w3.org/ns/prov#wasInformedBy,process,Activity,wasInformedBy,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/has_process_part,process,has process part,process
+http://www.w3.org/ns/prov#wasInformedBy,process,Activity,wasInformedBy,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_disrupted_by,process,is disrupted by,process
+http://www.w3.org/ns/prov#wasInformedBy,process,Activity,wasInformedBy,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_part_of_process,process,is part of process,process
+http://www.w3.org/ns/prov#wasInvalidatedBy,continuant,Entity,wasInvalidatedBy,Activity,occurrent,http://purl.obolibrary.org/obo/RO_0000056,continuant,participates in,occurrent
+http://www.w3.org/ns/prov#wasInvalidatedBy,continuant,Entity,wasInvalidatedBy,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_affected_by,continuant,is affected by,process
+http://www.w3.org/ns/prov#wasInvalidatedBy,continuant,Entity,wasInvalidatedBy,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of,continuant,is input of,process
+http://www.w3.org/ns/prov#wasInvalidatedBy,continuant,Entity,wasInvalidatedBy,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_output_of,continuant,is output of,process
+http://www.w3.org/ns/prov#wasQuotedFrom,continuant,Entity,wasQuotedFrom,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000110,continuant,has continuant part at all times,continuant
+http://www.w3.org/ns/prov#wasQuotedFrom,continuant,Entity,wasQuotedFrom,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000111,continuant,has proper continuant part at all times,continuant
+http://www.w3.org/ns/prov#wasQuotedFrom,continuant,Entity,wasQuotedFrom,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000137,continuant,proper continuant part of at all times,continuant
+http://www.w3.org/ns/prov#wasQuotedFrom,continuant,Entity,wasQuotedFrom,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000174,continuant,has proper continuant part at some time,continuant
+http://www.w3.org/ns/prov#wasQuotedFrom,continuant,Entity,wasQuotedFrom,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000175,continuant,proper continuant part of at some time,continuant
+http://www.w3.org/ns/prov#wasQuotedFrom,continuant,Entity,wasQuotedFrom,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000176,continuant,continuant part of at some time,continuant
+http://www.w3.org/ns/prov#wasQuotedFrom,continuant,Entity,wasQuotedFrom,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000177,continuant,continuant part of at all times,continuant
+http://www.w3.org/ns/prov#wasQuotedFrom,continuant,Entity,wasQuotedFrom,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000178,continuant,has continuant part at some time,continuant
+http://www.w3.org/ns/prov#wasRevisionOf,continuant,Entity,wasRevisionOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000110,continuant,has continuant part at all times,continuant
+http://www.w3.org/ns/prov#wasRevisionOf,continuant,Entity,wasRevisionOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000111,continuant,has proper continuant part at all times,continuant
+http://www.w3.org/ns/prov#wasRevisionOf,continuant,Entity,wasRevisionOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000137,continuant,proper continuant part of at all times,continuant
+http://www.w3.org/ns/prov#wasRevisionOf,continuant,Entity,wasRevisionOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000174,continuant,has proper continuant part at some time,continuant
+http://www.w3.org/ns/prov#wasRevisionOf,continuant,Entity,wasRevisionOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000175,continuant,proper continuant part of at some time,continuant
+http://www.w3.org/ns/prov#wasRevisionOf,continuant,Entity,wasRevisionOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000176,continuant,continuant part of at some time,continuant
+http://www.w3.org/ns/prov#wasRevisionOf,continuant,Entity,wasRevisionOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000177,continuant,continuant part of at all times,continuant
+http://www.w3.org/ns/prov#wasRevisionOf,continuant,Entity,wasRevisionOf,Entity,continuant,http://purl.obolibrary.org/obo/BFO_0000178,continuant,has continuant part at some time,continuant
+http://www.w3.org/ns/prov#wasStartedBy,occurrent,Activity,wasStartedBy,Entity,continuant,http://purl.obolibrary.org/obo/RO_0000057,occurrent,has participant,continuant
+http://www.w3.org/ns/prov#wasStartedBy,process,Activity,wasStartedBy,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/affects,process,affects,continuant
+http://www.w3.org/ns/prov#wasStartedBy,process,Activity,wasStartedBy,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_input,process,has input,continuant
+http://www.w3.org/ns/prov#wasStartedBy,process,Activity,wasStartedBy,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_output,process,has output,continuant
