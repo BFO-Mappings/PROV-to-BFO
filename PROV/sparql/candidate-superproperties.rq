@@ -2,6 +2,7 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX cco: <http://www.ontologyrepository.com/CommonCoreOntologies>
 
 SELECT DISTINCT ?targetProperty ?superDomainLabel ?domainLabel ?targetPropertyLabel ?rangeLabel ?superRangeLabel  ?otherProperty ?otherDomainLabel ?otherPropertyLabel ?otherRangeLabel
 WHERE {
@@ -27,9 +28,15 @@ WHERE {
   ?otherRange rdfs:label ?otherRangeLabel .
 
   # ?targetOntology a owl:Ontology .
-  BIND(prov: AS ?targetOntology) . # FILTER( STRSTARTS(str(?targetProperty), str(?targetOntology))) .
+  # FILTER( STRSTARTS(str(?targetProperty), str(?targetOntology))) .
+  BIND(prov: AS ?targetOntology) . 
 
-  FILTER(STRSTARTS(str(?targetProperty), str(?targetOntology)) && !STRSTARTS(str(?otherProperty), str(?targetOntology)) && (?superDomain = ?otherDomain || ?domain = ?otherdomain) && (?superRange = ?otherRange || ?range = ?otherRange)) .
+  # find alignments to a specific ontology
+  BIND(cco: AS ?otherOntology) . 
+  FILTER(STRSTARTS(str(?targetProperty), str(?targetOntology)) && STRSTARTS(str(?otherProperty), str(?otherOntology)) && (?superDomain = ?otherDomain || ?domain = ?otherdomain) && (?superRange = ?otherRange || ?range = ?otherRange)) .
+  
+  # find alignments to ontology except the target one
+  # FILTER(STRSTARTS(str(?targetProperty), str(?targetOntology)) && !STRSTARTS(str(?otherProperty), str(?targetOntology)) && (?superDomain = ?otherDomain || ?domain = ?otherdomain) && (?superRange = ?otherRange || ?range = ?otherRange)) .
 
   # FILTER( !STRSTARTS(str(?otherProperty), str(?targetOntology))) .
 }
