@@ -44,11 +44,23 @@ prov:hadMember                rdfs:subPropertyOf obo:RO_0002351 .  # has member
 # Other property restrictions
 prov:Agent     rdfs:subClassOf   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0000087 ;  # has role
-                                    owl:someValuesFrom prov:AgentRole
+                                    # owl:someValuesFrom obo:BFO_0000023 . # role
+                                    owl:someValuesFrom [ # anonymous "agent role"
+                                       a owl:Class ;
+                                       owl:intersectionOf ( 
+                                          obo:BFO_0000023 # role
+                                          [
+                                             a owl:Restriction ;
+                                             owl:onProperty obo:BFO_0000054 ; # has realization
+                                             owl:someValuesFrom prov:Activity ;
+                                          ]
+                                       )
+                                    ] ;
                                  ] ;
-               rdfs:comment      "An agent is something that plays an agent role"@en .
+               rdfs:comment      "An agent is something that plays a role, that, if realized, is realized in an activity taking place"@en .
+
 
 prov:Activity  rdfs:subClassOf   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0000057 ;  # has participant
-                                    owl:someValuesFrom prov:Agent
+                                    owl:someValuesFrom prov:Agent .
                                  ] .
