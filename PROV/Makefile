@@ -59,6 +59,8 @@ MAPPINGS_FILE			:= prov-bfo-mappings.sssom.csv # csv for importing into google s
 mappings: 
 	$(ROBOT) query --input $(EDITOR_BUILD_FILE) -q $(config.QUERIES_DIR)/get-mappings.rq $(MAPPINGS_FILE) --use-graphs true
 
+candidates: 
+	$(ROBOT) query --input prov-mappings-edit.ttl -q $(config.QUERIES_DIR)/candidate-superproperties.rq development/artifacts/candidate-superproperties.tsv --use-graphs true
 
 # ----------------------------------------
 #### Targets / main "goals" of this Makefile
