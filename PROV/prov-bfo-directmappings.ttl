@@ -28,8 +28,26 @@ prov:Entity               rdfs:subClassOf [ rdf:type owl:Class ;
                                                             rdf:type owl:Class ;
                                                           ]
                                                         )
-                                          ] . 
-prov:Agent                rdfs:subClassOf obo:BFO_0000040 . # material entity
+                                          ] .
+prov:Agent                owl:disjointUnionOf (
+                                                [ owl:intersectionOf ( obo:BFO_0000040 # material entity (could be a prov:Entity per Requirement VI13 in "Rationale of Prov")
+                                                                        [ rdf:type owl:Restriction ; # anonymous 'agent role'
+                                                                          owl:onProperty obo:BFO_0000196 ; # bearer of
+                                                                          owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000023 # role
+                                                                                                                    [ rdf:type owl:Restriction ;
+                                                                                                                      owl:onProperty obo:BFO_0000054 ; # has realization
+                                                                                                                      owl:someValuesFrom prov:Activity
+                                                                                                                    ]
+                                                                                                                  ) ;
+                                                                                              rdf:type owl:Class
+                                                                                            ]
+                                                                        ]
+                                                                      ) ;
+                                                  rdf:type owl:Class
+                                                ]
+                                                prov:Activity # process (could be a prov:Activity as per Requirement VI4 in "Rationale of Prov")
+                                              ) ;
+                          rdfs:comment  "An agent, if it's a material entity, bears a role, that, if realized, is realized in an activity taking place"@en .
 prov:Activity             rdfs:subClassOf obo:BFO_0000015 . # process
 prov:Role                 rdfs:subClassOf obo:BFO_0000023 . # role
 prov:Location             rdfs:subClassOf obo:BFO_0000029 . # site
@@ -39,13 +57,3 @@ prov:Plan                 rdfs:subClassOf obo:BFO_0000031 . # generically depend
 prov:Influence            owl:disjointUnionOf ( obo:BFO_0000015  # process, e.g. prov:Derivation
                                                 obo:BFO_0000035  # process boundary, e.g. prov:Generation is a prov:InstantaneousEvent
                                              ) .
-
-
-# New terms ("refinements")
-prov:AgentRole rdf:type owl:Class ;
-               rdfs:subClassOf   obo:BFO_0000023 ,  # role
-                                 [  rdf:type owl:Restriction ;
-                                    owl:onProperty obo:BFO_0000054 ;  # realized in
-                                    owl:someValuesFrom prov:Activity
-                                 ] ;
-               prov:definition "An agent role is a role borne by some material entity, that, if realized, is realized in an activity taking place"@en .
