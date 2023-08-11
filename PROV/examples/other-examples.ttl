@@ -18,6 +18,10 @@
 @prefix wgs:  <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @base          <https://www.w3.org/TR/prov-o/other-examples.ttl> .
 
+## Example instances copied from official PROV-O documentation
+## Search for "IGNORED" to find contradictory examples that are ignored due to mistakes in the example
+## Search for "TODO" to find contradictory examples that need to be handled
+
 <https://www.w3.org/TR/prov-o/other-examples.ttl> rdf:type owl:Ontology .
 
 :bar_chart 
@@ -100,7 +104,7 @@
 
 # :sortActivity
 #    a prov:Activity;
-#    prov:atTime     "2011-07-16T01:52:02Z"^^xsd:dateTime; # TODO inconsistent because atTime has domain InstantaneousEvent
+#    prov:atTime     "2011-07-16T01:52:02Z"^^xsd:dateTime; # IGNORED: inconsistent because atTime has domain InstantaneousEvent
 #    prov:used       :datasetA;
 #    prov:generated  :datasetB;
 # .
@@ -1405,20 +1409,20 @@ my:surgeon a prov:Role .
 :donQuixote a prov:Entity .
 
 
-:digestedProteinSample1
-   a prov:Entity;
-   prov:wasDerivedFrom :proteinSample;
-   prov:qualifiedDerivation [
-      a prov:Derivation;
-      prov:hadUsage [
-         a prov:Usage;
-         prov:entity :Trypsin;
-        prov:hadRole :treatmentEnzyme;
-      ];
-   ];
-   prov:entity :proteinSample;
-.
-:proteinSample a prov:Entity .
+# :digestedProteinSample1
+#    a prov:Entity;
+#    prov:wasDerivedFrom :proteinSample;
+#    prov:qualifiedDerivation [
+#       a prov:Derivation;
+#       prov:hadUsage [
+#          a prov:Usage;
+#          prov:entity :Trypsin;
+#         prov:hadRole :treatmentEnzyme;
+#       ];
+#    ];
+#    prov:entity :proteinSample; # IGNORED: causes contradiction because this implies :digestedProteinSample1 is an EntityInfluence
+# .
+# :proteinSample a prov:Entity .
 
 
 :bar_chart

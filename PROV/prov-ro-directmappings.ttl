@@ -40,15 +40,31 @@ prov:qualifiedStart           rdfs:subPropertyOf obo:RO_0002501 .  # causal rela
 
 prov:hadMember                rdfs:subPropertyOf obo:RO_0002351 .  # has member
 
-
 # Other property restrictions
-prov:Agent     rdfs:subClassOf   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0000087 ;  # has role
-                                    owl:someValuesFrom prov:AgentRole
-                                 ] ;
-               rdfs:comment      "An agent is something that plays an agent role"@en .
+prov:Agent rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Class ;
+                             owl:unionOf ( prov:Activity
+                                           [ owl:intersectionOf ( obo:BFO_0000040 # material entity
+                                                                  [ rdf:type owl:Restriction ; # anonymous 'agent role'
+                                                                    owl:onProperty obo:RO_0000087 ; # has role
+                                                                    owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000023 # role
+                                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                                owl:onProperty obo:BFO_0000054 ; # has realization
+                                                                                                                owl:someValuesFrom prov:Activity
+                                                                                                              ]
+                                                                                                            ) ;
+                                                                                         rdf:type owl:Class
+                                                                                       ]
+                                                                  ]
+                                                                ) ;
+                                             rdf:type owl:Class
+                                           ]
+                                         )
+                           ] ;
+               rdfs:comment  "An agent, if it's a material entity, has a role, that, if realized, is realized in an activity taking place"@en .
+
 
 prov:Activity  rdfs:subClassOf   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0000057 ;  # has participant
-                                    owl:someValuesFrom prov:Agent
+                                    owl:someValuesFrom prov:Agent .
                                  ] .
