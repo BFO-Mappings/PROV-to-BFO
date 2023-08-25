@@ -3,6 +3,7 @@
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix obo:  <http://purl.obolibrary.org/obo/> .
+@prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @base <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-cco-directmappings.ttl> .
 
 <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-cco-directmappings.ttl>
@@ -15,4 +16,42 @@
                         <https://github.com/CommonCoreOntology/CommonCoreOntologies> ;
 .
 
-# TODO use PROV-RO mappings as reference for finding similar terms in CCO-ERO
+# Class mappings
+# prov:Agent                  rdfs:subClassOf cco:Agent .
+prov:Activity                 rdfs:subClassOf cco:Act .
+prov:Plan                     rdfs:subClassOf cco:PlanSpecification .
+prov:Start                    rdfs:subClassOf cco:ProcessBeginning .
+prov:End                      rdfs:subClassOf cco:ProcessEnding .
+
+
+# Object Property mappings
+# prov:influenced           rdfs:subPropertyOf obo:RO_0002410 .
+# prov:wasAttributedTo      rdfs:subPropertyOf obo:RO_0002559 .
+# prov:alternateOf          rdfs:subPropertyOf obo:RO_0002559 .
+# prov:wasDerivedFrom       rdfs:subPropertyOf obo:RO_0002559 . 
+
+prov:wasEndedBy           rdfs:subPropertyOf cco:affects .
+prov:wasStartedBy         rdfs:subPropertyOf cco:affects .
+prov:wasAssociatedWith    rdfs:subPropertyOf cco:has_agent .
+# prov:invalidated          rdfs:subPropertyOf obo:RO_0000057 .
+# prov:used                 rdfs:subPropertyOf obo:RO_0000057 .
+# prov:generated            rdfs:subPropertyOf obo:RO_0000057 .
+
+prov:wasInvalidatedBy     rdfs:subPropertyOf cco:is_affected_by .
+prov:wasGeneratedBy       rdfs:subPropertyOf obo:is_output_of .
+
+# prov:wasInformedBy            rdfs:subPropertyOf obo:RO_0002501 .
+# prov:hadGeneration            rdfs:subPropertyOf obo:RO_0002501 .
+# prov:hadUsage                 rdfs:subPropertyOf obo:RO_0002501 .
+# prov:qualifiedAssociation     rdfs:subPropertyOf obo:RO_0002501 .
+# prov:qualifiedCommunication   rdfs:subPropertyOf obo:RO_0002501 .
+# prov:qualifiedStart           rdfs:subPropertyOf obo:RO_0002501 .
+
+# prov:hadMember                rdfs:subPropertyOf obo:RO_0002351 .
+
+
+
+prov:Activity  rdfs:subClassOf   [ rdf:type owl:Restriction ;
+                                    owl:onProperty cco:has_agent ;
+                                    owl:someValuesFrom prov:Agent .
+                                 ] .
