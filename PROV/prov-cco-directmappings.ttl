@@ -59,7 +59,7 @@ prov:qualifiedPrimarySource   rdfs:subPropertyOf cco:is_output_of .
 
 prov:activity             rdfs:subPropertyOf cco:is_part_of_process .
 prov:agent                rdfs:subPropertyOf cco:has_agent .
-prov:entity               rdfs:subPropertyOf cco:affects .
+# prov:entity               rdfs:subPropertyOf cco:affects . # inconsistent with example of an End (process boundary) that is the EntityInfluence of a prov:entity relation. cco:affects is for processes only
 
 
 # Unmapped
@@ -68,7 +68,7 @@ prov:entity               rdfs:subPropertyOf cco:affects .
 # prov:hadUsage                 rdfs:subPropertyOf cco: . # ???
 # prov:hadRole                  rdfs:subPropertyOf cco:has_input . # an Influence has_input some Role # inconsistent with example of a Usage (process boundary) that hadRole some Role
 # prov:qualifiedGeneration      rdfs:subPropertyOf cco:is_output_of . # inconsistent because Generation is a process boundary
-# prov:qualifiedInvalidation    rdfs:subPropertyOf cco:is_affected_by . # inconsistent because...
+# prov:qualifiedInvalidation    rdfs:subPropertyOf cco:is_affected_by . # inconsistent because Invalidation is a process boundary
 # prov:qualifiedQuotation       rdfs:subPropertyOf cco: . # ???
 # "If this Activity prov:wasInformedBy Activity :a, then it can qualify how it was influenced using prov:qualifiedCommunication [ a prov:Communication;  prov:activity :a; :foo :bar ].
 # prov:qualifiedCommunication   rdfs:subPropertyOf cco . # ???
