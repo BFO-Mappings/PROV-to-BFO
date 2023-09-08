@@ -43,21 +43,24 @@ prov:invalidated          rdfs:subPropertyOf cco:affects .
 prov:used                 rdfs:subPropertyOf cco:affects .
 prov:generated            rdfs:subPropertyOf cco:has_output .
 
-# prov:qualifiedAssociation     rdfs:subPropertyOf cco: .
-# prov:qualifiedAttribution     rdfs:subPropertyOf cco: .
-# prov:qualifiedCommunication   rdfs:subPropertyOf cco: .
-# prov:qualifiedDelegation      rdfs:subPropertyOf cco: .
-# prov:qualifiedDerivation      rdfs:subPropertyOf cco: .
-# prov:qualifiedGeneration      rdfs:subPropertyOf cco: .
-# prov:qualifiedPrimarySource   rdfs:subPropertyOf cco: .
+# prov:qualifiedAssociation     rdfs:subPropertyOf cco: . # "If this Activity prov:wasAssociatedWith Agent :ag, then it can qualify the Association using prov:qualifiedAssociation [ a prov:Association;  prov:agent :ag; :foo :bar ]."
+prov:qualifiedAttribution     rdfs:subPropertyOf cco:is_affected_by .
+# prov:qualifiedCommunication   rdfs:subPropertyOf cco: . # "If this Activity prov:wasInformedBy Activity :a, then it can qualify how it was influenced using prov:qualifiedCommunication [ a prov:Communication;  prov:activity :a; :foo :bar ].
+prov:qualifiedDelegation      rdfs:subPropertyOf cco:agent_in .
+prov:qualifiedDerivation      rdfs:subPropertyOf cco:is_output_of .
+prov:qualifiedEnd             rdfs:subPropertyOf cco:is_disrupted_by . # could also be cco:has_process_part
+prov:qualifiedGeneration      rdfs:subPropertyOf cco:is_output_of .
+prov:qualifiedInvalidation    rdfs:subPropertyOf cco:is_affected_by .
+prov:qualifiedPrimarySource   rdfs:subPropertyOf cco:is_output_of .
 # prov:qualifiedQuotation       rdfs:subPropertyOf cco: .
-# prov:qualifiedRevision        rdfs:subPropertyOf cco: .
-# prov:qualifiedEnd             rdfs:subPropertyOf cco: .
-# prov:qualifiedStart           rdfs:subPropertyOf cco: .
-# prov:qualifiedUsage           rdfs:subPropertyOf cco: .
+prov:qualifiedRevision        rdfs:subPropertyOf cco:is_affected_by .
+prov:qualifiedStart           rdfs:subPropertyOf cco:caused_by . # is the start of an activity its cause?
+# prov:qualifiedUsage           rdfs:subPropertyOf cco: . # could use cco:has_process_part if usage was a process, but it's a process boundary
+
 
 # prov:hadActivity              rdfs:subPropertyOf cco: .
 # prov:hadGeneration            rdfs:subPropertyOf cco: .
+# prov:hadRole                  rdfs:subPropertyOf cco: .
 # prov:hadPlan                  rdfs:subPropertyOf cco: .
 # prov:hadUsage                 rdfs:subPropertyOf cco: .
 # prov:hadMember                rdfs:subPropertyOf cco: .
