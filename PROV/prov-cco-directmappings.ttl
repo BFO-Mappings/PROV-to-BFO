@@ -44,37 +44,44 @@ prov:used                 rdfs:subPropertyOf cco:affects .
 prov:generated            rdfs:subPropertyOf cco:has_output .
 
 
-# Most of the Qualified properties/relations cannot be subsumed because their domains and ranges involve process boundaries instead of processes
+# "The _optional_ Plan adopted by an Agent in Association with some Activity. Plan specifications are out of the scope of this specification."
+prov:hadPlan                  rdfs:subPropertyOf cco:has_input . # an Influence has_input some Plan
 
 # "If this Activity prov:wasAssociatedWith Agent :ag, then it can qualify the Association using prov:qualifiedAssociation [ a prov:Association;  prov:agent :ag; :foo :bar ]."
-# prov:qualifiedAssociation     rdfs:subPropertyOf cco: .
-
-# "If this Activity prov:wasInformedBy Activity :a, then it can qualify how it was influenced using prov:qualifiedCommunication [ a prov:Communication;  prov:activity :a; :foo :bar ].
-# prov:qualifiedCommunication   rdfs:subPropertyOf cco: .
-
+prov:qualifiedAssociation     rdfs:subPropertyOf  cco:has_process_part .
 prov:qualifiedAttribution     rdfs:subPropertyOf cco:is_affected_by .
+prov:qualifiedRevision        rdfs:subPropertyOf cco:is_affected_by .
+
 prov:qualifiedDelegation      rdfs:subPropertyOf cco:agent_in .
 prov:qualifiedDerivation      rdfs:subPropertyOf cco:is_output_of .
-# prov:qualifiedEnd             rdfs:subPropertyOf cco:is_disrupted_by . # inconsistent ... could also be cco:has_process_part ?
-# prov:qualifiedGeneration      rdfs:subPropertyOf cco:is_output_of . # inconsistent
-# prov:qualifiedInvalidation    rdfs:subPropertyOf cco:is_affected_by . # inconsistent
 prov:qualifiedPrimarySource   rdfs:subPropertyOf cco:is_output_of .
-# prov:qualifiedQuotation       rdfs:subPropertyOf cco: .
-prov:qualifiedRevision        rdfs:subPropertyOf cco:is_affected_by .
-prov:qualifiedStart           rdfs:subPropertyOf cco:caused_by . # is the start of an activity its cause?
-# prov:qualifiedUsage           rdfs:subPropertyOf cco: . # could use cco:has_process_part if usage was a process, but it's a process boundary
 
 
-# The _optional_ Activity of an Influence, which used, generated, invalidated, or was the responsibility of some Entity
-# prov:hadActivity              rdfs:subPropertyOf cco:is_part_of_process . # inconsistent
+prov:activity             rdfs:subPropertyOf cco:is_part_of_process .
+prov:agent                rdfs:subPropertyOf cco:has_agent .
+prov:entity               rdfs:subPropertyOf cco:affects .
 
-# The _optional_ Generation involved in an Entity's Derivation.
-prov:hadGeneration            rdfs:subPropertyOf cco:has_process_part . 
-# prov:hadRole                  rdfs:subPropertyOf cco: .
-# prov:hadPlan                  rdfs:subPropertyOf cco: .
-# prov:hadUsage                 rdfs:subPropertyOf cco: .
-# prov:hadMember                rdfs:subPropertyOf cco: .
 
-# prov:activity             rdfs:subPropertyOf cco .
-# prov:agent                rdfs:subPropertyOf cco .
-# prov:entity               rdfs:subPropertyOf cco .
+# Unmapped
+
+# "The _optional_ Usage involved in an Entity's Derivation."
+# prov:hadUsage                 rdfs:subPropertyOf cco: . # ???
+# prov:hadRole                  rdfs:subPropertyOf cco:has_input . # an Influence has_input some Role # inconsistent with example of a Usage (process boundary) that hadRole some Role
+# prov:qualifiedGeneration      rdfs:subPropertyOf cco:is_output_of . # inconsistent because Generation is a process boundary
+# prov:qualifiedInvalidation    rdfs:subPropertyOf cco:is_affected_by . # inconsistent because...
+# prov:qualifiedQuotation       rdfs:subPropertyOf cco: . # ???
+# "If this Activity prov:wasInformedBy Activity :a, then it can qualify how it was influenced using prov:qualifiedCommunication [ a prov:Communication;  prov:activity :a; :foo :bar ].
+# prov:qualifiedCommunication   rdfs:subPropertyOf cco . # ???
+
+
+
+# Subsumed by BFO temporal/occurent relations
+# prov:qualifiedStart           rdfs:subPropertyOf cco:has_process_part . # inconsistent because Start is a process boundary
+# prov:qualifiedEnd             rdfs:subPropertyOf cco:is_disrupted_by . # inconsistent because End is a process boundary
+# prov:qualifiedUsage           rdfs:subPropertyOf cco:has_process_part . # inconsistent because Usage is a process boundary
+
+# "The _optional_ Activity of an Influence, which used, generated, invalidated, or was the responsibility of some Entity"
+# prov:hadActivity              rdfs:subPropertyOf cco:is_part_of_process . # inconsistent with example of instance of Start (process boundary) that hadActivity some Activity
+
+# "The _optional_ Generation involved in an Entity's Derivation."
+# prov:hadGeneration            rdfs:subPropertyOf cco:has_process_part .  # inconsistent because Generation and Derivation are a process boundaries
