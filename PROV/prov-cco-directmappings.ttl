@@ -57,7 +57,7 @@ prov:qualifiedDerivation      rdfs:subPropertyOf cco:is_output_of .
 prov:qualifiedPrimarySource   rdfs:subPropertyOf cco:is_output_of .
 
 
-prov:activity             rdfs:subPropertyOf cco:is_part_of_process .
+# prov:activity             rdfs:subPropertyOf cco:is_part_of_process . # inconsistent with example (illustration prov:activity illustrationActivity)
 prov:agent                rdfs:subPropertyOf cco:has_agent .
 # prov:entity               rdfs:subPropertyOf cco:affects . # inconsistent with example of an End (process boundary) that is the EntityInfluence of a prov:entity relation. cco:affects is for processes only
 
