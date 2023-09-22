@@ -21,7 +21,7 @@
                <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/OntoFox_outputs/RO_imports.xml>, # RO imports
 
                # <https://raw.githubusercontent.com/CommonCoreOntology/CommonCoreOntologies/master/cco-merged/MergedAllCoreOntology-v1.4-2023-04-07.ttl>, # CCO
-               # <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/MergedAllCoreOntology>, # CCO local copy
+               <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/MergedAllCoreOntology>, # CCO local copy
 
                # Test instances
                <https://www.w3.org/TR/prov-o/example-1.ttl> ,
