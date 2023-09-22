@@ -57,3 +57,11 @@ prov:Plan                 rdfs:subClassOf obo:BFO_0000031 . # generically depend
 prov:Influence            owl:disjointUnionOf ( obo:BFO_0000015  # process, e.g. prov:Derivation
                                                 obo:BFO_0000035  # process boundary, e.g. prov:Generation is a prov:InstantaneousEvent
                                              ) .
+
+# Object Properties
+prov:hadMember            rdfs:subPropertyOf obo:BFO_0000051 . # has part
+prov:hadActivity          rdfs:subPropertyOf obo:BFO_0000139 . # temporal part of
+prov:hadGeneration        rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
+prov:qualifiedStart       rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
+prov:qualifiedEnd         rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
+prov:qualifiedUsage       rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
