@@ -1,0 +1,129 @@
+targetProperty,superDomainLabel,domainLabel,targetPropertyLabel,rangeLabel,superRangeLabel,otherProperty,otherDomainLabel,otherPropertyLabel,otherRangeLabel
+http://www.w3.org/ns/prov#actedOnBehalfOf,independent continuant,Agent,actedOnBehalfOf,Agent,independent continuant,http://www.ontologyrepository.com/CommonCoreOntologies/is_predecessor_of,independent continuant,is predecessor of,independent continuant
+http://www.w3.org/ns/prov#actedOnBehalfOf,independent continuant,Agent,actedOnBehalfOf,Agent,independent continuant,http://www.ontologyrepository.com/CommonCoreOntologies/is_successor_of,independent continuant,is successor of,independent continuant
+http://www.w3.org/ns/prov#activity,occurrent,ActivityInfluence,activity,Activity,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/caused_by,occurrent,caused by,occurrent
+http://www.w3.org/ns/prov#activity,occurrent,ActivityInfluence,activity,Activity,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/is_cause_of,occurrent,is cause of,occurrent
+http://www.w3.org/ns/prov#activity,process,ActivityInfluence,activity,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/disrupts,process,disrupts,process
+http://www.w3.org/ns/prov#activity,process,ActivityInfluence,activity,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/has_process_part,process,has process part,process
+http://www.w3.org/ns/prov#activity,process,ActivityInfluence,activity,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_disrupted_by,process,is disrupted by,process
+http://www.w3.org/ns/prov#activity,process,ActivityInfluence,activity,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_part_of_process,process,is part of process,process
+http://www.w3.org/ns/prov#agent,process,AgentInfluence,agent,Agent,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/affects,process,affects,continuant
+http://www.w3.org/ns/prov#agent,process,AgentInfluence,agent,Agent,material entity,http://www.ontologyrepository.com/CommonCoreOntologies/has_accessory,process,has accessory,material entity
+http://www.w3.org/ns/prov#agent,process,AgentInfluence,agent,Agent,material entity,http://www.ontologyrepository.com/CommonCoreOntologies/has_accomplice,process,has accomplice,material entity
+http://www.w3.org/ns/prov#agent,process,AgentInfluence,agent,Agent,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_input,process,has input,continuant
+http://www.w3.org/ns/prov#agent,process,AgentInfluence,agent,Agent,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_output,process,has output,continuant
+http://www.w3.org/ns/prov#entity,process,EntityInfluence,entity,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/affects,process,affects,continuant
+http://www.w3.org/ns/prov#entity,process,EntityInfluence,entity,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_input,process,has input,continuant
+http://www.w3.org/ns/prov#entity,process,EntityInfluence,entity,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_output,process,has output,continuant
+http://www.w3.org/ns/prov#generated,process,Activity,generated,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/affects,process,affects,continuant
+http://www.w3.org/ns/prov#generated,process,Activity,generated,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_input,process,has input,continuant
+http://www.w3.org/ns/prov#generated,process,Activity,generated,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_output,process,has output,continuant
+http://www.w3.org/ns/prov#hadActivity,occurrent,Influence,hadActivity,Activity,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/caused_by,occurrent,caused by,occurrent
+http://www.w3.org/ns/prov#hadActivity,occurrent,Influence,hadActivity,Activity,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/is_cause_of,occurrent,is cause of,occurrent
+http://www.w3.org/ns/prov#hadActivity,process,Influence,hadActivity,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/disrupts,process,disrupts,process
+http://www.w3.org/ns/prov#hadActivity,process,Influence,hadActivity,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/has_process_part,process,has process part,process
+http://www.w3.org/ns/prov#hadActivity,process,Influence,hadActivity,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_disrupted_by,process,is disrupted by,process
+http://www.w3.org/ns/prov#hadActivity,process,Influence,hadActivity,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_part_of_process,process,is part of process,process
+http://www.w3.org/ns/prov#hadGeneration,occurrent,Derivation,hadGeneration,Generation,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/caused_by,occurrent,caused by,occurrent
+http://www.w3.org/ns/prov#hadGeneration,occurrent,Derivation,hadGeneration,Generation,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/is_cause_of,occurrent,is cause of,occurrent
+http://www.w3.org/ns/prov#hadGeneration,process,Derivation,hadGeneration,Generation,process,http://www.ontologyrepository.com/CommonCoreOntologies/disrupts,process,disrupts,process
+http://www.w3.org/ns/prov#hadGeneration,process,Derivation,hadGeneration,Generation,process,http://www.ontologyrepository.com/CommonCoreOntologies/has_process_part,process,has process part,process
+http://www.w3.org/ns/prov#hadGeneration,process,Derivation,hadGeneration,Generation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_disrupted_by,process,is disrupted by,process
+http://www.w3.org/ns/prov#hadGeneration,process,Derivation,hadGeneration,Generation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_part_of_process,process,is part of process,process
+http://www.w3.org/ns/prov#hadPlan,process,Association,hadPlan,Plan,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/affects,process,affects,continuant
+http://www.w3.org/ns/prov#hadPlan,process,Association,hadPlan,Plan,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_input,process,has input,continuant
+http://www.w3.org/ns/prov#hadPlan,process,Association,hadPlan,Plan,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_output,process,has output,continuant
+http://www.w3.org/ns/prov#hadRole,process,Influence,hadRole,Role,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/affects,process,affects,continuant
+http://www.w3.org/ns/prov#hadRole,process,Influence,hadRole,Role,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_input,process,has input,continuant
+http://www.w3.org/ns/prov#hadRole,process,Influence,hadRole,Role,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_output,process,has output,continuant
+http://www.w3.org/ns/prov#hadUsage,occurrent,Derivation,hadUsage,Usage,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/caused_by,occurrent,caused by,occurrent
+http://www.w3.org/ns/prov#hadUsage,occurrent,Derivation,hadUsage,Usage,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/is_cause_of,occurrent,is cause of,occurrent
+http://www.w3.org/ns/prov#hadUsage,process,Derivation,hadUsage,Usage,process,http://www.ontologyrepository.com/CommonCoreOntologies/disrupts,process,disrupts,process
+http://www.w3.org/ns/prov#hadUsage,process,Derivation,hadUsage,Usage,process,http://www.ontologyrepository.com/CommonCoreOntologies/has_process_part,process,has process part,process
+http://www.w3.org/ns/prov#hadUsage,process,Derivation,hadUsage,Usage,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_disrupted_by,process,is disrupted by,process
+http://www.w3.org/ns/prov#hadUsage,process,Derivation,hadUsage,Usage,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_part_of_process,process,is part of process,process
+http://www.w3.org/ns/prov#invalidated,process,Activity,invalidated,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/affects,process,affects,continuant
+http://www.w3.org/ns/prov#invalidated,process,Activity,invalidated,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_input,process,has input,continuant
+http://www.w3.org/ns/prov#invalidated,process,Activity,invalidated,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_output,process,has output,continuant
+http://www.w3.org/ns/prov#qualifiedAssociation,occurrent,Activity,qualifiedAssociation,Association,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/caused_by,occurrent,caused by,occurrent
+http://www.w3.org/ns/prov#qualifiedAssociation,occurrent,Activity,qualifiedAssociation,Association,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/is_cause_of,occurrent,is cause of,occurrent
+http://www.w3.org/ns/prov#qualifiedAssociation,process,Activity,qualifiedAssociation,Association,process,http://www.ontologyrepository.com/CommonCoreOntologies/disrupts,process,disrupts,process
+http://www.w3.org/ns/prov#qualifiedAssociation,process,Activity,qualifiedAssociation,Association,process,http://www.ontologyrepository.com/CommonCoreOntologies/has_process_part,process,has process part,process
+http://www.w3.org/ns/prov#qualifiedAssociation,process,Activity,qualifiedAssociation,Association,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_disrupted_by,process,is disrupted by,process
+http://www.w3.org/ns/prov#qualifiedAssociation,process,Activity,qualifiedAssociation,Association,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_part_of_process,process,is part of process,process
+http://www.w3.org/ns/prov#qualifiedAttribution,continuant,Entity,qualifiedAttribution,Attribution,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_affected_by,continuant,is affected by,process
+http://www.w3.org/ns/prov#qualifiedAttribution,continuant,Entity,qualifiedAttribution,Attribution,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of,continuant,is input of,process
+http://www.w3.org/ns/prov#qualifiedAttribution,continuant,Entity,qualifiedAttribution,Attribution,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_output_of,continuant,is output of,process
+http://www.w3.org/ns/prov#qualifiedCommunication,occurrent,Activity,qualifiedCommunication,Communication,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/caused_by,occurrent,caused by,occurrent
+http://www.w3.org/ns/prov#qualifiedCommunication,occurrent,Activity,qualifiedCommunication,Communication,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/is_cause_of,occurrent,is cause of,occurrent
+http://www.w3.org/ns/prov#qualifiedCommunication,process,Activity,qualifiedCommunication,Communication,process,http://www.ontologyrepository.com/CommonCoreOntologies/disrupts,process,disrupts,process
+http://www.w3.org/ns/prov#qualifiedCommunication,process,Activity,qualifiedCommunication,Communication,process,http://www.ontologyrepository.com/CommonCoreOntologies/has_process_part,process,has process part,process
+http://www.w3.org/ns/prov#qualifiedCommunication,process,Activity,qualifiedCommunication,Communication,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_disrupted_by,process,is disrupted by,process
+http://www.w3.org/ns/prov#qualifiedCommunication,process,Activity,qualifiedCommunication,Communication,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_part_of_process,process,is part of process,process
+http://www.w3.org/ns/prov#qualifiedDelegation,continuant,Agent,qualifiedDelegation,Delegation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_affected_by,continuant,is affected by,process
+http://www.w3.org/ns/prov#qualifiedDelegation,continuant,Agent,qualifiedDelegation,Delegation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of,continuant,is input of,process
+http://www.w3.org/ns/prov#qualifiedDelegation,continuant,Agent,qualifiedDelegation,Delegation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_output_of,continuant,is output of,process
+http://www.w3.org/ns/prov#qualifiedDelegation,material entity,Agent,qualifiedDelegation,Delegation,process,http://www.ontologyrepository.com/CommonCoreOntologies/accessory_in,material entity,accessory in,process
+http://www.w3.org/ns/prov#qualifiedDelegation,material entity,Agent,qualifiedDelegation,Delegation,process,http://www.ontologyrepository.com/CommonCoreOntologies/accomplice_in,material entity,accomplice in,process
+http://www.w3.org/ns/prov#qualifiedDerivation,continuant,Entity,qualifiedDerivation,Derivation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_affected_by,continuant,is affected by,process
+http://www.w3.org/ns/prov#qualifiedDerivation,continuant,Entity,qualifiedDerivation,Derivation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of,continuant,is input of,process
+http://www.w3.org/ns/prov#qualifiedDerivation,continuant,Entity,qualifiedDerivation,Derivation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_output_of,continuant,is output of,process
+http://www.w3.org/ns/prov#qualifiedEnd,occurrent,Activity,qualifiedEnd,End,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/caused_by,occurrent,caused by,occurrent
+http://www.w3.org/ns/prov#qualifiedEnd,occurrent,Activity,qualifiedEnd,End,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/is_cause_of,occurrent,is cause of,occurrent
+http://www.w3.org/ns/prov#qualifiedEnd,process,Activity,qualifiedEnd,End,process,http://www.ontologyrepository.com/CommonCoreOntologies/disrupts,process,disrupts,process
+http://www.w3.org/ns/prov#qualifiedEnd,process,Activity,qualifiedEnd,End,process,http://www.ontologyrepository.com/CommonCoreOntologies/has_process_part,process,has process part,process
+http://www.w3.org/ns/prov#qualifiedEnd,process,Activity,qualifiedEnd,End,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_disrupted_by,process,is disrupted by,process
+http://www.w3.org/ns/prov#qualifiedEnd,process,Activity,qualifiedEnd,End,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_part_of_process,process,is part of process,process
+http://www.w3.org/ns/prov#qualifiedGeneration,continuant,Entity,qualifiedGeneration,Generation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_affected_by,continuant,is affected by,process
+http://www.w3.org/ns/prov#qualifiedGeneration,continuant,Entity,qualifiedGeneration,Generation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of,continuant,is input of,process
+http://www.w3.org/ns/prov#qualifiedGeneration,continuant,Entity,qualifiedGeneration,Generation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_output_of,continuant,is output of,process
+http://www.w3.org/ns/prov#qualifiedInvalidation,continuant,Entity,qualifiedInvalidation,Invalidation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_affected_by,continuant,is affected by,process
+http://www.w3.org/ns/prov#qualifiedInvalidation,continuant,Entity,qualifiedInvalidation,Invalidation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of,continuant,is input of,process
+http://www.w3.org/ns/prov#qualifiedInvalidation,continuant,Entity,qualifiedInvalidation,Invalidation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_output_of,continuant,is output of,process
+http://www.w3.org/ns/prov#qualifiedPrimarySource,continuant,Entity,qualifiedPrimarySource,PrimarySource,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_affected_by,continuant,is affected by,process
+http://www.w3.org/ns/prov#qualifiedPrimarySource,continuant,Entity,qualifiedPrimarySource,PrimarySource,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of,continuant,is input of,process
+http://www.w3.org/ns/prov#qualifiedPrimarySource,continuant,Entity,qualifiedPrimarySource,PrimarySource,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_output_of,continuant,is output of,process
+http://www.w3.org/ns/prov#qualifiedQuotation,continuant,Entity,qualifiedQuotation,Quotation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_affected_by,continuant,is affected by,process
+http://www.w3.org/ns/prov#qualifiedQuotation,continuant,Entity,qualifiedQuotation,Quotation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of,continuant,is input of,process
+http://www.w3.org/ns/prov#qualifiedQuotation,continuant,Entity,qualifiedQuotation,Quotation,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_output_of,continuant,is output of,process
+http://www.w3.org/ns/prov#qualifiedRevision,continuant,Entity,qualifiedRevision,Revision,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_affected_by,continuant,is affected by,process
+http://www.w3.org/ns/prov#qualifiedRevision,continuant,Entity,qualifiedRevision,Revision,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of,continuant,is input of,process
+http://www.w3.org/ns/prov#qualifiedRevision,continuant,Entity,qualifiedRevision,Revision,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_output_of,continuant,is output of,process
+http://www.w3.org/ns/prov#qualifiedStart,occurrent,Activity,qualifiedStart,Start,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/caused_by,occurrent,caused by,occurrent
+http://www.w3.org/ns/prov#qualifiedStart,occurrent,Activity,qualifiedStart,Start,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/is_cause_of,occurrent,is cause of,occurrent
+http://www.w3.org/ns/prov#qualifiedStart,process,Activity,qualifiedStart,Start,process,http://www.ontologyrepository.com/CommonCoreOntologies/disrupts,process,disrupts,process
+http://www.w3.org/ns/prov#qualifiedStart,process,Activity,qualifiedStart,Start,process,http://www.ontologyrepository.com/CommonCoreOntologies/has_process_part,process,has process part,process
+http://www.w3.org/ns/prov#qualifiedStart,process,Activity,qualifiedStart,Start,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_disrupted_by,process,is disrupted by,process
+http://www.w3.org/ns/prov#qualifiedStart,process,Activity,qualifiedStart,Start,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_part_of_process,process,is part of process,process
+http://www.w3.org/ns/prov#qualifiedUsage,occurrent,Activity,qualifiedUsage,Usage,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/caused_by,occurrent,caused by,occurrent
+http://www.w3.org/ns/prov#qualifiedUsage,occurrent,Activity,qualifiedUsage,Usage,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/is_cause_of,occurrent,is cause of,occurrent
+http://www.w3.org/ns/prov#qualifiedUsage,process,Activity,qualifiedUsage,Usage,process,http://www.ontologyrepository.com/CommonCoreOntologies/disrupts,process,disrupts,process
+http://www.w3.org/ns/prov#qualifiedUsage,process,Activity,qualifiedUsage,Usage,process,http://www.ontologyrepository.com/CommonCoreOntologies/has_process_part,process,has process part,process
+http://www.w3.org/ns/prov#qualifiedUsage,process,Activity,qualifiedUsage,Usage,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_disrupted_by,process,is disrupted by,process
+http://www.w3.org/ns/prov#qualifiedUsage,process,Activity,qualifiedUsage,Usage,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_part_of_process,process,is part of process,process
+http://www.w3.org/ns/prov#used,process,Activity,used,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/affects,process,affects,continuant
+http://www.w3.org/ns/prov#used,process,Activity,used,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_input,process,has input,continuant
+http://www.w3.org/ns/prov#used,process,Activity,used,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_output,process,has output,continuant
+http://www.w3.org/ns/prov#wasAssociatedWith,process,Activity,wasAssociatedWith,Agent,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/affects,process,affects,continuant
+http://www.w3.org/ns/prov#wasAssociatedWith,process,Activity,wasAssociatedWith,Agent,material entity,http://www.ontologyrepository.com/CommonCoreOntologies/has_accessory,process,has accessory,material entity
+http://www.w3.org/ns/prov#wasAssociatedWith,process,Activity,wasAssociatedWith,Agent,material entity,http://www.ontologyrepository.com/CommonCoreOntologies/has_accomplice,process,has accomplice,material entity
+http://www.w3.org/ns/prov#wasAssociatedWith,process,Activity,wasAssociatedWith,Agent,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_input,process,has input,continuant
+http://www.w3.org/ns/prov#wasAssociatedWith,process,Activity,wasAssociatedWith,Agent,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_output,process,has output,continuant
+http://www.w3.org/ns/prov#wasEndedBy,process,Activity,wasEndedBy,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/affects,process,affects,continuant
+http://www.w3.org/ns/prov#wasEndedBy,process,Activity,wasEndedBy,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_input,process,has input,continuant
+http://www.w3.org/ns/prov#wasEndedBy,process,Activity,wasEndedBy,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_output,process,has output,continuant
+http://www.w3.org/ns/prov#wasGeneratedBy,continuant,Entity,wasGeneratedBy,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_affected_by,continuant,is affected by,process
+http://www.w3.org/ns/prov#wasGeneratedBy,continuant,Entity,wasGeneratedBy,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of,continuant,is input of,process
+http://www.w3.org/ns/prov#wasGeneratedBy,continuant,Entity,wasGeneratedBy,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_output_of,continuant,is output of,process
+http://www.w3.org/ns/prov#wasInformedBy,occurrent,Activity,wasInformedBy,Activity,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/caused_by,occurrent,caused by,occurrent
+http://www.w3.org/ns/prov#wasInformedBy,occurrent,Activity,wasInformedBy,Activity,occurrent,http://www.ontologyrepository.com/CommonCoreOntologies/is_cause_of,occurrent,is cause of,occurrent
+http://www.w3.org/ns/prov#wasInformedBy,process,Activity,wasInformedBy,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/disrupts,process,disrupts,process
+http://www.w3.org/ns/prov#wasInformedBy,process,Activity,wasInformedBy,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/has_process_part,process,has process part,process
+http://www.w3.org/ns/prov#wasInformedBy,process,Activity,wasInformedBy,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_disrupted_by,process,is disrupted by,process
+http://www.w3.org/ns/prov#wasInformedBy,process,Activity,wasInformedBy,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_part_of_process,process,is part of process,process
+http://www.w3.org/ns/prov#wasInvalidatedBy,continuant,Entity,wasInvalidatedBy,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_affected_by,continuant,is affected by,process
+http://www.w3.org/ns/prov#wasInvalidatedBy,continuant,Entity,wasInvalidatedBy,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_input_of,continuant,is input of,process
+http://www.w3.org/ns/prov#wasInvalidatedBy,continuant,Entity,wasInvalidatedBy,Activity,process,http://www.ontologyrepository.com/CommonCoreOntologies/is_output_of,continuant,is output of,process
+http://www.w3.org/ns/prov#wasStartedBy,process,Activity,wasStartedBy,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/affects,process,affects,continuant
+http://www.w3.org/ns/prov#wasStartedBy,process,Activity,wasStartedBy,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_input,process,has input,continuant
+http://www.w3.org/ns/prov#wasStartedBy,process,Activity,wasStartedBy,Entity,continuant,http://www.ontologyrepository.com/CommonCoreOntologies/has_output,process,has output,continuant

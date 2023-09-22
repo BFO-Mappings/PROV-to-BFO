@@ -4,6 +4,7 @@
     <uri name="https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-ro-directmappings.ttl" uri="prov-ro-directmappings.ttl"/>
     <uri name="https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-cco-directmappings.ttl" uri="prov-cco-directmappings.ttl"/>
     <uri name="https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/OntoFox_outputs/RO_imports.xml" uri="OntoFox_outputs/RO_imports.xml"/>
+    <uri name="http://www.ontologyrepository.com/CommonCoreOntologies/Mid/MergedAllCoreOntology" uri="../MergedAllCoreOntology-v1.4-2023-04-07.ttl"/>
     <uri name="https://www.w3.org/TR/prov-o/example-1.ttl" uri="examples/example-1.ttl"/>
     <uri name="https://www.w3.org/TR/prov-o/example-2.ttl" uri="examples/example-2.ttl"/>
     <uri name="https://www.w3.org/TR/prov-o/example-3.ttl" uri="examples/example-3.ttl"/>
