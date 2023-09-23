@@ -41,7 +41,7 @@ prov:Agent                rdfs:comment "An agent is a material entity that parti
                                                                     owl:onProperty obo:BFO_0000196 ; # bearer of
                                                                     owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000023 # role
                                                                                                               [ rdf:type owl:Restriction ;
-                                                                                                                owl:onProperty obo:BFO_0000054 ; # has realization
+                                                                                                                owl:onProperty obo:BFO_0000054 ; # realized in / has realization
                                                                                                                 owl:someValuesFrom prov:Activity
                                                                                                               ]
                                                                                                             ) ;
@@ -64,7 +64,7 @@ prov:Activity             rdfs:comment "An activity has participant at all times
                                           ] .
 
 
-prov:Role                 rdfs:subClassOf obo:BFO_0000023 . # role
+prov:Role                 rdfs:subClassOf obo:BFO_0000023 . # role TODO: realized in an Activity?
 prov:Location             rdfs:subClassOf obo:BFO_0000029 . # site
 prov:InstantaneousEvent   rdfs:subClassOf obo:BFO_0000035 . # process boundary
 prov:Plan                 rdfs:subClassOf obo:BFO_0000031 . # generically dependent continuant
