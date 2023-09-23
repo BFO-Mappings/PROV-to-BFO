@@ -29,6 +29,9 @@ prov:Entity               rdfs:subClassOf [ rdf:type owl:Class ;
                                                           ]
                                                         )
                                           ] .
+                          rdfs:comment "A prov:entity is a continuant because it entirely exists at different times. However, a prov:Entity is not a spatial region because spatial regions are causally inert and may not particpate in processes."@en .
+
+                          
 prov:Agent                owl:disjointUnionOf (
                                                 [ owl:intersectionOf ( obo:BFO_0000040 # material entity (could be a prov:Entity per Requirement VI13 in "Rationale of Prov")
                                                                         [ rdf:type owl:Restriction ; # anonymous 'agent role'
@@ -47,16 +50,35 @@ prov:Agent                owl:disjointUnionOf (
                                                 ]
                                                 prov:Activity # process (could be a prov:Activity as per Requirement VI4 in "Rationale of Prov")
                                               ) ;
+                          rdfs:comment  "An agent is a material entity because it always has some matter as a part that persists in time"@en .
                           rdfs:comment  "An agent, if it's a material entity, bears a role, that, if realized, is realized in an activity taking place"@en .
-prov:Activity             rdfs:subClassOf obo:BFO_0000015 . # process
-prov:Role                 rdfs:subClassOf obo:BFO_0000023 . # role
-prov:Location             rdfs:subClassOf obo:BFO_0000029 . # site
-prov:InstantaneousEvent   rdfs:subClassOf obo:BFO_0000035 . # process boundary
-prov:Plan                 rdfs:subClassOf obo:BFO_0000031 . # generically dependent continuant
+
+
+prov:Activity             rdfs:subClassOf obo:BFO_0000015 ; # process
+                          rdfs:comment "An activity is a process because it happens over time, while not being a temporal region itself"@en .
+
+
+prov:Role                 rdfs:subClassOf obo:BFO_0000023 ; # role
+                          rdfs:comment "A prov:role is a bfo:role because its externally determined by the context in which the bearer plays the role"@en .
+
+
+prov:Location             rdfs:subClassOf obo:BFO_0000029 ; # site
+                          rdfs:comment "A location is a subclass of site as the prov:Location term fits under the BFO:site defiition (a three-dimensional immaterial entity that is (partially or wholly) bounded by a material entity or it is a three-dimensional immaterial part) but adds specificity in that it can be an ISO 19112 geographic place or another location in which provenance occurs "@en .
+
+
+prov:InstantaneousEvent   rdfs:subClassOf obo:BFO_0000035 ; # process boundary
+                          rdfs:comment "An instantaneous event is a process boundary because it is referred to as the boundary (start or end) of an activity as an occurrent"@en .
+
+
+prov:Plan                 rdfs:subClassOf obo:BFO_0000031 ; # generically dependent continuant
+                          rdfs:comment "Plans exists in virtue of the fact that there is at least one of what may be multiple copies; it is the content or the pattern that the multiple copies share"@en .
+
 
 prov:Influence            owl:disjointUnionOf ( obo:BFO_0000015  # process, e.g. prov:Derivation
                                                 obo:BFO_0000035  # process boundary, e.g. prov:Generation is a prov:InstantaneousEvent
-                                             ) .
+                                             ) ;
+                          rdfs:comment "Influences are either processes or process boundaries, but not both at once, because they occur over time or at an instant in time. Although influence is defined as a capacity, all of its subclasses are clearly defined as occurring over time or at an instant."@en .
+
 
 # Object Properties
 prov:hadMember            rdfs:subPropertyOf obo:BFO_0000051 . # has part
