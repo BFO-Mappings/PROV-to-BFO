@@ -31,8 +31,12 @@ prov:Entity               rdfs:comment "Entities are continuants, except for spa
                                           ] .
 
 
-prov:Agent                rdfs:comment "An agent is a material entity which bears a role, that, if realized, is realized in an activity taking place. According to Requirement VI13 in 'Rationale of Prov', this could be a prov:Entity"@en ;
+prov:Agent                rdfs:comment "An agent is a material entity that participates in some activity at some time and bears a role, that, if realized, is realized in an activity taking place. According to Requirement VI13 in 'Rationale of Prov', this could be a prov:Entity"@en ;
                           rdfs:subClassOf [ owl:intersectionOf ( obo:BFO_0000040 # material entity
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty obo:BFO_0000056 ; # participates in at some time
+                                                                    owl:someValuesFrom prov:Activity
+                                                                  ]
                                                                   [ rdf:type owl:Restriction ;
                                                                     owl:onProperty obo:BFO_0000196 ; # bearer of
                                                                     owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000023 # role
