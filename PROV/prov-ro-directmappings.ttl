@@ -77,9 +77,3 @@ prov:Agent                    rdfs:subClassOf [ owl:intersectionOf ( obo:BFO_000
                                                   ) ;
                                 rdf:type owl:Class
                               ] .
-
-
-prov:Activity  rdfs:subClassOf   [ rdf:type owl:Restriction ;
-                                    owl:onProperty obo:RO_0000057 ;  # has participant
-                                    owl:someValuesFrom prov:Agent .
-                                 ] .
