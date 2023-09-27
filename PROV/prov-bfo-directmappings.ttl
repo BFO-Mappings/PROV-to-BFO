@@ -8,7 +8,7 @@
 <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-bfo-directmappings.ttl>
    a                     owl:Ontology;
    rdfs:label           "Basic Formal Ontology (BFO) mappings for W3C PROVenance Interchange Ontology (PROV-O)"@en ;
-   owl:versionInfo      "2023-07-18"@en ;
+   owl:versionInfo      "2023-09-26"@en ;
    owl:versionIRI       <http://www.w3.org/ns/prov-bfo-directmappings-20230718> ;
    rdfs:seeAlso         <http://www.w3.org/ns/prov> ,
                         <https://basic-formal-ontology.org/> ,
@@ -52,21 +52,17 @@ prov:Agent                rdfs:comment "An agent is a material entity that parti
                                             rdf:type owl:Class
                                           ] .
 
+# prov:Activity             rdfs:comment "An activity is a process"@en ;
+#                           owl:equivalentClass obo:BFO_0000015 . # process
 
-prov:Activity             rdfs:comment "An activity has participant at all times some agent"@en ;
-                          rdfs:subClassOf [ owl:intersectionOf ( obo:BFO_0000015 # process
-                                                                [ rdf:type owl:Restriction ;
-                                                                  owl:onProperty obo:BFO_0000167 ; # has participant at all times
-                                                                  owl:someValuesFrom prov:Agent
-                                                                ]
-                                                              ) ;
-                                            rdf:type owl:Class
-                                          ] .
+# TODO for some reason this axiom is needed instead of the inverse
+obo:BFO_0000015           rdfs:comment "Activities are processes and processes are activities"@en ;
+                          owl:equivalentClass prov:Activity .
 
 
 prov:Role                 rdfs:subClassOf obo:BFO_0000023 . # role TODO: realized in an Activity?
 prov:Location             rdfs:subClassOf obo:BFO_0000029 . # site
-prov:InstantaneousEvent   rdfs:subClassOf obo:BFO_0000035 . # process boundary
+prov:InstantaneousEvent   owl:equivalentClass obo:BFO_0000035 . # process boundary
 prov:Plan                 rdfs:subClassOf obo:BFO_0000031 . # generically dependent continuant
 
 prov:Influence            owl:disjointUnionOf ( obo:BFO_0000015  # process, e.g. prov:Derivation

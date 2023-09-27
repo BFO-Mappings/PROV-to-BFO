@@ -9,26 +9,28 @@
 <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-cco-directmappings.ttl>
    a                     owl:Ontology;
    rdfs:label           "Common Core Ontologies (CCO) mappings for W3C PROVenance Interchange Ontology (PROV-O)"@en ;
-   owl:versionInfo      "2023-09-01"@en ;
+   owl:versionInfo      "2023-09-26"@en ;
    owl:versionIRI       <http://www.w3.org/ns/prov-cco-directmappings-20230718> ;
    owl:imports          <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-bfo-directmappings.ttl> ;
+   rdfs:comment         "This mapping depends on the imported PROV-O to BFO mapping" ;
    rdfs:seeAlso         <http://www.w3.org/ns/prov> ,
                         <https://github.com/CommonCoreOntology/CommonCoreOntologies> ;
 .
 
-# Class mappings
-# prov:Agent                  rdfs:subClassOf cco:Agent .
-prov:Activity                 rdfs:subClassOf cco:Act .
-prov:Plan                     rdfs:subClassOf cco:PlanSpecification .
-prov:Start                    rdfs:subClassOf cco:ProcessBeginning .
-prov:End                      rdfs:subClassOf cco:ProcessEnding .
+# Class mappings and property restrictions
+prov:Agent                rdfs:comment "An agent is an Agent that is an agent in some Activity. According to Requirement VI13 in 'Rationale of Prov', this could be a prov:Entity"@en ;
+                          owl:equivalentClass [ owl:intersectionOf ( cco:Agent
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty cco:agent_in ;
+                                                                    owl:someValuesFrom prov:Activity
+                                                                  ]
+                                                                ) ;
+                                            rdf:type owl:Class
+                                          ] .
 
-
-# Property Restrictions
-prov:Activity  rdfs:subClassOf   [ rdf:type owl:Restriction ;
-                                    owl:onProperty cco:has_agent ;
-                                    owl:someValuesFrom prov:Agent .
-                                 ] .
+prov:Plan                     rdfs:subClassOf     cco:PlanSpecification . # TODO could be Information Content Entity in case we don't want to commit to this being only "Directive"
+prov:Start                    owl:equivalentClass cco:ProcessBeginning .
+prov:End                      owl:equivalentClass cco:ProcessEnding .
 
 
 # Object Property mappings
