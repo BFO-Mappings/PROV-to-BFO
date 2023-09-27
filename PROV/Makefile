@@ -48,8 +48,8 @@ RELEASE_REPORT_FILE = $(config.REPORTS_DIR)/$(config.ONTOLOGY_PREFIX)-release-re
 REQUIRED_DIRS = $(config.TEMP_DIR) $(config.LIBRARY_DIR) $(config.SOURCE_DIR) $(config.QUERIES_DIR) $(config.REPORTS_DIR)
 
 
-#--- custom targets
-# NOTE: diff is not needed anymore for the extension approach
+#--- Custom targets
+# NOTE: diff is not needed anymore for the extension approach (we aren't editing PROV-O but extending it)
 # SOURCE_ONTOLOGY_FILE 	:= prov-bfo-merged/prov-o-original.ttl
 # DIFF_REPORT_FILE		:= prov-bfo-merged/diff.md
 # diff: $(RELEASE_BUILD_FILE)
@@ -62,6 +62,14 @@ mappings:
 candidates: 
 	$(ROBOT) query --input prov-mappings-edit.ttl -q $(config.QUERIES_DIR)/candidate-superproperties.rq development/artifacts/candidate-superproperties.tsv --use-graphs true
 
+# Remove CCO individuals to speed up reasoner
+config.CCO_FILENAME = ../MergedAllCoreOntology-v1.4-2023-04-07
+config.CCO_FILE = $(config.CCO_FILENAME).ttl
+config.CCO_EDITED_FILE = $(config.CCO_FILENAME)-no-individuals.ttl
+prep-cco:
+	$(ROBOT) remove --input $(config.CCO_FILE) --select individuals --output $(config.CCO_EDITED_FILE)
+
+
 # ----------------------------------------
 #### Targets / main "goals" of this Makefile
 .PHONY: all
@@ -73,14 +81,15 @@ build-release: $(RELEASE_BUILD_FILE)
 
 # These are parameterized targets, which assign "target-specific variables" to be used in a resuable target
 .PHONY: reason-edit reason-release test-edit test-release report-edit report-release
-reason-edit test-edit report-edit: 				TEST_INPUT = $(EDITOR_BUILD_FILE)
-reason-release test-release report-release:		TEST_INPUT = $(RELEASE_BUILD_FILE)
-report-edit:									REPORT_FILE_INPUT = $(EDITOR_REPORT_FILE)
-report-release:									REPORT_FILE_INPUT = $(RELEASE_REPORT_FILE)
+reason-edit test-edit report-edit explain-edit: 				TEST_INPUT = $(EDITOR_BUILD_FILE)
+reason-release test-release report-release explain-release:		TEST_INPUT = $(RELEASE_BUILD_FILE)
+report-edit:													REPORT_FILE_INPUT = $(EDITOR_REPORT_FILE)
+report-release:													REPORT_FILE_INPUT = $(RELEASE_REPORT_FILE)
 
 # Map to reusable targets (this is a disjunction mapped to a conjunction: either target maps to all of these targets)
 
 reason-edit reason-release: reason 
+explain-edit: explain
 test-edit test-release: verify
 report-edit report-release: report
 
@@ -152,7 +161,10 @@ QUERIES = $(wildcard $(config.QUERIES_DIR)/*.rq)
 # Note: $(TEST_INPUT) is a "target-specific variable" that isn't a evaluated as a prerequisite here
 .PHONY: reason
 reason: $(TEST_INPUT) | $(ROBOT_FILE)
-	$(ROBOT) reason --input $(TEST_INPUT) --reasoner ELK
+	$(ROBOT) reason --input $(TEST_INPUT) --reasoner HermiT
+
+explain: $(TEST_INPUT) | $(ROBOT_FILE)
+	$(ROBOT) explain --input $(TEST_INPUT) --reasoner HermiT -M inconsistency --explanation inconsistency-explanation.md
 
 # Test using specific queries
 .PHONY: verify
