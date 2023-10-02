@@ -62,11 +62,6 @@ prov:used                 rdfs:subPropertyOf cco:affects ;
 prov:generated            rdfs:subPropertyOf cco:has_output ;
                           rdfs:comment "An Activity that generated an Entity has_output that Entity"@en .
 
-# prov:atLocation           rdfs:subPropertyOf cco:occurs_at ;
-#                           rdfs:comment "If a prov Activity, Agent, or Entity is at some Location, then it occurs at that Location"@en .
-
-#prov:hadInfluence         rdfs:subPropertyOf  cco:is_affected_by .
-
 # "The _optional_ Plan adopted by an Agent in Association with some Activity. Plan specifications are out of the scope of this specification."
 prov:hadPlan                  rdfs:subPropertyOf cco:has_input ; # an Influence has_input some Plan
                               rdfs:comment "If an Association had plan some Plan, then it had that Plan as an input"@en .

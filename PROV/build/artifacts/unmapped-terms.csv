@@ -1,16 +1,22 @@
 targetTerm,label,termType,targetSuperClass,targetSuperProperty
+http://www.w3.org/ns/prov#alternateOf,alternateOf,http://www.w3.org/2002/07/owl#ObjectProperty,,http://www.w3.org/2002/07/owl#topObjectProperty
 http://www.w3.org/ns/prov#asInBundle,asInBundle,http://www.w3.org/2002/07/owl#ObjectProperty,,http://www.w3.org/2002/07/owl#topObjectProperty
 http://www.w3.org/ns/prov#atLocation,atLocation,http://www.w3.org/2002/07/owl#ObjectProperty,,http://www.w3.org/2002/07/owl#topObjectProperty
 http://www.w3.org/ns/prov#describesService,describesService,http://www.w3.org/2002/07/owl#ObjectProperty,,http://www.w3.org/2002/07/owl#topObjectProperty
-http://www.w3.org/ns/prov#hadDictionaryMember,hadDictionaryMember,http://www.w3.org/2002/07/owl#ObjectProperty,,http://www.w3.org/2002/07/owl#topObjectProperty
+http://www.w3.org/ns/prov#hadInfluence,hadInfluence,http://www.w3.org/2002/07/owl#ObjectProperty,,http://www.w3.org/2002/07/owl#topObjectProperty
 http://www.w3.org/ns/prov#hadRole,hadRole,http://www.w3.org/2002/07/owl#ObjectProperty,,http://www.w3.org/2002/07/owl#topObjectProperty
 http://www.w3.org/ns/prov#hadUsage,hadUsage,http://www.w3.org/2002/07/owl#ObjectProperty,,http://www.w3.org/2002/07/owl#topObjectProperty
 http://www.w3.org/ns/prov#has_query_service,hasProvenanceService,http://www.w3.org/2002/07/owl#ObjectProperty,,http://www.w3.org/2002/07/owl#topObjectProperty
 http://www.w3.org/ns/prov#has_anchor,has_anchor,http://www.w3.org/2002/07/owl#ObjectProperty,,http://www.w3.org/2002/07/owl#topObjectProperty
 http://www.w3.org/ns/prov#has_provenance,has_provenance,http://www.w3.org/2002/07/owl#ObjectProperty,,http://www.w3.org/2002/07/owl#topObjectProperty
+http://www.w3.org/ns/prov#influenced,influenced,http://www.w3.org/2002/07/owl#ObjectProperty,,http://www.w3.org/2002/07/owl#topObjectProperty
+http://www.w3.org/ns/prov#influencer,influencer,http://www.w3.org/2002/07/owl#ObjectProperty,,http://www.w3.org/2002/07/owl#topObjectProperty
 http://www.w3.org/ns/prov#insertedKeyEntityPair,insertedKeyEntityPair,http://www.w3.org/2002/07/owl#ObjectProperty,,http://www.w3.org/2002/07/owl#topObjectProperty
 http://www.w3.org/ns/prov#locationOf,locationOf,http://www.w3.org/2002/07/owl#ObjectProperty,,http://www.w3.org/2002/07/owl#topObjectProperty
 http://www.w3.org/ns/prov#pairEntity,pairKey,http://www.w3.org/2002/07/owl#ObjectProperty,,http://www.w3.org/2002/07/owl#topObjectProperty
 http://www.w3.org/ns/prov#pingback,provenance pingback,http://www.w3.org/2002/07/owl#ObjectProperty,,http://www.w3.org/2002/07/owl#topObjectProperty
+http://www.w3.org/ns/prov#qualifiedInfluence,qualifiedInfluence,http://www.w3.org/2002/07/owl#ObjectProperty,,http://www.w3.org/2002/07/owl#topObjectProperty
+http://www.w3.org/ns/prov#qualifiedInfluenceOf,qualifiedInfluenceOf,http://www.w3.org/2002/07/owl#ObjectProperty,,http://www.w3.org/2002/07/owl#topObjectProperty
+http://www.w3.org/ns/prov#wasInfluencedBy,wasInfluencedBy,http://www.w3.org/2002/07/owl#ObjectProperty,,http://www.w3.org/2002/07/owl#topObjectProperty
 http://www.w3.org/ns/prov#wasRoleIn,wasRoleIn,http://www.w3.org/2002/07/owl#ObjectProperty,,http://www.w3.org/2002/07/owl#topObjectProperty
 http://www.w3.org/ns/prov#wasUsedInDerivation,wasUsedInDerivation,http://www.w3.org/2002/07/owl#ObjectProperty,,http://www.w3.org/2002/07/owl#topObjectProperty

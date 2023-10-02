@@ -99,5 +99,8 @@ prov:qualifiedStart       rdfs:subPropertyOf obo:BFO_0000121 . # has temporal pa
 prov:qualifiedEnd         rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
 prov:qualifiedUsage       rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
 
-# prov:atLocation           rdfs:subPropertyOf obo:BFO_0000066 ;
-#                           rdfs:comment "If a prov Activity, Agent, or Entity is at some Location, then it occurs in that Location"@en .
+prov:hadDictionaryMember  rdfs:subPropertyOf obo:BFO_0000051 . # has part
+
+# prov:atLocation           rdfs:subPropertyOf obo:BFO_0000066 ; # has to be disjoint union of "occurs in" or "located in"
+#                           rdfs:comment "If a prov Activity, Agent, or Entity is at some Location, then it occurs in or is located in that Location"@en .
+
