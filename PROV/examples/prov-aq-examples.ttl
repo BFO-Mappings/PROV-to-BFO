@@ -1,0 +1,59 @@
+@prefix prov:    <http://www.w3c.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix sd:      <http://www.w3.org/ns/sparql-service-description#> .
+@base          <https://www.w3.org/TR/prov-aq/examples.ttl> .
+
+<https://www.w3.org/TR/prov-aq/examples.ttl> rdf:type owl:Ontology .
+
+<> dcterms:title        "Welcome to example.com" ;
+   prov:has_anchor       <http://example.com/data/resource.rdf> ;
+   prov:has_provenance   <http://example.com/provenance/resource.rdf> ;
+   prov:has_query_service <http://example.com/provenance-query-service/> .
+
+<http://example.com/prov/service> a prov:ServiceDescription;
+    prov:describesService _:direct .
+
+_:direct a prov:DirectQueryService ;
+  prov:provenanceUriTemplate 
+    "http://www.example.com/provenance/service?target={uri}" .
+
+<http://example.com/prov/service> a prov:ServiceDescription;
+    prov:describesService _:direct .
+
+_:direct a prov:DirectQueryService ;
+  prov:provenanceUriTemplate 
+    "http://www.example.com/provenance/service?target={uri}{&steps}" .
+
+<http://example.com/prov/service> a prov:ServiceDescription;
+    prov:describesService _:sparql .
+
+_:sparql a sd:Service ;
+    sd:endpoint <http://www.example.com/provenance/sparql> ;
+    sd:supportedLanguage sd:SPARQL11Query .
+
+
+
+<> a prov:ServiceDescription ;
+    prov:describesService <#direct>, <#sparql> ;
+    dcterms:publisher <#us>
+    .
+
+<#us> a foaf:Organization ;
+    foaf:name "and not a service!"
+    .
+
+<#direct> a prov:DirectQueryService ;
+    prov:provenanceUriTemplate "/direct?target={+uri}"
+    .
+
+<#sparql> a sd:Service ;
+    sd:endpoint </sparql/> ;
+    sd:supportedLanguage sd:SPARQL11Query ;
+    sd:resultFormat <http://www.w3.org/ns/formats/RDF_XML> ,
+                    <http://www.w3.org/ns/formats/Turtle> ,
+                    <http://www.w3.org/ns/formats/SPARQL_Results_XML> ,
+                    <http://www.w3.org/ns/formats/SPARQL_Results_JSON> ,
+                    <http://www.w3.org/ns/formats/SPARQL_Results_CSV> ,
+                    <http://www.w3.org/ns/formats/SPARQL_Results_TSV>
+    .

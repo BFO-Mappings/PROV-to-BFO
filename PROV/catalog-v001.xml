@@ -17,4 +17,8 @@
     <uri name="https://www.w3.org/TR/prov-o/example-10.ttl" uri="examples/example-10.ttl"/>
     <uri name="https://www.w3.org/TR/prov-o/example-11.ttl" uri="examples/example-11.ttl"/>
     <uri name="https://www.w3.org/TR/prov-o/other-examples.ttl" uri="examples/other-examples.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-aq/examples.ttl" uri="examples/prov-aq-examples.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-dictionary/examples.ttl" uri="examples/prov-dictionary-examples.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-links/examples.ttl" uri="examples/prov-links-examples.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-dc/examples.ttl" uri="examples/prov-dc-examples.ttl"/>
 </catalog>

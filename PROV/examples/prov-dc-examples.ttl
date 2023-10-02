@@ -1,0 +1,14 @@
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix ex:   <http://example.com/vocab#> .
+@base          <https://www.w3.org/TR/prov-dc/examples.ttl> .
+
+<https://www.w3.org/TR/prov-dc/examples.ttl> rdf:type owl:Ontology .
+
+ex:prov-dc-20130312 dct:title "A mapping from Dublin Core...";
+                    dct:creator ex:kai, ex:daniel, ex:simon, ex:michael;
+                    dct:created "2012-02-28";
+                    dct:publisher ex:w3c;
+                    dct:issued "2012-02-29";
+                    dct:subject ex:dublincore;
+                    dct:replaces ex:prov-dc-20121211;
+                    dct:format "HTML".

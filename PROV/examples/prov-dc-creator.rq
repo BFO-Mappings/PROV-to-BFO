@@ -1,0 +1,25 @@
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+CONSTRUCT {
+   ?document a prov:Entity;
+      prov:wasAttributedTo ?agent.				
+	
+   ?agent a prov:Agent.
+					
+   _:activity a prov:Activity, prov:Create;
+      prov:wasAssociatedWith ?agent;
+      prov:qualifiedAssociation [
+         a prov:Association;
+         prov:agent ?agent;
+         prov:hadRole [a prov:Creator].
+      ].
+						
+   _:resultingEntity a prov:Entity;
+      prov:specializationOf ?document;
+      prov:wasGeneratedBy _:activity;
+      prov:wasAttributedTo ?agent.		
+						
+} WHERE {
+   ?document dct:creator ?agent.
+}
