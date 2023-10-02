@@ -32,7 +32,6 @@ Sydney Cohen, Giacomo De Colle, Austin Liebers, Tim Prudhomme, Alec Sculley, Kar
     * PROV Inverses [Ontology](http://www.w3.org/ns/prov-o-inverses)
         * Automated entailment of mappings for inverse object properties is supported by OWL-DL and OWL-QL. For example, `prov:wasMemberOf` may be automatically inferred as a subproperty of BFO "part of" because `prov:hadMember` is a subproperty of BFO "has part" and these PROV terms are inverses of each other.
     * PROV Dublin Core <http://www.w3.org/ns/prov-dc#> [Ontology](http://www.w3.org/ns/prov-dc) & [Examples](examples/prov-dc-examples.ttl)
-        * TODO add examples
 
 # Methods
 ### Development

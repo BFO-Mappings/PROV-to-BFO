@@ -60,7 +60,7 @@ mappings:
 	$(ROBOT) query --input $(EDITOR_BUILD_FILE) -q $(config.QUERIES_DIR)/get-mappings.rq $(MAPPINGS_FILE) --use-graphs true
 
 candidates: 
-	$(ROBOT) query --input $(EDITOR_BUILD_FILE) -q $(config.QUERIES_DIR)/candidate-superproperties.rq development/artifacts/candidate-superproperties.tsv --use-graphs true
+	$(ROBOT) query --input $(EDITOR_BUILD_FILE) -q $(config.QUERIES_DIR)/candidate-superproperties.rq $(config.TEMP_DIR)/candidate-superproperties.tsv --use-graphs true
 
 # Materialize inferred mappings (after removing individuals) then check for unmapped terms
 unmapped:
