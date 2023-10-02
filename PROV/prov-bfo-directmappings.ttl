@@ -3,6 +3,7 @@
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix obo:  <http://purl.obolibrary.org/obo/> .
+@prefix sssom: <https://w3id.org/sssom/> .
 @base <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-bfo-directmappings.ttl> .
 
 <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-bfo-directmappings.ttl>
@@ -17,67 +18,107 @@
 .
 
 # Class mappings
-prov:Entity               rdfs:comment "A prov:Entity is a continuant because it entirely exists at different times. However, a prov:Entity is not a spatial region because spatial regions are causally inert and may not particpate in processes."@en ;
-                          rdfs:subClassOf [ rdf:type owl:Class ;
-                                            owl:unionOf ( obo:BFO_0000020 # specifically dependent continuant
-                                                          obo:BFO_0000031 # generically dependent continuant
-                                                          [ owl:intersectionOf ( obo:BFO_0000004 # independent continuant
-                                                                                [ rdf:type owl:Class ;
-                                                                                  owl:complementOf obo:BFO_0000006 # spatial region
-                                                                                ]
-                                                                              ) ;
-                                                            rdf:type owl:Class
-                                                          ]
-                                                        )
-                                          ] .
-
-
-prov:Agent                rdfs:comment "A prov:Agent is a material entity because always has some matter as a part that persists in time. A prov:Agent participates in some prov:Activity at some time and bears a role, that, if realized, is realized in a prov:Activity taking place. According to Requirement VI13 in 'Rationale of Prov', this could be a prov:Entity."@en ;
-                          rdfs:subClassOf [ owl:intersectionOf ( obo:BFO_0000040 # material entity
-                                                                  [ rdf:type owl:Restriction ;
-                                                                    owl:onProperty obo:BFO_0000056 ; # participates in at some time
-                                                                    owl:someValuesFrom prov:Activity
-                                                                  ]
-                                                                  [ rdf:type owl:Restriction ;
-                                                                    owl:onProperty obo:BFO_0000196 ; # bearer of
-                                                                    owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000023 # role
-                                                                                                              [ rdf:type owl:Restriction ;
-                                                                                                                owl:onProperty obo:BFO_0000054 ; # realized in / has realization
-                                                                                                                owl:someValuesFrom prov:Activity
-                                                                                                              ]
-                                                                                                            ) ;
-                                                                                        rdf:type owl:Class
-                                                                                      ]
-                                                                  ]
-                                                                ) ;
+prov:Entity rdf:type owl:Class .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:Entity ;
+    owl:annotatedProperty rdfs:subClassOf ; 
+    owl:annotatedTarget   [ rdf:type owl:Class ;
+                            owl:unionOf ( obo:BFO_0000020 # specifically dependent continuant
+                                          obo:BFO_0000031 # generically dependent continuant
+                                          [ owl:intersectionOf ( obo:BFO_0000004 # independent continuant
+                                                                [ rdf:type owl:Class ;
+                                                                  owl:complementOf obo:BFO_0000006 # spatial region
+                                                                ]
+                                                              ) ;
                                             rdf:type owl:Class
-                                          ] .
+                                          ]
+                                        )
+                          ] ;
+    sssom:object_label    "continuant that is not a spatial region" ;
+    sssom:mapping_justification "A prov:Entity is a continuant because it entirely exists at different times. However, a prov:Entity is not a spatial region because spatial regions are causally inert and may not particpate in processes."@en .
 
 
-obo:BFO_0000015           rdfs:comment "A prov:Activity is equivalent to a process because it happens over time, while not being a temporal region itself."@en ;
-                          owl:equivalentClass prov:Activity .
+prov:Agent rdf:type owl:Class .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:Agent ;
+    owl:annotatedProperty rdfs:subClassOf ; 
+    owl:annotatedTarget   [ owl:intersectionOf ( obo:BFO_0000040 # material entity
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty obo:BFO_0000056 ; # participates in at some time
+                                                    owl:someValuesFrom prov:Activity
+                                                  ]
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty obo:BFO_0000196 ; # bearer of
+                                                    owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000023 # role
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty obo:BFO_0000054 ; # realized in / has realization
+                                                                                                owl:someValuesFrom prov:Activity
+                                                                                              ]
+                                                                                            ) ;
+                                                                        rdf:type owl:Class
+                                                                      ]
+                                                  ]
+                                                ) ;
+                            rdf:type owl:Class
+                          ] ;
+    sssom:object_label    "material entity that participates in some Activity at some time and bears a role realized in that Activity" ;
+    sssom:mapping_justification "A prov:Agent is a material entity because always has some matter as a part that persists in time. A prov:Agent participates in some prov:Activity at some time and bears a role, that, if realized, is realized in a prov:Activity taking place. According to Requirement VI13 in 'Rationale of Prov', this could be a prov:Entity."@en .
 
 
-prov:Role                 rdfs:comment "A prov:Role is a bfo:role because its externally determined by the context in which the bearer plays the role."@en ;
-                          rdfs:subClassOf obo:BFO_0000023 . # role TODO: realized in an Activity?
+prov:Activity rdf:type owl:Class .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:Activity ;
+    owl:annotatedProperty owl:equivalentClass ; 
+    owl:annotatedTarget   obo:BFO_0000015 ;
+    sssom:object_label    "process" ;
+    sssom:mapping_justification "A prov:Activity is equivalent to a process because it happens over time, while not being a temporal region itself."@en .
 
 
-prov:Location             rdfs:comment "A prov:location is a subclass of site as the prov:Location term fits under the BFO:site defiition (a three-dimensional immaterial entity that is (partially or wholly) bounded by a material entity or it is a three-dimensional immaterial part) but adds specificity in that it can be an ISO 19112 geographic place or another location in which provenance occurs."@en ;
-                          rdfs:subClassOf obo:BFO_0000029 . # site
+prov:Role rdf:type owl:Class .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:Role ;
+    owl:annotatedProperty rdfs:subClassOf ; 
+    owl:annotatedTarget   obo:BFO_0000023 ; # TODO: realized in an Activity?
+    sssom:object_label    "role" ;
+    sssom:mapping_justification "A prov:Role is a bfo:role because its externally determined by the context in which the bearer plays the role."@en .
 
 
-prov:InstantaneousEvent   rdfs:comment "An prov:InstantaneousEvent is equivalent to a process boundary because it is referred to as the boundary (start or end) of a prov:Activity as an occurrent."@en ;
-                          owl:equivalentClass obo:BFO_0000035 . # process boundary
+prov:Location rdf:type owl:Class .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:Location ;
+    owl:annotatedProperty rdfs:subClassOf ; 
+    owl:annotatedTarget   obo:BFO_0000029 ;
+    sssom:object_label    "site" ;
+    sssom:mapping_justification "A prov:Location is a subclass of site as the prov:Location term fits under the BFO:site defiition (a three-dimensional immaterial entity that is (partially or wholly) bounded by a material entity or it is a three-dimensional immaterial part) but adds specificity in that it can be an ISO 19112 geographic place or another location in which provenance occurs."@en .
 
 
-prov:Plan                 rdfs:comment "prov:Plans exists in virtue of the fact that there is at least one of what may be multiple copies; it is the content or the pattern that the multiple copies share."@en ;
-                          rdfs:subClassOf obo:BFO_0000031 . # generically dependent continuant
+prov:InstantaneousEvent rdf:type owl:Class .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:InstantaneousEvent ;
+    owl:annotatedProperty owl:equivalentClass ; 
+    owl:annotatedTarget   obo:BFO_0000035 ;
+    sssom:object_label    "process boundary" ;
+    sssom:mapping_justification "A prov:InstantaneousEvent is equivalent to a process boundary because it is referred to as the boundary (start or end) of a prov:Activity as an occurrent."@en .
 
 
-prov:Influence            owl:disjointUnionOf ( obo:BFO_0000015  # process, e.g. prov:Derivation
-                                                obo:BFO_0000035  # process boundary, e.g. prov:Generation is a prov:InstantaneousEvent
-                                             ) ;
-                          rdfs:comment "prov:Influences are either processes or process boundaries, but not both at once, because they occur over time or at an instant in time. Although prov:Influence is defined as a capacity, all of its subclasses are clearly defined as occurring over time or at an instant."@en .
+prov:Plan rdf:type owl:Class .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:Plan ;
+    owl:annotatedProperty rdfs:subClassOf ; 
+    owl:annotatedTarget   obo:BFO_0000031 ;
+    sssom:object_label    "generically dependent continuant" ;
+    sssom:mapping_justification "A prov:Plan exists in virtue of the fact that there is at least one of what may be multiple copies; it is the content or the pattern that the multiple copies share."@en .
+
+
+prov:Influence rdf:type owl:Class .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:Influence ;
+    owl:annotatedProperty owl:disjointUnionOf ; 
+    owl:annotatedTarget   ( obo:BFO_0000015  # process, e.g. prov:Derivation
+                            obo:BFO_0000035  # process boundary, e.g. prov:Generation is a prov:InstantaneousEvent
+                          ) ;
+    sssom:object_label    "process or process boundary but not both at once" ;
+    sssom:mapping_justification "A prov:Influence is either a process or process boundary, but not both at once, because it occurs over time or at an instant in time. Although prov:Influence is defined as a capacity, all of its subclasses are clearly defined as occurring over time or at an instant."@en .
 
 
 # Object Properties
