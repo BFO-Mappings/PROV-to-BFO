@@ -1,0 +1,37 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+PREFIX bfo: <http://purl.obolibrary.org/obo/BFO_>
+PREFIX ro: <http://purl.obolibrary.org/obo/RO_>
+PREFIX cco: <http://www.ontologyrepository.com/CommonCoreOntologies/>
+
+SELECT DISTINCT ?targetTerm ?label ?termType ?targetSuperClass ?targetSuperProperty WHERE {
+  # What kinds of things are we mapping?
+  VALUES ?termType { owl:Class owl:ObjectProperty }
+
+  # Where are we mapping from? Exclude these
+  FILTER( ! ( STRSTARTS(STR(?targetTerm), STR(bfo:)) || STRSTARTS(STR(?targetTerm), STR(ro:)) || STRSTARTS(STR(?targetTerm), STR(cco:)) ) ) .
+  
+  # How are we mapping (which predicates) ?
+  # Every target term must be related to some source term using these predicates (ex. ActivityInfluence subClassOf Influence)
+  # TODO Every term must be related to some other term that isn't from the source ontology ?
+  FILTER NOT EXISTS {
+    VALUES ?mappingPredicate { rdfs:subClassOf rdfs:subPropertyOf owl:equivalentClass owl:equivalentProperty owl:disjointUnionOf } .
+    FILTER(?sourceTerm != owl:topObjectProperty) .
+    # Union in order to include equivalence axioms
+    {
+      ?targetTerm ?mappingPredicate ?sourceTerm .
+    }
+    UNION
+    {
+      ?sourceTerm ?mappingPredicate ?targetTerm .
+    }
+  }
+
+  ?targetTerm a ?termType .
+  ?targetTerm rdfs:label ?label .
+  OPTIONAL { ?targetTerm rdfs:subClassOf ?targetSuperClass } .
+  OPTIONAL { ?targetTerm rdfs:subPropertyOf ?targetSuperProperty } .
+}
+ORDER BY ?term
