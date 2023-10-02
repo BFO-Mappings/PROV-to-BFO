@@ -62,6 +62,10 @@ prov:used                 rdfs:subPropertyOf cco:affects ;
 prov:generated            rdfs:subPropertyOf cco:has_output ;
                           rdfs:comment "An Activity that generated an Entity has_output that Entity"@en .
 
+# prov:atLocation           rdfs:subPropertyOf cco:occurs_at ;
+#                           rdfs:comment "If a prov Activity, Agent, or Entity is at some Location, then it occurs at that Location"@en .
+
+#prov:hadInfluence         rdfs:subPropertyOf  cco:is_affected_by .
 
 # "The _optional_ Plan adopted by an Agent in Association with some Activity. Plan specifications are out of the scope of this specification."
 prov:hadPlan                  rdfs:subPropertyOf cco:has_input ; # an Influence has_input some Plan
@@ -87,6 +91,8 @@ prov:qualifiedPrimarySource   rdfs:subPropertyOf cco:is_output_of ;
 prov:agent                rdfs:subPropertyOf cco:has_agent ;
                           rdfs:comment "An AgentInfluence has_agent an Agent because the Agent is the agent of the AgentInfluence"@en .
 # prov:entity               rdfs:subPropertyOf cco:affects . # inconsistent with example of an End (process boundary) that is the EntityInfluence of a prov:entity relation. cco:affects is for processes only
+
+prov:agentOfInfluence     rdfs:subPropertyOf cco:agent_in .
 
 
 # Unmapped

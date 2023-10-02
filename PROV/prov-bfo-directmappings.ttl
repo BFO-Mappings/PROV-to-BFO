@@ -80,6 +80,17 @@ prov:Influence            owl:disjointUnionOf ( obo:BFO_0000015  # process, e.g.
                           rdfs:comment "prov:Influences are either processes or process boundaries, but not both at once, because they occur over time or at an instant in time. Although prov:Influence is defined as a capacity, all of its subclasses are clearly defined as occurring over time or at an instant."@en .
 
 
+prov:Dictionary           rdfs:comment "A prov:Dictionary exists in virtue of the fact that there is at least one of what may be multiple copies; it is the content or the pattern that the multiple copies share."@en ;
+                          rdfs:subClassOf obo:BFO_0000031 . # generically dependent continuant
+
+
+prov:KeyEntityPair        rdfs:comment "A prov:KeyEntityPair exists in virtue of the fact that there is at least one of what may be multiple copies; it is the content or the pattern that the multiple copies share."@en ;
+                          rdfs:subClassOf obo:BFO_0000031 . # generically dependent continuant
+
+
+# TODO: commentary on why prov:ServiceDescription isn't an Agent
+
+
 # Object Properties
 prov:hadMember            rdfs:subPropertyOf obo:BFO_0000051 . # has part
 prov:hadGeneration        rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
@@ -87,3 +98,6 @@ prov:hadActivity          rdfs:subPropertyOf obo:BFO_0000139 . # temporal part o
 prov:qualifiedStart       rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
 prov:qualifiedEnd         rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
 prov:qualifiedUsage       rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
+
+# prov:atLocation           rdfs:subPropertyOf obo:BFO_0000066 ;
+#                           rdfs:comment "If a prov Activity, Agent, or Entity is at some Location, then it occurs in that Location"@en .
