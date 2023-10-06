@@ -66,8 +66,8 @@ prov:generated            rdfs:subPropertyOf cco:has_output ;
 
 
 # "The _optional_ Plan adopted by an Agent in Association with some Activity. Plan specifications are out of the scope of this specification."
-prov:hadPlan                  rdfs:subPropertyOf cco:has_input ; # an Influence has_input some Plan
-                              rdfs:comment "If an Association had plan some Plan, then it had that Plan as an input."@en .
+prov:hadPlan                  owl:propertyChainAxiom ( [ owl:inverseOf prov:qualifiedAssociation ] cco:prescribed_by ) ;
+                              rdfs:comment "If an Association had plan some Plan, then it's the qualified Association of some Activity that's prescribed by that Plan."@en .
 
 # "If this Activity prov:wasAssociatedWith Agent :ag, then it can qualify the Association using prov:qualifiedAssociation [ a prov:Association;  prov:agent :ag; :foo :bar ]."
 prov:qualifiedAssociation     rdfs:subPropertyOf  cco:has_process_part ;
