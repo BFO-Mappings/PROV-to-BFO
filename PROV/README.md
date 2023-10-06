@@ -19,9 +19,19 @@ Sydney Cohen, Giacomo De Colle, Austin Liebers, Tim Prudhomme, Alec Sculley, Kar
 * The mapping goal is to subsume every [PROV-O](https://www.w3.org/TR/prov-o/) term under some [BFO (Basic Formal Ontology)](https://basic-formal-ontology.org/) or [RO (Relation Ontology)](https://oborel.github.io/) term. A separate extension which maps PROV-O to [CCO (Common Core Ontologies)](https://github.com/CommonCoreOntology/CommonCoreOntologies) is also proposed. 
 * This mapping aligns PROV-O to these top-level ontologies to promote interoperability between PROV-O users and BFO users.
 * At the same time, the mapping is encoded as an extension to maximize compatibility and minimize dependencies for existing PROV-O users.
+* The mapping follows conventions from the PROV-DC (Dublin Core) mapping by serializing as an RDF Turtle extension of PROV.
 * Further BFO interpretations of PROV-O are also offered:
-    * An extension of `prov:Agent` using a new term `prov:Agent Role` (a `bfo:role`), which is realized by an instance of `prov:Activity`.
-    * An extension of `prov:StartedAtTime` and `prov:EndedAtTime` in terms of `bfo:temporal region`. This will be represented using SWRL rules.
+    * An extension of `prov:Agent` using a new anonymous instance of BFO "role", which is realized by an instance of `prov:Activity`.
+    * An extension of `prov:StartedAtTime` and `prov:EndedAtTime` in terms of BFO "temporal region".
+
+* The following PROV namespaces have been (1) mapped in the mapping files, (2) imported in the editors file, and (3) all Turtle-serialized examples from each have been loaded as instances in the editors file for testing:
+    * PROV-O [Ontology](http://www.w3.org/ns/prov-o)
+    * PROV Access and Query [Ontology](http://www.w3.org/ns/prov-aq) & [Examples](examples/prov-aq-examples.ttl)
+    * PROV Data Dictionary [Ontology](http://www.w3.org/ns/prov-dictionary) & [Examples](examples/prov-dictionary-examples.ttl)
+    * PROV Linking Across Provenance Bundles [Ontology](http://www.w3.org/ns/prov-links) & [Examples](examples/prov-links-examples.ttl)
+    * PROV Inverses [Ontology](http://www.w3.org/ns/prov-o-inverses)
+        * Automated entailment of mappings for inverse object properties is supported by OWL-DL and OWL-QL. For example, `prov:wasMemberOf` may be automatically inferred as a subproperty of BFO "part of" because `prov:hadMember` is a subproperty of BFO "has part" and these PROV terms are inverses of each other.
+    * PROV Dublin Core <http://www.w3.org/ns/prov-dc#> [Ontology](http://www.w3.org/ns/prov-dc) & [Examples](examples/prov-dc-examples.ttl)
 
 # Methods
 ### Development

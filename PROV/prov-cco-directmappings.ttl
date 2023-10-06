@@ -64,7 +64,6 @@ prov:used                 rdfs:subPropertyOf cco:affects ;
 prov:generated            rdfs:subPropertyOf cco:has_output ;
                           rdfs:comment "An Activity that generated an Entity has_output that Entity."@en .
 
-
 # "The _optional_ Plan adopted by an Agent in Association with some Activity. Plan specifications are out of the scope of this specification."
 prov:hadPlan                  owl:propertyChainAxiom ( [ owl:inverseOf prov:qualifiedAssociation ] cco:prescribed_by ) ;
                               rdfs:comment "If an Association had plan some Plan, then it's the qualified Association of some Activity that's prescribed by that Plan."@en .
@@ -89,6 +88,8 @@ prov:qualifiedPrimarySource   rdfs:subPropertyOf cco:is_output_of ;
 prov:agent                rdfs:subPropertyOf cco:has_agent ;
                           rdfs:comment "An AgentInfluence has_agent an Agent because the Agent is the agent of the AgentInfluence."@en .
 # prov:entity               rdfs:subPropertyOf cco:affects . # inconsistent with example of an End (process boundary) that is the EntityInfluence of a prov:entity relation. cco:affects is for processes only
+
+prov:agentOfInfluence     rdfs:subPropertyOf cco:agent_in .
 
 
 # Unmapped

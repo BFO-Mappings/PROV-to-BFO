@@ -80,6 +80,17 @@ prov:Influence            rdfs:comment "A prov:Influence is either a process or 
                                             ) .
 
 
+prov:Dictionary           rdfs:comment "A prov:Dictionary exists in virtue of the fact that there is at least one of what may be multiple copies; it is the content or the pattern that the multiple copies share."@en ;
+                          rdfs:subClassOf obo:BFO_0000031 . # generically dependent continuant
+
+
+prov:KeyEntityPair        rdfs:comment "A prov:KeyEntityPair exists in virtue of the fact that there is at least one of what may be multiple copies; it is the content or the pattern that the multiple copies share."@en ;
+                          rdfs:subClassOf obo:BFO_0000031 . # generically dependent continuant
+
+
+# TODO: commentary on why prov:ServiceDescription isn't an Agent
+
+
 # Object Properties
 prov:hadMember            rdfs:comment "A prov:Collection that has member some prov:Entity also has it as a part."@en ;
                           rdfs:subPropertyOf obo:BFO_00000178 . # has continuant part (at some time)
@@ -101,3 +112,9 @@ prov:qualifiedUsage       rdfs:comment "A prov:Activity whose qualified usage is
 
 prov:hadUsage             rdfs:comment "A prov:Derivation that had usage some prov:Usage has it as a temporal part."@en ;
                           rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
+
+prov:hadDictionaryMember  rdfs:comment "A prov:Dictionary has a prov:Key-Entity Pair as a member, then it has it as a continuant part at some time."@en ;
+                          rdfs:subPropertyOf obo:BFO_00000178 . # has continuant part (at some time)
+
+# prov:atLocation           rdfs:subPropertyOf obo:BFO_0000066 ; # has to be disjoint union of "occurs in" or "located in"
+#                           rdfs:comment "If a prov Activity, Agent, or Entity is at some Location, then it occurs in or is located in that Location"@en .
