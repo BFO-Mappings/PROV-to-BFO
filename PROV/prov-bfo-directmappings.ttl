@@ -82,7 +82,7 @@ prov:Influence            rdfs:comment "A prov:Influence is either a process or 
 
 # Object Properties
 prov:hadMember            rdfs:comment "A prov:Collection that has member some prov:Entity also has it as a part."@en ;
-                          rdfs:subPropertyOf obo:BFO_0000051 . # has part
+                          rdfs:subPropertyOf obo:BFO_00000178 . # has continuant part (at some time)
 
 prov:hadGeneration        rdfs:comment "A prov:Derivation that has generation some prov:Generation also has it as a temporal part."@en ;
                           rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
