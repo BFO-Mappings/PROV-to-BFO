@@ -42,10 +42,10 @@ prov:End                      owl:equivalentClass cco:ProcessEnding ;
 
 
 # Object Property mappings
-prov:wasEndedBy           rdfs:subPropertyOf cco:affects ;
-                          rdfs:comment "TODO add justification"@en .
-prov:wasStartedBy         rdfs:subPropertyOf cco:affects ;
-                          rdfs:comment "TODO add justification"@en .
+prov:wasEndedBy           rdfs:subPropertyOf cco:is_affected_by ;
+                          rdfs:comment "Ending an activity (which is a process) is a way that an entity (which is an Agent) can affect the activity"@en .
+prov:wasStartedBy         rdfs:subPropertyOf cco:is_affected_by ;
+                          rdfs:comment "Starting an activity (which is a process) is a way that an entity (which is an Agent) can affect the activity"@en .
 prov:wasAssociatedWith    rdfs:subPropertyOf cco:has_agent ;
                           rdfs:comment "An Activity that was associated with an Agent has the Agent as its agent."@en .
 prov:wasInvalidatedBy     rdfs:subPropertyOf cco:is_affected_by ;
