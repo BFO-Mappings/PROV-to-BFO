@@ -58,7 +58,7 @@ obo:BFO_0000015           rdfs:comment "A prov:Activity is equivalent to a proce
                           owl:equivalentClass prov:Activity .
 
 
-prov:Location             rdfs:comment "A prov:location is a subclass of site as the prov:Location term fits under the BFO:site defiition (a three-dimensional immaterial entity that is (partially or wholly) bounded by a material entity or it is a three-dimensional immaterial part) but adds specificity in that it can be an ISO 19112 geographic place or another location in which provenance occurs."@en ;
+prov:Location             rdfs:comment "A prov:location is equivalent to a site because a prov:Location is a three-dimensional immaterial entity that is (partially or wholly) bounded by a material entity or it is a three-dimensional immaterial part), but adds specificity in that it can be an ISO 19112 geographic place or another location in which provenance occurs."@en ;
                           owl:equivalentClass obo:BFO_0000029 . # site
 
 
@@ -97,4 +97,7 @@ prov:qualifiedEnd         rdfs:comment "A prov:Activity whose qualified end is s
                           rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
 
 prov:qualifiedUsage       rdfs:comment "A prov:Activity whose qualified usage is some prov:Usage has it as a temporal part."@en ;
+                          rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
+
+prov:hadUsage             rdfs:comment "A prov:Derivation that had usage some prov:Usage has it as a temporal part."@en ;
                           rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
