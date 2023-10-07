@@ -1,0 +1,404 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix :     <http://example.org/> .
+@base          <https://www.w3.org/TR/prov-dictionary/examples.ttl> .
+
+<https://www.w3.org/TR/prov-dictionary/examples.ttl> rdf:type owl:Ontology .
+
+:e1 a prov:Entity .
+:e2 a prov:Entity .
+
+:d1 a prov:Dictionary;
+    prov:hadDictionaryMember [ 
+       a prov:KeyEntityPair;
+       prov:pairKey   "k1"^^xsd:string;
+       prov:pairEntity :e1
+     ], [ 
+       a prov:KeyEntityPair;
+       prov:pairKey   "k2"^^xsd:string;
+       prov:pairEntity :e2
+     ];
+.
+
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix :     <http://example.org/> .
+
+:e1 a prov:Entity .
+:e2 a prov:Entity .
+
+:d  a prov:EmptyDictionary .
+
+:d1 a prov:Dictionary;
+   prov:derivedByInsertionFrom :d;
+   prov:qualifiedInsertion [ 
+      a prov:Insertion;
+      prov:dictionary :d;
+      prov:insertedKeyEntityPair [ 
+         a prov:KeyEntityPair;
+         prov:pairKey   "k1"^^xsd:string;
+         prov:pairEntity :e1;
+      ], [ 
+         a prov:KeyEntityPair;
+         prov:pairKey   "k2"^^xsd:string;
+         prov:pairEntity :e2;
+      ];
+   ]; 
+. 
+
+
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix :     <http://example.org/> .
+
+:d2 a prov:Dictionary .
+
+:d3 a prov:Dictionary;
+   prov:derivedByRemovalFrom :d2;
+   prov:qualifiedRemoval [ 
+      a prov:Removal;
+      prov:dictionary :d2;
+      prov:removedKey    "k1"^^xsd:string, 
+                      "k3"^^xsd:string;
+   ];
+.
+
+
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix my:     <http://example.org/ontology#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix :     <http://example.org/> .
+
+:seating_chart_2012
+   a prov:Dictionary, prov:Collection, prov:Entity, my:SeatingChart;
+   prov:derivedByInsertionFrom :seating_chart_2011;
+   dcterms:date "2012";
+   my:hasTotalStudents 45;
+.
+
+
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix :     <http://example.org/> .
+
+:e1 a prov:Entity .
+:e2 a prov:Entity .
+
+:d  a prov:EmptyDictionary
+.
+
+
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix :     <http://example.com/> .
+
+
+:our-baseball-team-field-positions
+   a prov:Dictionary, 
+         :FieldPositions;
+    prov:hadDictionaryMember [
+       a prov:KeyEntityPair;
+       prov:pairKey "first-baseman"^^xsd:string;
+       prov:pairEntity :george;
+    ];
+    prov:hadDictionaryMember [
+       a prov:KeyEntityPair;
+       prov:pairKey "pitcher"^^xsd:string;
+       prov:pairEntity :carl;
+    ];
+.
+
+:george a prov:Entity .
+:carl   a prov:Entity . 
+
+
+
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix :     <http://example.com/> .
+
+:our-NEW-baseball-team-field-positions
+   a prov:Dictionary, 
+         :FieldPositions;
+   prov:derivedByInsertionFrom :our-old-baseball-team-field-positions;
+   prov:qualifiedInsertion [ 
+      a prov:Insertion;
+      prov:dictionary :our-old-baseball-team-field-positions;
+      prov:insertedKeyEntityPair [ 
+         a prov:KeyEntityPair;
+         prov:pairKey   "first-baseman"^^xsd:string;
+         prov:pairEntity <http://dbpedia.org/resource/Jim_Thorpe>;
+      ];
+   ];
+.
+
+<http://dbpedia.org/resource/Jim_Thorpe> a prov:Entity .
+
+:our-old-baseball-team-field-positions a prov:Dictionary .
+
+
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix :     <http://example.com/> .
+
+:d1 a prov:Dictionary .
+
+:d2 
+   a prov:Dictionary, 
+     prov:Entity;
+   prov:derivedByRemovalFrom :d1;
+   prov:qualifiedRemoval [
+      a prov:Removal, prov:DictionaryInvolvement;
+      prov:dictionary :d1;
+      prov:removedKey "k1"^^xsd:string, 
+                      "k2"^^xsd:string;
+   ];
+.
+
+
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix :     <http://example.com/> .
+
+
+:e1 a prov:Entity .
+:e2 a prov:Entity .
+
+:d  a prov:EmptyDictionary .
+
+:d1 a prov:Dictionary;
+   prov:derivedByInsertionFrom :d;
+   prov:qualifiedInsertion [ 
+      a prov:Insertion;
+      prov:dictionary :d;
+      prov:insertedKeyEntityPair [ 
+         a prov:KeyEntityPair;
+         prov:pairKey   "k1"^^xsd:string;
+         prov:pairEntity :e1;
+      ], [ 
+         a prov:KeyEntityPair;
+         prov:pairKey   "k2"^^xsd:string;
+         prov:pairEntity :e2;
+      ];
+   ]; 
+. 
+
+
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix :     <http://example.com/> .
+
+:d1 a prov:Dictionary .
+
+:d2 
+   a prov:Dictionary, prov:Entity;
+   prov:derivedByRemovalFrom :d1;
+   prov:qualifiedRemoval [
+      a prov:Removal;
+      prov:dictionary :d1;
+      prov:removedKey "k1"^^xsd:string, 
+                      "k2"^^xsd:string;
+   ];
+.
+
+
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix :     <http://example.org/> .
+
+:e1 a prov:Entity .
+
+:d  a prov:EmptyDictionary .
+
+:d1 a prov:Dictionary;
+   prov:derivedByInsertionFrom :d;
+   prov:qualifiedInsertion [ 
+      a prov:Insertion;
+      prov:dictionary :d;
+      prov:insertedKeyEntityPair [ 
+         a prov:KeyEntityPair;
+         prov:pairKey   "k1"^^xsd:string;
+         prov:pairEntity :e1;
+      ];
+   ]; 
+. 
+
+
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix :     <http://example.com/> .
+
+:our-NEW-baseball-team-field-positions
+   a prov:Dictionary, 
+         :FieldPositions;
+   prov:derivedByInsertionFrom :our-old-baseball-team-field-positions;
+   prov:qualifiedInsertion [ 
+      a prov:Insertion;
+      prov:dictionary :our-old-baseball-team-field-positions;
+      prov:insertedKeyEntityPair [ 
+         a prov:KeyEntityPair;
+         prov:pairKey   "first-baseman"^^xsd:string;
+         prov:pairEntity <http://dbpedia.org/resource/Jim_Thorpe>;
+      ];
+   ];
+.
+
+<http://dbpedia.org/resource/Jim_Thorpe> a prov:Entity .
+
+:our-old-baseball-team-field-positions a prov:Dictionary .
+
+
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix :     <http://example.com/> .
+
+:our-old-baseball-team-field-positions
+   a prov:Dictionary, 
+         :FieldPositions;
+      prov:hadDictionaryMember [
+         a prov:KeyEntityPair;
+         prov:pairKey "first-baseman"^^xsd:string;
+         prov:pairEntity :george;
+      ], [
+         a prov:KeyEntityPair;
+         prov:pairKey "pitcher"^^xsd:string;
+         prov:pairEntity :carl;
+      ];
+.
+
+:george a prov:Entity .
+:carl   a prov:Entity . 
+
+
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix :     <http://example.com/> .
+
+:our-old-baseball-team-field-positions
+   a prov:Dictionary, 
+         :FieldPositions;
+      prov:hadDictionaryMember [
+         a prov:KeyEntityPair;
+         prov:pairKey "first-baseman"^^xsd:string;
+         prov:pairEntity :george;
+      ], [
+         a prov:KeyEntityPair;
+         prov:pairKey "pitcher"^^xsd:string;
+         prov:pairEntity :carl;
+      ];
+.
+
+:george a prov:Entity .
+:carl   a prov:Entity . 
+
+
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix :     <http://example.com/> .
+
+:our-old-baseball-team-field-positions
+   a prov:Dictionary, 
+         :FieldPositions;
+      prov:hadDictionaryMember [
+         a prov:KeyEntityPair;
+         prov:pairKey "first-baseman"^^xsd:string;
+         prov:pairEntity :george;
+      ], [
+         a prov:KeyEntityPair;
+         prov:pairKey "pitcher"^^xsd:string;
+         prov:pairEntity :carl;
+      ];
+.
+
+:george a prov:Entity .
+:carl   a prov:Entity . 
+
+
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix :     <http://example.com/> .
+
+:our-NEW-baseball-team-field-positions
+   a prov:Dictionary, 
+         :FieldPositions;
+   prov:derivedByInsertionFrom :our-old-baseball-team-field-positions;
+   prov:qualifiedInsertion [ 
+      a prov:Insertion;
+      prov:dictionary :our-old-baseball-team-field-positions;
+      prov:insertedKeyEntityPair [ 
+         a prov:KeyEntityPair;
+         prov:pairKey   "first-baseman"^^xsd:string;
+         prov:pairEntity <http://dbpedia.org/resource/Jim_Thorpe>;
+      ];
+   ];
+.
+
+<http://dbpedia.org/resource/Jim_Thorpe> a prov:Entity .
+
+:our-old-baseball-team-field-positions
+   a prov:Dictionary, 
+         :FieldPositions  .
+
+
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix :     <http://example.com/> .
+
+:d1 a prov:Dictionary .
+
+:d2 
+   a prov:Dictionary, prov:Entity;
+   prov:derivedByRemovalFrom :d1;
+   prov:qualifiedRemoval [
+      a prov:Removal;
+      prov:dictionary :d1;
+      prov:removedKey "k1"^^xsd:string, 
+                      "k2"^^xsd:string;
+   ];
+.
+
+
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix :     <http://example.com/> .
+
+:d2 
+   a prov:Dictionary, 
+     prov:Entity;
+   prov:derivedByRemovalFrom :d1;
+   prov:qualifiedRemoval [
+      a prov:Removal, 
+        prov:DictionaryInvolvement;
+      prov:dictionary :d1;
+      prov:removedKey "k1"^^xsd:string, 
+                       1337, 
+                       3.14;
+   ];
+.

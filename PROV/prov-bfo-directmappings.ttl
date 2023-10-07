@@ -9,7 +9,7 @@
 <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-bfo-directmappings.ttl>
    a                     owl:Ontology;
    rdfs:label           "Basic Formal Ontology (BFO) mappings for W3C PROVenance Interchange Ontology (PROV-O)"@en ;
-   owl:versionInfo      "2023-09-27"@en ;
+   owl:versionInfo      "2023-09-29"@en ;
    owl:versionIRI       <http://www.w3.org/ns/prov-bfo-directmappings-20230718> ;
    rdfs:seeAlso         <http://www.w3.org/ns/prov> ,
                         <https://basic-formal-ontology.org/> ,
@@ -86,10 +86,10 @@ prov:Role rdf:type owl:Class .
 prov:Location rdf:type owl:Class .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:Location ;
-    owl:annotatedProperty rdfs:subClassOf ; 
+    owl:annotatedProperty owl:equivalentClass ; 
     owl:annotatedTarget   obo:BFO_0000029 ;
     sssom:object_label    "site" ;
-    sssom:mapping_justification "A prov:Location is a subclass of site as the prov:Location term fits under the BFO:site defiition (a three-dimensional immaterial entity that is (partially or wholly) bounded by a material entity or it is a three-dimensional immaterial part) but adds specificity in that it can be an ISO 19112 geographic place or another location in which provenance occurs."@en .
+    sssom:mapping_justification "A prov:location is equivalent to a site because a prov:Location is a three-dimensional immaterial entity that is (partially or wholly) bounded by a material entity or it is a three-dimensional immaterial part), but adds specificity in that it can be an ISO 19112 geographic place or another location in which provenance occurs."@en .
 
 
 prov:InstantaneousEvent rdf:type owl:Class .
@@ -121,10 +121,59 @@ prov:Influence rdf:type owl:Class .
     sssom:mapping_justification "A prov:Influence is either a process or process boundary, but not both at once, because it occurs over time or at an instant in time. Although prov:Influence is defined as a capacity, all of its subclasses are clearly defined as occurring over time or at an instant."@en .
 
 
+prov:Dictionary rdf:type owl:Class .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:Dictionary ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedTarget   obo:BFO_0000031 ;
+    sssom:object_label    "generically dependent continuant" ;
+    sssom:mapping_justification "A prov:Dictionary exists in virtue of the fact that there is at least one of what may be multiple copies; it is the content or the pattern that the multiple copies share."@en .
+
+
+prov:KeyEntityPair rdf:type owl:Class .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:KeyEntityPair ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedTarget   obo:BFO_0000031 ;
+    sssom:object_label    "generically dependent continuant" ;
+    sssom:mapping_justification "A prov:KeyEntityPair exists in virtue of the fact that there is at least one of what may be multiple copies; it is the content or the pattern that the multiple copies share."@en .
+
+
+# TODO: ontological commentary on why prov:ServiceDescription shouldn't be an Agent
+
+
 # Object Properties
-prov:hadMember            rdfs:subPropertyOf obo:BFO_0000051 . # has part
-prov:hadGeneration        rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
-prov:hadActivity          rdfs:subPropertyOf obo:BFO_0000139 . # temporal part of
-prov:qualifiedStart       rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
-prov:qualifiedEnd         rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
-prov:qualifiedUsage       rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
+prov:hadMember rdf:type owl:ObjectProperty .
+prov:hadMember            rdfs:comment "A prov:Collection that has member some prov:Entity also has it as a part."@en ;
+                          rdfs:subPropertyOf obo:BFO_00000178 . # has continuant part (at some time)
+
+prov:hadGeneration rdf:type owl:ObjectProperty .
+prov:hadGeneration        rdfs:comment "A prov:Derivation that has generation some prov:Generation also has it as a temporal part."@en ;
+                          rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
+
+prov:hadActivity rdf:type owl:ObjectProperty .
+prov:hadActivity          rdfs:comment "A prov Delegation or Derivation or End or Start that has activity some prov:Activity is also a temporal part of that prov:Activity."@en ;
+                          rdfs:subPropertyOf obo:BFO_0000139 . # temporal part of
+
+prov:qualifiedStart rdf:type owl:ObjectProperty .
+prov:qualifiedStart       rdfs:comment "A prov:Activity whose qualified start is some prov:Start has it as a temporal part."@en ;
+                          rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
+          
+prov:qualifiedEnd rdf:type owl:ObjectProperty .                
+prov:qualifiedEnd         rdfs:comment "A prov:Activity whose qualified end is some prov:End has it as a temporal part."@en ;
+                          rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
+
+prov:qualifiedUsage rdf:type owl:ObjectProperty .
+prov:qualifiedUsage       rdfs:comment "A prov:Activity whose qualified usage is some prov:Usage has it as a temporal part."@en ;
+                          rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
+
+prov:hadUsage rdf:type owl:ObjectProperty .
+prov:hadUsage             rdfs:comment "A prov:Derivation that had usage some prov:Usage has it as a temporal part."@en ;
+                          rdfs:subPropertyOf obo:BFO_0000121 . # has temporal part
+
+prov:hadDictionaryMember rdf:type owl:ObjectProperty .
+prov:hadDictionaryMember  rdfs:comment "A prov:Dictionary has a prov:Key-Entity Pair as a member, then it has it as a continuant part at some time."@en ;
+                          rdfs:subPropertyOf obo:BFO_00000178 . # has continuant part (at some time)
+
+# prov:atLocation           rdfs:subPropertyOf obo:BFO_0000066 ; # has to be disjoint union of "occurs in" or "located in"
+#                           rdfs:comment "If a prov Activity, Agent, or Entity is at some Location, then it occurs in or is located in that Location"@en .
