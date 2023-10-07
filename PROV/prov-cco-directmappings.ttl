@@ -66,24 +66,6 @@ prov:End rdf:type owl:Class .
 
 
 # Object Property mappings
-prov:wasEndedBy rdf:type owl:ObjectProperty .
-[]  rdf:type owl:Axiom ;
-    owl:annotatedSource   prov:wasEndedBy ;
-    owl:annotatedProperty rdfs:subPropertyOf ;
-    owl:annotatedTarget   cco:is_affected_by ;
-    sssom:object_label    "is affected by" ;
-    sssom:mapping_justification "Ending an activity (which is a process) is a way that an entity (which is an Agent) can affect the activity"@en .
-
-
-prov:wasStartedBy rdf:type owl:ObjectProperty .
-[]  rdf:type owl:Axiom ;
-    owl:annotatedSource   prov:wasStartedBy ;
-    owl:annotatedProperty rdfs:subPropertyOf ;
-    owl:annotatedTarget   cco:is_affected_by ;
-    sssom:object_label    "is affected by" ;
-    sssom:mapping_justification "Starting an activity (which is a process) is a way that an entity (which is an Agent) can affect the activity"@en .
-
-
 prov:wasAssociatedWith rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:wasStartedBy ;
