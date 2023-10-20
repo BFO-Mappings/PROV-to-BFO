@@ -177,15 +177,6 @@ prov:hadGeneration rdf:type owl:ObjectProperty .
     sssom:mapping_justification "A prov:Derivation that has generation some prov:Generation also has it as a temporal part."@en .
 
 
-prov:hadActivity rdf:type owl:ObjectProperty .
-[]  rdf:type owl:Axiom ;
-    owl:annotatedSource   prov:hadActivity ;
-    owl:annotatedProperty rdfs:subPropertyOf ;
-    owl:annotatedTarget   obo:BFO_0000139 ;
-    sssom:object_label    "temporal part of" ;
-    sssom:mapping_justification "A prov Delegation or Derivation or End or Start that has activity some prov:Activity is also a temporal part of that prov:Activity."@en .
-
-
 prov:wasStartedBy rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:wasStartedBy ;
