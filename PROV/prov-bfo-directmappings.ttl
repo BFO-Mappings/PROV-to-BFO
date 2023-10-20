@@ -375,7 +375,7 @@ prov:hadDictionaryMember rdf:type owl:ObjectProperty .
 
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
    rdfs:comment "If something occurs in a prov:Location, then it's located at that prov:Location" ;
-   rdfs:label "Occurs in some Location -> atLocation" ;
+   rdfs:label "occurs in Location -> atLocation" ;
    rdf:type swrl:Imp ;
    swrl:body [  rdf:type swrl:AtomList ;
                 rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
@@ -459,7 +459,7 @@ prov:hadDictionaryMember rdf:type owl:ObjectProperty .
 
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
    rdfs:comment "If something is located in a prov:Location, then it's located at that prov:Location" ;
-   rdfs:label "located in some Location -> atLocation" ;
+   rdfs:label "located in Location -> atLocation" ;
    rdf:type swrl:Imp ;
    swrl:body [  rdf:type swrl:AtomList ;
                 rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
@@ -478,6 +478,35 @@ prov:hadDictionaryMember rdf:type owl:ObjectProperty .
    swrl:head [  rdf:type swrl:AtomList ;
                 rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
                             swrl:propertyPredicate prov:atLocation ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest rdf:nil
+                ]
+ ] .
+
+
+ [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a process Influence had role some Role, then it had that Role as a participant" ;
+   rdfs:label "hadRole -> has participant" ;
+   rdf:type swrl:Imp ;
+   swrl:body [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate prov:hadRole ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest [ rdf:type swrl:AtomList ;
+                            rdf:first [ rdf:type swrl:ClassAtom ;
+                                        swrl:classPredicate obo:BFO_0000015 ;
+                                        swrl:argument1 :x
+                                    ] ;
+                            rdf:rest rdf:nil
+                        ]
+                ] ;
+   swrl:head [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate obo:BFO_0000057 ;
                             swrl:argument1 :x ;
                             swrl:argument2 :y
                             ] ;
