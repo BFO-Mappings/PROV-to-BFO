@@ -1,6 +1,7 @@
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix swrl:   <http://www.w3.org/2003/11/swrl#> .
 @prefix prov:   <http://www.w3.org/ns/prov#> .
 @prefix obo:    <http://purl.obolibrary.org/obo/> .
 @prefix dc:     <http://purl.org/dc/elements/1.1/> .
@@ -9,7 +10,7 @@
 
 <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-bfo-directmappings.ttl>
   a                     owl:Ontology;
-  rdfs:label            "Basic Formal Ontology (BFO) mappings for W3C PROVenance Interchange Ontology (PROV-O)"@en ;
+  rdfs:label            "Basic Formal Ontology (BFO) ISO 21838-2:2020 mappings for W3C PROVenance Interchange Ontology (PROV-O)"@en ;
   owl:versionInfo       "2023-10-08"@en ;
   owl:versionIRI        <http://www.w3.org/ns/prov-bfo-directmappings-20230718> ;
   dc:contributor        "Sydney Cohen" , "Giacomo De Colle" , "Austin Liebers" , "Tim Prudhomme" , "Alec Sculley" , "Peihong Karl Xie" ;
@@ -25,18 +26,18 @@ prov:Entity rdf:type owl:Class .
     owl:annotatedSource   prov:Entity ;
     owl:annotatedProperty rdfs:subClassOf ; 
     owl:annotatedTarget   [ rdf:type owl:Class ;
-                            owl:unionOf ( obo:BFO_0000020 # specifically dependent continuant
-                                          obo:BFO_0000031 # generically dependent continuant
-                                          [ owl:intersectionOf ( obo:BFO_0000004 # independent continuant
+                            owl:unionOf ( [ owl:intersectionOf ( obo:BFO_0000004 # independent continuant
                                                                 [ rdf:type owl:Class ;
                                                                   owl:complementOf obo:BFO_0000006 # spatial region
                                                                 ]
                                                               ) ;
                                             rdf:type owl:Class
                                           ]
+                                          obo:BFO_0000031 # generically dependent continuant
+                                          obo:BFO_0000020 # specifically dependent continuant
                                         )
                           ] ;
-    sssom:object_label    "continuant that is not a spatial region" ;
+    sssom:object_label    "independent continuant except for spatial region OR generically dependent continuant OR specifically dependent continuant" ;
     sssom:mapping_justification "A prov:Entity is a continuant because it entirely exists at different times. However, a prov:Entity is not a spatial region because spatial regions are causally inert and may not particpate in processes."@en .
 
 
@@ -46,7 +47,7 @@ prov:Agent rdf:type owl:Class .
     owl:annotatedProperty rdfs:subClassOf ; 
     owl:annotatedTarget   [ owl:intersectionOf ( obo:BFO_0000040 # material entity
                                                   [ rdf:type owl:Restriction ;
-                                                    owl:onProperty obo:BFO_0000056 ; # participates in at some time
+                                                    owl:onProperty obo:BFO_0000056 ; # participates in (at some time) 
                                                     owl:someValuesFrom prov:Activity
                                                   ]
                                                   [ rdf:type owl:Restriction ;
@@ -63,8 +64,8 @@ prov:Agent rdf:type owl:Class .
                                                 ) ;
                             rdf:type owl:Class
                           ] ;
-    sssom:object_label    "material entity that participates in some Activity at some time and bears a role realized in that Activity" ;
-    sssom:mapping_justification "A prov:Agent is a material entity because always has some matter as a part that persists in time. A prov:Agent participates in some prov:Activity at some time and bears a role, that, if realized, is realized in a prov:Activity taking place. According to Requirement VI13 in 'Rationale of Prov', this could be a prov:Entity."@en .
+    sssom:object_label    "material entity that participates in (at some time) some Activity  and bears a role realized in that Activity" ;
+    sssom:mapping_justification "A prov:Agent is a material entity because always has some matter as a part that persists in time. A prov:Agent participates in (at some time) some prov:Activity  and bears a role, that, if realized, is realized in a prov:Activity taking place. According to Requirement VI13 in 'Rationale of Prov', this could be a prov:Entity."@en .
 
 
 prov:Activity rdf:type owl:Class .
@@ -114,13 +115,26 @@ prov:Plan rdf:type owl:Class .
 
 prov:Influence rdf:type owl:Class .
 []  rdf:type owl:Axiom ;
-    owl:annotatedSource   prov:Influence ;
-    owl:annotatedProperty owl:disjointUnionOf ; 
-    owl:annotatedTarget   ( obo:BFO_0000015
-                            obo:BFO_0000035
-                          ) ;
+    owl:annotatedSource     prov:Influence ;
+    owl:annotatedProperty   rdfs:subClassOf ; 
+    owl:annotatedTarget     [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                    owl:unionOf ( obo:BFO_0000015 # process
+                                                                  obo:BFO_0000035 # process boundary
+                                                                )
+                                                    ]
+                                                    [ rdf:type owl:Class ;
+                                                      owl:complementOf [ owl:intersectionOf ( obo:BFO_0000015 # process
+                                                                                              obo:BFO_0000035 # process boundary
+                                                                                            ) ;
+                                                                        rdf:type owl:Class
+                                                                        ]
+                                                    ]
+                                                ) ;
+                                rdf:type owl:Class
+                            ] ;
     sssom:object_label    "process or process boundary but not both at once" ;
-    sssom:mapping_justification "A prov:Influence is either a process or process boundary, but not both at once, because it occurs over time or at an instant in time. Although prov:Influence is defined as a capacity, all of its subclasses are clearly defined as occurring over time or at an instant. For example, a prov:Generation is a prov:InstantaneousEvent, while a prov:Derivation is a not a prov:InstantaneousEvent, yet both are subclasses of prov:Influence."@en .
+    sssom:mapping_justification "A prov:Influence is either a process or process boundary, but not both at once, because it occurs over time or at an instant in time. Although prov:Influence is defined as a capacity, all of its subclasses are clearly defined as occurring over time or at an instant. For example, a prov:Generation is a prov:InstantaneousEvent, while a prov:Derivation is a not a prov:InstantaneousEvent, yet both are subclasses of prov:Influence."@en ;
+    rdfs:comment: "This is not a disjoint union because while every Influence is either a process or process boundary, some processes & process boundaries are not Influences."@en .
 
 
 prov:Dictionary rdf:type owl:Class .
@@ -163,13 +177,85 @@ prov:hadGeneration rdf:type owl:ObjectProperty .
     sssom:mapping_justification "A prov:Derivation that has generation some prov:Generation also has it as a temporal part."@en .
 
 
-prov:hadActivity rdf:type owl:ObjectProperty .
+prov:wasStartedBy rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
-    owl:annotatedSource   prov:hadActivity ;
+    owl:annotatedSource   prov:wasStartedBy ;
     owl:annotatedProperty rdfs:subPropertyOf ;
-    owl:annotatedTarget   obo:BFO_0000139 ;
-    sssom:object_label    "temporal part of" ;
-    sssom:mapping_justification "A prov Delegation or Derivation or End or Start that has activity some prov:Activity is also a temporal part of that prov:Activity."@en .
+    owl:annotatedTarget   obo:BFO_0000057 ;
+    sssom:object_label    "has participant (at some time)" ;
+    sssom:mapping_justification "Starting an activity (which is a process) is a way that an entity (which is an Agent) can affect the activity"@en .
+
+
+prov:wasEndedBy rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:wasEndedBy ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   obo:BFO_0000057 ;
+    sssom:object_label    "has participant (at some time)" ;
+    sssom:mapping_justification "A process has a (non spatial region) continuant as a participant. An activity is a process that may be ended by a prov:Entity as a participant."@en .
+
+
+prov:wasStartedBy rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:wasStartedBy ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   obo:BFO_0000057 ;
+    sssom:object_label    "has participant (at some time)" ;
+    sssom:mapping_justification "A process has a (non spatial region) continuant as a participant. An activity is a process that may be started by a prov:Entity as a participant."@en .
+
+
+prov:wasAssociatedWith rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:wasAssociatedWith ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   obo:BFO_0000057 ;
+    sssom:object_label    "has participant (at some time)" ;
+    sssom:mapping_justification "A process has a (non spatial region) continuant as a participant. An activity is a process that may be associated with a prov:Entity as a participant."@en .
+
+
+prov:invalidated rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:invalidated ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   obo:BFO_0000057 ;
+    sssom:object_label    "has participant (at some time)" ;
+    sssom:mapping_justification "A process has a (non spatial region) continuant as a participant. An activity is a process that may be invalidated by a prov:Entity as a participant."@en .
+
+
+prov:used rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:used ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   obo:BFO_0000057 ;
+    sssom:object_label    "has participant (at some time)" ;
+    sssom:mapping_justification "A process has a (non spatial region) continuant as a participant. An activity is a process that may use a prov:Entity as a participant."@en .
+
+
+prov:generated rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:generated ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   obo:BFO_0000057 ;
+    sssom:object_label    "has participant (at some time)" ;
+    sssom:mapping_justification "An activity is a process that may be generated by a prov:Entity as a participant."@en .
+
+
+prov:wasInvalidatedBy rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:wasInvalidatedBy ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   obo:BFO_0000056 ;
+    sssom:object_label    "participates in (at some time)" ;
+    sssom:mapping_justification "An entity (non-spatial region continuant) may participate in its invalidation by an activity (process)"@en .
+
+
+prov:wasGeneratedBy rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:wasGeneratedBy ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   obo:BFO_0000056 ;
+    sssom:object_label    "participates in (at some time)" ;
+    sssom:mapping_justification "An entity (non-spatial region continuant) may participate in its generation by an activity (process)"@en .
 
 
 prov:qualifiedStart rdf:type owl:ObjectProperty .
@@ -213,15 +299,208 @@ prov:hadDictionaryMember rdf:type owl:ObjectProperty .
     owl:annotatedSource   prov:hadDictionaryMember ;
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:BFO_00000178 ;
-    sssom:object_label    "has continuant part" ;
-    sssom:mapping_justification "A prov:Dictionary has a prov:Key-Entity Pair as a member, then it has it as a continuant part at some time."@en .
+    sssom:object_label    "has continuant part (at some time)" ;
+    sssom:mapping_justification "A prov:Dictionary has a prov:Key-Entity Pair as a member, then it has it as a continuant part."@en .
 
 
-# has to be disjoint union of "occurs in" or "located in"
-# prov:atLocation rdf:type owl:ObjectProperty .
-# []  rdf:type owl:Axiom ;
-#     owl:annotatedSource   prov:atLocation ;
-#     owl:annotatedProperty rdfs:subPropertyOf ;
-#     owl:annotatedTarget   obo:BFO_0000066 ;
-#     sssom:object_label    "" ;
-#     sssom:mapping_justification "If a prov Activity, Agent, or Entity is at some Location, then it occurs in or is located in that Location"@en .
+# Rules
+
+:x rdf:type swrl:Variable .
+:y rdf:type swrl:Variable .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If an Activity is at some Location, then it occurs in that Location" ;
+   rdfs:label "Activity atLocation -> occurs in" ;
+   rdf:type swrl:Imp ;
+   swrl:body [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate prov:atLocation ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest [ rdf:type swrl:AtomList ;
+                            rdf:first [ rdf:type swrl:ClassAtom ;
+                                        swrl:classPredicate prov:Activity ;
+                                        swrl:argument1 :x
+                                    ] ;
+                            rdf:rest rdf:nil
+                        ]
+                ] ;
+   swrl:head [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate obo:BFO_0000066 ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest rdf:nil
+                ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If an InstantaneousEvent is at some location, then it occurs in that Location" ;
+   rdfs:label "InstantaneousEvent atLocation -> occurs in" ;
+   rdf:type swrl:Imp ;
+   swrl:body [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate prov:atLocation ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest [ rdf:type swrl:AtomList ;
+                            rdf:first [ rdf:type swrl:ClassAtom ;
+                                        swrl:classPredicate prov:InstantaneousEvent ;
+                                        swrl:argument1 :x
+                                    ] ;
+                            rdf:rest rdf:nil
+                        ]
+                ] ;
+   swrl:head [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate obo:BFO_0000066 ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest rdf:nil
+                ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If something occurs in a prov:Location, then it's located at that prov:Location" ;
+   rdfs:label "occurs in Location -> atLocation" ;
+   rdf:type swrl:Imp ;
+   swrl:body [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate obo:BFO_0000066 ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest [ rdf:type swrl:AtomList ;
+                            rdf:first [ rdf:type swrl:ClassAtom ;
+                                        swrl:classPredicate prov:Location ;
+                                        swrl:argument1 :y
+                                    ] ;
+                            rdf:rest rdf:nil
+                        ]
+                ] ;
+   swrl:head [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate prov:atLocation ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest rdf:nil
+                ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a prov:Entity is at some Location, then it is located in that Location" ;
+   rdfs:label "Entity atLocation -> located in" ;
+   rdf:type swrl:Imp ;
+   swrl:body [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate prov:atLocation ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest [ rdf:type swrl:AtomList ;
+                            rdf:first [ rdf:type swrl:ClassAtom ;
+                                        swrl:classPredicate prov:Entity ;
+                                        swrl:argument1 :x
+                                    ] ;
+                            rdf:rest rdf:nil
+                        ]
+                ] ;
+   swrl:head [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate obo:BFO_0000171 ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest rdf:nil
+                ]
+ ] .
+
+ [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a prov:Agent is at some Location, then it is located in that Location" ;
+   rdfs:label "Agent atLocation -> located in" ;
+   rdf:type swrl:Imp ;
+   swrl:body [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate prov:atLocation ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest [ rdf:type swrl:AtomList ;
+                            rdf:first [ rdf:type swrl:ClassAtom ;
+                                        swrl:classPredicate prov:Agent ;
+                                        swrl:argument1 :x
+                                    ] ;
+                            rdf:rest rdf:nil
+                        ]
+                ] ;
+   swrl:head [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate obo:BFO_0000171 ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest rdf:nil
+                ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If something is located in a prov:Location, then it's located at that prov:Location" ;
+   rdfs:label "located in Location -> atLocation" ;
+   rdf:type swrl:Imp ;
+   swrl:body [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate obo:BFO_0000171 ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest [ rdf:type swrl:AtomList ;
+                            rdf:first [ rdf:type swrl:ClassAtom ;
+                                        swrl:classPredicate prov:Location ;
+                                        swrl:argument1 :y
+                                    ] ;
+                            rdf:rest rdf:nil
+                        ]
+                ] ;
+   swrl:head [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate prov:atLocation ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest rdf:nil
+                ]
+ ] .
+
+
+ [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a process Influence had role some Role, then it had that Role as a participant" ;
+   rdfs:label "hadRole -> has participant" ;
+   rdf:type swrl:Imp ;
+   swrl:body [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate prov:hadRole ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest [ rdf:type swrl:AtomList ;
+                            rdf:first [ rdf:type swrl:ClassAtom ;
+                                        swrl:classPredicate obo:BFO_0000015 ;
+                                        swrl:argument1 :x
+                                    ] ;
+                            rdf:rest rdf:nil
+                        ]
+                ] ;
+   swrl:head [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate obo:BFO_0000057 ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest rdf:nil
+                ]
+ ] .

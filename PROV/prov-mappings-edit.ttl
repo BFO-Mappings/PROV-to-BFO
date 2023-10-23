@@ -10,7 +10,7 @@
    rdfs:label "Editor's file for PROV-BFO Mapping."@en ;
    rdfs:comment "Open this in Protege to view the full mapping in context. Test the mapping with the imports in this file. This keeps imports out of the release version."@en ;
    owl:imports <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-bfo-directmappings.ttl> , # Release version of PROV-BFO containing actual mappings
-               # <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-ro-directmappings.ttl> , # Release version of PROV-RO containing actual mappings
+               <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-ro-directmappings.ttl> , # Release version of PROV-RO containing actual mappings
                <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-cco-directmappings.ttl> , # Release version of PROV-CCO containing actual mappings
 
                # Source ontologies for alignment
