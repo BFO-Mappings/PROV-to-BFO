@@ -68,7 +68,7 @@ prov:End rdf:type owl:Class .
 # Object Property mappings
 prov:wasAssociatedWith rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
-    owl:annotatedSource   prov:wasStartedBy ;
+    owl:annotatedSource   prov:wasAssociatedWith ;
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   cco:has_agent ;
     sssom:object_label    "has agent" ;
