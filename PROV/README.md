@@ -10,7 +10,7 @@ Sydney Cohen, Giacomo De Colle, Austin Liebers, Tim Prudhomme, Alec Sculley, Kar
 * [PROV-BFO Release version here.](prov-bfo-directmappings.ttl) This contains only the mapped and extended terms from BFO. Use this file in production.
 
 ### PROV-RO
-* [PROV-CC Release version here.](prov-cco-directmappings.ttl) This contains only the mapped and extended terms from RO. Use this file in production.
+* [PROV-RO Release version here.](prov-ro-directmappings.ttl) This contains only the mapped and extended terms from RO. Use this file in production.
 
 ### PROV-CCO
 * [PROV-CCO Release version here.](prov-cco-directmappings.ttl) This contains only the mapped and extended terms from CCO. Use this file in production.
