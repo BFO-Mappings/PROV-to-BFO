@@ -6,6 +6,7 @@
 @prefix cco:    <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix dc:     <http://purl.org/dc/elements/1.1/> .
 @prefix sssom:  <https://w3id.org/sssom/> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
 @base <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-cco-directmappings.ttl> .
 
 <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-cco-directmappings.ttl>
@@ -37,7 +38,6 @@ prov:Agent rdf:type owl:Class .
     sssom:object_label    "Agent that is an agent in some Activity" ;
     sssom:mapping_justification "An agent is an Agent that is an agent in some Activity. According to Requirement VI13 in 'Rationale of Prov', this could be a prov:Entity"@en .
 
-
 prov:Plan rdf:type owl:Class .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:Plan ;
@@ -45,6 +45,15 @@ prov:Plan rdf:type owl:Class .
     owl:annotatedTarget   cco:InformationContentEntity ;
     sssom:object_label    "Information Content Entity" ;
     sssom:mapping_justification "Plans are information content which are about entities. prov:Plan is similar to cco:PlanSpecification, except that PROV explicitly does not constrain the type of information content that prov:Plans consist of."@en .
+
+
+prov:Person rdf:type owl:Class .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:Plan ;
+    owl:annotatedProperty skos:relatedMatch ; 
+    owl:annotatedTarget   cco:Person ;
+    sssom:object_label    "Person" ;
+    sssom:mapping_justification "Every prov:Person is a prov:Agent, but not every cco:Person is a cco:Agent. Therefore prov:Person and cco:Person are not coextensive."@en .
 
 
 prov:Start rdf:type owl:Class .
@@ -63,6 +72,15 @@ prov:End rdf:type owl:Class .
     owl:annotatedTarget   cco:ProcessEnding ;
     sssom:object_label    "Process Ending" ;
     sssom:mapping_justification "TODO add justification"@en .
+
+
+prov:KeyEntityPair rdf:type owl:Class .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:KeyEntityPair ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedTarget   InfoContent ;
+    sssom:object_label    "generically dependent continuant" ;
+    sssom:mapping_justification "A prov:KeyEntityPair exists in virtue of the fact that there is at least one of what may be multiple copies; it is the content or the pattern that the multiple copies share."@en .
 
 
 # Object Property mappings
@@ -193,15 +211,26 @@ prov:agent rdf:type owl:ObjectProperty .
     sssom:object_label    "has agent" ;
     sssom:mapping_justification  "An AgentInfluence has_agent an Agent because the Agent is the agent of the AgentInfluence."@en .
 
+
+prov:describesService rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:describesService ;
+    owl:annotatedProperty skos:relatedMatch ;
+    owl:annotatedTarget   cco:is_about ;
+    sssom:object_label    "is about" ;
+    sssom:mapping_justification  "PROV-AQ documentation suggests that a prov:ServiceDescription is used to describe a service. 
+    However, prov:ServiceDescription is a prov:Agent, which is an independent continuant. 
+    By contrast, only generically dependent continuants such as information can be about or describe something in CCO."@en .
+
+
 # Unmapped
 # prov:entity               rdfs:subPropertyOf cco:affects . # inconsistent with example of an End (process boundary) that is the EntityInfluence of a prov:entity relation. cco:affects is for processes only
 # prov:activity             rdfs:subPropertyOf cco:is_part_of_process . # inconsistent with example (illustration prov:activity illustrationActivity)
 
 
 # "The _optional_ Usage involved in an Entity's Derivation."
-# prov:hadUsage                 rdfs:subPropertyOf cco: . # ???
-# prov:hadRole                  rdfs:subPropertyOf cco:has_input . # an Influence has_input some Role # inconsistent with example of a Usage (process boundary) that hadRole some Role
-# prov:qualifiedGeneration      rdfs:subPropertyOf cco:is_output_of . # inconsistent because Generation is a process boundary
+# prov:hadRole                  rdfs:subPropertyOf cco:has_input . # an Influence has_input some Role # inconsistent with example of a Usage (process boundary) that hadRole some Role => SWRL
+# prov:qualifiedGeneration      rdfs:subPropertyOf cco:is_output_of . # inconsistent because Generation is a process boundary => SKOS related
 # prov:qualifiedInvalidation    rdfs:subPropertyOf cco:is_affected_by . # inconsistent because Invalidation is a process boundary
 # prov:qualifiedQuotation       rdfs:subPropertyOf cco: . # ???
 # "If this Activity prov:wasInformedBy Activity :a, then it can qualify how it was influenced using prov:qualifiedCommunication [ a prov:Communication;  prov:activity :a; :foo :bar ].
