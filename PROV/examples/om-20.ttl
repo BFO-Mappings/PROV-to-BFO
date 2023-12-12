@@ -11,7 +11,8 @@
 @prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix qudt: <http://qudt.org/schema/qudt/> .
+# @prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudt: <https://qudt.org/2.1/schema/qudt> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sampling: <http://www.w3.org/ns/sosa/sampling/> .
@@ -28,8 +29,9 @@
   dcterms:modified "2017-06-07" ;
   rdfs:comment "SOSA/SSN examples matching the ones found in Annex C of OMXML 2.0" ;
   rdfs:seeAlso <http://portal.opengeospatial.org/files/?artifact_id=41510> ;
-  # owl:imports <http://example.org/geosparql> ;
-  owl:imports <http://qudt.org/2.0/schema/qudt> ;
+  # owl:imports <http://example.org/geosparql> ; # 404
+  # owl:imports <http://qudt.org/2.0/schema/qudt> ; # 404
+  # owl:imports <https://qudt.org/2.1/schema/qudt> ;
   owl:imports <http://www.w3.org/2006/time> ;
   owl:imports <http://www.w3.org/ns/prov-o#> ;
   owl:imports sosa:sampling ;

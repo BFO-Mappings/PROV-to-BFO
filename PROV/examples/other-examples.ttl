@@ -104,10 +104,17 @@
 
 # :sortActivity
 #    a prov:Activity;
-#    prov:atTime     "2011-07-16T01:52:02Z"^^xsd:dateTime; # IGNORED: inconsistent because atTime has domain InstantaneousEvent
+#    prov:atTime     "2011-07-16T01:52:02Z"^^xsd:dateTime; # IGNORED: inconsistent because atTime has domain InstantaneousEvent. This instance uses prov:startedAtTime elsewhere, so maybe that was intended.
 #    prov:used       :datasetA;
 #    prov:generated  :datasetB;
 # .
+
+# The domain of "prov:atTime" is "prov:InstantaneousEvent", but the example uses ":sortActivity" in this relation, which is a "prov:Activity".
+# Our mapping has classified "prov:Activity" as equivalent to BFO "process", while "prov:InstantaneousEvent" is a "process boundary". 
+# Because "process" and "process boundary" are disjoint, this example results in a contradiction. 
+
+
+
 
 :datasetA a prov:Entity.
 :datasetB a prov:Entity.
@@ -1420,9 +1427,14 @@ my:surgeon a prov:Role .
 #         prov:hadRole :treatmentEnzyme;
 #       ];
 #    ];
-#    prov:entity :proteinSample; # IGNORED: causes contradiction because this implies :digestedProteinSample1 is an EntityInfluence
+#    prov:entity :proteinSample; # IGNORED: causes contradiction because this implies :digestedProteinSample1 is a prov:EntityInfluence. This relation should've been attached to the prov:Derivation above, which is a prov:EntityInfluence.
 # .
 # :proteinSample a prov:Entity .
+
+
+
+
+
 
 
 :bar_chart

@@ -3,6 +3,7 @@
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix obo:  <http://purl.obolibrary.org/obo/> .
+@prefix cco:    <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @base <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-mappings-edit.ttl> .
 
 <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-mappings-edit.ttl>
@@ -46,6 +47,14 @@
                <https://www.w3.org/TR/prov-aq/examples.ttl> ,
                <https://www.w3.org/TR/prov-dictionary/examples.ttl> ,
                <https://www.w3.org/TR/prov-links/examples.ttl> ,
-               <https://www.w3.org/TR/prov-dc/examples.ttl> ;
+               <https://www.w3.org/TR/prov-dc/examples.ttl> ,
+
+               # Other test data
+               # <http://www.w3.org/ns/sosa/prov> ,
+               # <http://www.w3.org/ns/sosa/> ,
+               # <http://example.org/om-20> ;
+               # <http://example.org/model> ;
+
+               <http://maven.renci.org/NeuroBridge/neurobridge> ;
                
 .
