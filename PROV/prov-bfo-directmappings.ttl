@@ -308,6 +308,7 @@ prov:hadDictionaryMember rdf:type owl:ObjectProperty .
 :x rdf:type swrl:Variable .
 :y rdf:type swrl:Variable .
 
+# prov:atLocation(?x, ?y) ^ prov:Activity(?x) -> obo:BFO_0000066(?x, ?y)
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
    rdfs:comment "If an Activity is at some Location, then it occurs in that Location" ;
    rdfs:label "Activity atLocation -> occurs in" ;
@@ -336,6 +337,7 @@ prov:hadDictionaryMember rdf:type owl:ObjectProperty .
                 ]
  ] .
 
+# prov:atLocation(?x, ?y) ^ prov:InstantaneousEvent(?x) -> obo:BFO_0000066(?x, ?y)
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
    rdfs:comment "If an InstantaneousEvent is at some location, then it occurs in that Location" ;
    rdfs:label "InstantaneousEvent atLocation -> occurs in" ;
@@ -364,6 +366,7 @@ prov:hadDictionaryMember rdf:type owl:ObjectProperty .
                 ]
  ] .
 
+# obo:BFO_0000066(?x, ?y) ^ prov:Location(?y) -> prov:atLocation(?x, ?y)
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
    rdfs:comment "If something occurs in a prov:Location, then it's located at that prov:Location" ;
    rdfs:label "occurs in Location -> atLocation" ;
@@ -392,6 +395,7 @@ prov:hadDictionaryMember rdf:type owl:ObjectProperty .
                 ]
  ] .
 
+# prov:atLocation(?x, ?y) ^ prov:Entity(?x) -> obo:BFO_0000171(?x, ?y)
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
    rdfs:comment "If a prov:Entity is at some Location, then it is located in that Location" ;
    rdfs:label "Entity atLocation -> located in" ;
@@ -420,6 +424,7 @@ prov:hadDictionaryMember rdf:type owl:ObjectProperty .
                 ]
  ] .
 
+# prov:atLocation(?x, ?y) ^ prov:Agent(?x) -> obo:BFO_0000171(?x, ?y)
  [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
    rdfs:comment "If a prov:Agent is at some Location, then it is located in that Location" ;
    rdfs:label "Agent atLocation -> located in" ;
@@ -448,6 +453,7 @@ prov:hadDictionaryMember rdf:type owl:ObjectProperty .
                 ]
  ] .
 
+# obo:BFO_0000171(?x, ?y) ^ prov:Location(?y) -> prov:atLocation(?x, ?y)
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
    rdfs:comment "If something is located in a prov:Location, then it's located at that prov:Location" ;
    rdfs:label "located in Location -> atLocation" ;
@@ -476,7 +482,7 @@ prov:hadDictionaryMember rdf:type owl:ObjectProperty .
                 ]
  ] .
 
-
+# prov:hadRole(?x, ?y) ^ obo:BFO_0000015(?x) -> obo:BFO_0000057(?x, ?y)
  [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
    rdfs:comment "If a process Influence had role some Role, then it had that Role as a participant" ;
    rdfs:label "hadRole -> has participant" ;
