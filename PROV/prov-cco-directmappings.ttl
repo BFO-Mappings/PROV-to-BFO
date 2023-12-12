@@ -1,6 +1,7 @@
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix swrl:   <http://www.w3.org/2003/11/swrl#> .
 @prefix prov:   <http://www.w3.org/ns/prov#> .
 @prefix obo:    <http://purl.obolibrary.org/obo/> .
 @prefix cco:    <http://www.ontologyrepository.com/CommonCoreOntologies/> .
@@ -78,8 +79,8 @@ prov:KeyEntityPair rdf:type owl:Class .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:KeyEntityPair ;
     owl:annotatedProperty rdfs:subClassOf ;
-    owl:annotatedTarget   InfoContent ;
-    sssom:object_label    "generically dependent continuant" ;
+    owl:annotatedTarget   cco:InformationContentEntity ;
+    sssom:object_label    "Information Content Entity" ;
     sssom:mapping_justification "A prov:KeyEntityPair exists in virtue of the fact that there is at least one of what may be multiple copies; it is the content or the pattern that the multiple copies share."@en .
 
 
@@ -223,9 +224,48 @@ prov:describesService rdf:type owl:ObjectProperty .
     By contrast, only generically dependent continuants such as information can be about or describe something in CCO."@en .
 
 
+
+# Rules
+
+:x rdf:type swrl:Variable .
+:y rdf:type swrl:Variable .
+
+# prov:dictionary(?x, ?y) ^ obo:BFO_0000015(?x) -> cco:affects(?x, ?y)
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If a Removal and Insertion is a process, and [used?] on another Dictionary, then that Removal and Insertion affects that Dictionary";
+   rdfs:label "Removal and Insertion dictionary -> affects" ;
+   rdf:type swrl:Imp ;
+   swrl:body [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate prov:dictionary ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest [ rdf:type swrl:AtomList ;
+                            rdf:first [ rdf:type swrl:ClassAtom ;
+                                        swrl:classPredicate obo:BFO_0000015 ;
+                                        swrl:argument1 :x
+                                    ] ;
+                            rdf:rest rdf:nil
+                        ]
+                ] ;
+   swrl:head [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate cco:affects ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest rdf:nil
+                ]
+ ] .
+
+
 # Unmapped
 # prov:entity               rdfs:subPropertyOf cco:affects . # inconsistent with example of an End (process boundary) that is the EntityInfluence of a prov:entity relation. cco:affects is for processes only
+# Could use SWRL rule where the EntityInfluence is a process => cco:affects
+
 # prov:activity             rdfs:subPropertyOf cco:is_part_of_process . # inconsistent with example (illustration prov:activity illustrationActivity)
+# Could use RO: causal relation between processes
 
 
 # "The _optional_ Usage involved in an Entity's Derivation."
