@@ -2,7 +2,6 @@ targetTerm,label
 http://www.w3.org/ns/prov#activity,activity
 http://www.w3.org/ns/prov#activityOfInfluence,activityOfInfluence
 http://www.w3.org/ns/prov#asInBundle,asInBundle
-http://www.w3.org/ns/prov#dictionary,dictionary
 http://www.w3.org/ns/prov#entity,entity
 http://www.w3.org/ns/prov#entityOfInfluence,entityOfInfluence
 http://www.w3.org/ns/prov#hadInfluence,hadInfluence
