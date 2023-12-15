@@ -224,6 +224,25 @@ prov:describesService rdf:type owl:ObjectProperty .
     By contrast, only generically dependent continuants such as information can be about or describe something in CCO."@en .
 
 
+prov:pairKey rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:pairEntity ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   cco:is_about ;
+    sssom:object_label    "is about" ;
+    sssom:mapping_justification  "A Key-Entity Pair is about an Entity because Key-Entity Pairs are Information Content Entities"@en .
+
+
+prov:insertedKeyEntityPair rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:insertedKeyEntityPair ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   cco:has_output ;
+    sssom:object_label    "has output" ;
+    sssom:mapping_justification  "Insertion of a Key-Entity Pair has output that Key-Entity Pair"@en .
+
+
+
 
 # Rules
 
@@ -259,6 +278,35 @@ prov:describesService rdf:type owl:ObjectProperty .
                 ]
  ] .
 
+
+# prov:entity(?x, ?y) ^ obo:BFO_0000015(?x) -> cco:affects(?x, ?y)
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If an EntityInfluence is a process and is the EntityInfluence of an Entity, then that EntityInfluence affects that Entity";
+   rdfs:label "EntityInfluence entity -> affects" ;
+   rdf:type swrl:Imp ;
+   swrl:body [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate prov:entity ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest [ rdf:type swrl:AtomList ;
+                            rdf:first [ rdf:type swrl:ClassAtom ;
+                                        swrl:classPredicate obo:BFO_0000015 ;
+                                        swrl:argument1 :x
+                                    ] ;
+                            rdf:rest rdf:nil
+                        ]
+                ] ;
+   swrl:head [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate cco:affects ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest rdf:nil
+                ]
+ ] .
 
 # Unmapped
 # prov:entity               rdfs:subPropertyOf cco:affects . # inconsistent with example of an End (process boundary) that is the EntityInfluence of a prov:entity relation. cco:affects is for processes only

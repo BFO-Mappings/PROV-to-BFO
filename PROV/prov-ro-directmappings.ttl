@@ -1,6 +1,7 @@
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix swrl:   <http://www.w3.org/2003/11/swrl#> .
 @prefix prov:   <http://www.w3.org/ns/prov#> .
 @prefix obo:    <http://purl.obolibrary.org/obo/> .
 @prefix dc:     <http://purl.org/dc/elements/1.1/> .
@@ -233,3 +234,37 @@ prov:hadMember rdf:type owl:ObjectProperty .
     owl:annotatedTarget   obo:RO_0002351 ;
     sssom:object_label    "had member" ;
     sssom:mapping_justification "TODO: Establish a relationship between similar BFO/RO and PROV terms - PROV term is more specific than the RO has member relation, and hence is a subclass of the RO term "@en .
+
+
+
+:x rdf:type swrl:Variable .
+:y rdf:type swrl:Variable .
+
+# prov:activity(?x, ?y) ^ obo:BFO_0000015(?x) -> obo:RO_0002501(?x, ?y)
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If an ActivityInfluence is activity-related to an Activity, then it is a causal relation between processes." ;
+   rdfs:label "ActivityInfluence prov:activity -> causa relation between processes" ;
+   rdf:type swrl:Imp ;
+   swrl:body [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate prov:activity ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest [ rdf:type swrl:AtomList ;
+                            rdf:first [ rdf:type swrl:ClassAtom ;
+                                        swrl:classPredicate obo:BFO_0000015 ;
+                                        swrl:argument1 :x
+                                    ] ;
+                            rdf:rest rdf:nil
+                        ]
+                ] ;
+   swrl:head [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate obo:RO_0002501 ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest rdf:nil
+                ]
+ ] .
