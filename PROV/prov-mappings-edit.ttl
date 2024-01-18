@@ -23,19 +23,21 @@
                <http://www.w3.org/ns/prov-o-inverses>, # PROV Inverses
                <http://www.w3.org/ns/prov-dc>, # PROV Dublin Core
 
-               <http://purl.obolibrary.org/obo/bfo/2020/bfo.owl> , # BFO
+               # <http://purl.obolibrary.org/obo/bfo/2020/bfo.owl> , # TODO get new BFO 2020 purl
+               <https://raw.githubusercontent.com/BFO-ontology/BFO-2020/master/src/owl/bfo-core.ttl>,
 
-               # <http://purl.obolibrary.org/obo/ro/releases/2023-02-22/ro.owl> , # Don't import all of RO, only import dependent terms below:
+
+               # <http://purl.obolibrary.org/obo/ro/releases/2023-08-18/ro.owl> , # Don't import all of RO, only import dependent terms below:
                # <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/OntoFox_outputs/RO_imports.xml>, # RO imports
 
                # <https://raw.githubusercontent.com/CommonCoreOntology/CommonCoreOntologies/master/cco-merged/MergedAllCoreOntology-v1.4-2023-04-07.ttl>, # CCO
-               <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/MergedAllCoreOntology>, # CCO local copy
+               <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/MergedAllCoreOntology>, # CCO local copy, resolved by Protege catalog
 
                # Test instances
                <https://www.w3.org/TR/prov-o/example-1.ttl> ,
                <https://www.w3.org/TR/prov-o/example-2.ttl> ,
                <https://www.w3.org/TR/prov-o/example-3.ttl> ,
-               #<https://www.w3.org/TR/prov-o/example-4.ttl> , # IGNORE: inconsistent with PROV-O itself: <:publicationActivity1124, prov:wasAttributedTo, :postEditor> because Activity and Entity are disjoint, but prov:wasAttributedTo has domain Entity, while :publicationActivity1124 is an Activity
+               # <https://www.w3.org/TR/prov-o/example-4.ttl> , # IGNORE: inconsistent with PROV-O itself: <:publicationActivity1124, prov:wasAttributedTo, :postEditor> because Activity and Entity are disjoint, but prov:wasAttributedTo has domain Entity, while :publicationActivity1124 is an Activity
                <https://www.w3.org/TR/prov-o/example-5.ttl> ,
                <https://www.w3.org/TR/prov-o/example-6.ttl> ,
                <https://www.w3.org/TR/prov-o/example-7.ttl> ,
@@ -47,7 +49,7 @@
                <https://www.w3.org/TR/prov-aq/examples.ttl> ,
                <https://www.w3.org/TR/prov-dictionary/examples.ttl> ,
                <https://www.w3.org/TR/prov-links/examples.ttl> ,
-               <https://www.w3.org/TR/prov-dc/examples.ttl> ,
+               <https://www.w3.org/TR/prov-dc/examples.ttl> ;
 
                # Other test data
                # <http://www.w3.org/ns/sosa/prov> ,
@@ -55,6 +57,6 @@
                # <http://example.org/om-20> ;
                # <http://example.org/model> ;
 
-               <http://maven.renci.org/NeuroBridge/neurobridge> ;
+            #    <http://maven.renci.org/NeuroBridge/neurobridge> ;
                
 .

@@ -192,6 +192,7 @@ prov:hadUsage rdf:type owl:ObjectProperty .
     sssom:object_label    "causal relation between processes" ;
     sssom:mapping_justification "A derivation may use a usage. Both are processes and this is a causal relation."@en .
 
+
 prov:hadActivity rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:hadActivity ;
@@ -199,6 +200,7 @@ prov:hadActivity rdf:type owl:ObjectProperty .
     owl:annotatedTarget   obo:RO_0002501 ;
     sssom:object_label    "causal relation between processes" ;
     sssom:mapping_justification "An influence that's related to an activity in this context is causally related to it, where both are processes."@en .
+
 
 prov:qualifiedAssociation rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
@@ -242,8 +244,8 @@ prov:hadMember rdf:type owl:ObjectProperty .
 
 # prov:activity(?x, ?y) ^ obo:BFO_0000015(?x) -> obo:RO_0002501(?x, ?y)
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
-   rdfs:comment "If an ActivityInfluence is activity-related to an Activity, then it is a causal relation between processes." ;
-   rdfs:label "ActivityInfluence prov:activity -> causa relation between processes" ;
+   rdfs:comment "If an ActivityInfluence is the ActivityInfluence of an Activity, then this is a causal relation between those two processes" ;
+   rdfs:label "ActivityInfluence prov:activity -> causal relation between processes" ;
    rdf:type swrl:Imp ;
    swrl:body [  rdf:type swrl:AtomList ;
                 rdf:first [ rdf:type swrl:IndividualPropertyAtom ;

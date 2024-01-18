@@ -26,7 +26,7 @@ WHERE {
   # Level 2: every target term must be subsumed by some source term
   # Level 3: every target term must be equivalent to some source term
   FILTER NOT EXISTS {
-    VALUES ?mappingPredicate { rdfs:subClassOf rdfs:subPropertyOf owl:equivalentClass owl:equivalentProperty owl:disjointUnionOf } .
+    # VALUES ?mappingPredicate { rdfs:subClassOf rdfs:subPropertyOf owl:equivalentClass owl:equivalentProperty owl:disjointUnionOf } .
 
     FILTER(STRSTARTS(STR(?sourceTerm), STR(bfo:)) || STRSTARTS(STR(?sourceTerm), STR(ro:)) || STRSTARTS(STR(?sourceTerm), STR(cco:))) .
 
@@ -41,6 +41,7 @@ WHERE {
   # Exclude property chain mappings
   FILTER NOT EXISTS {
     # TODO need to filter source term
+    # TODO exclude implied inverses ...
     ?targetTerm owl:propertyChainAxiom ?propertyChainAxiom . 
     { ?propertyChainAxiom ?contains ?sourceTerm . }
     UNION

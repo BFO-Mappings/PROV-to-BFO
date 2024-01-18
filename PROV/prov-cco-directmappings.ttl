@@ -139,7 +139,6 @@ prov:generated rdf:type owl:ObjectProperty .
     sssom:mapping_justification  "An Activity that generated an Entity has_output that Entity."@en .
 
 
-
 prov:hadPlan rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:hadPlan ;
@@ -204,6 +203,15 @@ prov:qualifiedPrimarySource rdf:type owl:ObjectProperty .
     sssom:mapping_justification  "A Entity that has a Primary Source as its qualified primary source is output of that Primary Source."@en .
 
 
+prov:qualifiedQuotation rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:qualifiedQuotation ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   cco:is_output_of ;
+    sssom:object_label    "is output of" ;
+    sssom:mapping_justification  "If a Quotation is the qualified quotation related to an Entity as the quote, then that Entity is output of that Quotation. See definition of prov:qualifiedQuotation."@en .
+
+
 prov:agent rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:agent ;
@@ -224,13 +232,22 @@ prov:describesService rdf:type owl:ObjectProperty .
     By contrast, only generically dependent continuants such as information can be about or describe something in CCO."@en .
 
 
-prov:pairKey rdf:type owl:ObjectProperty .
+prov:pairEntity rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:pairEntity ;
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   cco:is_about ;
     sssom:object_label    "is about" ;
     sssom:mapping_justification  "A Key-Entity Pair is about an Entity because Key-Entity Pairs are Information Content Entities"@en .
+
+
+prov:pairKey rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:pairKey ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   cco:is_about ;
+    sssom:object_label    "is about" ;
+    sssom:mapping_justification  "A Key-Entity Pair is about a key because Key-Entity Pairs are Information Content Entities"@en .
 
 
 prov:insertedKeyEntityPair rdf:type owl:ObjectProperty .
@@ -242,6 +259,59 @@ prov:insertedKeyEntityPair rdf:type owl:ObjectProperty .
     sssom:mapping_justification  "Insertion of a Key-Entity Pair has output that Key-Entity Pair"@en .
 
 
+# SKOS object property mappings
+prov:qualifiedGeneration rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:qualifiedGeneration ;
+    owl:annotatedProperty skos:relatedMatch ;
+    owl:annotatedTarget   cco:is_output_of ;
+    sssom:object_label    "is output of" ;
+    sssom:mapping_justification  "Generation is a prov:InstantaneousEvent, a process boundary. However, if it were a process, and some Generation was a qualified generation of an Entity, then that Entity would be the output of that Generation."@en .
+
+
+prov:qualifiedInvalidation rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:qualifiedInvalidation ;
+    owl:annotatedProperty skos:relatedMatch ;
+    owl:annotatedTarget   cco:is_affected_by ;
+    sssom:object_label    "is affected by" ;
+    sssom:mapping_justification  "Invalidation is a prov:InstantaneousEvent, a process boundary. However, if it were a process, and some Invalidation was a qualified invalidation of an Entity, then that Entity could be affected by that Invalidation."@en .
+
+
+prov:has_anchor rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:has_anchor ;
+    owl:annotatedProperty skos:relatedMatch ; 
+    owl:annotatedTarget   cco:is_subject_of ;
+    sssom:object_label    "is subject of" ;
+    sssom:mapping_justification "A resource that has some anchor is the subject of that anchor"@en .
+
+
+prov:has_provenance rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:has_provenance ;
+    owl:annotatedProperty skos:relatedMatch ; 
+    owl:annotatedTarget   cco:is_subject_of ;
+    sssom:object_label    "is subject of" ;
+    sssom:mapping_justification "A resource that has some provenance resource is the subject of that provenance resource"@en .
+
+
+prov:has_query_service rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:has_query_service ;
+    owl:annotatedProperty skos:relatedMatch ; 
+    owl:annotatedTarget   cco:is_subject_of ;
+    sssom:object_label    "is subject of" ;
+    sssom:mapping_justification "A resource that has some query service is the subject of that query service"@en .
+
+
+prov:pingback rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:pingback ;
+    owl:annotatedProperty skos:relatedMatch ; 
+    owl:annotatedTarget   cco:is_subject_of ;
+    sssom:object_label    "is subject of" ;
+    sssom:mapping_justification "A resource that has some pingback service is the subject of that pingback service"@en .
 
 
 # Rules
@@ -308,34 +378,12 @@ prov:insertedKeyEntityPair rdf:type owl:ObjectProperty .
                 ]
  ] .
 
-# Unmapped
-# prov:entity               rdfs:subPropertyOf cco:affects . # inconsistent with example of an End (process boundary) that is the EntityInfluence of a prov:entity relation. cco:affects is for processes only
-# Could use SWRL rule where the EntityInfluence is a process => cco:affects
 
-# prov:activity             rdfs:subPropertyOf cco:is_part_of_process . # inconsistent with example (illustration prov:activity illustrationActivity)
-# Could use RO: causal relation between processes
+# prov:influencer => not well-defined. prov:activity => causal relation between processes, prov:entity => cco:affects, prov:agent => cco:has_agent
 
-
-# "The _optional_ Usage involved in an Entity's Derivation."
-# prov:hadRole                  rdfs:subPropertyOf cco:has_input . # an Influence has_input some Role # inconsistent with example of a Usage (process boundary) that hadRole some Role => SWRL
-# prov:qualifiedGeneration      rdfs:subPropertyOf cco:is_output_of . # inconsistent because Generation is a process boundary => SKOS related
-# prov:qualifiedInvalidation    rdfs:subPropertyOf cco:is_affected_by . # inconsistent because Invalidation is a process boundary
-# prov:qualifiedQuotation       rdfs:subPropertyOf cco: . # ???
-# "If this Activity prov:wasInformedBy Activity :a, then it can qualify how it was influenced using prov:qualifiedCommunication [ a prov:Communication;  prov:activity :a; :foo :bar ].
-# prov:qualifiedCommunication   rdfs:subPropertyOf cco . # ???
+# Parthood requires the part and the whole to have compatible classes: only an occurrent have an occurrent as part; only a process can have a process as part;
+# Yet at the same time, the definition of process beginning: A Process Boundary that occurs on a Zero-Dimensional Temporal Region that is the starting instant of the One-Dimensional Temporal Region on which the Process, of which the Process Boundary is a part, occurs. 
 
 
-
-# Subsumed by BFO temporal/occurent relations
-# prov:qualifiedStart           rdfs:subPropertyOf cco:has_process_part . # inconsistent because Start is a process boundary
-# prov:qualifiedEnd             rdfs:subPropertyOf cco:is_disrupted_by . # inconsistent because End is a process boundary
-# prov:qualifiedUsage           rdfs:subPropertyOf cco:has_process_part . # inconsistent because Usage is a process boundary
-
-# "The _optional_ Activity of an Influence, which used, generated, invalidated, or was the responsibility of some Entity"
-# prov:hadActivity              rdfs:subPropertyOf cco:is_part_of_process . # inconsistent with example of instance of Start (process boundary) that hadActivity some Activity
-
-# "The _optional_ Generation involved in an Entity's Derivation."
-# prov:hadGeneration            rdfs:subPropertyOf cco:has_process_part .  # inconsistent because Generation and Derivation are a process boundaries
-
-# prov:wasInformedBy        rdfs:subPropertyOf cco:caused_by ; TODO: use skos predicate
-#                           rdfs:comment "If the Activity A1 was informed by the Activity A2, then A1 is caused by A2."@en .
+###### Inverses that are covered by some mapping, but not yet correctly found by our SPARQL query
+# prov:wasPlanOf
