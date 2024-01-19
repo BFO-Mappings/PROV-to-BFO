@@ -1,0 +1,232 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix obo:    <http://purl.obolibrary.org/obo/> .
+@prefix cco:    <http://www.ontologyrepository.com/CommonCoreOntologies/> .
+@prefix dc:     <http://purl.org/dc/elements/1.1/> .
+@prefix sssom:  <https://w3id.org/sssom/> .
+@base <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-cco-directmappings.ttl> .
+
+<https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-cco-directmappings.ttl>
+  a                     owl:Ontology;
+  rdfs:label            "Common Core Ontologies (CCO) mappings for W3C PROVenance Interchange Ontology (PROV-O)"@en ;
+  owl:versionInfo       "2023-10-08"@en ;
+  owl:versionIRI        <http://www.w3.org/ns/prov-cco-directmappings-20230718> ;
+  owl:imports           <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-bfo-directmappings.ttl> ;
+  rdfs:comment          "This mapping depends on the imported PROV-O to BFO mapping" ;
+  dc:contributor        "Sydney Cohen" , "Giacomo De Colle" , "Austin Liebers" , "Tim Prudhomme" , "Alec Sculley" , "Peihong Karl Xie" ;
+  rdfs:seeAlso          <http://www.w3.org/ns/prov> ,
+                        <https://github.com/BFO-Mappings/BFO-Mappings> ,
+                        <https://github.com/CommonCoreOntology/CommonCoreOntologies> ;
+.
+
+# Class mappings and property restrictions
+prov:Agent rdf:type owl:Class .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:Agent ;
+    owl:annotatedProperty owl:equivalentClass ; 
+    owl:annotatedTarget   [ owl:intersectionOf ( cco:Agent
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty cco:agent_in ;
+                                                                    owl:someValuesFrom prov:Activity
+                                                                  ]
+                                                                ) ;
+                                            rdf:type owl:Class
+                                          ] ;
+    sssom:object_label    "Agent that is an agent in some Activity" ;
+    sssom:mapping_justification "An agent is an Agent that is an agent in some Activity. According to Requirement VI13 in 'Rationale of Prov', this could be a prov:Entity"@en .
+
+
+prov:Person rdf:type owl:Class .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:Person ;
+    owl:annotatedProperty owl:equivalentClass ;
+    owl:annotatedTarget   [ owl:intersectionOf ( cco:Person
+                                                 prov:Agent)] .
+
+
+prov:Plan rdf:type owl:Class .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:Plan ;
+    owl:annotatedProperty rdfs:subClassOf ; 
+    owl:annotatedTarget   cco:InformationContentEntity ;
+    sssom:object_label    "Information Content Entity" ;
+    sssom:mapping_justification "Plans are information content which are about entities. prov:Plan is similar to cco:PlanSpecification, except that PROV explicitly does not constrain the type of information content that prov:Plans consist of."@en .
+
+
+prov:Start rdf:type owl:Class .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:Start ;
+    owl:annotatedProperty owl:equivalentClass ; 
+    owl:annotatedTarget   cco:ProcessBeginning ;
+    sssom:object_label    "Process Beginning" ;
+    sssom:mapping_justification "TODO add justification"@en .
+
+
+prov:End rdf:type owl:Class .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:End ;
+    owl:annotatedProperty owl:equivalentClass ; 
+    owl:annotatedTarget   cco:ProcessEnding ;
+    sssom:object_label    "Process Ending" ;
+    sssom:mapping_justification "TODO add justification"@en .
+
+
+# Object Property mappings
+prov:wasAssociatedWith rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:wasAssociatedWith ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   cco:has_agent ;
+    sssom:object_label    "has agent" ;
+    sssom:mapping_justification "An Activity that was associated with an Agent has the Agent as its agent."@en .
+
+
+prov:wasInvalidatedBy rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:wasInvalidatedBy ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   cco:is_affected_by ;
+    sssom:object_label    "is affected by" ;
+    sssom:mapping_justification "An Entity that was invalidated by an Activity is also affected by that Activity."@en .
+
+
+prov:wasGeneratedBy rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:wasGeneratedBy ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   cco:is_output_of ;
+    sssom:object_label    "is output of" ;
+    sssom:mapping_justification "An Entity that was generated by an Activity is output of that Activity."@en .
+
+
+prov:invalidated rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:invalidated ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   cco:affects ;
+    sssom:object_label    "affects" ;
+    sssom:mapping_justification "An Activity that invalidated an Entity also affects that Entity."@en .
+
+
+prov:used rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:used ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   cco:affects ;
+    sssom:object_label    "affects" ;
+    sssom:mapping_justification "An Activity that used an Entity affects the Entity."@en .
+
+
+prov:generated rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:generated ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   cco:has_output ;
+    sssom:object_label    "has output" ;
+    sssom:mapping_justification  "An Activity that generated an Entity has_output that Entity."@en .
+
+
+
+prov:hadPlan rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:hadPlan ;
+    owl:annotatedProperty owl:propertyChainAxiom ;
+    owl:annotatedTarget   ( [ owl:inverseOf prov:qualifiedAssociation ] cco:prescribed_by ) ;
+    sssom:object_label    "qualified association of something prescribed by" ;
+    sssom:mapping_justification  "If an Association had plan some Plan, then it's the qualified Association of some Activity that's prescribed by that Plan."@en .
+
+
+# "If this Activity prov:wasAssociatedWith Agent :ag, then it can qualify the Association using prov:qualifiedAssociation [ a prov:Association;  prov:agent :ag; :foo :bar ]."
+prov:qualifiedAssociation rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:qualifiedAssociation ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   cco:has_process_part ;
+    sssom:object_label    "has process part" ;
+    sssom:mapping_justification  "An Activity that has an Association as its qualified association also has the Activity as its process part."@en .
+
+
+prov:qualifiedAttribution rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:qualifiedAttribution ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   cco:is_affected_by ;
+    sssom:object_label    "is affected by" ;
+    sssom:mapping_justification  "An Entity that is attributed to something is affected by that Attribution."@en .
+
+
+prov:qualifiedRevision rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:qualifiedRevision ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   cco:is_affected_by ;
+    sssom:object_label    "is affected by" ;
+    sssom:mapping_justification  "If a Revision is the qualified revision of an Entity, then the Entity is affected by the Revision."@en .
+
+
+prov:qualifiedDelegation rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:qualifiedDelegation ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   cco:agent_in ;
+    sssom:object_label    "agent in" ;
+    sssom:mapping_justification  "If a Delegation is the qualified delegation of an Agent, then the Agent is agent in (namely causally active in) the Delegation."@en .
+
+
+prov:qualifiedDerivation rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:qualifiedDerivation ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   cco:is_output_of ;
+    sssom:object_label    "is output of" ;
+    sssom:mapping_justification  "If a Derivation is the qualified derivation of an Entity, then the Entity is output of the Derivation."@en .
+
+
+prov:qualifiedPrimarySource rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:qualifiedPrimarySource ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   cco:is_output_of ;
+    sssom:object_label    "is output of" ;
+    sssom:mapping_justification  "A Entity that has a Primary Source as its qualified primary source is output of that Primary Source."@en .
+
+
+prov:agent rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:agent ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   cco:has_agent ;
+    sssom:object_label    "has agent" ;
+    sssom:mapping_justification  "An AgentInfluence has_agent an Agent because the Agent is the agent of the AgentInfluence."@en .
+
+# Unmapped
+# prov:entity               rdfs:subPropertyOf cco:affects . # inconsistent with example of an End (process boundary) that is the EntityInfluence of a prov:entity relation. cco:affects is for processes only
+# prov:activity             rdfs:subPropertyOf cco:is_part_of_process . # inconsistent with example (illustration prov:activity illustrationActivity)
+
+
+# "The _optional_ Usage involved in an Entity's Derivation."
+# prov:hadUsage                 rdfs:subPropertyOf cco: . # ???
+# prov:hadRole                  rdfs:subPropertyOf cco:has_input . # an Influence has_input some Role # inconsistent with example of a Usage (process boundary) that hadRole some Role
+# prov:qualifiedGeneration      rdfs:subPropertyOf cco:is_output_of . # inconsistent because Generation is a process boundary
+# prov:qualifiedInvalidation    rdfs:subPropertyOf cco:is_affected_by . # inconsistent because Invalidation is a process boundary
+# prov:qualifiedQuotation       rdfs:subPropertyOf cco: . # ???
+# "If this Activity prov:wasInformedBy Activity :a, then it can qualify how it was influenced using prov:qualifiedCommunication [ a prov:Communication;  prov:activity :a; :foo :bar ].
+# prov:qualifiedCommunication   rdfs:subPropertyOf cco . # ???
+
+
+
+# Subsumed by BFO temporal/occurent relations
+# prov:qualifiedStart           rdfs:subPropertyOf cco:has_process_part . # inconsistent because Start is a process boundary
+# prov:qualifiedEnd             rdfs:subPropertyOf cco:is_disrupted_by . # inconsistent because End is a process boundary
+# prov:qualifiedUsage           rdfs:subPropertyOf cco:has_process_part . # inconsistent because Usage is a process boundary
+
+# "The _optional_ Activity of an Influence, which used, generated, invalidated, or was the responsibility of some Entity"
+# prov:hadActivity              rdfs:subPropertyOf cco:is_part_of_process . # inconsistent with example of instance of Start (process boundary) that hadActivity some Activity
+
+# "The _optional_ Generation involved in an Entity's Derivation."
+# prov:hadGeneration            rdfs:subPropertyOf cco:has_process_part .  # inconsistent because Generation and Derivation are a process boundaries
+
+# prov:wasInformedBy        rdfs:subPropertyOf cco:caused_by ; TODO: use skos predicate
+#                           rdfs:comment "If the Activity A1 was informed by the Activity A2, then A1 is caused by A2."@en .
