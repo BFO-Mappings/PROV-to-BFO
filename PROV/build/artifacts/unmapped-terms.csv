@@ -1,5 +1,4 @@
 targetTerm,label
-http://www.w3.org/ns/prov#asInBundle,asInBundle
 http://www.w3.org/ns/prov#hadInfluence,hadInfluence
 http://www.w3.org/ns/prov#influencer,influencer
 http://www.w3.org/ns/prov#qualifiedCommunicationOf,qualifiedCommunicationOf

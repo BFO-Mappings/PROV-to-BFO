@@ -21,8 +21,7 @@ WHERE {
   # FILTER( STRSTARTS(STR(?sourceTerm), STR(bfo:)) || STRSTARTS(STR(?sourceTerm), STR(ro:)) || STRSTARTS(STR(?sourceTerm), STR(cco:)) ) .
   
   # How are we mapping (which predicates) ?
-  # Level 1: every target term must be subsumed by some axiom including term OR all of its subterms are subsumed by some source term
-    # Either a term is mapped, or its subsumed by a term that's mapped
+  # Level 1: every target term must be subsumed by some axiom including term
   # Level 2: every target term must be subsumed by some source term
   # Level 3: every target term must be equivalent to some source term
   FILTER NOT EXISTS {
