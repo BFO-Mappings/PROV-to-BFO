@@ -38,6 +38,14 @@ prov:Agent rdf:type owl:Class .
     sssom:mapping_justification "An agent is an Agent that is an agent in some Activity. According to Requirement VI13 in 'Rationale of Prov', this could be a prov:Entity"@en .
 
 
+prov:Person rdf:type owl:Class .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:Person ;
+    owl:annotatedProperty owl:equivalentClass ;
+    owl:annotatedTarget   [ owl:intersectionOf ( cco:Person
+                                                 prov:Agent)] .
+
+
 prov:Plan rdf:type owl:Class .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:Plan ;
