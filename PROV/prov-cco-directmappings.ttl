@@ -50,6 +50,16 @@ prov:Person rdf:type owl:Class .
     sssom:mapping_justification "Every prov:Person is both a prov:Agent and a cco:Person. However, not every cco:Person is a prov:Agent or cco:Agent. So, prov:Person and cco:Person are not coextensive."@en .
 
 
+prov:Organization rdf:type owl:Class .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:Organization ;
+    owl:annotatedProperty owl:equivalentClass ;
+    owl:annotatedTarget   [ owl:intersectionOf ( cco:Organization
+                                                 prov:Agent)] ;
+    sssom:object_label    "Organization" ;
+    sssom:mapping_justification "Every prov:Organization is both a prov:Agent and a cco:Organization. However, not every cco:Organization is a prov:Agent or cco:Agent. So, prov:Organization and cco:Organization are not coextensive."@en .
+
+
 prov:Plan rdf:type owl:Class .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:Plan ;
@@ -158,7 +168,7 @@ prov:hadPlan rdf:type owl:ObjectProperty .
     owl:annotatedProperty owl:propertyChainAxiom ;
     owl:annotatedTarget   ( [ owl:inverseOf prov:qualifiedAssociation ] cco:prescribed_by ) ;
     sssom:object_label    "qualified association of something prescribed by" ;
-    sssom:mapping_justification  "If an Association had plan some Plan, then it's the qualified Association of some Activity that's prescribed by that Plan."@en .
+    sssom:mapping_justification  "If an Association is the qualified association of some Activity, and that Activity is prescribed by some Plan, then that Association 'had plan' that Plan."@en .
 
 
 # "If this Activity prov:wasAssociatedWith Agent :ag, then it can qualify the Association using prov:qualifiedAssociation [ a prov:Association;  prov:agent :ag; :foo :bar ]."
@@ -386,10 +396,10 @@ prov:qualifiedInvalidation rdf:type owl:ObjectProperty .
  ] .
 
 
-# prov:entity(?x, ?y) ^ obo:BFO_0000015(?x) -> cco:affects(?x, ?y)
+# prov:entity(?x, ?y) ^ obo:BFO_0000015(?x) -> cco:has_input(?x, ?y)
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
-   rdfs:comment "If an EntityInfluence is a process and is the EntityInfluence of an Entity, then that EntityInfluence affects that Entity";
-   rdfs:label "EntityInfluence entity -> affects" ;
+   rdfs:comment "If an EntityInfluence is a process and is the EntityInfluence of an Entity, then that EntityInfluence has input that Entity as the influencer.";
+   rdfs:label "EntityInfluence entity -> has_input" ;
    rdf:type swrl:Imp ;
    swrl:body [  rdf:type swrl:AtomList ;
                 rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
@@ -407,7 +417,7 @@ prov:qualifiedInvalidation rdf:type owl:ObjectProperty .
                 ] ;
    swrl:head [  rdf:type swrl:AtomList ;
                 rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
-                            swrl:propertyPredicate cco:affects ;
+                            swrl:propertyPredicate cco:has_input ;
                             swrl:argument1 :x ;
                             swrl:argument2 :y
                             ] ;

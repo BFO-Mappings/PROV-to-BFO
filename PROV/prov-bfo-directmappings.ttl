@@ -65,7 +65,7 @@ prov:Agent rdf:type owl:Class .
                             rdf:type owl:Class
                           ] ;
     sssom:object_label    "material entity that participates in (at some time) some Activity  and bears a role realized in that Activity" ;
-    sssom:mapping_justification "A prov:Agent is a material entity because always has some matter as a part that persists in time. A prov:Agent participates in (at some time) some prov:Activity  and bears a role, that, if realized, is realized in a prov:Activity taking place. According to Requirement VI13 in 'Rationale of Prov', this could be a prov:Entity."@en .
+    sssom:mapping_justification "A prov:Agent is a material entity because it always has some matter as a part that persists in time. A prov:Agent participates in (at some time) some prov:Activity  and bears a role, that, if realized, is realized in a prov:Activity taking place. According to Requirement VI3 in 'Rationale of Prov', this could be a prov:Entity."@en .
 
 
 prov:SoftwareAgent rdf:type owl:Class .
@@ -311,7 +311,7 @@ prov:hadDictionaryMember rdf:type owl:ObjectProperty .
 
 # prov:atLocation(?x, ?y) ^ prov:Activity(?x) -> obo:BFO_0000066(?x, ?y)
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
-   rdfs:comment "If an Activity is at some Location, then it occurs in that Location" ;
+   rdfs:comment "If an Activity is at some location, then it occurs in that location" ;
    rdfs:label "Activity atLocation -> occurs in" ;
    rdf:type swrl:Imp ;
    swrl:body [  rdf:type swrl:AtomList ;
@@ -340,7 +340,7 @@ prov:hadDictionaryMember rdf:type owl:ObjectProperty .
 
 # prov:atLocation(?x, ?y) ^ prov:InstantaneousEvent(?x) -> obo:BFO_0000066(?x, ?y)
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
-   rdfs:comment "If an InstantaneousEvent is at some location, then it occurs in that Location" ;
+   rdfs:comment "If an InstantaneousEvent is at some location, then it occurs in that location" ;
    rdfs:label "InstantaneousEvent atLocation -> occurs in" ;
    rdf:type swrl:Imp ;
    swrl:body [  rdf:type swrl:AtomList ;
@@ -369,7 +369,7 @@ prov:hadDictionaryMember rdf:type owl:ObjectProperty .
 
 # obo:BFO_0000066(?x, ?y) ^ prov:Location(?y) -> prov:atLocation(?x, ?y)
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
-   rdfs:comment "If something occurs in a prov:Location, then it's located at that prov:Location" ;
+   rdfs:comment "If something occurs in a Location, then it is located at that Location" ;
    rdfs:label "occurs in Location -> atLocation" ;
    rdf:type swrl:Imp ;
    swrl:body [  rdf:type swrl:AtomList ;
@@ -398,7 +398,7 @@ prov:hadDictionaryMember rdf:type owl:ObjectProperty .
 
 # prov:atLocation(?x, ?y) ^ prov:Entity(?x) -> obo:BFO_0000171(?x, ?y)
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
-   rdfs:comment "If a prov:Entity is at some Location, then it is located in that Location" ;
+   rdfs:comment "If a prov:Entity is at some location, then it is located in that location" ;
    rdfs:label "Entity atLocation -> located in" ;
    rdf:type swrl:Imp ;
    swrl:body [  rdf:type swrl:AtomList ;
@@ -427,7 +427,7 @@ prov:hadDictionaryMember rdf:type owl:ObjectProperty .
 
 # prov:atLocation(?x, ?y) ^ prov:Agent(?x) -> obo:BFO_0000171(?x, ?y)
  [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
-   rdfs:comment "If a prov:Agent is at some Location, then it is located in that Location" ;
+   rdfs:comment "If a prov:Agent is at some location, then it is located in that location" ;
    rdfs:label "Agent atLocation -> located in" ;
    rdf:type swrl:Imp ;
    swrl:body [  rdf:type swrl:AtomList ;
@@ -456,7 +456,7 @@ prov:hadDictionaryMember rdf:type owl:ObjectProperty .
 
 # obo:BFO_0000171(?x, ?y) ^ prov:Location(?y) -> prov:atLocation(?x, ?y)
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
-   rdfs:comment "If something is located in a prov:Location, then it's located at that prov:Location" ;
+   rdfs:comment "If something is located in a prov:Location, then it's located at that Location" ;
    rdfs:label "located in Location -> atLocation" ;
    rdf:type swrl:Imp ;
    swrl:body [  rdf:type swrl:AtomList ;
@@ -491,6 +491,35 @@ prov:hadDictionaryMember rdf:type owl:ObjectProperty .
    swrl:body [  rdf:type swrl:AtomList ;
                 rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
                             swrl:propertyPredicate prov:hadRole ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest [ rdf:type swrl:AtomList ;
+                            rdf:first [ rdf:type swrl:ClassAtom ;
+                                        swrl:classPredicate obo:BFO_0000015 ;
+                                        swrl:argument1 :x
+                                    ] ;
+                            rdf:rest rdf:nil
+                        ]
+                ] ;
+   swrl:head [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate obo:BFO_0000057 ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                            ] ;
+                rdf:rest rdf:nil
+                ]
+ ] .
+
+ # prov:entity(?x, ?y) ^ obo:BFO_0000015(?x) -> obo:BFO_0000057(?x, ?y)
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "If an EntityInfluence is a process and is the EntityInfluence of an Entity, then that EntityInfluence has participant that Entity as the influencer.";
+   rdfs:label "EntityInfluence entity -> has participant (at some time)" ;
+   rdf:type swrl:Imp ;
+   swrl:body [  rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate prov:entity ;
                             swrl:argument1 :x ;
                             swrl:argument2 :y
                             ] ;
