@@ -130,7 +130,7 @@ $(REQUIRED_DIRS):
 # ROBOT
 ROBOT_FILE := $(config.LIBRARY_DIR)/robot.jar
 $(ROBOT_FILE): | $(config.LIBRARY_DIR)
-	curl -L -o $@ https://github.com/ontodev/robot/releases/download/v1.9.3/robot.jar
+	curl -L -o $@ https://github.com/ontodev/robot/releases/download/v1.9.5/robot.jar
 
 ROBOT := java -jar $(ROBOT_FILE)
 
