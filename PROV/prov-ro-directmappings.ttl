@@ -16,9 +16,10 @@
   owl:imports          <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-bfo-directmappings.ttl> ;
   rdfs:comment          "This mapping depends on the imported PROV-O to BFO mapping." ;
   dc:contributor        "Sydney Cohen" , "Giacomo De Colle" , "Austin Liebers" , "Tim Prudhomme" , "Alec Sculley" , "Peihong Karl Xie" ;
-  rdfs:seeAlso         <http://www.w3.org/ns/prov> ,
-                        <https://github.com/BFO-Mappings/BFO-Mappings> ,
+  prov:wasDerivedFrom   <http://www.w3.org/ns/prov> ,
                         <https://obofoundry.org/ontology/ro.html> ;
+  rdfs:seeAlso          <https://basic-formal-ontology.org/> ,
+                        <https://github.com/BFO-Mappings/BFO-Mappings> ;
 .
 
 # PROV class mappings and property restrictions
@@ -60,14 +61,23 @@ prov:influenced rdf:type owl:ObjectProperty .
     sssom:mapping_justification "An entity may influence another entity and this is a causal relation."@en .
 
 
-# prov:activity ~> causal relation between processes, prov:entity ~> cco:affects, prov:agent ~> cco:has_agent
+# prov:activity ~> causal relation between processes, prov:entity ~> cco:has_input, prov:agent ~> cco:has_agent
 prov:influencer rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:influenced ;
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0002410 ;
     sssom:object_label    "casually related to" ;
-    sssom:mapping_justification "An Influence may influence an Agent, Activity, or Entity and this is a causal relation."@en .
+    sssom:mapping_justification "An Agent, Activity, or Entity exerts an Influence and this is a causal relation."@en .
+
+
+prov:activity rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:activity ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   obo:RO_0002501 ;
+    sssom:object_label    "causal relation between processes" ;
+    sssom:mapping_justification  "An Activity is causally related to its ActivityInfluence, where these are both occurrents. Although an ActivityInfluence may be a process boundary, the domain and range of 'causal relation between processes' is occurrent."@en .
 
 
 prov:wasAttributedTo rdf:type owl:ObjectProperty .
@@ -264,41 +274,5 @@ prov:hadMember rdf:type owl:ObjectProperty .
     owl:annotatedSource   prov:hadMember ;
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0002351 ;
-    sssom:object_label    "had member" ;
-    sssom:mapping_justification "TODO: Establish a relationship between similar BFO/RO and PROV terms - PROV term is more specific than the RO has member relation, and hence is a subclass of the RO term "@en .
-
-
-
-# PROV object property mappings using SWRL rules
-
-:x rdf:type swrl:Variable .
-:y rdf:type swrl:Variable .
-
-# prov:activity(?x, ?y) ^ obo:BFO_0000015(?x) -> obo:RO_0002501(?x, ?y)
-[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
-   rdfs:comment "If an ActivityInfluence is the ActivityInfluence of an Activity, then this is a causal relation between those two processes" ;
-   rdfs:label "ActivityInfluence prov:activity -> causal relation between processes" ;
-   rdf:type swrl:Imp ;
-   swrl:body [  rdf:type swrl:AtomList ;
-                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
-                            swrl:propertyPredicate prov:activity ;
-                            swrl:argument1 :x ;
-                            swrl:argument2 :y
-                            ] ;
-                rdf:rest [ rdf:type swrl:AtomList ;
-                            rdf:first [ rdf:type swrl:ClassAtom ;
-                                        swrl:classPredicate obo:BFO_0000015 ;
-                                        swrl:argument1 :x
-                                    ] ;
-                            rdf:rest rdf:nil
-                        ]
-                ] ;
-   swrl:head [  rdf:type swrl:AtomList ;
-                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
-                            swrl:propertyPredicate obo:RO_0002501 ;
-                            swrl:argument1 :x ;
-                            swrl:argument2 :y
-                            ] ;
-                rdf:rest rdf:nil
-                ]
- ] .
+    sssom:object_label    "has member" ;
+    sssom:mapping_justification "A relation of prov:hadMember between a prov:Collection and prov:Entity is also a relation of RO 'had member', but not vice versa. Whereas prov:hadMember is a subproperty of prov:wasInfluencedBy, RO 'had member' is not."@en .

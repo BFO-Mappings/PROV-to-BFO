@@ -1,4 +1,5 @@
 # Files + folders that shouldn't be added to the Github repo
+.DS_Store
 
 # This is where Makefile artifacts and dependencies go
 build/lib
