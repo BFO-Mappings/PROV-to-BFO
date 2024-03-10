@@ -274,5 +274,5 @@ prov:hadMember rdf:type owl:ObjectProperty .
     owl:annotatedSource   prov:hadMember ;
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0002351 ;
-    sssom:object_label    "had member" ;
-    sssom:mapping_justification "TODO: Establish a relationship between similar BFO/RO and PROV terms - PROV term is more specific than the RO has member relation, and hence is a subclass of the RO term "@en .
+    sssom:object_label    "has member" ;
+    sssom:mapping_justification "A relation of prov:hadMember between a prov:Collection and prov:Entity is also a relation of RO 'had member', but not vice versa. Whereas prov:hadMember is a subproperty of prov:wasInfluencedBy, RO 'had member' is not."@en .
