@@ -64,7 +64,7 @@ prov:influenced rdf:type owl:ObjectProperty .
 # prov:activity ~> causal relation between processes, prov:entity ~> cco:has_input, prov:agent ~> cco:has_agent
 prov:influencer rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
-    owl:annotatedSource   prov:influenced ;
+    owl:annotatedSource   prov:influencer ;
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0002410 ;
     sssom:object_label    "casually related to" ;
@@ -168,13 +168,13 @@ prov:generated rdf:type owl:ObjectProperty .
 
 
 # TODO test, reasoning over RO is slow
-# prov:wasInfluencedBy rdf:type owl:ObjectProperty .
-# []  rdf:type owl:Axiom ;
-#     owl:annotatedSource   prov:influenced ;
-#     owl:annotatedProperty rdfs:subPropertyOf ;
-#     owl:annotatedTarget   obo:RO_0002410 ;
-#     sssom:object_label    "casually related to" ;
-#     sssom:mapping_justification "An Agent, Activity, or Entity that was influenced by an Influence was causally related to that Influence."@en .
+prov:wasInfluencedBy rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:wasInfluencedBy ;
+    owl:annotatedProperty rdfs:subPropertyOf ;
+    owl:annotatedTarget   obo:RO_0002410 ;
+    sssom:object_label    "casually related to" ;
+    sssom:mapping_justification "An Agent, Activity, or Entity that was influenced by an Influence was causally related to that Influence."@en .
 
 
 prov:wasInvalidatedBy rdf:type owl:ObjectProperty .
@@ -235,7 +235,7 @@ prov:hadActivity rdf:type owl:ObjectProperty .
 
 prov:qualifiedInfluence rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
-    owl:annotatedSource   prov:influenced ;
+    owl:annotatedSource   prov:qualifiedInfluence ;
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0002410 ;
     sssom:object_label    "casually related to" ;

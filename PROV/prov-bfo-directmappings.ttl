@@ -17,7 +17,7 @@
   prov:wasDerivedFrom   <http://www.w3.org/ns/prov> ,
                         <https://github.com/bfo-ontology/bfo-2020> ;
   rdfs:seeAlso          <https://basic-formal-ontology.org/> ,
-                        <https://github.com/BFO-Mappings/BFO-Mappings> ,
+                        <https://github.com/BFO-Mappings/BFO-Mappings> ;
 .
 
 # PROV class mappings and property restrictions

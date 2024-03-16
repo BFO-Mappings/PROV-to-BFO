@@ -1,11 +1,7 @@
 targetTerm,label
-http://www.w3.org/ns/prov#hadInfluence,hadInfluence
-http://www.w3.org/ns/prov#influencer,influencer
+http://www.w3.org/ns/prov#activityOfInfluence,activityOfInfluence
 http://www.w3.org/ns/prov#qualifiedCommunicationOf,qualifiedCommunicationOf
 http://www.w3.org/ns/prov#qualifiedGenerationOf,qualifiedGenerationOf
-http://www.w3.org/ns/prov#qualifiedInfluence,qualifiedInfluence
 http://www.w3.org/ns/prov#qualifiedInfluenceOf,qualifiedInfluenceOf
 http://www.w3.org/ns/prov#qualifiedInvalidationOf,qualifiedInvalidationOf
 http://www.w3.org/ns/prov#wasActivityOfInfluence,wasActivityOfInfluence
-http://www.w3.org/ns/prov#wasInfluencedBy,wasInfluencedBy
-http://www.w3.org/ns/prov#wasPlanOf,wasPlanOf
