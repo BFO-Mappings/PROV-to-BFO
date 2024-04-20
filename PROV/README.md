@@ -1,4 +1,4 @@
-# PROV - BFO Extension
+# PROV - BFO, RO, CCO Mappings
 ## Contributors
 Sydney Cohen, Giacomo De Colle, Austin Liebers, Tim Prudhomme, Alec Sculley, Karl Xie
 

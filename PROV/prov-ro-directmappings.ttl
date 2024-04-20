@@ -47,7 +47,7 @@ prov:Agent rdf:type owl:Class .
                             rdf:type owl:Class
                           ] ;
     sssom:object_label    "material entity that participates in some Activity at some time and has a role realized in that Activity" ;
-    sssom:mapping_justification "TODO"@en .
+    rdfs:comment "TODO"@en .
 
 
 
@@ -58,7 +58,7 @@ prov:influenced rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0002410 ;
     sssom:object_label    "casually related to" ;
-    sssom:mapping_justification "An entity may influence another entity and this is a causal relation."@en .
+    rdfs:comment "An entity may influence another entity and this is a causal relation."@en .
 
 
 # prov:activity ~> causal relation between processes, prov:entity ~> cco:has_input, prov:agent ~> cco:has_agent
@@ -68,7 +68,7 @@ prov:influencer rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0002410 ;
     sssom:object_label    "casually related to" ;
-    sssom:mapping_justification "An Agent, Activity, or Entity exerts an Influence and this is a causal relation."@en .
+    rdfs:comment "An Agent, Activity, or Entity exerts an Influence and this is a causal relation."@en .
 
 
 prov:activity rdf:type owl:ObjectProperty .
@@ -77,7 +77,7 @@ prov:activity rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0002501 ;
     sssom:object_label    "causal relation between processes" ;
-    sssom:mapping_justification  "An Activity is causally related to its ActivityInfluence, where these are both occurrents. Although an ActivityInfluence may be a process boundary, the domain and range of 'causal relation between processes' is occurrent."@en .
+    rdfs:comment  "An Activity is causally related to its ActivityInfluence, where these are both occurrents. Although an ActivityInfluence may be a process boundary, the domain and range of 'causal relation between processes' is occurrent."@en .
 
 
 prov:wasAttributedTo rdf:type owl:ObjectProperty .
@@ -86,7 +86,7 @@ prov:wasAttributedTo rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0002559 ;
     sssom:object_label    "causally influenced by" ;
-    sssom:mapping_justification "An entity may be attributed to an agent, and this is a causal influence by the agent"@en .
+    rdfs:comment "An entity may be attributed to an agent, and this is a causal influence by the agent"@en .
 
 
 prov:alternateOf rdf:type owl:ObjectProperty .
@@ -95,7 +95,7 @@ prov:alternateOf rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0002559 ;
     sssom:object_label    "causally influenced by" ;
-    sssom:mapping_justification "An entity may be an alternate of an entity, and this is a causal relation."@en .
+    rdfs:comment "An entity may be an alternate of an entity, and this is a causal relation."@en .
 
 
 prov:wasDerivedFrom rdf:type owl:ObjectProperty .
@@ -104,7 +104,7 @@ prov:wasDerivedFrom rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0002559 ;
     sssom:object_label    "causally influenced by" ;
-    sssom:mapping_justification "An entity may be derived from an entity, being causally influenced by it."@en .
+    rdfs:comment "An entity may be derived from an entity, being causally influenced by it."@en .
 
 
 prov:wasStartedBy rdf:type owl:ObjectProperty .
@@ -113,7 +113,7 @@ prov:wasStartedBy rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0000057 ;
     sssom:object_label    "has participant" ;
-    sssom:mapping_justification "A process has a (non spatial region) continuant as a participant. An activity is a process that may be started by a prov:Entity as a participant."@en ;
+    rdfs:comment "A process has a (non spatial region) continuant as a participant. An activity is a process that may be started by a prov:Entity as a participant."@en ;
     rdfs:comment "This mapping overlaps the same mapping to BFO's 'has participant at some time' but is included for increased interoperability." .
 
 
@@ -123,7 +123,7 @@ prov:wasEndedBy rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0000057 ;
     sssom:object_label    "has participant" ;
-    sssom:mapping_justification "A process has a (non spatial region) continuant as a participant. An activity is a process that may be ended by a prov:Entity as a participant."@en ;
+    rdfs:comment "A process has a (non spatial region) continuant as a participant. An activity is a process that may be ended by a prov:Entity as a participant."@en ;
     rdfs:comment "This mapping overlaps the same mapping to BFO's 'has participant at some time' but is included for increased interoperability." .
 
 
@@ -133,7 +133,7 @@ prov:wasAssociatedWith rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0000057 ;
     sssom:object_label    "has participant" ;
-    sssom:mapping_justification "A process has a (non spatial region) continuant as a participant. An activity is a process that may be associated with a prov:Entity as a participant."@en ;
+    rdfs:comment "A process has a (non spatial region) continuant as a participant. An activity is a process that may be associated with a prov:Entity as a participant."@en ;
     rdfs:comment "This mapping overlaps the same mapping to BFO's 'has participant at some time' but is included for increased interoperability." .
 
 
@@ -143,7 +143,7 @@ prov:invalidated rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0000057 ;
     sssom:object_label    "has participant" ;
-    sssom:mapping_justification "A process has a (non spatial region) continuant as a participant. An activity is a process that may be invalidated by a prov:Entity as a participant."@en ;
+    rdfs:comment "A process has a (non spatial region) continuant as a participant. An activity is a process that may be invalidated by a prov:Entity as a participant."@en ;
     rdfs:comment "This mapping overlaps the same mapping to BFO's 'has participant at some time' but is included for increased interoperability." .
 
 
@@ -153,7 +153,7 @@ prov:used rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0000057 ;
     sssom:object_label    "has participant" ;
-    sssom:mapping_justification "A process has a (non spatial region) continuant as a participant. An activity is a process that may use a prov:Entity as a participant."@en ;
+    rdfs:comment "A process has a (non spatial region) continuant as a participant. An activity is a process that may use a prov:Entity as a participant."@en ;
     rdfs:comment "This mapping overlaps the same mapping to BFO's 'has participant at some time' but is included for increased interoperability." .
 
 
@@ -163,7 +163,7 @@ prov:generated rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0000057 ;
     sssom:object_label    "has participant" ;
-    sssom:mapping_justification "An activity is a process that may be generated by a prov:Entity as a participant."@en ;
+    rdfs:comment "An activity is a process that may be generated by a prov:Entity as a participant."@en ;
     rdfs:comment "This mapping overlaps the same mapping to BFO's 'has participant at some time' but is included for increased interoperability." .
 
 
@@ -174,7 +174,7 @@ prov:wasInfluencedBy rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0002410 ;
     sssom:object_label    "casually related to" ;
-    sssom:mapping_justification "An Agent, Activity, or Entity that was influenced by an Influence was causally related to that Influence."@en .
+    rdfs:comment "An Agent, Activity, or Entity that was influenced by an Influence was causally related to that Influence."@en .
 
 
 prov:wasInvalidatedBy rdf:type owl:ObjectProperty .
@@ -183,7 +183,7 @@ prov:wasInvalidatedBy rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0000056 ;
     sssom:object_label    "participates in" ;
-    sssom:mapping_justification "An entity (non-spatial region continuant) may participate in its invalidation by an activity (process)"@en ;
+    rdfs:comment "An entity (non-spatial region continuant) may participate in its invalidation by an activity (process)"@en ;
     rdfs:comment "This mapping overlaps the same mapping to BFO's 'participates in at some time' but is included for increased interoperability." .
 
 
@@ -193,7 +193,7 @@ prov:wasGeneratedBy rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0000056 ;
     sssom:object_label    "participates in" ;
-    sssom:mapping_justification "An entity (non-spatial region continuant) may participate in its generation by an activity (process)"@en ;
+    rdfs:comment "An entity (non-spatial region continuant) may participate in its generation by an activity (process)"@en ;
     rdfs:comment "This mapping overlaps the same mapping to BFO's 'participates in at some time' but is included for increased interoperability." .
 
 
@@ -203,7 +203,7 @@ prov:wasInformedBy rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0002501 ;
     sssom:object_label    "causal relation between processes" ;
-    sssom:mapping_justification "An activity may inform an activity. Both are processes and this is a causal relation."@en .
+    rdfs:comment "An activity may inform an activity. Both are processes and this is a causal relation."@en .
 
 
 prov:hadGeneration rdf:type owl:ObjectProperty .
@@ -212,7 +212,7 @@ prov:hadGeneration rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0002501 ;
     sssom:object_label    "causal relation between processes" ;
-    sssom:mapping_justification "An activity may generate another activity. Both are processes and this is a causal relation."@en .
+    rdfs:comment "An activity may generate another activity. Both are processes and this is a causal relation."@en .
 
 
 prov:hadUsage rdf:type owl:ObjectProperty .
@@ -221,7 +221,7 @@ prov:hadUsage rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0002501 ;
     sssom:object_label    "causal relation between processes" ;
-    sssom:mapping_justification "A derivation may use a usage. Both are processes and this is a causal relation."@en .
+    rdfs:comment "A derivation may use a usage. Both are processes and this is a causal relation."@en .
 
 
 prov:hadActivity rdf:type owl:ObjectProperty .
@@ -230,7 +230,7 @@ prov:hadActivity rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0002501 ;
     sssom:object_label    "causal relation between processes" ;
-    sssom:mapping_justification "An influence that's related to an activity in this context is causally related to it, where both are processes."@en .
+    rdfs:comment "An influence that's related to an activity in this context is causally related to it, where both are processes."@en .
 
 
 prov:qualifiedInfluence rdf:type owl:ObjectProperty .
@@ -239,7 +239,7 @@ prov:qualifiedInfluence rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0002410 ;
     sssom:object_label    "casually related to" ;
-    sssom:mapping_justification "An Agent, Activity, or Entity may be causally related to an Influence."@en .
+    rdfs:comment "An Agent, Activity, or Entity may be causally related to an Influence."@en .
 
 
 prov:qualifiedAssociation rdf:type owl:ObjectProperty .
@@ -248,7 +248,7 @@ prov:qualifiedAssociation rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0002501 ;
     sssom:object_label    "causal relation between processes" ;
-    sssom:mapping_justification "An activity may be associated with an activity. Both are processes and this is a causal relation."@en .
+    rdfs:comment "An activity may be associated with an activity. Both are processes and this is a causal relation."@en .
 
 
 prov:qualifiedCommunication rdf:type owl:ObjectProperty .
@@ -257,7 +257,7 @@ prov:qualifiedCommunication rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0002501 ;
     sssom:object_label    "causal relation between processes" ;
-    sssom:mapping_justification "An activity may communicate another activity. Both are processes and this is a causal relation. For example: A wasInfomedBy B = A and B are both prov:activities, and A was causally related to B such that A utilizes a provenance_entity that wasGeneratedBy B"@en .
+    rdfs:comment "An activity may communicate another activity. Both are processes and this is a causal relation. For example: A wasInfomedBy B = A and B are both prov:activities, and A was causally related to B such that A utilizes a provenance_entity that wasGeneratedBy B"@en .
 
 
 prov:qualifiedStart rdf:type owl:ObjectProperty .
@@ -266,7 +266,7 @@ prov:qualifiedStart rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0002501 ;
     sssom:object_label    "causal relation between processes" ;
-    sssom:mapping_justification "An activity may start an activity. Both are processes and this is a causal relation."@en .
+    rdfs:comment "An activity may start an activity. Both are processes and this is a causal relation."@en .
 
 
 prov:hadMember rdf:type owl:ObjectProperty .
@@ -275,4 +275,4 @@ prov:hadMember rdf:type owl:ObjectProperty .
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   obo:RO_0002351 ;
     sssom:object_label    "has member" ;
-    sssom:mapping_justification "A relation of prov:hadMember between a prov:Collection and prov:Entity is also a relation of RO 'had member', but not vice versa. Whereas prov:hadMember is a subproperty of prov:wasInfluencedBy, RO 'had member' is not."@en .
+    rdfs:comment "A relation of prov:hadMember between a prov:Collection and prov:Entity is also a relation of RO 'had member', but not vice versa. Whereas prov:hadMember is a subproperty of prov:wasInfluencedBy, RO 'had member' is not."@en .
