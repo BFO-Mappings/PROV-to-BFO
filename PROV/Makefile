@@ -6,7 +6,7 @@
 # WARN: This file contains significant whitespace, i.e. tabs!
 # Ensure that your text editor shows you those characters.
 
-# ----------------------------------------
+# --------------------------------------------------------------------------------
 #### Configuration / details about our project
 # Project essentials
 config.ONTOLOGY_FILE	:= prov-mappings-edit.ttl
@@ -22,7 +22,7 @@ config.TEMP_DIR			:= build/artifacts
 config.RELEASE_DIR		:= /
 config.REPORTS_DIR		:= $(config.TEMP_DIR)
 config.QUERIES_DIR		:= sparql
-config.IMPORTS_DIR		:= $(config.SOURCE_DIR)/OntoFox_outputs
+config.IMPORTS_DIR		:= imports
 config.LIBRARY_DIR		:= ../build/lib
 
 # Settings
@@ -49,18 +49,16 @@ REQUIRED_DIRS = $(config.TEMP_DIR) $(config.LIBRARY_DIR) $(config.SOURCE_DIR) $(
 
 
 #--- Custom targets
-# NOTE: diff is not needed anymore for the extension approach (we aren't editing PROV-O but extending it)
-# SOURCE_ONTOLOGY_FILE 	:= prov-bfo-merged/prov-o-original.ttl
-# DIFF_REPORT_FILE		:= prov-bfo-merged/diff.md
-# diff: $(RELEASE_BUILD_FILE)
-# 	$(ROBOT) diff --left $(RELEASE_BUILD_FILE) --right $(SOURCE_ONTOLOGY_FILE) -output $(DIFF_REPORT_FILE)
-
 MAPPINGS_FILE			:= prov-bfo-mappings.sssom.csv # csv for importing into google sheets
 mappings: 
 	$(ROBOT) query --input $(EDITOR_BUILD_FILE) -q $(config.QUERIES_DIR)/get-mappings.rq $(MAPPINGS_FILE) --use-graphs true
 
-candidates: 
-	$(ROBOT) query --input $(EDITOR_BUILD_FILE) -q $(config.QUERIES_DIR)/candidate-superproperties.rq $(config.TEMP_DIR)/candidate-superproperties.tsv --use-graphs true
+candidates:
+	$(ROBOT) query --input $(EDITOR_BUILD_FILE) -q $(config.QUERIES_DIR)/candidate-superproperties.rq $(config.TEMP_DIR)/candidate-superproperties.tsv --use-graphs true ;
+
+candidates-complex: 
+	$(ROBOT) query --input $(EDITOR_BUILD_FILE) -q $(config.QUERIES_DIR)/candidate-superproperties-complex.rq $(config.TEMP_DIR)/candidate-superproperties-complex.tsv --use-graphs true ;
+
 
 # Materialize inferred mappings (after removing individuals) then check for unmapped terms
 unmapped:
@@ -76,7 +74,7 @@ prep-cco:
 	$(ROBOT) remove --input $(config.CCO_FILE) --select individuals --output $(config.CCO_EDITED_FILE)
 
 
-# ----------------------------------------
+# --------------------------------------------------------------------------------
 #### Targets / main "goals" of this Makefile
 .PHONY: all
 #all: reason-edit test-edit build-release reason-release test-release mappings
@@ -109,7 +107,7 @@ output-release-name:
 	@echo $(config.RELEASE_NAME)
 
 
-# ----------------------------------------
+# --------------------------------------------------------------------------------
 #### Setup / configure Make to use with our project
 # Make configuration --- Ignore this section unless curious
 # <http://clarkgrubb.com/makefile-style-guide#toc2>
@@ -142,7 +140,7 @@ clean:
 	rm -rf $(RELEASE_BUILD_FILE)
 
 
-# ----------------------------------------
+# --------------------------------------------------------------------------------
 #### Build / different versions of the ontology
 
 # Release build has import declarations removed
@@ -159,7 +157,33 @@ define annotation-inputs
 	--output $2
 endef
 
-# ----------------------------------------
+# --------------------------------------------------------------------------------
+#### Manage imports
+
+config.EXTRACTED_IMPORTS_NAME := RO-imports-extracted
+EXTRACTED_IMPORTS_FILENAME := $(config.IMPORTS_DIR)/$(config.EXTRACTED_IMPORTS_NAME)
+EXTRACTED_IMPORTS_IRI := https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/$(EXTRACTED_IMPORTS_FILENAME).ttl
+IMPORTED_SOURCE_ONTOLOGY := $(config.IMPORTS_DIR)/ro.owl
+
+ontology-temp-file := ontology_no_imports.tmp.ttl
+
+# Build list of imported terms that are referenced in the mappings
+.PHONY: $(EXTRACTED_IMPORTS_FILENAME).txt
+# TODO this could be less verbose if `ROBOT query` could pipe its inputs and outputs
+$(EXTRACTED_IMPORTS_FILENAME).txt: $(config.ONTOLOGY_FILE) $(ROBOT_FILE)
+	echo "Removing extracted imported terms file from mapping file before querying..."; \
+	sed '\#$(EXTRACTED_IMPORTS_IRI)#d' $(config.ONTOLOGY_FILE) > $(ontology-temp-file); \
+	echo "Querying for referenced terms within mappings and saving to $@"; \
+	$(ROBOT) query --input $(ontology-temp-file) -q $(config.QUERIES_DIR)/get-imported-terms.rq $@ --use-graphs true; \
+	tail -n +2 $@ > "imported-terms.tmp" && mv "imported-terms.tmp" $@; rm -f $(ontology-temp-file);
+
+# Extract imported terms from their source ontology to avoid testing with unnecessary axioms
+.PHONY: extract-imports
+extract-imports: $(EXTRACTED_IMPORTS_FILENAME).txt | $(ROBOT_FILE)
+	$(ROBOT) extract --input $(IMPORTED_SOURCE_ONTOLOGY) --method subset --term-file $< --output $(EXTRACTED_IMPORTS_FILENAME).ttl;
+
+
+# --------------------------------------------------------------------------------
 #### Test / test ontology with reasoners and queries
 QUERIES = $(wildcard $(config.QUERIES_DIR)/*.rq)
 
@@ -190,7 +214,7 @@ report: $(TEST_INPUT) | $(config.REPORTS_DIR) $(ROBOT_FILE)
 	--print 10 \
 	--output $(REPORT_FILE_INPUT)
 
-# ----------------------------------------
+# --------------------------------------------------------------------------------
 #### Make syntax cheatsheet
 # targets
 # .PHONY means a target that isn't a file to be created or checked

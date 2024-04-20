@@ -1,9 +1,9 @@
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix obo:  <http://purl.obolibrary.org/obo/> .
-@prefix cco:    <http://www.ontologyrepository.com/CommonCoreOntologies/> .
+@prefix cco:  <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @base <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-mappings-edit.ttl> .
 
 <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-mappings-edit.ttl>
@@ -27,11 +27,12 @@
                <https://raw.githubusercontent.com/BFO-ontology/BFO-2020/master/src/owl/bfo-core.ttl>,
 
 
-               # <http://purl.obolibrary.org/obo/ro/releases/2023-08-18/ro.owl> , # Don't import all of RO, only import dependent terms below:
-               # <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/OntoFox_outputs/RO_imports.xml>, # RO imports
+               # <http://purl.obolibrary.org/obo/ro/releases/2024-02-13/ro.owl> , # Don't import all of RO, only import dependent terms below:
+               <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/imports/RO-imports-extracted.ttl>, # RO imports
 
-               # <https://raw.githubusercontent.com/CommonCoreOntology/CommonCoreOntologies/master/cco-merged/MergedAllCoreOntology-v1.4-2023-04-07.ttl>, # CCO
-               <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/MergedAllCoreOntology>, # CCO local copy, resolved by Protege catalog
+
+               <https://raw.githubusercontent.com/CommonCoreOntology/CommonCoreOntologies/master/cco-merged/MergedAllCoreOntology-v1.5-2024-02-14.ttl>, # CCO
+               # <http://www.ontologyrepository.com/CommonCoreOntologies/Mid/MergedAllCoreOntology>, # CCO local copy, resolved by Protege catalog
 
                # Test instances
                <https://www.w3.org/TR/prov-o/example-1.ttl> ,

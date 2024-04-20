@@ -2,10 +2,14 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX cco: <http://www.ontologyrepository.com/CommonCoreOntologies>
 
 SELECT DISTINCT ?targetProperty ?superDomainLabel ?domainLabel ?targetPropertyLabel ?rangeLabel ?superRangeLabel  ?otherProperty ?otherDomainLabel ?otherPropertyLabel ?otherRangeLabel
 WHERE {
+  # Where the target property is defined
+  BIND(prov: AS ?targetOntology) . 
+
+  ########################################
+  # Which property we want to map FROM
   ?targetProperty a owl:ObjectProperty .
   ?targetProperty rdfs:label ?targetPropertyLabel .
 
@@ -16,30 +20,33 @@ WHERE {
   
   ?domain rdfs:subClassOf* ?superDomain .
   ?range rdfs:subClassOf* ?superRange .
-  ?superDomain rdfs:label ?superDomainLabel .
-  ?superRange rdfs:label ?superRangeLabel .
+  OPTIONAL {
+    ?superDomain rdfs:label ?superDomainLabel .
+  }
+  OPTIONAL {
+    ?superRange rdfs:label ?superRangeLabel .
+  }
 
+  ########################################
+  # Which (candidate) property we want to map TO
   ?otherProperty a owl:ObjectProperty .
   ?otherProperty rdfs:label ?otherPropertyLabel .
 
   ?otherProperty rdfs:domain ?otherDomain .
   ?otherProperty rdfs:range ?otherRange .
-  ?otherDomain rdfs:label ?otherDomainLabel .
-  ?otherRange rdfs:label ?otherRangeLabel .
+  OPTIONAL {
+    ?otherDomain rdfs:label ?otherDomainLabel .
+  }
+  OPTIONAL {
+    ?otherRange rdfs:label ?otherRangeLabel .
+  }
 
-  # ?targetOntology a owl:Ontology .
-  # FILTER( STRSTARTS(str(?targetProperty), str(?targetOntology))) .
-  BIND(prov: AS ?targetOntology) . 
-
-  # find alignments to a specific ontology
-  BIND(cco: AS ?otherOntology) . 
-  FILTER(STRSTARTS(str(?targetProperty), str(?targetOntology)) && STRSTARTS(str(?otherProperty), str(?otherOntology)) && (?superDomain = ?otherDomain || ?domain = ?otherdomain) && (?superRange = ?otherRange || ?range = ?otherRange)) .
-  
-  # find alignments to ontology except the target one
-  # FILTER(STRSTARTS(str(?targetProperty), str(?targetOntology)) && !STRSTARTS(str(?otherProperty), str(?targetOntology)) && (?superDomain = ?otherDomain || ?domain = ?otherdomain) && (?superRange = ?otherRange || ?range = ?otherRange)) .
-
-  # FILTER( !STRSTARTS(str(?otherProperty), str(?targetOntology))) .
+  FILTER(
+    STRSTARTS(str(?targetProperty), str(?targetOntology))
+    && !STRSTARTS(str(?otherProperty), str(?targetOntology))
+    && (?superDomain = ?otherDomain || ?domain = ?otherdomain) && (?superRange = ?otherRange || ?range = ?otherRange)
+  ) .
 }
 ORDER BY ?targetProperty ?superDomainLabel
 
-# Notes: Prov:entity complex subclass axiom prevents us from finding it as a matching domain
+# Note: Prov:entity complex subclass axiom prevents us from finding it as a matching domain
