@@ -2,6 +2,7 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX swrl: <http://www.w3.org/2003/11/swrl#> 
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX bfo: <http://purl.obolibrary.org/obo/BFO_>
@@ -9,78 +10,111 @@ PREFIX ro: <http://purl.obolibrary.org/obo/RO_>
 PREFIX cco: <http://www.ontologyrepository.com/CommonCoreOntologies/>
 
 # Note: filters only work when all referenced terms and their axioms are succesfully imported
-
 SELECT DISTINCT ?targetTerm ?label
-# ?termType 
 WHERE {
-  # What kinds of things are we mapping?
+  # What kinds of terms are we mapping?
   VALUES ?termType { owl:Class owl:ObjectProperty } .
+  ?targetTerm a ?termType .
 
   # What target ontology are we mapping to?
   FILTER ( STRSTARTS(STR(?targetTerm), STR(prov:)) ) .
-  
-  FILTER NOT EXISTS {
-    # Optionally filter on predicate type
-    # VALUES ?mappingPredicate { rdfs:subClassOf rdfs:subPropertyOf owl:equivalentClass owl:equivalentProperty owl:disjointUnionOf } .
-    
-    FILTER ( STRSTARTS(STR(?sourceTerm), STR(bfo:)) || STRSTARTS(STR(?sourceTerm), STR(ro:)) || STRSTARTS(STR(?sourceTerm), STR(cco:)) ) .
 
-    # Exclude mapped terms
+  # By excluding these relations, we know which terms are missing mappings, and can infer which terms have mappings
+  FILTER NOT EXISTS {
+    # Predicate filter
+    VALUES ?mappingPredicate { 
+      rdfs:subClassOf rdfs:subPropertyOf owl:equivalentClass owl:equivalentProperty 
+      skos:closeMatch skos:exactMatch skos:broadMatch skos:narrowMatch skos:relatedMatch
+    } .
+
+    # Filter from source ontologies
+    FILTER ( 
+      STRSTARTS(STR(?sourceTerm), STR(bfo:)) || STRSTARTS(STR(?sourceTerm), STR(ro:)) || STRSTARTS(STR(?sourceTerm), STR(cco:))
+    ) .
+    
+    # Direct mappings
     { 
       ?targetTerm ?mappingPredicate ?sourceTerm .
     }
-    # Exclude terms that are transitively subsumed by some mapped term
+    UNION
+    {
+      ?sourceTerm ?mappingPredicate ?targetTerm .
+    }
+    # Transitive mappings
     UNION
     { 
-      ?targetTerm rdfs:subClassOf* ?targetSuper . 
-      ?targetSuper ?mappingPredicate ?sourceTerm .
+      ?targetTerm (rdfs:subClassOf|rdfs:subPropertyOf)* ?targetTransitive . 
+      ?targetTransitive ?mappingPredicate ?sourceTerm .
     }
+    # Property chains
     UNION
     {
-      ?targetTerm rdfs:subPropertyOf* ?targetSuper . 
-      ?targetSuper ?mappingPredicate ?sourceTerm .
-    }
-    # Exclude terms whose inverses are mapped
-    UNION
-    {
-      ?targetTerm owl:inverseOf ?targetInverse .
-      ?targetInverse ?mappingPredicate ?sourceTerm .
-    }
-  }
-
-  # Exclude property chain mappings
-  FILTER NOT EXISTS {
-    FILTER ( STRSTARTS(STR(?sourceTerm), STR(bfo:)) || STRSTARTS(STR(?sourceTerm), STR(ro:)) || STRSTARTS(STR(?sourceTerm), STR(cco:)) ) .
-    {
-      # Exclude terms that have a property chain mapping
       ?targetTerm owl:propertyChainAxiom ?propertyChainAxiomList .
       ?propertyChainAxiomList rdf:rest/rdf:first ?sourceTerm .
     }
+
+    ##### INVERSES
+    # Exclude terms whose inverses are mapped according to same criteria above. 
+    # TODO: Can we simplify by reusing this logic somehow?
     UNION
     {
-      # Exclude terms whose inverse have a property chain mapping
-      ?targetInverse owl:inverseOf ?targetTerm .
-      ?targetInverse owl:propertyChainAxiom ?inversePropertyChainAxiomList .
+      # Inverses
       {
+        ?targetTerm owl:inverseOf ?targetInverse .
+      }
+      UNION
+      {
+        ?targetInverse owl:inverseOf ?targetTerm .
+      }
+      # Direct mappings of inverses
+      {
+        ?targetInverse ?mappingPredicate ?sourceTerm .
+      }
+      UNION
+      {
+        ?sourceTerm ?mappingPredicate ?targetInverse .
+      }
+      # Transitive mappings of inverses
+      UNION
+      { 
+        ?targetInverse (rdfs:subClassOf|rdfs:subPropertyOf)* ?targetTransitive . 
+        ?targetTransitive ?mappingPredicate ?sourceTerm .
+      }
+      # Property chains of inverses
+      UNION
+      {
+        ?targetInverse owl:propertyChainAxiom ?inversePropertyChainAxiomList .
         ?inversePropertyChainAxiomList rdf:rest/rdf:first ?sourceTerm .
       }
     }
   }
-
-  # Exclude SWRL rule mappings
+  
+  # SWRL rule mappings
   FILTER NOT EXISTS {
-    FILTER ( STRSTARTS(STR(?sourceTerm), STR(bfo:)) || STRSTARTS(STR(?sourceTerm), STR(ro:)) || STRSTARTS(STR(?sourceTerm), STR(cco:)) ) .
-    # TODO this is needed for some reason
-    ?sourceTerm a ?anything .
-
+    # FILTER ( 
+    #   STRSTARTS(STR(?sourceTerm), STR(bfo:)) || STRSTARTS(STR(?sourceTerm), STR(ro:)) || STRSTARTS(STR(?sourceTerm), STR(cco:))
+    # ) .
     # TODO: Require that either source term in head and target term in body, or vica versa
-    { ?swrlMapping swrl:propertyPredicate ?targetTerm . }
+    {
+      ?swrlMapping swrl:propertyPredicate ?targetTerm .
+    }
+    # SWRL rules for inverses
     UNION
-    { ?swrlMapping swrl:propertyPredicate ?mappedTerm . ?mappedTerm owl:inverseOf ?targetTerm . }
+    {
+      # Inverses
+      {
+        ?targetInverse owl:inverseOf ?targetTerm .
+      }
+      UNION
+      {
+        ?targetTerm owl:inverseOf ?targetInverse .
+      }
+      ?swrlMapping swrl:propertyPredicate ?targetInverse .
+    }
   }
 
-  ?targetTerm a ?termType .
-  ?targetTerm rdfs:label ?label .
-  # OPTIONAL { ?targetTerm rdfs:subClassOf ?targetSuperClass } .
-  # OPTIONAL { ?targetTerm rdfs:subPropertyOf ?targetSuperProperty } .
+  OPTIONAL {
+    ?targetTerm rdfs:label ?label .
+  }
+  
 } ORDER BY ?termType ?targetTerm

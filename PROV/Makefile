@@ -48,7 +48,8 @@ RELEASE_REPORT_FILE = $(config.REPORTS_DIR)/$(config.ONTOLOGY_PREFIX)-release-re
 REQUIRED_DIRS = $(config.TEMP_DIR) $(config.LIBRARY_DIR) $(config.SOURCE_DIR) $(config.QUERIES_DIR) $(config.REPORTS_DIR)
 
 
-#--- Custom targets
+# --------------------------------------------------------------------------------
+#### Custom targets
 MAPPINGS_FILE			:= prov-bfo-mappings.sssom.csv # csv for importing into google sheets
 mappings: 
 	$(ROBOT) query --input $(EDITOR_BUILD_FILE) -q $(config.QUERIES_DIR)/get-mappings.rq $(MAPPINGS_FILE) --use-graphs true
@@ -66,12 +67,26 @@ unmapped:
 	reason --reasoner HermiT --axiom-generators "SubClass SubObjectProperty InverseObjectProperties" --include-indirect true \
 	query --output-dir $(config.TEMP_DIR) --queries $(config.QUERIES_DIR)/unmapped-terms.rq --use-graph true
 
+
+all-mappings:
+	$(ROBOT) remove --input $(EDITOR_BUILD_FILE) --select individuals \
+	reason --reasoner HermiT --axiom-generators "SubClass SubObjectProperty InverseObjectProperties" --include-indirect true \
+	query --output-dir $(config.TEMP_DIR) --queries $(config.QUERIES_DIR)/all-mappings.rq --use-graph true
+
+
 # Remove CCO individuals to speed up reasoner
 config.CCO_FILENAME = ../MergedAllCoreOntology-v1.4-2023-04-07
 config.CCO_FILE = $(config.CCO_FILENAME).ttl
 config.CCO_EDITED_FILE = $(config.CCO_FILENAME)-no-individuals.ttl
 prep-cco:
 	$(ROBOT) remove --input $(config.CCO_FILE) --select individuals --output $(config.CCO_EDITED_FILE)
+
+# Count terms in the ontologies
+count-prov-terms:
+	$(ROBOT) query --input $(EDITOR_BUILD_FILE) -q $(config.QUERIES_DIR)/count-prov-terms.rq $(config.TEMP_DIR)/prov-count.tsv --use-graphs true ;
+
+count-example-instances:
+	$(ROBOT) query --input $(EDITOR_BUILD_FILE) -q $(config.QUERIES_DIR)/count-example-instances.rq $(config.TEMP_DIR)/count-example-instances.tsv --use-graphs true ;
 
 
 # --------------------------------------------------------------------------------
