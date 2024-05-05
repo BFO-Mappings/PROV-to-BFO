@@ -156,6 +156,15 @@ prov:KeyEntityPair rdf:type owl:Class .
     rdfs:comment "A prov:KeyEntityPair exists in virtue of the fact that there is at least one of what may be multiple copies; it is the content or the pattern that the multiple copies share."@en .
 
 
+prov:DictionaryInvolvement rdf:type owl:Class .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:DictionaryInvolvement ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedTarget   obo:BFO_0000003 ;
+    sssom:object_label    "occurrent" ;
+    rdfs:comment "prov:DictionaryInvolvement is undefined and only used in two canonical examples from PROV-Dictionary. Nevertheless, the example instances of prov:DictionaryInvolvement are instances of prov:Removal, which is an occurrent, which suggests that prov:DictionaryInvolvement should also be an occurrent."@en .
+
+
 
 # PROV object property mappings
 prov:hadMember rdf:type owl:ObjectProperty .

@@ -246,6 +246,15 @@ prov:agent rdf:type owl:ObjectProperty .
 
 
 # PROV-Dictionary object property mappings
+prov:describesService rdf:type owl:ObjectProperty .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:describesService ;
+    owl:annotatedProperty owl:propertyChainAxiom ;
+    owl:annotatedTarget   ( obo:BFO_0000101 cco:is_about ) ;
+    sssom:object_label    "carrier of something which is about" ;
+    rdfs:comment  "If a prov:ServiceDescription is a carrier of something which is about a service, then that prov:ServiceDescription 'describes service' that service."@en .
+
+
 prov:pairEntity rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:pairEntity ;
@@ -425,7 +434,3 @@ prov:qualifiedInvalidation rdf:type owl:ObjectProperty .
                 rdf:rest rdf:nil
                 ]
  ] .
-
-
-###### Inverses that are covered by some mapping, but not yet correctly found by our SPARQL query
-# prov:wasPlanOf

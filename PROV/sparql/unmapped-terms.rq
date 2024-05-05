@@ -24,7 +24,8 @@ WHERE {
     # Predicate filter
     VALUES ?mappingPredicate { 
       rdfs:subClassOf rdfs:subPropertyOf owl:equivalentClass owl:equivalentProperty 
-      skos:closeMatch skos:exactMatch skos:broadMatch skos:narrowMatch skos:relatedMatch
+      # Note: these SKOS terms could be used, but aren't as useful for automated reasoning
+      # skos:closeMatch skos:exactMatch skos:broadMatch skos:narrowMatch skos:relatedMatch
     } .
 
     # Filter from source ontologies
