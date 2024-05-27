@@ -102,9 +102,10 @@
 :drosophilaSample-84  a prov:Entity .
 :lab-technician-GH-32 a prov:Agent .
 
+# IGNORED: inconsistent because atTime has domain InstantaneousEvent. This instance uses prov:startedAtTime elsewhere, so maybe that was intended.
 # :sortActivity
 #    a prov:Activity;
-#    prov:atTime     "2011-07-16T01:52:02Z"^^xsd:dateTime; # IGNORED: inconsistent because atTime has domain InstantaneousEvent. This instance uses prov:startedAtTime elsewhere, so maybe that was intended.
+#    prov:atTime     "2011-07-16T01:52:02Z"^^xsd:dateTime; 
 #    prov:used       :datasetA;
 #    prov:generated  :datasetB;
 # .
@@ -751,6 +752,9 @@ my:surgeon a prov:Role .
 <http://data.semanticweb.org/person/luc-moreau> a prov:Person, prov:Agent .
 <http://data.semanticweb.org/person/paul-groth> a prov:Person, prov:Agent .
 
+# IGNORED: inconsistent with PROV-O alone. The domain of prov:wasAssociatedWith is prov:Activity. prov:Activity and prov:Entity are disjoint. Yet :draft2 is a prov:Entity.
+# It is possible that the example was intended to use prov:wasAttributedTo and prov:qualifiedAttribution, instead of prov:wasAssociatedWith and prov:qualifiedAssociation.
+# This hypothesis is supported by the use of <:draft2, prov:wasAttributedTo, :eddie> in another example.
 # :draft2 
 #    a prov:Entity;
 #    prov:wasRevisionOf    :draft1;
@@ -1143,15 +1147,15 @@ my:surgeon a prov:Role .
 <http://data.semanticweb.org/person/luc-moreau> a prov:Person, prov:Agent .
 <http://data.semanticweb.org/person/paul-groth> a prov:Person, prov:Agent .
 
-# :draft2 
-#    a prov:Entity;
-#    prov:wasRevisionOf :draft1;
-#    prov:qualifiedRevision [
-#       a prov:Revision;
-#       prov:entity :draft1
-#    ];
-#    prov:wasAttributedTo :eddie; # TODO inconsistent 
-# .
+:draft2 
+   a prov:Entity;
+   prov:wasRevisionOf :draft1;
+   prov:qualifiedRevision [
+      a prov:Revision;
+      prov:entity :draft1
+   ];
+   prov:wasAttributedTo :eddie;
+.
 
 :draft1 a prov:Entity .
 :eddie  a prov:Person, prov:Agent, prov:Entity .
@@ -1416,6 +1420,7 @@ my:surgeon a prov:Role .
 :donQuixote a prov:Entity .
 
 
+# IGNORED: causes contradiction because this implies :digestedProteinSample1 is a prov:EntityInfluence. This relation should've been attached to the prov:Derivation above, which is a prov:EntityInfluence.
 # :digestedProteinSample1
 #    a prov:Entity;
 #    prov:wasDerivedFrom :proteinSample;
@@ -1427,7 +1432,7 @@ my:surgeon a prov:Role .
 #         prov:hadRole :treatmentEnzyme;
 #       ];
 #    ];
-#    prov:entity :proteinSample; # IGNORED: causes contradiction because this implies :digestedProteinSample1 is a prov:EntityInfluence. This relation should've been attached to the prov:Derivation above, which is a prov:EntityInfluence.
+#    prov:entity :proteinSample; 
 # .
 # :proteinSample a prov:Entity .
 

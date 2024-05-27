@@ -13,7 +13,7 @@
   rdfs:label            "Basic Formal Ontology (BFO) ISO 21838-2:2020 mappings for W3C PROVenance Interchange Ontology (PROV-O)"@en ;
   owl:versionInfo       "2024-01-21"@en ;
   owl:versionIRI        <http://www.w3.org/ns/prov-bfo-directmappings-20230718> ;
-  dc:contributor        "Sydney Cohen" , "Giacomo De Colle" , "Austin Liebers" , "Tim Prudhomme" , "Alec Sculley" , "Peihong Karl Xie" ;
+  dc:contributor        "Tim Prudhomme", "Giacomo De Colle" , "Austin Liebers" , "Alec Sculley" , "Peihong Karl Xie", "Sydney Cohen", "John Beverley" ;
   prov:wasDerivedFrom   <http://www.w3.org/ns/prov> ,
                         <https://github.com/bfo-ontology/bfo-2020> ;
   rdfs:seeAlso          <https://basic-formal-ontology.org/> ,
@@ -65,7 +65,7 @@ prov:Agent rdf:type owl:Class .
                             rdf:type owl:Class
                           ] ;
     sssom:object_label    "material entity that participates in (at some time) some Activity  and bears a role realized in that Activity" ;
-    rdfs:comment "A prov:Agent is a material entity because always has some matter as a part that persists in time. A prov:Agent participates in (at some time) some prov:Activity and bears a role, that, if realized, is realized in a prov:Activity taking place. According to Requirement VI13 in 'Rationale of Prov', this could be a prov:Entity. A prov:SoftwareAgent is a material entity because it is a particular, material carrier of software. For example, a particular instance of sofware running on a particular computer."@en .
+    rdfs:comment "A prov:Agent is a material entity because always has some matter as a part that persists in time. A prov:Agent participates in (at some time) some prov:Activity and bears a role, that, if realized, is realized in a prov:Activity taking place. This axiomatizes the definition of agent as 'something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity'. According to Requirement VI13 in 'Rationale of Prov', this could be a prov:Entity. A prov:SoftwareAgent is a material entity because it is defined as 'running software', meaning a particular, material carrier of software, as opposed to, for example, its source code. A prov:SoftwareAgent is a particular instance of sofware running on a particular computer."@en .
 
 
 prov:Activity rdf:type owl:Class .
@@ -514,7 +514,7 @@ prov:hadDictionaryMember rdf:type owl:ObjectProperty .
 
  # prov:entity(?x, ?y) ^ obo:BFO_0000015(?x) -> obo:BFO_0000057(?x, ?y)
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
-   rdfs:comment "If an EntityInfluence is a process and is the EntityInfluence of an Entity, then that EntityInfluence has participant that Entity as the influencer.";
+   rdfs:comment "prov:entity is a relation between an entity and its influence reified as an instance of the class EntityInfluence. This mapping translates a subset of prov:entity relations in terms of continuants being participants in processes. If an EntityInfluence is a BFO process and is the EntityInfluence of an Entity, then that EntityInfluence has participant that Entity as the prov:influencer.";
    rdfs:label "EntityInfluence entity -> has participant (at some time)" ;
    rdf:type swrl:Imp ;
    swrl:body [  rdf:type swrl:AtomList ;

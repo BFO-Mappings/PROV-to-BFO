@@ -61,17 +61,17 @@ candidates-complex:
 	$(ROBOT) query --input $(EDITOR_BUILD_FILE) -q $(config.QUERIES_DIR)/candidate-superproperties-complex.rq $(config.TEMP_DIR)/candidate-superproperties-complex.tsv --use-graphs true ;
 
 
-# Materialize inferred mappings (after removing individuals) then check for unmapped terms
+# Check for unmapped terms after materializing inferred mappings (after removing individuals)
 unmapped:
 	$(ROBOT) remove --input $(EDITOR_BUILD_FILE) --select individuals \
 	reason --reasoner HermiT --axiom-generators "SubClass SubObjectProperty InverseObjectProperties" --include-indirect true \
 	query --output-dir $(config.TEMP_DIR) --queries $(config.QUERIES_DIR)/unmapped-terms.rq --use-graph true
 
-
-all-mappings:
+# Materialize all mappings as a list
+inferred-mappings:
 	$(ROBOT) remove --input $(EDITOR_BUILD_FILE) --select individuals \
 	reason --reasoner HermiT --axiom-generators "SubClass SubObjectProperty InverseObjectProperties" --include-indirect true \
-	query --output-dir $(config.TEMP_DIR) --queries $(config.QUERIES_DIR)/all-mappings.rq --use-graph true
+	query --output-dir $(config.TEMP_DIR) --queries $(config.QUERIES_DIR)/inferred-mappings.rq --use-graph true
 
 
 # Remove CCO individuals to speed up reasoner

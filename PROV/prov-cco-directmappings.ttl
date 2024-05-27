@@ -17,7 +17,7 @@
   owl:versionIRI        <http://www.w3.org/ns/prov-cco-directmappings-20230718> ;
   owl:imports           <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-bfo-directmappings.ttl> ;
   rdfs:comment          "This mapping depends on the imported PROV-O to BFO mapping" ;
-  dc:contributor        "Sydney Cohen" , "Giacomo De Colle" , "Austin Liebers" , "Tim Prudhomme" , "Alec Sculley" , "Peihong Karl Xie" ;
+  dc:contributor        "Tim Prudhomme", "Giacomo De Colle" , "Austin Liebers" , "Alec Sculley" , "Peihong Karl Xie", "Sydney Cohen", "John Beverley" ;
   prov:wasDerivedFrom   <http://www.w3.org/ns/prov> ,
                         <https://github.com/CommonCoreOntology/CommonCoreOntologies> ;
   rdfs:seeAlso          <https://basic-formal-ontology.org/> ,
@@ -172,14 +172,14 @@ prov:hadPlan rdf:type owl:ObjectProperty .
     rdfs:comment  "If an Association is the qualified association of some Activity, and that Activity is prescribed by some Plan, then that Association 'had plan' that Plan."@en .
 
 
-# "If this Activity prov:wasAssociatedWith Agent :ag, then it can qualify the Association using prov:qualifiedAssociation [ a prov:Association;  prov:agent :ag; :foo :bar ]."
 prov:qualifiedAssociation rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:qualifiedAssociation ;
     owl:annotatedProperty rdfs:subPropertyOf ;
     owl:annotatedTarget   cco:has_process_part ;
     sssom:object_label    "has process part" ;
-    rdfs:comment  "An Activity that has an Association as its qualified association also has the Activity as its process part."@en .
+    rdfs:comment  "An Activity that has an Association as its qualified association also has the Activity as its process part."@en ;
+    rdfs:comment "If this Activity prov:wasAssociatedWith Agent :ag, then it can qualify the Association using prov:qualifiedAssociation [ a prov:Association;  prov:agent :ag; :foo :bar ]."@en .
 
 
 prov:qualifiedAttribution rdf:type owl:ObjectProperty .
@@ -246,15 +246,6 @@ prov:agent rdf:type owl:ObjectProperty .
 
 
 # PROV-Dictionary object property mappings
-prov:describesService rdf:type owl:ObjectProperty .
-[]  rdf:type owl:Axiom ;
-    owl:annotatedSource   prov:describesService ;
-    owl:annotatedProperty owl:propertyChainAxiom ;
-    owl:annotatedTarget   ( obo:BFO_0000101 cco:is_about ) ;
-    sssom:object_label    "carrier of something which is about" ;
-    rdfs:comment  "If a prov:ServiceDescription is a carrier of something which is about a service, then that prov:ServiceDescription 'describes service' that service."@en .
-
-
 prov:pairEntity rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:pairEntity ;
@@ -299,24 +290,6 @@ prov:has_provenance rdf:type owl:ObjectProperty .
     owl:annotatedTarget   cco:is_subject_of ;
     sssom:object_label    "is subject of" ;
     rdfs:comment "A resource that has some provenance resource is the subject of that provenance resource"@en .
-
-
-prov:has_query_service rdf:type owl:ObjectProperty .
-[]  rdf:type owl:Axiom ;
-    owl:annotatedSource   prov:has_query_service ;
-    owl:annotatedProperty owl:propertyChainAxiom ;
-    owl:annotatedTarget   ( cco:is_subject_of obo:BFO_0000084 ) ;
-    sssom:object_label    "is subject of some information content entity which generically depends on" ;
-    rdfs:comment "A resource that has some (provenance) query service is the subject of some information content entity that generically depends on that query service. Here, a query service is usually specified as a prov:SoftwareAgent, which is a particular, material carrier of some generically dependent software."@en .
-
-
-prov:pingback rdf:type owl:ObjectProperty .
-[]  rdf:type owl:Axiom ;
-    owl:annotatedSource   prov:pingback ;
-    owl:annotatedProperty owl:propertyChainAxiom ;
-    owl:annotatedTarget   ( cco:is_subject_of obo:BFO_0000084 ) ;
-    sssom:object_label    "is subject of some information content entity which generically depends on" ;
-    rdfs:comment "A resource that has some pingback service is the subject of some information content entity that generically depends on that pingback service. Here, a pingback service is usually specified as a prov:SoftwareAgent, which is a particular, material carrier of some generically dependent software."@en .
 
 
 # PROV-links object property mappings
@@ -430,6 +403,117 @@ prov:qualifiedInvalidation rdf:type owl:ObjectProperty .
                             swrl:propertyPredicate cco:has_input ;
                             swrl:argument1 :x ;
                             swrl:argument2 :y
+                            ] ;
+                rdf:rest rdf:nil
+                ]
+ ] .
+
+
+# # prov:ServiceDescription(?x) ^ obo:BFO_0000101(?x, ?y) ^ cco:is_about(?y, ?z) -> prov:describesService(?x, ?z)
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Every prov:ServiceDescription is a prov:SoftwareAgent. If a prov:ServiceDescription is a carrier of something which is about a service, then it 'describes service' that service."@en ;
+   rdfs:label "(some ServiceDescription) is carrier of (something) which is about (some service) -> describesService that service" ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:ClassAtom ;
+                            swrl:classPredicate prov:ServiceDescription ;
+                            swrl:argument1 :x
+                            ] ;
+                rdf:rest [ rdf:type swrl:AtomList ;
+                            rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                        swrl:propertyPredicate obo:BFO_0000101 ;
+                                        swrl:argument1 :x ;
+                                        swrl:argument2 :y
+                                    ] ;
+                            rdf:rest [ rdf:type swrl:AtomList ;
+                                        rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                    swrl:propertyPredicate cco:is_about ;
+                                                    swrl:argument1 :y ;
+                                                    swrl:argument2 :z
+                                                ] ;
+                                        rdf:rest rdf:nil
+                                    ]
+                        ]
+                ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate prov:describesService ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :z
+                            ] ;
+                rdf:rest rdf:nil
+                ]
+ ] .
+
+
+# cco:is_subject_of(?x, ?y) ^ obo:BFO_0000084(?y, ?z) ^ prov:DirectQueryService(?z) -> prov:has_query_service(?x, ?z)
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "prov:has_query_service describes the relationship between a resource and a provenance query service, a prov:DirectQueryService, which is a particular, material carrier (a particular web server) of some generically dependent software. Therefore, if a resource is the subject of something (an Information Content Entity), which generically depends on a provenance query service, then that resource prov:has_query_service that provenance query service. Informally, this means the resource is represented in some provenance querying software that is running on a web server."@en ;
+   rdfs:label "subject of (something) that generically depends on (some ProvenanceService) -> hasProvenanceService" ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate cco:is_subject_of ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                        ] ;
+                rdf:rest [ rdf:type swrl:AtomList ;
+                            rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                        swrl:propertyPredicate obo:BFO_0000084 ;
+                                        swrl:argument1 :y ;
+                                        swrl:argument2 :z
+                                    ] ;
+                            rdf:rest [ rdf:type swrl:AtomList ;
+                                        rdf:first [ rdf:type swrl:ClassAtom ;
+                                                    swrl:classPredicate prov:DirectQueryService ;
+                                                    swrl:argument1 :z
+                                                    ] ;
+                                        rdf:rest rdf:nil
+                                    ]
+                        ]
+                ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate prov:has_query_service ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :z
+                            ] ;
+                rdf:rest rdf:nil
+                ]
+ ] .
+
+
+# cco:is_subject_of(?x, ?y) ^ obo:BFO_0000084(?y, ?z) ^ prov:SoftwareAgent(?z) -> prov:pingback(?x, ?z)
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "A resource that has some pingback service is the subject of something (an Information Content Entity) that generically depends on that pingback service. Here, a pingback service is usually specified as a prov:SoftwareAgent, which is a particular, material carrier of some generically dependent software."@en ;
+   rdfs:label "subject of (something) that generically depends on (some Software Agent) -> pingback" ;
+   rdf:type swrl:Imp ;
+    swrl:body [ rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate cco:is_subject_of ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :y
+                        ] ;
+                rdf:rest [ rdf:type swrl:AtomList ;
+                            rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                        swrl:propertyPredicate obo:BFO_0000084 ;
+                                        swrl:argument1 :y ;
+                                        swrl:argument2 :z
+                                    ] ;
+                            rdf:rest [ rdf:type swrl:AtomList ;
+                                        rdf:first [ rdf:type swrl:ClassAtom ;
+                                                    swrl:classPredicate prov:SoftwareAgent ;
+                                                    swrl:argument1 :z
+                                                    ] ;
+                                        rdf:rest rdf:nil
+                                    ]
+                        ]
+                ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                            swrl:propertyPredicate prov:pingback ;
+                            swrl:argument1 :x ;
+                            swrl:argument2 :z
                             ] ;
                 rdf:rest rdf:nil
                 ]

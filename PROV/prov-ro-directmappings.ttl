@@ -15,7 +15,7 @@
   owl:versionIRI       <http://www.w3.org/ns/prov-ro-directmappings-20230718> ;
   owl:imports          <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-bfo-directmappings.ttl> ;
   rdfs:comment          "This mapping depends on the imported PROV-O to BFO mapping." ;
-  dc:contributor        "Sydney Cohen" , "Giacomo De Colle" , "Austin Liebers" , "Tim Prudhomme" , "Alec Sculley" , "Peihong Karl Xie" ;
+  dc:contributor        "Tim Prudhomme", "Giacomo De Colle" , "Austin Liebers" , "Alec Sculley" , "Peihong Karl Xie", "Sydney Cohen", "John Beverley" ;
   prov:wasDerivedFrom   <http://www.w3.org/ns/prov> ,
                         <https://obofoundry.org/ontology/ro.html> ;
   rdfs:seeAlso          <https://basic-formal-ontology.org/> ,
