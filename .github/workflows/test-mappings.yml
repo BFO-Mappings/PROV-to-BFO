@@ -27,7 +27,7 @@ jobs:
 
       # Run the main steps here
       - name: Check for inconsistency with Reasoner
-        run: make -C PROV reason-edit
+        run: make -C src reason-edit
 
       - name: Run automated tests and generate reports
         run: make -C PROV test-edit

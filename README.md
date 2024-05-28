@@ -75,7 +75,7 @@
 
 * How to run tests manually:
     * Requirements: [GNU Make](https://www.gnu.org/software/make/)
-    * Run `make` from the PROV directory, or `make -C PROV` from this directory
+    * Run `make` from the src directory, or `make -C src` from this directory
     * Alternatively, run the commands defined within the Makefile.
 
 ### Release
