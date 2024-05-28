@@ -30,7 +30,7 @@ jobs:
         run: make -C src reason-edit
 
       - name: Run automated tests and generate reports
-        run: make -C PROV test-edit
+        run: make -C src test-edit
         if: always()
 
       # Save any artifact files produced even if tests fail
