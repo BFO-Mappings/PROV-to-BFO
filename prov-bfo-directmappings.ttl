@@ -6,18 +6,19 @@
 @prefix obo:    <http://purl.obolibrary.org/obo/> .
 @prefix dc:     <http://purl.org/dc/elements/1.1/> .
 @prefix sssom:  <https://w3id.org/sssom/> .
-@base <https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-bfo-directmappings.ttl> .
+@base <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-bfo-directmappings.ttl> .
 
-<https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-bfo-directmappings.ttl>
+<https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-bfo-directmappings.ttl>
   a                     owl:Ontology;
   rdfs:label            "Basic Formal Ontology (BFO) ISO 21838-2:2020 mappings for W3C PROVenance Interchange Ontology (PROV-O)"@en ;
-  owl:versionInfo       "2024-01-21"@en ;
-  owl:versionIRI        <http://www.w3.org/ns/prov-bfo-directmappings-20230718> ;
+  owl:versionInfo       "2024-05-27"@en ;
+  owl:versionIRI        <https://github.com/BFO-Mappings/PROV-to-BFO/releases/tag/v2024-05-27> ;
   dc:contributor        "Tim Prudhomme", "Giacomo De Colle" , "Austin Liebers" , "Alec Sculley" , "Peihong Karl Xie", "Sydney Cohen", "John Beverley" ;
+  dc:license            <https://creativecommons.org/publicdomain/zero/1.0/> ;
   prov:wasDerivedFrom   <http://www.w3.org/ns/prov> ,
                         <https://github.com/bfo-ontology/bfo-2020> ;
   rdfs:seeAlso          <https://basic-formal-ontology.org/> ,
-                        <https://github.com/BFO-Mappings/BFO-Mappings> ;
+                        <https://github.com/BFO-Mappings/PROV-to-BFO> ;
 .
 
 # PROV class mappings and property restrictions

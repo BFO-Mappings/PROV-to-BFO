@@ -11,7 +11,7 @@
 # Project essentials
 config.ONTOLOGY_FILE	:= prov-mappings-edit.ttl
 config.ONTOLOGY_PREFIX	:= prov-bfo-directmappings
-config.ONTOLOGY-IRI		:= http://www.w3.org/ns/prov-bfo-directmappings
+config.ONTOLOGY-IRI		:= https://github.com/BFO-Mappings/PROV-to-BFO
 config.BASE_IRI			:= $(config.ONTOLOGY-IRI)_
 config.DEV_IRI			:= $(config.ONTOLOGY-IRI)/dev
 config.MODULES_IRI		:= $(config.DEV_IRI)/modules
@@ -177,8 +177,8 @@ endef
 
 config.EXTRACTED_IMPORTS_NAME := RO-imports-extracted
 EXTRACTED_IMPORTS_FILENAME := $(config.IMPORTS_DIR)/$(config.EXTRACTED_IMPORTS_NAME)
-EXTRACTED_IMPORTS_IRI := https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/$(EXTRACTED_IMPORTS_FILENAME).ttl
-IMPORTED_SOURCE_ONTOLOGY := $(config.IMPORTS_DIR)/ro.owl
+EXTRACTED_IMPORTS_IRI := https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/src/imports/$(EXTRACTED_IMPORTS_FILENAME).ttl
+IMPORTED_SOURCE_ONTOLOGY := $(config.IMPORTS_DIR)/BFO/ro.owl
 
 ontology-temp-file := ontology_no_imports.tmp.ttl
 
