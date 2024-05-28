@@ -1,0 +1,217 @@
+targetTermLabel,predicate,sourceTermLabel
+Accept,http://www.w3.org/2000/01/rdf-schema#subClassOf,process
+Activity,http://www.w3.org/2000/01/rdf-schema#subClassOf,occurrent
+Agent,http://www.w3.org/2000/01/rdf-schema#subClassOf,material entity
+Contribute,http://www.w3.org/2000/01/rdf-schema#subClassOf,process
+Copyright,http://www.w3.org/2000/01/rdf-schema#subClassOf,process
+Dictionary,http://www.w3.org/2000/01/rdf-schema#subClassOf,generically dependent continuant
+,http://www.w3.org/2000/01/rdf-schema#subClassOf,occurrent
+End,http://www.w3.org/2000/01/rdf-schema#subClassOf,process boundary
+Entity,http://www.w3.org/2000/01/rdf-schema#subClassOf,continuant
+Generation,http://www.w3.org/2000/01/rdf-schema#subClassOf,process boundary
+Influence,http://www.w3.org/2000/01/rdf-schema#subClassOf,occurrent
+Insertion,http://www.w3.org/2000/01/rdf-schema#subClassOf,process
+InstantaneousEvent,http://www.w3.org/2000/01/rdf-schema#subClassOf,occurrent
+Invalidation,http://www.w3.org/2000/01/rdf-schema#subClassOf,process boundary
+Key-Entity Pair,http://www.w3.org/2000/01/rdf-schema#subClassOf,generically dependent continuant
+Key-Entity Pair,http://www.w3.org/2000/01/rdf-schema#subClassOf,Information Content Entity
+Location,http://www.w3.org/2000/01/rdf-schema#subClassOf,immaterial entity
+Modify,http://www.w3.org/2000/01/rdf-schema#subClassOf,process
+Organization,http://www.w3.org/2000/01/rdf-schema#subClassOf,Agent
+Organization,http://www.w3.org/2000/01/rdf-schema#subClassOf,Organization
+Person,http://www.w3.org/2000/01/rdf-schema#subClassOf,Agent
+Person,http://www.w3.org/2000/01/rdf-schema#subClassOf,Person
+Plan,http://www.w3.org/2000/01/rdf-schema#subClassOf,generically dependent continuant
+Plan,http://www.w3.org/2000/01/rdf-schema#subClassOf,Information Content Entity
+Publish,http://www.w3.org/2000/01/rdf-schema#subClassOf,process
+Removal,http://www.w3.org/2000/01/rdf-schema#subClassOf,process
+Replace,http://www.w3.org/2000/01/rdf-schema#subClassOf,process
+RightsAssignment,http://www.w3.org/2000/01/rdf-schema#subClassOf,process
+Role,http://www.w3.org/2000/01/rdf-schema#subClassOf,role
+SoftwareAgent,http://www.w3.org/2000/01/rdf-schema#subClassOf,Agent
+Start,http://www.w3.org/2000/01/rdf-schema#subClassOf,process boundary
+Submit,http://www.w3.org/2000/01/rdf-schema#subClassOf,process
+Usage,http://www.w3.org/2000/01/rdf-schema#subClassOf,process boundary
+actedOnBehalfOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+activity,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+activity,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causal relation between processes
+agent,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+agent,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+agent,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has agent
+agentOfInfluence,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,participates in
+agentOfInfluence,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,agent in
+alternateOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally influenced by
+asInBundle,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,is subject of
+contributed,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+derivedByInsertionFrom,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+derivedByInsertionFrom,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally influenced by
+derivedByRemovalFrom,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+derivedByRemovalFrom,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally influenced by
+dictionary,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+ended,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,participates in
+ended,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,participates in
+ended,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+entity,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+generalizationOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally influenced by
+generated,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+generated,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+generated,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+generated,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+generated,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has output
+generatedAsDerivation,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,occurrent part of
+generatedAsDerivation,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,temporal part of
+hadActivity,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+hadActivity,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causal relation between processes
+hadDelegate,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+hadDerivation,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+hadDictionaryMember,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,
+hadGeneration,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has occurrent part
+hadGeneration,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has temporal part
+hadGeneration,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+hadGeneration,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causal relation between processes
+hadMember,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,
+hadMember,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has member
+hadMember,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+hadPrimarySource,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+hadPrimarySource,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally influenced by
+hadRevision,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+hadUsage,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has occurrent part
+hadUsage,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has temporal part
+hadUsage,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+hadUsage,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causal relation between processes
+has_anchor,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,is subject of
+has_provenance,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,is subject of
+influenced,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+influencer,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+informed,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+insertedKeyEntityPair,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+insertedKeyEntityPair,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has output
+invalidated,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+invalidated,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+invalidated,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+invalidated,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+invalidated,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,affects
+mentionOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally influenced by
+pairKey,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,is about
+pairKey,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,is about
+qualifiedAssociation,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has occurrent part
+qualifiedAssociation,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+qualifiedAssociation,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causal relation between processes
+qualifiedAssociation,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has process part
+qualifiedAssociationOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,occurrent part of
+qualifiedAssociationOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,is part of process
+qualifiedAttribution,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,participates in
+qualifiedAttribution,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+qualifiedAttribution,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,is affected by
+qualifiedAttributionOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+qualifiedAttributionOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,affects
+qualifiedCommunication,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+qualifiedCommunication,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causal relation between processes
+qualifiedDelegation,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,participates in
+qualifiedDelegation,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+qualifiedDelegation,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,agent in
+qualifiedDelegationOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+qualifiedDelegationOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has agent
+qualifiedDerivation,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,participates in
+qualifiedDerivation,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+qualifiedDerivation,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,is output of
+qualifiedDerivationOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+qualifiedDerivationOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has output
+qualifiedEnd,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has occurrent part
+qualifiedEnd,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has temporal part
+qualifiedEnd,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+qualifiedEndOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,occurrent part of
+qualifiedEndOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,temporal part of
+qualifiedGeneration,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+qualifiedInfluence,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+qualifiedInsertion,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,participates in
+qualifiedInsertion,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+qualifiedInsertion,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,is output of
+qualifiedInvalidation,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+qualifiedPrimarySource,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,participates in
+qualifiedPrimarySource,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+qualifiedPrimarySource,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,is output of
+qualifiedQuotation,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,participates in
+qualifiedQuotation,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+qualifiedQuotation,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,is output of
+qualifiedQuotationOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+qualifiedQuotationOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has output
+qualifiedRemoval,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,participates in
+qualifiedRemoval,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+qualifiedRemoval,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,is output of
+qualifiedRevision,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,participates in
+qualifiedRevision,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+qualifiedRevision,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,is affected by
+qualifiedSourceOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+qualifiedSourceOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has output
+qualifiedStart,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has occurrent part
+qualifiedStart,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has temporal part
+qualifiedStart,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+qualifiedStart,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causal relation between processes
+qualifiedStartOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,occurrent part of
+qualifiedStartOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,temporal part of
+qualifiedUsage,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has occurrent part
+qualifiedUsage,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has temporal part
+qualifiedUsage,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+qualifiedUsingActivity,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,occurrent part of
+qualifiedUsingActivity,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,temporal part of
+quotedAs,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+revisedEntity,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+revisedEntity,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,affects
+specializationOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally influenced by
+started,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,participates in
+started,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,participates in
+started,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+used,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+used,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+used,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+used,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+used,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,affects
+wasAssociateFor,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,participates in
+wasAssociateFor,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,participates in
+wasAssociateFor,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+wasAssociateFor,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,agent in
+wasAssociatedWith,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+wasAssociatedWith,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+wasAssociatedWith,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+wasAssociatedWith,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+wasAssociatedWith,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has agent
+wasAttributedTo,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+wasAttributedTo,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally influenced by
+wasDerivedFrom,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+wasDerivedFrom,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally influenced by
+wasEndedBy,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+wasEndedBy,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+wasEndedBy,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+wasEndedBy,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+wasGeneratedBy,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,participates in
+wasGeneratedBy,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,participates in
+wasGeneratedBy,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+wasGeneratedBy,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,is output of
+wasInfluencedBy,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+wasInformedBy,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+wasInformedBy,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causal relation between processes
+wasInvalidatedBy,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,participates in
+wasInvalidatedBy,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,participates in
+wasInvalidatedBy,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+wasInvalidatedBy,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,is affected by
+wasMemberOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+wasPrimarySourceOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+wasQuotedFrom,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+wasQuotedFrom,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally influenced by
+wasRevisionOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+wasRevisionOf,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally influenced by
+wasStartedBy,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+wasStartedBy,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+wasStartedBy,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
+wasStartedBy,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+wasUsedBy,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,participates in
+wasUsedBy,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,participates in
+wasUsedBy,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
+wasUsedBy,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,is affected by
+wasUsedInDerivation,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,occurrent part of
+wasUsedInDerivation,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,temporal part of
+ServiceDescription,http://www.w3.org/2004/02/skos/core#relatedMatch,Information Content Entity
+describesService,http://www.w3.org/2004/02/skos/core#relatedMatch,is about
+qualifiedGeneration,http://www.w3.org/2004/02/skos/core#relatedMatch,is output of
+qualifiedInvalidation,http://www.w3.org/2004/02/skos/core#relatedMatch,is affected by

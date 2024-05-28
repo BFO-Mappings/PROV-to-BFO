@@ -1,0 +1,19 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix obo:  <http://purl.obolibrary.org/obo/> .
+@prefix cco:    <http://www.ontologyrepository.com/CommonCoreOntologies/> .
+@base <prov-ontologies.ttl> .
+
+<prov-ontologies.ttl>
+   a owl:Ontology;
+   rdfs:comment "This file is used for analytics only"@en ;
+   owl:imports # <https://www.w3.org/ns/prov> , # PROV importing this causes errors because it both imports and contains the same ontologies
+               <http://www.w3.org/ns/prov-o>, # PROV Ontology
+               <http://www.w3.org/ns/prov-aq>, # PROV Access and Query
+               <http://www.w3.org/ns/prov-dictionary>, # PROV Data Dictionary
+               <http://www.w3.org/ns/prov-links>, # PROV Linking Across Provenance Bundles
+               <http://www.w3.org/ns/prov-o-inverses>, # PROV Inverses
+               <http://www.w3.org/ns/prov-dc>; # PROV Dublin Core
+.

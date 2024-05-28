@@ -1,0 +1,39 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX swrl: <http://www.w3.org/2003/11/swrl#> 
+
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX bfo: <http://purl.obolibrary.org/obo/BFO_>
+PREFIX ro: <http://purl.obolibrary.org/obo/RO_>
+PREFIX cco: <http://www.ontologyrepository.com/CommonCoreOntologies/>
+
+# NOTE: This should be used on all instances, even those that are inconsistent
+
+SELECT DISTINCT ?instance ?type
+WHERE {
+    {
+        ?instance ?p ?o .
+    } 
+    UNION 
+    {
+        ?s ?p ?instance .
+    }
+    ?instance rdf:type ?type .
+    # Filter to include only blank nodes or where the rdf:type is owl:NamedIndividual
+    FILTER (isBlank(?instance) || ?type = owl:NamedIndividual) .
+    # Filter to exclude other types of non-individuals
+    FILTER NOT EXISTS { ?instance rdf:type owl:Class } .
+    FILTER NOT EXISTS { ?instance rdf:type owl:DatatypeProperty } .
+    FILTER NOT EXISTS { ?instance rdf:type owl:ObjectProperty } .
+    FILTER NOT EXISTS { ?instance rdf:type owl:AnnotationProperty } .
+    FILTER NOT EXISTS { ?instance rdf:type owl:Ontology } .
+    FILTER NOT EXISTS { ?instance rdf:type owl:Restriction } .
+    FILTER NOT EXISTS { ?instance rdf:type owl:Axiom } .
+    FILTER NOT EXISTS { ?instance rdf:type rdfs:Datatype } .
+    FILTER NOT EXISTS { ?instance rdf:type rdf:List } .
+    # Doesnt type start with SWRL
+    FILTER ( !STRSTARTS(STR(?type), STR(swrl:)) ) .
+
+}
+ORDER BY ?type ?instance

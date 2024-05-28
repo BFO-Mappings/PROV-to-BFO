@@ -1,4 +1,0 @@
-Level	Rule Name	Subject	Property	Value
-ERROR	missing_ontology_description	https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-mappings-edit.ttl	dc:description	
-ERROR	missing_ontology_license	https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-mappings-edit.ttl	dc:license	
-ERROR	missing_ontology_title	https://raw.githubusercontent.com/BFO-Mappings/BFO-Mappings/main/PROV/prov-mappings-edit.ttl	dc:title	

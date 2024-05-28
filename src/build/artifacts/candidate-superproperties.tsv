@@ -1,0 +1,7 @@
+?targetProperty	?superDomainLabel	?domainLabel	?targetPropertyLabel	?rangeLabel	?superRangeLabel	?otherProperty	?otherDomainLabel	?otherPropertyLabel	?otherRangeLabel
+<http://www.w3.org/ns/prov#derivedByInsertionFrom>	"continuant"@en	"Dictionary"	"derivedByInsertionFrom"	"Dictionary"	"continuant"@en	<http://purl.obolibrary.org/obo/BFO_0000176>	"continuant"@en	"continuant part of"@en	"continuant"@en
+<http://www.w3.org/ns/prov#derivedByInsertionFrom>	"continuant"@en	"Dictionary"	"derivedByInsertionFrom"	"Dictionary"	"continuant"@en	<http://purl.obolibrary.org/obo/BFO_0000178>	"continuant"@en	"has continuant part"@en	"continuant"@en
+<http://www.w3.org/ns/prov#derivedByRemovalFrom>	"continuant"@en	"Dictionary"	"derivedByRemovalFrom"	"Dictionary"	"continuant"@en	<http://purl.obolibrary.org/obo/BFO_0000176>	"continuant"@en	"continuant part of"@en	"continuant"@en
+<http://www.w3.org/ns/prov#derivedByRemovalFrom>	"continuant"@en	"Dictionary"	"derivedByRemovalFrom"	"Dictionary"	"continuant"@en	<http://purl.obolibrary.org/obo/BFO_0000178>	"continuant"@en	"has continuant part"@en	"continuant"@en
+<http://www.w3.org/ns/prov#hadDictionaryMember>	"continuant"@en	"Dictionary"	"hadDictionaryMember"	"Key-Entity Pair"	"continuant"@en	<http://purl.obolibrary.org/obo/BFO_0000176>	"continuant"@en	"continuant part of"@en	"continuant"@en
+<http://www.w3.org/ns/prov#hadDictionaryMember>	"continuant"@en	"Dictionary"	"hadDictionaryMember"	"Key-Entity Pair"	"continuant"@en	<http://purl.obolibrary.org/obo/BFO_0000178>	"continuant"@en	"has continuant part"@en	"continuant"@en

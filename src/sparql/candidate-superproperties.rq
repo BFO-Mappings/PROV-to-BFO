@@ -1,0 +1,52 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+SELECT DISTINCT ?targetProperty ?superDomainLabel ?domainLabel ?targetPropertyLabel ?rangeLabel ?superRangeLabel  ?otherProperty ?otherDomainLabel ?otherPropertyLabel ?otherRangeLabel
+WHERE {
+  # Where the target property is defined
+  BIND(prov: AS ?targetOntology) . 
+
+  ########################################
+  # Which property we want to map FROM
+  ?targetProperty a owl:ObjectProperty .
+  ?targetProperty rdfs:label ?targetPropertyLabel .
+
+  ?targetProperty rdfs:domain ?domain .
+  ?targetProperty rdfs:range ?range .
+  ?domain rdfs:label ?domainLabel .
+  ?range rdfs:label ?rangeLabel .
+  
+  ?domain rdfs:subClassOf* ?superDomain .
+  ?range rdfs:subClassOf* ?superRange .
+  OPTIONAL {
+    ?superDomain rdfs:label ?superDomainLabel .
+  }
+  OPTIONAL {
+    ?superRange rdfs:label ?superRangeLabel .
+  }
+
+  ########################################
+  # Which (candidate) property we want to map TO
+  ?otherProperty a owl:ObjectProperty .
+  ?otherProperty rdfs:label ?otherPropertyLabel .
+
+  ?otherProperty rdfs:domain ?otherDomain .
+  ?otherProperty rdfs:range ?otherRange .
+  OPTIONAL {
+    ?otherDomain rdfs:label ?otherDomainLabel .
+  }
+  OPTIONAL {
+    ?otherRange rdfs:label ?otherRangeLabel .
+  }
+
+  FILTER(
+    STRSTARTS(str(?targetProperty), str(?targetOntology))
+    && !STRSTARTS(str(?otherProperty), str(?targetOntology))
+    && (?superDomain = ?otherDomain || ?domain = ?otherdomain) && (?superRange = ?otherRange || ?range = ?otherRange)
+  ) .
+}
+ORDER BY ?targetProperty ?superDomainLabel
+
+# Note: Prov:entity complex subclass axiom prevents us from finding it as a matching domain

@@ -1,0 +1,29 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX swrl: <http://www.w3.org/2003/11/swrl#> 
+
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX bfo: <http://purl.obolibrary.org/obo/BFO_>
+PREFIX ro: <http://purl.obolibrary.org/obo/RO_>
+PREFIX cco: <http://www.ontologyrepository.com/CommonCoreOntologies/>
+
+SELECT DISTINCT ?provTerm ?termType
+WHERE {
+    FILTER ( STRSTARTS(STR(?provTerm), STR(prov:)) ) .
+    ?provTerm ?p ?o .
+    ?provTerm rdf:type ?termType .
+    # Inclusion
+    FILTER (
+        EXISTS { ?provTerm rdf:type owl:Class }
+        || EXISTS { ?provTerm rdf:type owl:ObjectProperty }
+        || EXISTS { ?provTerm rdf:type owl:FunctionalProperty }
+    ) .
+    # Exclusion
+    # FILTER (
+    #     NOT EXISTS { ?provTerm rdf:type owl:AnnotationProperty }
+    #     && NOT EXISTS { ?provTerm rdf:type owl:DatatypeProperty }
+    #     && NOT EXISTS { ?provTerm rdf:type owl:NamedIndividual }
+    # ) .
+}
+ORDER BY ?termType ?provTerm

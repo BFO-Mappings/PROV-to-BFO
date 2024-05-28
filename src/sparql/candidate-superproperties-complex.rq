@@ -1,0 +1,103 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+SELECT DISTINCT
+?targetProperty ?superDomain ?equivalentDomain ?domainLabel ?targetPropertyLabel ?rangeLabel ?equivalentRange ?superRange ?superRangeUnionMember
+?otherProperty                    ?otherDomainLabel   ?otherPropertyLabel  ?otherRangeLabel
+WHERE {
+  # Where the target property is defined
+  BIND (prov: AS ?targetOntology) . 
+
+  ########################################
+  # Which property we want to map FROM
+  ?targetProperty a owl:ObjectProperty . ?targetProperty rdfs:label ?targetPropertyLabel .
+  # Domain and Range of the target property
+  ?targetProperty rdfs:domain ?domain .
+  ?targetProperty rdfs:range ?range . 
+  ?domain rdfs:label ?domainLabel .
+  ?range rdfs:label ?rangeLabel .
+
+  OPTIONAL {
+    ?domain rdfs:subClassO ?superDomain .
+    # What if the domain is a subclass of a union?
+    OPTIONAL {
+      ?superDomain owl:unionOf ?superDomainUnion .
+      ?superDomainUnion rdf:rest*/rdf:first ?superDomainUnionMember .
+    }
+  }
+  OPTIONAL {
+    ?range rdfs:subClassOf ?superRange .
+    # What if the range is a subclass of a union?
+    OPTIONAL {
+      ?superRange owl:unionOf ?superRangeUnion .
+      ?superRangeUnion rdf:rest*/rdf:first ?superRangeUnionMember .
+    }
+  }
+
+  # Domain and Range could be equivalent
+  OPTIONAL {
+    ?domain owl:equivalentClass ?equivalentDomain .
+    ?equivalentDomain rdfs:subClassOf ?superDomain .
+  }
+  OPTIONAL {
+    ?range owl:equivalentClass ?equivalentRange .
+    ?equivalentRange rdfs:subClassOf ?superRange .
+  }
+  OPTIONAL {
+    ?equivalentDomain owl:equivalentClass ?domain .
+    ?equivalentDomain rdfs:subClassOf ?superDomain .
+  }
+  OPTIONAL {
+    ?equivalentRange owl:equivalentClass ?range .
+    ?equivalentRange rdfs:subClassOf ?superRange .
+  }
+
+  ########################################
+  # Which (candidate) property we want to map TO
+  ?otherProperty a owl:ObjectProperty . ?otherProperty rdfs:label ?otherPropertyLabel .
+  # Domain and Range of the candidate property
+  ?otherProperty rdfs:domain ?otherDomain .
+  ?otherProperty rdfs:range ?otherRange .
+  # Intersections and unions have no labels
+  OPTIONAL {
+    ?otherDomain rdfs:label ?otherDomainLabel .
+  }
+  OPTIONAL {
+    ?otherRange rdfs:label ?otherRangeLabel .
+  }
+
+  # 
+  OPTIONAL {
+    ?otherDomainSubclass rdfs:subClassOf ?otherDomain .
+  }
+  OPTIONAL {
+    ?otherRangeSubclass rdfs:subClassOf ?otherRange .
+  }
+
+  FILTER (
+    # Target property must be from target ontology
+    STRSTARTS(str(?targetProperty), str(?targetOntology)) 
+    # Candidate property must not be from target ontology
+    && !STRSTARTS(str(?otherProperty), str(?targetOntology))
+
+    # && ( !isBlank(?superDomain) && !isBlank(?superRange) )
+
+    # The domain of the candidate property must match either the domain or superdomain of the target property
+    && ( ?otherDomain = ?domain 
+      || ?otherDomain = ?equivalentDomain # Ex: Process is equivalent to prov:Activity
+      || ?otherDomain = ?superDomain # Ex: Generically Dependent Continuant is a superclass of prov:Plan
+      || ?otherDomain = ?superDomainUnionMember
+      || ?otherDomainSubclass = ?superDomainUnionMember
+    ) 
+    # The range of the candidate property must match either the range or superrange of the target property
+    && ( ?otherRange = ?range 
+      || ?otherRange = ?equivalentRange
+      || ?otherRange = ?superRange
+      || ?otherRange = ?superRangeUnionMember # Ex. independent continuant is IN the superclass of prov:Entity, where ?superRange is a list
+      || ?otherRangeSubclass = ?superRangeUnionMember # Ex. one members of the range could be a subclass of the otherRange
+    )
+  ) .
+}
+ORDER BY ?targetProperty ?otherProperty

@@ -1,0 +1,19 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix obo:  <http://purl.obolibrary.org/obo/> .
+@prefix cco:  <http://www.ontologyrepository.com/CommonCoreOntologies/> .
+@base <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/src/imports/SSN/ssn-mappings-edit.ttl> .
+
+<https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/src/imports/SSN/ssn-mappings-edit.ttl>
+   a owl:Ontology;
+   rdfs:label "Editor's file for SSN-BFO Mapping."@en ;
+   rdfs:comment "Open this in Protege to view the full mapping in context. Test the mapping with the imports in this file. This keeps imports out of the release version."@en ;
+   owl:imports <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-bfo-directmappings.ttl> , # PROV-BFO mappings
+               <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-ro-directmappings.ttl> , # PROV-RO mappings
+               <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-cco-directmappings.ttl> , # PROV-CCO mappings
+               <http://www.w3.org/ns/sosa/prov> , # SOSA-PROV mapping
+               <http://www.w3.org/ns/sosa/> , # SOSA
+               <http://www.w3.org/ns/prov-o> ; # PROV
+.

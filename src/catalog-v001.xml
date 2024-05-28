@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <!-- Mappings -->
+    <uri name="https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-bfo-directmappings.ttl" uri="../prov-bfo-directmappings.ttl"/>
+    <uri name="https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-ro-directmappings.ttl" uri="../prov-ro-directmappings.ttl"/>
+    <uri name="https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-cco-directmappings.ttl" uri="../prov-cco-directmappings.ttl"/>
+    <!-- Cached ontologies -->
+    <uri name="https://raw.githubusercontent.com/BFO-ontology/BFO-2020/master/src/owl/bfo-core.ttl" uri="imports/BFO/bfo-core.ttl"/>
+    <uri name="https://raw.githubusercontent.com/CommonCoreOntology/CommonCoreOntologies/master/cco-merged/MergedAllCoreOntology-v1.5-2024-02-14.ttl" uri="imports/BFO/MergedAllCoreOntology-v1.5-2024-02-14.ttl"/>
+    <uri name="https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/src/imports/RO-imports-extracted.ttl" uri="imports/RO-imports-extracted.ttl"/>
+    <!-- Other ontologies -->
+    <uri name="http://www.w3.org/ns/sosa/prov" uri="imports/SSN/sosa-prov.ttl"/>
+    <uri name="http://www.w3.org/ns/sosa/" uri="imports/SSN/sosa.ttl"/>
+    <uri name="http://example.org/om-20" uri="examples/om-20.ttl"/>
+    <uri name="http://example.org/model" uri="examples/model.ttl"/>
+    <uri name="http://maven.renci.org/NeuroBridge/neurobridge" uri="examples/neurobridge_ontology_2023_07_12.owl"/>
+    <!-- Examples -->
+    <uri name="https://www.w3.org/TR/prov-o/example-1.ttl" uri="examples/example-1.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-o/example-2.ttl" uri="examples/example-2.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-o/example-3.ttl" uri="examples/example-3.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-o/example-4.ttl" uri="examples/example-4.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-o/example-5.ttl" uri="examples/example-5.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-o/example-6.ttl" uri="examples/example-6.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-o/example-7.ttl" uri="examples/example-7.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-o/example-8.ttl" uri="examples/example-8.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-o/example-9.ttl" uri="examples/example-9.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-o/example-10.ttl" uri="examples/example-10.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-o/example-11.ttl" uri="examples/example-11.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-o/other-examples.ttl" uri="examples/other-examples.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-aq/examples.ttl" uri="examples/prov-aq-examples.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-dictionary/examples.ttl" uri="examples/prov-dictionary-examples.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-links/examples.ttl" uri="examples/prov-links-examples.ttl"/>
+    <uri name="https://www.w3.org/TR/prov-dc/examples.ttl" uri="examples/prov-dc-examples.ttl"/>
+</catalog>
