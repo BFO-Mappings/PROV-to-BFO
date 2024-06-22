@@ -1,0 +1,16 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@base <bfo-ontologies.ttl> .
+
+<bfo-ontologies.ttl>
+   a owl:Ontology;
+   rdfs:comment "This file is used for analytics only"@en ;
+   owl:imports <https://raw.githubusercontent.com/BFO-ontology/BFO-2020/master/src/owl/bfo-core.ttl>, # BFO Core
+               # <http://purl.obolibrary.org/obo/bfo/2020/bfo.owl> , # BFO temporalized relations
+
+               # <http://purl.obolibrary.org/obo/ro/releases/2024-02-13/ro.owl> , # Don't import all of RO, only import dependent terms below:
+               <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/src/imports/RO-imports-extracted.ttl>, # RO imports
+
+               <https://raw.githubusercontent.com/CommonCoreOntology/CommonCoreOntologies/master/cco-merged/MergedAllCoreOntology-v1.5-2024-02-14.ttl>, # CCO
+.

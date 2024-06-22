@@ -61,6 +61,9 @@ candidates-complex:
 	$(ROBOT) query --input $(EDITOR_BUILD_FILE) -q $(config.QUERIES_DIR)/candidate-superproperties-complex.rq $(config.TEMP_DIR)/candidate-superproperties-complex.tsv --use-graphs true ;
 
 
+# Axioms to materialize in reasoning
+AXIOM_GENERATORS = "SubClass EquivalentClass SubObjectProperty EquivalentObjectProperty InverseObjectProperties"
+
 # Check for unmapped terms after materializing inferred mappings (after removing individuals)
 unmapped:
 	$(ROBOT) remove --input $(EDITOR_BUILD_FILE) --select individuals \
@@ -70,8 +73,18 @@ unmapped:
 # Materialize all mappings as a list
 inferred-mappings:
 	$(ROBOT) remove --input $(EDITOR_BUILD_FILE) --select individuals \
-	reason --reasoner HermiT --axiom-generators "SubClass SubObjectProperty InverseObjectProperties" --include-indirect true \
+	reason --reasoner HermiT --axiom-generators $(AXIOM_GENERATORS) --include-indirect true \
 	query --output-dir $(config.TEMP_DIR) --queries $(config.QUERIES_DIR)/inferred-mappings.rq --use-graph true
+
+# Materialize old and new entailments, then compare the differences. This doesn't include disjoint axioms.
+deductive-diff:
+	$(ROBOT) remove --input $(EDITOR_BUILD_FILE) --select individuals \
+	reason --reasoner HermiT --axiom-generators $(AXIOM_GENERATORS) --include-indirect true \
+	query --query $(config.QUERIES_DIR)/prov-triples.rq $(config.TEMP_DIR)/new-prov-triples.ttl --use-graph true 
+	
+	$(ROBOT) reason --input $(config.IMPORTS_DIR)/PROV/prov-ontologies.ttl --reasoner HermiT --axiom-generators $(AXIOM_GENERATORS) --include-indirect true \
+	query --query $(config.QUERIES_DIR)/prov-triples.rq $(config.TEMP_DIR)/old-prov-triples.ttl --use-graph true 
+	$(ROBOT) diff --left $(config.TEMP_DIR)/old-prov-triples.ttl --right $(config.TEMP_DIR)/new-prov-triples.ttl --output $(config.TEMP_DIR)/deductive-diff.txt
 
 
 # Remove CCO individuals to speed up reasoner

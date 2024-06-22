@@ -10,7 +10,7 @@ PREFIX ro: <http://purl.obolibrary.org/obo/RO_>
 PREFIX cco: <http://www.ontologyrepository.com/CommonCoreOntologies/>
 
 # Note: filters only work when all referenced terms and their axioms are succesfully imported
-# Note: this should be used after materializing all mappings, however this query does not necessarily show all mappings
+# Note: this should be used after materializing all mappings, however this query does not necessarily show all mappings (ex. SWRL rules)
 SELECT ?targetTermLabel ?predicate ?sourceTermLabel
 WHERE {
     VALUES ?termType { owl:Class owl:ObjectProperty  } .

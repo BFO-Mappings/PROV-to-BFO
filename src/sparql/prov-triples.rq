@@ -1,0 +1,18 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX swrl: <http://www.w3.org/2003/11/swrl#> 
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX bfo: <http://purl.obolibrary.org/obo/BFO_>
+
+CONSTRUCT { 
+  ?targetTerm ?predicate ?sourceTerm
+} WHERE {
+    FILTER ( 
+      STRSTARTS(STR(?targetTerm), STR(prov:)) &&
+      STRSTARTS(STR(?sourceTerm), STR(prov:))
+    )
+    ?targetTerm ?predicate ?sourceTerm . 
+}

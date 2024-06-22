@@ -10,7 +10,6 @@ End,http://www.w3.org/2000/01/rdf-schema#subClassOf,process boundary
 Entity,http://www.w3.org/2000/01/rdf-schema#subClassOf,continuant
 Generation,http://www.w3.org/2000/01/rdf-schema#subClassOf,process boundary
 Influence,http://www.w3.org/2000/01/rdf-schema#subClassOf,occurrent
-Insertion,http://www.w3.org/2000/01/rdf-schema#subClassOf,process
 InstantaneousEvent,http://www.w3.org/2000/01/rdf-schema#subClassOf,occurrent
 Invalidation,http://www.w3.org/2000/01/rdf-schema#subClassOf,process boundary
 Key-Entity Pair,http://www.w3.org/2000/01/rdf-schema#subClassOf,generically dependent continuant
@@ -24,7 +23,6 @@ Person,http://www.w3.org/2000/01/rdf-schema#subClassOf,Person
 Plan,http://www.w3.org/2000/01/rdf-schema#subClassOf,generically dependent continuant
 Plan,http://www.w3.org/2000/01/rdf-schema#subClassOf,Information Content Entity
 Publish,http://www.w3.org/2000/01/rdf-schema#subClassOf,process
-Removal,http://www.w3.org/2000/01/rdf-schema#subClassOf,process
 Replace,http://www.w3.org/2000/01/rdf-schema#subClassOf,process
 RightsAssignment,http://www.w3.org/2000/01/rdf-schema#subClassOf,process
 Role,http://www.w3.org/2000/01/rdf-schema#subClassOf,role
@@ -84,8 +82,6 @@ has_provenance,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,is subject of
 influenced,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
 influencer,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
 informed,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,causally related to
-insertedKeyEntityPair,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
-insertedKeyEntityPair,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has output
 invalidated,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
 invalidated,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
 invalidated,http://www.w3.org/2000/01/rdf-schema#subPropertyOf,has participant
