@@ -17,13 +17,14 @@ config.DEV_IRI			:= $(config.ONTOLOGY-IRI)/dev
 config.MODULES_IRI		:= $(config.DEV_IRI)/modules
 
 # Local project directories
-config.SOURCE_DIR		:= /
-config.TEMP_DIR			:= build/artifacts
-config.RELEASE_DIR		:= /
-config.REPORTS_DIR		:= $(config.TEMP_DIR)
-config.QUERIES_DIR		:= sparql
-config.IMPORTS_DIR		:= imports
-config.LIBRARY_DIR		:= ../build/lib
+config.SOURCE_DIR				:= /
+config.TEMP_DIR					:= build/artifacts
+config.RELEASE_DIR				:= /
+config.REPORTS_DIR				:= $(config.TEMP_DIR)
+config.QUERIES_DIR				:= sparql
+config.CONSTRUCT_QUERIES_DIR	:= sparql/construct
+config.IMPORTS_DIR				:= imports
+config.LIBRARY_DIR				:= ../build/lib
 
 # Settings
 # These will cause targets run by a Github Action to fail, if desired
@@ -80,10 +81,10 @@ inferred-mappings:
 deductive-diff:
 	$(ROBOT) remove --input $(EDITOR_BUILD_FILE) --select individuals \
 	reason --reasoner HermiT --axiom-generators $(AXIOM_GENERATORS) --include-indirect true \
-	query --query $(config.QUERIES_DIR)/prov-triples.rq $(config.TEMP_DIR)/new-prov-triples.ttl --use-graph true 
+	query --query $(config.CONSTRUCT_QUERIES_DIR)/prov-triples.rq $(config.TEMP_DIR)/new-prov-triples.ttl --use-graph true 
 	
 	$(ROBOT) reason --input $(config.IMPORTS_DIR)/PROV/prov-ontologies.ttl --reasoner HermiT --axiom-generators $(AXIOM_GENERATORS) --include-indirect true \
-	query --query $(config.QUERIES_DIR)/prov-triples.rq $(config.TEMP_DIR)/old-prov-triples.ttl --use-graph true 
+	query --query $(config.CONSTRUCT_QUERIES_DIR)/prov-triples.rq $(config.TEMP_DIR)/old-prov-triples.ttl --use-graph true 
 	$(ROBOT) diff --left $(config.TEMP_DIR)/old-prov-triples.ttl --right $(config.TEMP_DIR)/new-prov-triples.ttl --output $(config.TEMP_DIR)/deductive-diff.txt
 
 
