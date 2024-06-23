@@ -4,5 +4,8 @@
 # This is where Makefile artifacts and dependencies go
 build/lib
 
+old-prov-triples.ttl
+new-prov-triples.ttl
+
 # Ontop files
 *.properties
