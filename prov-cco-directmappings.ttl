@@ -94,7 +94,7 @@ prov:Dictionary rdf:type owl:Class .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:Dictionary ;
     owl:annotatedProperty rdfs:subClassOf ;
-    owl:annotatedTarget   obo:InformationContentEntity ;
+    owl:annotatedTarget   cco:InformationContentEntity ;
     sssom:object_label    "Information Content Entity" ;
     rdfs:comment "A prov:Dictionary exists in virtue of the fact that there is at least one of what may be multiple copies; it is the content or the pattern that the multiple copies share."@en .
 
