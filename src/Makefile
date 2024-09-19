@@ -9,7 +9,8 @@
 # --------------------------------------------------------------------------------
 #### Configuration / details about our project
 # Project essentials
-config.ONTOLOGY_FILE	:= prov-mappings-edit.ttl
+config.TEST_FILE		:= prov-mappings-edit.ttl
+config.ALL_MAPPINGS		:= all-mappings.ttl
 config.ONTOLOGY_PREFIX	:= prov-bfo-directmappings
 config.ONTOLOGY-IRI		:= https://github.com/BFO-Mappings/PROV-to-BFO
 config.BASE_IRI			:= $(config.ONTOLOGY-IRI)_
@@ -26,6 +27,8 @@ config.CONSTRUCT_QUERIES_DIR	:= sparql/construct
 config.IMPORTS_DIR				:= imports
 config.LIBRARY_DIR				:= ../build/lib
 
+config.ALL_IMPORTED_ONTOLOGIES	:= $(config.IMPORTS_DIR)/all-imported-ontologies.ttl
+
 # Settings
 # These will cause targets run by a Github Action to fail, if desired
 config.FAIL_ON_TEST_FAILURES := false 
@@ -39,7 +42,7 @@ TIMESTAMP	:= $(shell date +'%Y-%m-%d %H:%M')
 config.RELEASE_NAME := $(config.ONTOLOGY_PREFIX) $(TIMESTAMP)
 
 # Generic files
-EDITOR_BUILD_FILE = $(config.ONTOLOGY_FILE) # "editors ontology module" http://purl.obolibrary.org/obo/IAO_8000002
+EDITOR_BUILD_FILE = $(config.TEST_FILE) # "editors ontology module" http://purl.obolibrary.org/obo/IAO_8000002
 RELEASE_BUILD_FILE = $(config.ONTOLOGY_PREFIX).ttl # "main release ontology module" http://purl.obolibrary.org/obo/IAO_8000003
 
 EDITOR_REPORT_FILE = $(config.REPORTS_DIR)/$(config.ONTOLOGY_PREFIX)-edit-report.tsv
@@ -188,28 +191,23 @@ endef
 
 # --------------------------------------------------------------------------------
 #### Manage imports
-
-config.EXTRACTED_IMPORTS_NAME := RO-imports-extracted
-EXTRACTED_IMPORTS_FILENAME := $(config.IMPORTS_DIR)/$(config.EXTRACTED_IMPORTS_NAME)
-EXTRACTED_IMPORTS_IRI := https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/src/imports/$(EXTRACTED_IMPORTS_FILENAME).ttl
-IMPORTED_SOURCE_ONTOLOGY := $(config.IMPORTS_DIR)/BFO/ro.owl
-
-ontology-temp-file := ontology_no_imports.tmp.ttl
+EXTRACTED_IMPORTS_FILENAME := $(config.IMPORTS_DIR)/extracted-imported-terms
 
 # Build list of imported terms that are referenced in the mappings
 .PHONY: $(EXTRACTED_IMPORTS_FILENAME).txt
-# TODO this could be less verbose if `ROBOT query` could pipe its inputs and outputs
-$(EXTRACTED_IMPORTS_FILENAME).txt: $(config.ONTOLOGY_FILE) $(ROBOT_FILE)
-	echo "Removing extracted imported terms file from mapping file before querying..."; \
-	sed '\#$(EXTRACTED_IMPORTS_IRI)#d' $(config.ONTOLOGY_FILE) > $(ontology-temp-file); \
+$(EXTRACTED_IMPORTS_FILENAME).txt: $(config.ALL_MAPPINGS) $(ROBOT_FILE)
 	echo "Querying for referenced terms within mappings and saving to $@"; \
-	$(ROBOT) query --input $(ontology-temp-file) -q $(config.QUERIES_DIR)/get-imported-terms.rq $@ --use-graphs true; \
-	tail -n +2 $@ > "imported-terms.tmp" && mv "imported-terms.tmp" $@; rm -f $(ontology-temp-file);
+	$(ROBOT) query --input $(config.ALL_MAPPINGS) -q $(config.QUERIES_DIR)/get-imported-terms.rq $@ --use-graphs true;
 
-# Extract imported terms from their source ontology to avoid testing with unnecessary axioms
+
+EXTRACTED_IMPORTS_IRI := https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/src/$(EXTRACTED_IMPORTS_FILENAME).ttl
+
+# Extract imported terms from the source ontologies
+# Can be used to avoid testing with unnecessary axioms
 .PHONY: extract-imports
 extract-imports: $(EXTRACTED_IMPORTS_FILENAME).txt | $(ROBOT_FILE)
-	$(ROBOT) extract --input $(IMPORTED_SOURCE_ONTOLOGY) --method subset --term-file $< --output $(EXTRACTED_IMPORTS_FILENAME).ttl;
+	$(ROBOT) extract --input $(config.ALL_IMPORTED_ONTOLOGIES) --method STAR --individuals exclude --copy-ontology-annotations true --term-file $< \
+	annotate --ontology-iri $(EXTRACTED_IMPORTS_IRI) --output $(EXTRACTED_IMPORTS_FILENAME).ttl;
 
 
 # --------------------------------------------------------------------------------

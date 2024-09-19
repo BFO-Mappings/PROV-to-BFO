@@ -1,0 +1,26 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix obo:  <http://purl.obolibrary.org/obo/> .
+@prefix cco:  <http://www.ontologyrepository.com/CommonCoreOntologies/> .
+@base <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/src/imports/all-imported-ontologies.ttl> .
+
+<https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/src/imports/all-imported-ontologies.ttl>
+   a owl:Ontology;
+   rdfs:label "All imported ontologies used in this project"@en ;
+   rdfs:comment "Use this file to extract referenced terms in the mappings"@en ;
+   owl:imports <https://www.w3.org/ns/prov-o-20130430>, # PROV Ontology, version 2013-04-30
+               <http://www.w3.org/ns/prov-aq>, # PROV Access and Query
+               <http://www.w3.org/ns/prov-dictionary>, # PROV Data Dictionary
+               <http://www.w3.org/ns/prov-links>, # PROV Linking Across Provenance Bundles
+               <http://www.w3.org/ns/prov-o-inverses>, # PROV Inverses
+               <http://www.w3.org/ns/prov-dc>, # PROV Dublin Core
+
+               <https://raw.githubusercontent.com/BFO-ontology/BFO-2020/master/src/owl/bfo-core.ttl>, # BFO Core
+
+               # <http://purl.obolibrary.org/obo/ro/releases/2024-02-13/ro.owl> , # Don't import all of RO, only import dependent terms below:
+               <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/src/imports/RO-imports-extracted.ttl>, # RO imports
+               
+               <https://raw.githubusercontent.com/CommonCoreOntology/CommonCoreOntologies/master/cco-merged/MergedAllCoreOntology-v1.5-2024-02-14.ttl> ; # CCO
+.

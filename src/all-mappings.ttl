@@ -1,0 +1,16 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix obo:  <http://purl.obolibrary.org/obo/> .
+@prefix cco:  <http://www.ontologyrepository.com/CommonCoreOntologies/> .
+@base <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/src/all-mappings.ttl> .
+
+<https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/src/all-mappings.ttl>
+   a owl:Ontology;
+   rdfs:label "All mappings for this project"@en ;
+   rdfs:comment "Use this file to extract referenced terms in the mappings"@en ;
+   owl:imports <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-bfo-directmappings.ttl> , # Release version of PROV-BFO containing actual mappings
+               <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-ro-directmappings.ttl> , # Release version of PROV-RO containing actual mappings
+               <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-cco-directmappings.ttl> ; # Release version of PROV-CCO containing actual mappings
+.
