@@ -48,12 +48,12 @@ prov:Agent rdf:type owl:Class .
                             rdf:type owl:Class
                           ] ;
     sssom:object_label    "material entity that participates in some Activity at some time and has a role realized in that Activity" ;
-    rdfs:comment "TODO"@en .
+    rdfs:comment "A prov:Agent is a material entity because always has some matter as a part that persists in time. A prov:Agent participates in (at some time) some prov:Activity and has a role, that, if realized, is realized in a prov:Activity taking place. This axiomatizes the definition of agent as 'something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity'. According to Requirement VI13 in 'Rationale of Prov', this could be a prov:Entity. A prov:SoftwareAgent is a material entity because it is defined as 'running software', meaning a particular, material carrier of software, as opposed to, for example, its source code. A prov:SoftwareAgent is a particular instance of sofware running on a particular computer."@en .
 
 
 
 # PROV object property mappings
-prov:influenced rdf:type owl:ObjectProperty .
+prov:influenced rdf:type owl:ObjectProperty . obo:RO_0002410 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:influenced ;
     owl:annotatedProperty rdfs:subPropertyOf ;
@@ -63,7 +63,7 @@ prov:influenced rdf:type owl:ObjectProperty .
 
 
 # prov:activity ~> causal relation between processes, prov:entity ~> cco:has_input, prov:agent ~> cco:has_agent
-prov:influencer rdf:type owl:ObjectProperty .
+prov:influencer rdf:type owl:ObjectProperty . obo:RO_0002410 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:influencer ;
     owl:annotatedProperty rdfs:subPropertyOf ;
@@ -72,7 +72,7 @@ prov:influencer rdf:type owl:ObjectProperty .
     rdfs:comment "An Agent, Activity, or Entity exerts an Influence and this is a causal relation."@en .
 
 
-prov:activity rdf:type owl:ObjectProperty .
+prov:activity rdf:type owl:ObjectProperty . obo:RO_0002501 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:activity ;
     owl:annotatedProperty rdfs:subPropertyOf ;
@@ -81,7 +81,7 @@ prov:activity rdf:type owl:ObjectProperty .
     rdfs:comment  "An Activity is causally related to its ActivityInfluence, where these are both occurrents. Although an ActivityInfluence may be a process boundary, the domain and range of 'causal relation between processes' is occurrent."@en .
 
 
-prov:wasAttributedTo rdf:type owl:ObjectProperty .
+prov:wasAttributedTo rdf:type owl:ObjectProperty . obo:RO_0002559 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:wasAttributedTo ;
     owl:annotatedProperty rdfs:subPropertyOf ;
@@ -90,7 +90,7 @@ prov:wasAttributedTo rdf:type owl:ObjectProperty .
     rdfs:comment "An entity may be attributed to an agent, and this is a causal influence by the agent"@en .
 
 
-prov:alternateOf rdf:type owl:ObjectProperty .
+prov:alternateOf rdf:type owl:ObjectProperty . obo:RO_0002559 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:alternateOf ;
     owl:annotatedProperty rdfs:subPropertyOf ;
@@ -99,7 +99,7 @@ prov:alternateOf rdf:type owl:ObjectProperty .
     rdfs:comment "An entity may be an alternate of an entity, and this is a causal relation."@en .
 
 
-prov:wasDerivedFrom rdf:type owl:ObjectProperty .
+prov:wasDerivedFrom rdf:type owl:ObjectProperty . obo:RO_0002559 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:wasDerivedFrom ;
     owl:annotatedProperty rdfs:subPropertyOf ;
@@ -108,7 +108,7 @@ prov:wasDerivedFrom rdf:type owl:ObjectProperty .
     rdfs:comment "An entity may be derived from an entity, being causally influenced by it."@en .
 
 
-prov:wasStartedBy rdf:type owl:ObjectProperty .
+prov:wasStartedBy rdf:type owl:ObjectProperty . obo:RO_0000057 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:wasStartedBy ;
     owl:annotatedProperty rdfs:subPropertyOf ;
@@ -118,7 +118,7 @@ prov:wasStartedBy rdf:type owl:ObjectProperty .
     rdfs:comment "This mapping overlaps the same mapping to BFO's 'has participant at some time' but is included for increased interoperability." .
 
 
-prov:wasEndedBy rdf:type owl:ObjectProperty .
+prov:wasEndedBy rdf:type owl:ObjectProperty . obo:RO_0000057 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:wasEndedBy ;
     owl:annotatedProperty rdfs:subPropertyOf ;
@@ -128,7 +128,7 @@ prov:wasEndedBy rdf:type owl:ObjectProperty .
     rdfs:comment "This mapping overlaps the same mapping to BFO's 'has participant at some time' but is included for increased interoperability." .
 
 
-prov:wasAssociatedWith rdf:type owl:ObjectProperty .
+prov:wasAssociatedWith rdf:type owl:ObjectProperty . obo:RO_0000057 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:wasAssociatedWith ;
     owl:annotatedProperty rdfs:subPropertyOf ;
@@ -138,7 +138,7 @@ prov:wasAssociatedWith rdf:type owl:ObjectProperty .
     rdfs:comment "This mapping overlaps the same mapping to BFO's 'has participant at some time' but is included for increased interoperability." .
 
 
-prov:invalidated rdf:type owl:ObjectProperty .
+prov:invalidated rdf:type owl:ObjectProperty . obo:RO_0000057 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:invalidated ;
     owl:annotatedProperty rdfs:subPropertyOf ;
@@ -148,7 +148,7 @@ prov:invalidated rdf:type owl:ObjectProperty .
     rdfs:comment "This mapping overlaps the same mapping to BFO's 'has participant at some time' but is included for increased interoperability." .
 
 
-prov:used rdf:type owl:ObjectProperty .
+prov:used rdf:type owl:ObjectProperty . obo:RO_0000057 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:used ;
     owl:annotatedProperty rdfs:subPropertyOf ;
@@ -158,7 +158,7 @@ prov:used rdf:type owl:ObjectProperty .
     rdfs:comment "This mapping overlaps the same mapping to BFO's 'has participant at some time' but is included for increased interoperability." .
 
 
-prov:generated rdf:type owl:ObjectProperty .
+prov:generated rdf:type owl:ObjectProperty . obo:RO_0000057 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:generated ;
     owl:annotatedProperty rdfs:subPropertyOf ;
@@ -169,7 +169,7 @@ prov:generated rdf:type owl:ObjectProperty .
 
 
 # TODO test, reasoning over RO is slow
-prov:wasInfluencedBy rdf:type owl:ObjectProperty .
+prov:wasInfluencedBy rdf:type owl:ObjectProperty . obo:RO_0002410 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:wasInfluencedBy ;
     owl:annotatedProperty rdfs:subPropertyOf ;
@@ -178,7 +178,7 @@ prov:wasInfluencedBy rdf:type owl:ObjectProperty .
     rdfs:comment "An Agent, Activity, or Entity that was influenced by an Influence was causally related to that Influence."@en .
 
 
-prov:wasInvalidatedBy rdf:type owl:ObjectProperty .
+prov:wasInvalidatedBy rdf:type owl:ObjectProperty . obo:RO_0000056 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:wasInvalidatedBy ;
     owl:annotatedProperty rdfs:subPropertyOf ;
@@ -188,7 +188,7 @@ prov:wasInvalidatedBy rdf:type owl:ObjectProperty .
     rdfs:comment "This mapping overlaps the same mapping to BFO's 'participates in at some time' but is included for increased interoperability." .
 
 
-prov:wasGeneratedBy rdf:type owl:ObjectProperty .
+prov:wasGeneratedBy rdf:type owl:ObjectProperty . obo:RO_0000056 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:wasGeneratedBy ;
     owl:annotatedProperty rdfs:subPropertyOf ;
@@ -198,7 +198,7 @@ prov:wasGeneratedBy rdf:type owl:ObjectProperty .
     rdfs:comment "This mapping overlaps the same mapping to BFO's 'participates in at some time' but is included for increased interoperability." .
 
 
-prov:wasInformedBy rdf:type owl:ObjectProperty .
+prov:wasInformedBy rdf:type owl:ObjectProperty . obo:RO_0002501 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:wasInformedBy ;
     owl:annotatedProperty rdfs:subPropertyOf ;
@@ -207,7 +207,7 @@ prov:wasInformedBy rdf:type owl:ObjectProperty .
     rdfs:comment "An activity may inform an activity. Both are processes and this is a causal relation."@en .
 
 
-prov:hadGeneration rdf:type owl:ObjectProperty .
+prov:hadGeneration rdf:type owl:ObjectProperty . obo:RO_0002501 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:hadGeneration ;
     owl:annotatedProperty rdfs:subPropertyOf ;
@@ -216,7 +216,7 @@ prov:hadGeneration rdf:type owl:ObjectProperty .
     rdfs:comment "An activity may generate another activity. Both are processes and this is a causal relation."@en .
 
 
-prov:hadUsage rdf:type owl:ObjectProperty .
+prov:hadUsage rdf:type owl:ObjectProperty . obo:RO_0002501 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:hadUsage ;
     owl:annotatedProperty rdfs:subPropertyOf ;
@@ -225,7 +225,7 @@ prov:hadUsage rdf:type owl:ObjectProperty .
     rdfs:comment "A derivation may use a usage. Both are processes and this is a causal relation."@en .
 
 
-prov:hadActivity rdf:type owl:ObjectProperty .
+prov:hadActivity rdf:type owl:ObjectProperty . obo:RO_0002501 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:hadActivity ;
     owl:annotatedProperty rdfs:subPropertyOf ;
@@ -234,7 +234,7 @@ prov:hadActivity rdf:type owl:ObjectProperty .
     rdfs:comment "An influence that's related to an activity in this context is causally related to it, where both are processes."@en .
 
 
-prov:qualifiedInfluence rdf:type owl:ObjectProperty .
+prov:qualifiedInfluence rdf:type owl:ObjectProperty . obo:RO_0002410 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:qualifiedInfluence ;
     owl:annotatedProperty rdfs:subPropertyOf ;
@@ -243,7 +243,7 @@ prov:qualifiedInfluence rdf:type owl:ObjectProperty .
     rdfs:comment "An Agent, Activity, or Entity may be causally related to an Influence."@en .
 
 
-prov:qualifiedAssociation rdf:type owl:ObjectProperty .
+prov:qualifiedAssociation rdf:type owl:ObjectProperty . obo:RO_0002501 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:qualifiedAssociation ;
     owl:annotatedProperty rdfs:subPropertyOf ;
@@ -252,7 +252,7 @@ prov:qualifiedAssociation rdf:type owl:ObjectProperty .
     rdfs:comment "An activity may be associated with an activity. Both are processes and this is a causal relation."@en .
 
 
-prov:qualifiedCommunication rdf:type owl:ObjectProperty .
+prov:qualifiedCommunication rdf:type owl:ObjectProperty . obo:RO_0002501 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:qualifiedCommunication ;
     owl:annotatedProperty rdfs:subPropertyOf ;
@@ -261,7 +261,7 @@ prov:qualifiedCommunication rdf:type owl:ObjectProperty .
     rdfs:comment "An activity may communicate another activity. Both are processes and this is a causal relation. For example: A wasInfomedBy B = A and B are both prov:activities, and A was causally related to B such that A utilizes a provenance_entity that wasGeneratedBy B"@en .
 
 
-prov:qualifiedStart rdf:type owl:ObjectProperty .
+prov:qualifiedStart rdf:type owl:ObjectProperty . obo:RO_0002501 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:qualifiedStart ;
     owl:annotatedProperty rdfs:subPropertyOf ;
@@ -270,7 +270,7 @@ prov:qualifiedStart rdf:type owl:ObjectProperty .
     rdfs:comment "An activity may start an activity. Both are processes and this is a causal relation."@en .
 
 
-prov:hadMember rdf:type owl:ObjectProperty .
+prov:hadMember rdf:type owl:ObjectProperty . obo:RO_0002351 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:hadMember ;
     owl:annotatedProperty rdfs:subPropertyOf ;
