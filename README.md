@@ -11,6 +11,12 @@
 ### PROV-CCO
 * [PROV-CCO Release version here.](prov-cco-directmappings.ttl) This contains only the mapped and extended terms from CCO. Use this file in production.
 
+### Example Usage
+1. Import terms from the ontologies that you want to use in your ontology.
+2. Import one or more of the mapping files.
+3. Use a semantic reasoner or SPARQL queries on your ontology to generate new inferences about data encoded in your ontology.
+* See the [example ontology](/example-usage/example-ontology-full-imports.ttl) demonstrating the first two steps.
+
 ### Development
 * [Editor's development version here.](src/prov-mappings-edit.ttl) This file is used only for development, not intended for production. It contains imports of BFO, CCO, RO, each and all canonical example instances from the PROV-O docs to test with. Open this file in Protege to view the mapping in full context of each aligned ontology. Test this file to ensure consistency among the extensions.
 
@@ -19,7 +25,7 @@
 * Every class and object property from PROV-O and its extensions is mapped to some class or object property from BFO, RO, or CCO.
 * The mappings use subsumption and equivalence relations either directly with RDFS and OWL, or indirectly with SWRL rules and property chain axioms. Additional SKOS mappings are provided for extra commentary.
 
-* The following PROV namespaces have been (1) mapped in the mapping files, (2) imported in the editors file, and (3) all Turtle-serialized examples from each have been loaded as instances in the editors file for testing:
+* The following PROV namespaces have been (1) mapped in the mapping files, (2) imported in the editors file, and (3) all Turtle-serialized canonical examples from each have been loaded as instances in the editors file for testing:
     * PROV-O [Ontology](https://www.w3.org/TR/2013/REC-prov-o-20130430/)
     * PROV Access and Query [Ontology](http://www.w3.org/ns/prov-aq) & [Examples](PROV/examples/prov-aq-examples.ttl)
     * PROV Data Dictionary [Ontology](http://www.w3.org/ns/prov-dictionary) & [Examples](PROV/examples/prov-dictionary-examples.ttl)
@@ -81,7 +87,7 @@
 ### Release
 * Release files are indicated with `-directmappings` prefix in the file names. These are edited and annotated directly, and imported in the Editor's file for development and testing.
 * Turtle (.ttl) versions of the release are currently *not* built automatically in order to ensure precise formatting, but RDF/XML versions could be automatically built from the Turtle versions.
-
+* Release files do *not* include imports of the ontologies they map. Why? First, because many terms in the BFO ontologies are not used or relevant to the mappings. Second, because users should not need to import irrelevant terms from any ontology (including PROV ontologies) for their use cases.
 
 # Contributors
 Tim Prudhomme, Giacomo De Colle, Austin Liebers, Alec Sculley, Karl Xie, Sydney Cohen, and John Beverley
