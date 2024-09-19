@@ -265,7 +265,7 @@ prov:pairKey rdf:type owl:ObjectProperty . cco:is_about rdf:type owl:ObjectPrope
     rdfs:comment  "A Key-Entity Pair is about a key because Key-Entity Pairs are Information Content Entities"@en .
 
 
-prov:insertedKeyEntityPair rdf:type owl:ObjectProperty .
+prov:insertedKeyEntityPair rdf:type owl:ObjectProperty . cco:has_output rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:insertedKeyEntityPair ;
     owl:annotatedProperty rdfs:subPropertyOf ;
