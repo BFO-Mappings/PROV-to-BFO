@@ -5,7 +5,7 @@
     <uri name="https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-ro-directmappings.ttl" uri="../prov-ro-directmappings.ttl"/>
     <uri name="https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-cco-directmappings.ttl" uri="../prov-cco-directmappings.ttl"/>
     <!-- Cached ontologies -->
-    <uri name="https://raw.githubusercontent.com/BFO-ontology/BFO-2020/master/src/owl/bfo-core.ttl" uri="imports/BFO/bfo-core.ttl"/>
+    <!-- <uri name="https://raw.githubusercontent.com/BFO-ontology/BFO-2020/master/src/owl/bfo-core.ttl" uri="imports/BFO/bfo-core.ttl"/> -->
     <uri name="https://raw.githubusercontent.com/CommonCoreOntology/CommonCoreOntologies/master/cco-merged/MergedAllCoreOntology-v1.5-2024-02-14.ttl" uri="imports/BFO/MergedAllCoreOntology-v1.5-2024-02-14.ttl"/>
     <uri name="https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/src/imports/RO-imports-extracted.ttl" uri="imports/RO-imports-extracted.ttl"/>
     <!-- Other ontologies -->
