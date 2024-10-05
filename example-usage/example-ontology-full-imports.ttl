@@ -9,7 +9,7 @@
 
 <http://www.semanticweb.org/tim/ontologies/2024/8/example-ontology-full-imports> rdf:type owl:Ontology ;
                                                                       owl:imports <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-cco-directmappings.ttl> ,
-                                                                                  <https://raw.githubusercontent.com/CommonCoreOntology/CommonCoreOntologies/master/cco-merged/MergedAllCoreOntology-v1.5-2024-02-14.ttl> ,
+                                                                                  <https://raw.githubusercontent.com/CommonCoreOntology/CommonCoreOntologies/refs/tags/v1.6-2024-09-26/src/cco-merged/CommonCoreOntologiesMerged.ttl> ,
                                                                                   <https://www.w3.org/ns/prov> ;
                                                                       rdfs:comment "This example ontology demonstrates an import of the PROV-CCO mapping, combined with an import of the PROV and CCO ontologies." .
 
