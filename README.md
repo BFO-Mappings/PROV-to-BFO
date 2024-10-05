@@ -1,6 +1,6 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11338700.svg)](https://doi.org/10.5281/zenodo.11338700) [![Test PROV-BFO Mapping Changes](https://github.com/BFO-Mappings/PROV-to-BFO/actions/workflows/test-mappings.yml/badge.svg)](https://github.com/BFO-Mappings/PROV-to-BFO/actions/workflows/test-mappings.yml)
 # PROV - BFO, RO, CCO Mappings
-[PROV Ontology (PROV-O)](https://www.w3.org/TR/prov-o/) is a World Wide Web Consortium (W3C) recommended ontology used to structure data about provenance across a wide variety of domains. [Basic Formal Ontology (PROV-O)](https://basic-formal-ontology.org/) is a top-level ontology ISO/IEC standard used to structure a wide variety of ontologies, including the [Relation Ontology (RO)](https://oborel.github.io/) and the [Common Core Ontologies (CCO)](https://github.com/CommonCoreOntology/CommonCoreOntologies). To enhance interoperability between these ontologies, their extensions, and data organized by them, this repo includes a set of mappings that were created according to a criteria and methodology which prioritizes structural and semantic principles. 
+[PROV Ontology (PROV-O)](https://www.w3.org/TR/prov-o/) is a World Wide Web Consortium (W3C) recommended ontology used to structure data about provenance across a wide variety of domains. [Basic Formal Ontology (BFO)](https://basic-formal-ontology.org/) is a top-level ontology ISO/IEC standard used to structure a wide variety of ontologies, including the [Relation Ontology (RO)](https://oborel.github.io/) and the [Common Core Ontologies (CCO)](https://github.com/CommonCoreOntology/CommonCoreOntologies). To enhance interoperability between these ontologies, their extensions, and data organized by them, this repo includes a set of mappings that were created according to a criteria and methodology which prioritizes structural and semantic principles. 
 
 # Usage
 ### PROV-BFO
@@ -94,4 +94,4 @@
 Tim Prudhomme, Giacomo De Colle, Austin Liebers, Alec Sculley, Karl Xie, Sydney Cohen, and John Beverley
 
 # How to cite
-Please cite "Mapping PROV-O to BFO" using the DOI https://doi.org/10.5281/zenodo.11338700 or this GitHub URL https://github.com/BFO-Mappings/PROV-to-BF0.
+Please cite "Mapping PROV-O to BFO" using the DOI https://doi.org/10.5281/zenodo.11338700.
