@@ -4,7 +4,7 @@
 @prefix swrl:   <http://www.w3.org/2003/11/swrl#> .
 @prefix prov:   <http://www.w3.org/ns/prov#> .
 @prefix obo:    <http://purl.obolibrary.org/obo/> .
-@prefix cco:    <https://www.commoncoreontologies.org/> .
+@prefix cco:    <http://www.ontologyrepository.com/CommonCoreOntologies/> .
 @prefix dc:     <http://purl.org/dc/elements/1.1/> .
 @prefix sssom:  <https://w3id.org/sssom/> .
 @prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
@@ -30,9 +30,9 @@ prov:Agent rdf:type owl:Class .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:Agent ;
     owl:annotatedProperty owl:equivalentClass ; 
-    owl:annotatedTarget   [ owl:intersectionOf ( cco:ont00001017
+    owl:annotatedTarget   [ owl:intersectionOf ( cco:Agent
                                                                   [ rdf:type owl:Restriction ;
-                                                                    owl:onProperty cco:ont00001787 ;
+                                                                    owl:onProperty cco:agent_in ;
                                                                     owl:someValuesFrom prov:Activity
                                                                   ]
                                                                 ) ;
@@ -46,36 +46,36 @@ prov:Person rdf:type owl:Class .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:Person ;
     owl:annotatedProperty owl:equivalentClass ;
-    owl:annotatedTarget   [ owl:intersectionOf ( cco:ont00001262
+    owl:annotatedTarget   [ owl:intersectionOf ( cco:Person
                                                  prov:Agent)] ;
     sssom:object_label    "Person" ;
-    rdfs:comment "Every prov:Person is both a prov:Agent and a cco:ont00001262. However, not every cco:ont00001262 is a prov:Agent or cco:ont00001017. So, prov:Person and cco:ont00001262 are not coextensive."@en .
+    rdfs:comment "Every prov:Person is both a prov:Agent and a cco:Person. However, not every cco:Person is a prov:Agent or cco:Agent. So, prov:Person and cco:Person are not coextensive."@en .
 
 
 prov:Organization rdf:type owl:Class .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:Organization ;
     owl:annotatedProperty owl:equivalentClass ;
-    owl:annotatedTarget   [ owl:intersectionOf ( cco:ont00001180
+    owl:annotatedTarget   [ owl:intersectionOf ( cco:Organization
                                                  prov:Agent)] ;
     sssom:object_label    "Organization" ;
-    rdfs:comment "Every prov:Organization is both a prov:Agent and a cco:ont00001180. However, not every cco:ont00001180 is a prov:Agent or cco:ont00001017. So, prov:Organization and cco:ont00001180 are not coextensive."@en .
+    rdfs:comment "Every prov:Organization is both a prov:Agent and a cco:Organization. However, not every cco:Organization is a prov:Agent or cco:Agent. So, prov:Organization and cco:Organization are not coextensive."@en .
 
 
 prov:Plan rdf:type owl:Class .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:Plan ;
     owl:annotatedProperty rdfs:subClassOf ; 
-    owl:annotatedTarget   cco:ont00000958 ;
+    owl:annotatedTarget   cco:InformationContentEntity ;
     sssom:object_label    "Information Content Entity" ;
-    rdfs:comment "Plans are information content which are about entities. prov:Plan is similar to cco:ont00000974, except that PROV explicitly does not constrain the type of information content that prov:Plans consist of."@en .
+    rdfs:comment "Plans are information content which are about entities. prov:Plan is similar to cco:PlanSpecification, except that PROV explicitly does not constrain the type of information content that prov:Plans consist of."@en .
 
 
 prov:Start rdf:type owl:Class .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:Start ;
     owl:annotatedProperty owl:equivalentClass ; 
-    owl:annotatedTarget   cco:ont00000197 ;
+    owl:annotatedTarget   cco:ProcessBeginning ;
     sssom:object_label    "Process Beginning" ;
     rdfs:comment "TODO add justification"@en .
 
@@ -84,7 +84,7 @@ prov:End rdf:type owl:Class .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:End ;
     owl:annotatedProperty owl:equivalentClass ; 
-    owl:annotatedTarget   cco:ont00000083 ;
+    owl:annotatedTarget   cco:ProcessEnding ;
     sssom:object_label    "Process Ending" ;
     rdfs:comment "TODO add justification"@en .
 
@@ -94,7 +94,7 @@ prov:Dictionary rdf:type owl:Class .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:Dictionary ;
     owl:annotatedProperty rdfs:subClassOf ;
-    owl:annotatedTarget   cco:ont00000958 ;
+    owl:annotatedTarget   cco:InformationContentEntity ;
     sssom:object_label    "Information Content Entity" ;
     rdfs:comment "A prov:Dictionary exists in virtue of the fact that there is at least one of what may be multiple copies; it is the content or the pattern that the multiple copies share."@en .
 
@@ -103,193 +103,193 @@ prov:KeyEntityPair rdf:type owl:Class .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:KeyEntityPair ;
     owl:annotatedProperty rdfs:subClassOf ;
-    owl:annotatedTarget   cco:ont00000958 ;
+    owl:annotatedTarget   cco:InformationContentEntity ;
     sssom:object_label    "Information Content Entity" ;
     rdfs:comment "A prov:KeyEntityPair exists in virtue of the fact that there is at least one of what may be multiple copies; it is the content or the pattern that the multiple copies share."@en .
 
 
 
 # PROV object property mappings
-prov:wasAssociatedWith rdf:type owl:ObjectProperty . cco:ont00001833 rdf:type owl:ObjectProperty .
+prov:wasAssociatedWith rdf:type owl:ObjectProperty . cco:has_agent rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:wasAssociatedWith ;
     owl:annotatedProperty rdfs:subPropertyOf ;
-    owl:annotatedTarget   cco:ont00001833 ;
+    owl:annotatedTarget   cco:has_agent ;
     sssom:object_label    "has agent" ;
     rdfs:comment "An Activity that was associated with an Agent has the Agent as its agent."@en .
 
 
-prov:wasInvalidatedBy rdf:type owl:ObjectProperty . cco:ont00001886 rdf:type owl:ObjectProperty .
+prov:wasInvalidatedBy rdf:type owl:ObjectProperty . cco:is_affected_by rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:wasInvalidatedBy ;
     owl:annotatedProperty rdfs:subPropertyOf ;
-    owl:annotatedTarget   cco:ont00001886 ;
+    owl:annotatedTarget   cco:is_affected_by ;
     sssom:object_label    "is affected by" ;
     rdfs:comment "An Entity that was invalidated by an Activity is also affected by that Activity."@en .
 
 
-prov:wasGeneratedBy rdf:type owl:ObjectProperty . cco:ont00001816 rdf:type owl:ObjectProperty .
+prov:wasGeneratedBy rdf:type owl:ObjectProperty . cco:is_output_of rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:wasGeneratedBy ;
     owl:annotatedProperty rdfs:subPropertyOf ;
-    owl:annotatedTarget   cco:ont00001816 ;
+    owl:annotatedTarget   cco:is_output_of ;
     sssom:object_label    "is output of" ;
     rdfs:comment "An Entity that was generated by an Activity is output of that Activity."@en .
 
 
-prov:invalidated rdf:type owl:ObjectProperty . cco:ont00001834 rdf:type owl:ObjectProperty .
+prov:invalidated rdf:type owl:ObjectProperty . cco:affects rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:invalidated ;
     owl:annotatedProperty rdfs:subPropertyOf ;
-    owl:annotatedTarget   cco:ont00001834 ;
+    owl:annotatedTarget   cco:affects ;
     sssom:object_label    "affects" ;
     rdfs:comment "An Activity that invalidated an Entity also affects that Entity."@en .
 
 
-prov:used rdf:type owl:ObjectProperty . cco:ont00001834 rdf:type owl:ObjectProperty .
+prov:used rdf:type owl:ObjectProperty . cco:affects rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:used ;
     owl:annotatedProperty rdfs:subPropertyOf ;
-    owl:annotatedTarget   cco:ont00001834 ;
+    owl:annotatedTarget   cco:affects ;
     sssom:object_label    "affects" ;
     rdfs:comment "An Activity that used an Entity affects the Entity."@en .
 
 
-prov:generated rdf:type owl:ObjectProperty . cco:ont00001986 rdf:type owl:ObjectProperty .
+prov:generated rdf:type owl:ObjectProperty . cco:has_output rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:generated ;
     owl:annotatedProperty rdfs:subPropertyOf ;
-    owl:annotatedTarget   cco:ont00001986 ;
+    owl:annotatedTarget   cco:has_output ;
     sssom:object_label    "has output" ;
     rdfs:comment  "An Activity that generated an Entity has_output that Entity."@en .
 
 
-prov:hadPlan rdf:type owl:ObjectProperty . cco:ont00001920 rdf:type owl:ObjectProperty .
+prov:hadPlan rdf:type owl:ObjectProperty . cco:prescribed_by rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:hadPlan ;
     owl:annotatedProperty owl:propertyChainAxiom ;
-    owl:annotatedTarget   ( [ owl:inverseOf prov:qualifiedAssociation ] cco:ont00001920 ) ;
+    owl:annotatedTarget   ( [ owl:inverseOf prov:qualifiedAssociation ] cco:prescribed_by ) ;
     sssom:object_label    "qualified association of something prescribed by" ;
     rdfs:comment  "If an Association is the qualified association of some Activity, and that Activity is prescribed by some Plan, then that Association 'had plan' that Plan."@en .
 
 
-prov:qualifiedAssociation rdf:type owl:ObjectProperty . cco:ont00001777 rdf:type owl:ObjectProperty .
+prov:qualifiedAssociation rdf:type owl:ObjectProperty . cco:has_process_part rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:qualifiedAssociation ;
     owl:annotatedProperty rdfs:subPropertyOf ;
-    owl:annotatedTarget   cco:ont00001777 ;
+    owl:annotatedTarget   cco:has_process_part ;
     sssom:object_label    "has process part" ;
     rdfs:comment  "An Activity that has an Association as its qualified association also has the Activity as its process part."@en ;
     rdfs:comment "If this Activity prov:wasAssociatedWith Agent :ag, then it can qualify the Association using prov:qualifiedAssociation [ a prov:Association;  prov:agent :ag; :foo :bar ]."@en .
 
 
-prov:qualifiedAttribution rdf:type owl:ObjectProperty . cco:ont00001886 rdf:type owl:ObjectProperty .
+prov:qualifiedAttribution rdf:type owl:ObjectProperty . cco:is_affected_by rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:qualifiedAttribution ;
     owl:annotatedProperty rdfs:subPropertyOf ;
-    owl:annotatedTarget   cco:ont00001886 ;
+    owl:annotatedTarget   cco:is_affected_by ;
     sssom:object_label    "is affected by" ;
     rdfs:comment  "An Entity that is attributed to something is affected by that Attribution."@en .
 
 
-prov:qualifiedRevision rdf:type owl:ObjectProperty . cco:ont00001886 rdf:type owl:ObjectProperty .
+prov:qualifiedRevision rdf:type owl:ObjectProperty . cco:is_affected_by rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:qualifiedRevision ;
     owl:annotatedProperty rdfs:subPropertyOf ;
-    owl:annotatedTarget   cco:ont00001886 ;
+    owl:annotatedTarget   cco:is_affected_by ;
     sssom:object_label    "is affected by" ;
     rdfs:comment  "If a Revision is the qualified revision of an Entity, then the Entity is affected by the Revision."@en .
 
 
-prov:qualifiedDelegation rdf:type owl:ObjectProperty . cco:ont00001787 rdf:type owl:ObjectProperty .
+prov:qualifiedDelegation rdf:type owl:ObjectProperty . cco:agent_in rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:qualifiedDelegation ;
     owl:annotatedProperty rdfs:subPropertyOf ;
-    owl:annotatedTarget   cco:ont00001787 ;
+    owl:annotatedTarget   cco:agent_in ;
     sssom:object_label    "agent in" ;
     rdfs:comment  "If a Delegation is the qualified delegation of an Agent, then the Agent is agent in (namely causally active in) the Delegation."@en .
 
 
-prov:qualifiedDerivation rdf:type owl:ObjectProperty . cco:ont00001816 rdf:type owl:ObjectProperty .
+prov:qualifiedDerivation rdf:type owl:ObjectProperty . cco:is_output_of rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:qualifiedDerivation ;
     owl:annotatedProperty rdfs:subPropertyOf ;
-    owl:annotatedTarget   cco:ont00001816 ;
+    owl:annotatedTarget   cco:is_output_of ;
     sssom:object_label    "is output of" ;
     rdfs:comment  "If a Derivation is the qualified derivation of an Entity, then the Entity is output of the Derivation."@en .
 
 
-prov:qualifiedPrimarySource rdf:type owl:ObjectProperty . cco:ont00001816 rdf:type owl:ObjectProperty .
+prov:qualifiedPrimarySource rdf:type owl:ObjectProperty . cco:is_output_of rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:qualifiedPrimarySource ;
     owl:annotatedProperty rdfs:subPropertyOf ;
-    owl:annotatedTarget   cco:ont00001816 ;
+    owl:annotatedTarget   cco:is_output_of ;
     sssom:object_label    "is output of" ;
     rdfs:comment  "A Entity that has a Primary Source as its qualified primary source is output of that Primary Source."@en .
 
 
-prov:qualifiedQuotation rdf:type owl:ObjectProperty . cco:ont00001816 rdf:type owl:ObjectProperty .
+prov:qualifiedQuotation rdf:type owl:ObjectProperty . cco:is_output_of rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:qualifiedQuotation ;
     owl:annotatedProperty rdfs:subPropertyOf ;
-    owl:annotatedTarget   cco:ont00001816 ;
+    owl:annotatedTarget   cco:is_output_of ;
     sssom:object_label    "is output of" ;
     rdfs:comment  "If a Quotation is the qualified quotation related to an Entity as the quote, then that Entity is output of that Quotation. See definition of prov:qualifiedQuotation."@en .
 
 
-prov:agent rdf:type owl:ObjectProperty . cco:ont00001833 rdf:type owl:ObjectProperty .
+prov:agent rdf:type owl:ObjectProperty . cco:has_agent rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:agent ;
     owl:annotatedProperty rdfs:subPropertyOf ;
-    owl:annotatedTarget   cco:ont00001833 ;
+    owl:annotatedTarget   cco:has_agent ;
     sssom:object_label    "has agent" ;
     rdfs:comment  "An AgentInfluence has_agent an Agent because the Agent is the agent of the AgentInfluence."@en .
 
 
 # PROV-Dictionary object property mappings
-prov:pairEntity rdf:type owl:ObjectProperty . cco:ont00001808 rdf:type owl:ObjectProperty .
+prov:pairEntity rdf:type owl:ObjectProperty . cco:is_about rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:pairEntity ;
     owl:annotatedProperty rdfs:subPropertyOf ;
-    owl:annotatedTarget   cco:ont00001808 ;
+    owl:annotatedTarget   cco:is_about ;
     sssom:object_label    "is about" ;
     rdfs:comment  "A Key-Entity Pair is about an Entity because Key-Entity Pairs are Information Content Entities"@en .
 
 
-prov:pairKey rdf:type owl:ObjectProperty . cco:ont00001808 rdf:type owl:ObjectProperty .
+prov:pairKey rdf:type owl:ObjectProperty . cco:is_about rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:pairKey ;
     owl:annotatedProperty rdfs:subPropertyOf ;
-    owl:annotatedTarget   cco:ont00001808 ;
+    owl:annotatedTarget   cco:is_about ;
     sssom:object_label    "is about" ;
     rdfs:comment  "A Key-Entity Pair is about a key because Key-Entity Pairs are Information Content Entities"@en .
 
 
 # PROV-AQ object property mappings
-prov:has_anchor rdf:type owl:ObjectProperty . cco:ont00001801 rdf:type owl:ObjectProperty .
+prov:has_anchor rdf:type owl:ObjectProperty . cco:is_subject_of rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:has_anchor ;
     owl:annotatedProperty rdfs:subPropertyOf ; 
-    owl:annotatedTarget   cco:ont00001801 ;
+    owl:annotatedTarget   cco:is_subject_of ;
     sssom:object_label    "is subject of" ;
     rdfs:comment "A resource that has some anchor is the subject of that anchor"@en .
 
 
-prov:has_provenance rdf:type owl:ObjectProperty . cco:ont00001801 rdf:type owl:ObjectProperty .
+prov:has_provenance rdf:type owl:ObjectProperty . cco:is_subject_of rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:has_provenance ;
     owl:annotatedProperty rdfs:subPropertyOf ; 
-    owl:annotatedTarget   cco:ont00001801 ;
+    owl:annotatedTarget   cco:is_subject_of ;
     sssom:object_label    "is subject of" ;
     rdfs:comment "A resource that has some provenance resource is the subject of that provenance resource"@en .
 
 
 # PROV-links object property mappings
-prov:asInBundle rdf:type owl:ObjectProperty . cco:ont00001801 rdf:type owl:ObjectProperty .
+prov:asInBundle rdf:type owl:ObjectProperty . cco:is_subject_of rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:asInBundle ;
     owl:annotatedProperty rdfs:subPropertyOf ; 
-    owl:annotatedTarget   cco:ont00001801 ;
+    owl:annotatedTarget   cco:is_subject_of ;
     sssom:object_label    "is subject of" ;
     rdfs:comment "When :x prov:mentionOf :y and :y is described in Bundle :b, and :x prov:asInBundle :b, then :x is subject of :b"@en .
 
@@ -299,38 +299,38 @@ prov:ServiceDescription rdf:type owl:Class .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:ServiceDescription ;
     owl:annotatedProperty skos:relatedMatch ;
-    owl:annotatedTarget   cco:ont00000958 ;
+    owl:annotatedTarget   cco:InformationContentEntity ;
     sssom:object_label    "Information Content Entity" ;
     rdfs:comment  "PROV-AQ documentation suggests that a prov:ServiceDescription is used to describe a service. 
     However, prov:ServiceDescription is a prov:SoftwareAgent, which is an independent continuant. 
     By contrast, only generically dependent continuants such as information can be about or describe something in CCO."@en .
 
 
-prov:describesService rdf:type owl:ObjectProperty . cco:ont00001808 rdf:type owl:ObjectProperty .
+prov:describesService rdf:type owl:ObjectProperty . cco:is_about rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:describesService ;
     owl:annotatedProperty skos:relatedMatch ;
-    owl:annotatedTarget   cco:ont00001808 ;
+    owl:annotatedTarget   cco:is_about ;
     sssom:object_label    "is about" ;
     rdfs:comment  "PROV-AQ documentation suggests that a prov:ServiceDescription is used to describe a service. 
     However, prov:ServiceDescription is a prov:SoftwareAgent, which is an independent continuant. 
     By contrast, only generically dependent continuants such as information can be about or describe something in CCO."@en .
 
 
-prov:qualifiedGeneration rdf:type owl:ObjectProperty . cco:ont00001816 rdf:type owl:ObjectProperty .
+prov:qualifiedGeneration rdf:type owl:ObjectProperty . cco:is_output_of rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:qualifiedGeneration ;
     owl:annotatedProperty skos:relatedMatch ;
-    owl:annotatedTarget   cco:ont00001816 ;
+    owl:annotatedTarget   cco:is_output_of ;
     sssom:object_label    "is output of" ;
     rdfs:comment  "Generation is a prov:InstantaneousEvent, a process boundary. However, if it were a process, and some Generation was a qualified generation of an Entity, then that Entity would be the output of that Generation."@en .
 
 
-prov:qualifiedInvalidation rdf:type owl:ObjectProperty . cco:ont00001886 rdf:type owl:ObjectProperty .
+prov:qualifiedInvalidation rdf:type owl:ObjectProperty . cco:is_affected_by rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:qualifiedInvalidation ;
     owl:annotatedProperty skos:relatedMatch ;
-    owl:annotatedTarget   cco:ont00001886 ;
+    owl:annotatedTarget   cco:is_affected_by ;
     sssom:object_label    "is affected by" ;
     rdfs:comment  "Invalidation is a prov:InstantaneousEvent, a process boundary. However, if it were a process, and some Invalidation was a qualified invalidation of an Entity, then that Entity could be affected by that Invalidation."@en .
 
@@ -341,7 +341,7 @@ prov:qualifiedInvalidation rdf:type owl:ObjectProperty . cco:ont00001886 rdf:typ
 :x rdf:type swrl:Variable .
 :y rdf:type swrl:Variable .
 
-# prov:dictionary(?x, ?y) ^ obo:BFO_0000015(?x) -> cco:ont00001834(?x, ?y)
+# prov:dictionary(?x, ?y) ^ obo:BFO_0000015(?x) -> cco:affects(?x, ?y)
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
    rdfs:comment "If a Removal and Insertion is a process, and [used?] on another Dictionary, then that Removal and Insertion affects that Dictionary";
    rdfs:label "Removal and Insertion dictionary -> affects" ;
@@ -362,7 +362,7 @@ prov:qualifiedInvalidation rdf:type owl:ObjectProperty . cco:ont00001886 rdf:typ
                 ] ;
    swrl:head [  rdf:type swrl:AtomList ;
                 rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
-                            swrl:propertyPredicate cco:ont00001834 ;
+                            swrl:propertyPredicate cco:affects ;
                             swrl:argument1 :x ;
                             swrl:argument2 :y
                             ] ;
@@ -371,7 +371,7 @@ prov:qualifiedInvalidation rdf:type owl:ObjectProperty . cco:ont00001886 rdf:typ
  ] .
 
 
-# prov:entity(?x, ?y) ^ obo:BFO_0000015(?x) -> cco:ont00001921(?x, ?y)
+# prov:entity(?x, ?y) ^ obo:BFO_0000015(?x) -> cco:has_input(?x, ?y)
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
    rdfs:comment "If an EntityInfluence is a process and is the EntityInfluence of an Entity, then that EntityInfluence has input that Entity as the influencer.";
    rdfs:label "EntityInfluence entity -> has_input" ;
@@ -392,7 +392,7 @@ prov:qualifiedInvalidation rdf:type owl:ObjectProperty . cco:ont00001886 rdf:typ
                 ] ;
    swrl:head [  rdf:type swrl:AtomList ;
                 rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
-                            swrl:propertyPredicate cco:ont00001921 ;
+                            swrl:propertyPredicate cco:has_input ;
                             swrl:argument1 :x ;
                             swrl:argument2 :y
                             ] ;
@@ -401,7 +401,7 @@ prov:qualifiedInvalidation rdf:type owl:ObjectProperty . cco:ont00001886 rdf:typ
  ] .
 
 
-# # prov:ServiceDescription(?x) ^ obo:BFO_0000101(?x, ?y) ^ cco:ont00001808(?y, ?z) -> prov:describesService(?x, ?z)
+# # prov:ServiceDescription(?x) ^ obo:BFO_0000101(?x, ?y) ^ cco:is_about(?y, ?z) -> prov:describesService(?x, ?z)
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
    rdfs:comment "Every prov:ServiceDescription is a prov:SoftwareAgent. If a prov:ServiceDescription is a carrier of something which is about a service, then it 'describes service' that service."@en ;
    rdfs:label "(some ServiceDescription) is carrier of (something) which is about (some service) -> describesService that service" ;
@@ -419,7 +419,7 @@ prov:qualifiedInvalidation rdf:type owl:ObjectProperty . cco:ont00001886 rdf:typ
                                     ] ;
                             rdf:rest [ rdf:type swrl:AtomList ;
                                         rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
-                                                    swrl:propertyPredicate cco:ont00001808 ;
+                                                    swrl:propertyPredicate cco:is_about ;
                                                     swrl:argument1 :y ;
                                                     swrl:argument2 :z
                                                 ] ;
@@ -438,14 +438,14 @@ prov:qualifiedInvalidation rdf:type owl:ObjectProperty . cco:ont00001886 rdf:typ
  ] .
 
 
-# cco:ont00001801(?x, ?y) ^ obo:BFO_0000084(?y, ?z) ^ prov:DirectQueryService(?z) -> prov:has_query_service(?x, ?z)
+# cco:is_subject_of(?x, ?y) ^ obo:BFO_0000084(?y, ?z) ^ prov:DirectQueryService(?z) -> prov:has_query_service(?x, ?z)
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
    rdfs:comment "prov:has_query_service describes the relationship between a resource and a provenance query service, a prov:DirectQueryService, which is a particular, material carrier (a particular web server) of some generically dependent software. Therefore, if a resource is the subject of something (an Information Content Entity), which generically depends on a provenance query service, then that resource prov:has_query_service that provenance query service. Informally, this means the resource is represented in some provenance querying software that is running on a web server."@en ;
    rdfs:label "subject of (something) that generically depends on (some ProvenanceService) -> hasProvenanceService" ;
    rdf:type swrl:Imp ;
    swrl:body [ rdf:type swrl:AtomList ;
                 rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
-                            swrl:propertyPredicate cco:ont00001801 ;
+                            swrl:propertyPredicate cco:is_subject_of ;
                             swrl:argument1 :x ;
                             swrl:argument2 :y
                         ] ;
@@ -475,14 +475,14 @@ prov:qualifiedInvalidation rdf:type owl:ObjectProperty . cco:ont00001886 rdf:typ
  ] .
 
 
-# cco:ont00001801(?x, ?y) ^ obo:BFO_0000084(?y, ?z) ^ prov:SoftwareAgent(?z) -> prov:pingback(?x, ?z)
+# cco:is_subject_of(?x, ?y) ^ obo:BFO_0000084(?y, ?z) ^ prov:SoftwareAgent(?z) -> prov:pingback(?x, ?z)
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
    rdfs:comment "A resource that has some pingback service is the subject of something (an Information Content Entity) that generically depends on that pingback service. Here, a pingback service is usually specified as a prov:SoftwareAgent, which is a particular, material carrier of some generically dependent software."@en ;
    rdfs:label "subject of (something) that generically depends on (some Software Agent) -> pingback" ;
    rdf:type swrl:Imp ;
     swrl:body [ rdf:type swrl:AtomList ;
                 rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
-                            swrl:propertyPredicate cco:ont00001801 ;
+                            swrl:propertyPredicate cco:is_subject_of ;
                             swrl:argument1 :x ;
                             swrl:argument2 :y
                         ] ;
@@ -512,7 +512,7 @@ prov:qualifiedInvalidation rdf:type owl:ObjectProperty . cco:ont00001886 rdf:typ
  ] .
 
 
-# prov:insertedKeyEntityPair(?x,?y) ^ obo:BFO_0000015(?x) -> cco:ont00001986(?x,?y)
+# prov:insertedKeyEntityPair(?x,?y) ^ obo:BFO_0000015(?x) -> cco:has_output(?x,?y)
 [ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
    rdfs:comment "If the Insertion of a Key-Entity Pair is a process, then that Insertion has output that Key-Entity Pair"@en ;
    rdfs:label "Insertion insertedKeyEntityPair -> has_output" ;
@@ -533,7 +533,7 @@ prov:qualifiedInvalidation rdf:type owl:ObjectProperty . cco:ont00001886 rdf:typ
                 ] ;
    swrl:head [  rdf:type swrl:AtomList ;
                 rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
-                            swrl:propertyPredicate cco:ont00001986 ;
+                            swrl:propertyPredicate cco:has_output ;
                             swrl:argument1 :x ;
                             swrl:argument2 :y
                             ] ;

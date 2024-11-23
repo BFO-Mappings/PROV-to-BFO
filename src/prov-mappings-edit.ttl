@@ -31,7 +31,7 @@
                # <http://purl.obolibrary.org/obo/ro/releases/2024-02-13/ro.owl> , # Don't import all of RO, only import dependent terms below:
                <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/src/imports/RO-imports-extracted.ttl>, # RO imports
 
-               <https://raw.githubusercontent.com/CommonCoreOntology/CommonCoreOntologies/refs/tags/v1.6-2024-09-26/src/cco-merged/CommonCoreOntologiesMerged.ttl>, # CCO
+               <https://raw.githubusercontent.com/CommonCoreOntology/CommonCoreOntologies/refs/tags/v2.0-2024-11-06/src/cco-merged/CommonCoreOntologiesMerged.ttl>, # CCO
 
                # Test instances
                <https://www.w3.org/TR/prov-o/example-1.ttl> ,
