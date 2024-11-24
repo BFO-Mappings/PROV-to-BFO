@@ -191,7 +191,7 @@ endef
 
 config.EXTRACTED_IMPORTS_NAME := RO-imports-extracted
 EXTRACTED_IMPORTS_FILENAME := $(config.IMPORTS_DIR)/$(config.EXTRACTED_IMPORTS_NAME)
-EXTRACTED_IMPORTS_IRI := https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/src/imports/$(EXTRACTED_IMPORTS_FILENAME).ttl
+EXTRACTED_IMPORTS_IRI := https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/src/$(EXTRACTED_IMPORTS_FILENAME).ttl
 IMPORTED_SOURCE_ONTOLOGY := $(config.IMPORTS_DIR)/BFO/ro.owl
 
 ontology-temp-file := ontology_no_imports.tmp.ttl
@@ -209,7 +209,8 @@ $(EXTRACTED_IMPORTS_FILENAME).txt: $(config.ONTOLOGY_FILE) $(ROBOT_FILE)
 # Extract imported terms from their source ontology to avoid testing with unnecessary axioms
 .PHONY: extract-imports
 extract-imports: $(EXTRACTED_IMPORTS_FILENAME).txt | $(ROBOT_FILE)
-	$(ROBOT) extract --input $(IMPORTED_SOURCE_ONTOLOGY) --method subset --term-file $< --output $(EXTRACTED_IMPORTS_FILENAME).ttl;
+	$(ROBOT) extract --input $(IMPORTED_SOURCE_ONTOLOGY) --method subset --term-file $< \
+	annotate --ontology-iri $(EXTRACTED_IMPORTS_IRI) --output $(EXTRACTED_IMPORTS_FILENAME).ttl;
 
 
 # --------------------------------------------------------------------------------
