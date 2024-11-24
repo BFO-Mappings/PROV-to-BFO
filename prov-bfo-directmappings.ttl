@@ -11,8 +11,7 @@
 <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-bfo-directmappings.ttl>
   a                     owl:Ontology;
   rdfs:label            "Basic Formal Ontology (BFO) ISO 21838-2:2020 mappings for W3C PROVenance Interchange Ontology (PROV-O)"@en ;
-  owl:versionInfo       "2024-06-23"@en ;
-  owl:versionIRI        <https://github.com/BFO-Mappings/PROV-to-BFO/releases/tag/v2024-10-05> ;
+  owl:versionIRI        <https://github.com/BFO-Mappings/PROV-to-BFO/releases/tag/v2024-11-23> ;
   dc:contributor        "Tim Prudhomme", "Giacomo De Colle" , "Austin Liebers" , "Alec Sculley" , "Peihong Karl Xie", "Sydney Cohen", "John Beverley" ;
   dc:license            <https://creativecommons.org/publicdomain/zero/1.0/> ;
   prov:wasDerivedFrom   <http://www.w3.org/ns/prov> ,

@@ -1,8 +1,6 @@
 http://purl.obolibrary.org/obo/RO_0000056
 http://purl.obolibrary.org/obo/RO_0000057
 http://purl.obolibrary.org/obo/RO_0000087
-http://purl.obolibrary.org/obo/RO_0001900
-http://purl.obolibrary.org/obo/RO_0001901
 http://purl.obolibrary.org/obo/RO_0002351
 http://purl.obolibrary.org/obo/RO_0002410
 http://purl.obolibrary.org/obo/RO_0002501

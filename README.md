@@ -94,4 +94,4 @@
 Tim Prudhomme, Giacomo De Colle, Austin Liebers, Alec Sculley, Karl Xie, Sydney Cohen, and John Beverley
 
 # How to cite
-Please cite "Mapping PROV-O to BFO" using the DOI https://doi.org/10.5281/zenodo.11338700.
+Please cite "Mapping the Provenance Ontology to Basic Formal Ontology" using the DOI https://doi.org/10.5281/zenodo.11338700.

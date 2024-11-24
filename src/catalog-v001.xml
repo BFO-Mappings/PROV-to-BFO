@@ -4,16 +4,12 @@
     <uri name="https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-bfo-directmappings.ttl" uri="../prov-bfo-directmappings.ttl"/>
     <uri name="https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-ro-directmappings.ttl" uri="../prov-ro-directmappings.ttl"/>
     <uri name="https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-cco-directmappings.ttl" uri="../prov-cco-directmappings.ttl"/>
+    
     <!-- Cached ontologies -->
-    <!-- <uri name="https://raw.githubusercontent.com/BFO-ontology/BFO-2020/master/src/owl/bfo-core.ttl" uri="imports/BFO/bfo-core.ttl"/> -->
-    <uri name="https://raw.githubusercontent.com/CommonCoreOntology/CommonCoreOntologies/refs/tags/v1.6-2024-09-26/src/cco-merged/CommonCoreOntologiesMerged.ttl" uri="imports/BFO/CommonCoreOntologiesMerged.ttl"/>
+    <uri name="https://www.commoncoreontologies.org/2024-11-06/CommonCoreOntologiesMerged" uri="imports/BFO/CommonCoreOntologiesMerged.ttl"/>
+    <uri name="http://purl.obolibrary.org/obo/bfo/2020/bfo-core.ttl" uri="imports/BFO/bfo-core.ttl"/>
     <uri name="https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/src/imports/RO-imports-extracted.ttl" uri="imports/RO-imports-extracted.ttl"/>
-    <!-- Other ontologies -->
-    <uri name="http://www.w3.org/ns/sosa/prov" uri="imports/SSN/sosa-prov.ttl"/>
-    <uri name="http://www.w3.org/ns/sosa/" uri="imports/SSN/sosa.ttl"/>
-    <uri name="http://example.org/om-20" uri="examples/om-20.ttl"/>
-    <uri name="http://example.org/model" uri="examples/model.ttl"/>
-    <uri name="http://maven.renci.org/NeuroBridge/neurobridge" uri="examples/neurobridge_ontology_2023_07_12.owl"/>
+
     <!-- Examples -->
     <uri name="https://www.w3.org/TR/prov-o/example-1.ttl" uri="examples/example-1.ttl"/>
     <uri name="https://www.w3.org/TR/prov-o/example-2.ttl" uri="examples/example-2.ttl"/>
@@ -31,4 +27,5 @@
     <uri name="https://www.w3.org/TR/prov-dictionary/examples.ttl" uri="examples/prov-dictionary-examples.ttl"/>
     <uri name="https://www.w3.org/TR/prov-links/examples.ttl" uri="examples/prov-links-examples.ttl"/>
     <uri name="https://www.w3.org/TR/prov-dc/examples.ttl" uri="examples/prov-dc-examples.ttl"/>
+    <uri name="http://example.org/om-20" uri="examples/om-20.ttl"/>
 </catalog>
