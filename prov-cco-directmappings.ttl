@@ -48,7 +48,7 @@ prov:Person rdf:type owl:Class .
     owl:annotatedTarget   [ owl:intersectionOf ( cco:ont00001262
                                                  prov:Agent)] ;
     sssom:object_label    "Person" ;
-    rdfs:comment "Every prov:Person is both a prov:Agent and a cco:ont00001262. However, not every cco:ont00001262 is a prov:Agent or cco:ont00001017. So, prov:Person and cco:ont00001262 are not coextensive."@en .
+    rdfs:comment "Every prov:Person is both a prov:Agent and a CCO Person. However, not every CCO Person is a prov:Agent or CCO Agent. So, prov:Person and CCO Person are not coextensive."@en .
 
 
 prov:Organization rdf:type owl:Class .
@@ -58,8 +58,17 @@ prov:Organization rdf:type owl:Class .
     owl:annotatedTarget   [ owl:intersectionOf ( cco:ont00001180
                                                  prov:Agent)] ;
     sssom:object_label    "Organization" ;
-    rdfs:comment "Every prov:Organization is both a prov:Agent and a cco:ont00001180. However, not every cco:ont00001180 is a prov:Agent or cco:ont00001017. So, prov:Organization and cco:ont00001180 are not coextensive."@en .
+    rdfs:comment "Every prov:Organization is both a prov:Agent and a CCO Organization. However, not every CCO Organization is a prov:Agent or CCO Agent. So, prov:Organization and CCO Organization are not coextensive."@en .
 
+
+prov:Bundle rdf:type owl:Class .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:Bundle ;
+    owl:annotatedProperty rdfs:subClassOf ; 
+    owl:annotatedTarget   cco:ont00000958 ;
+    sssom:object_label    "Information Content Entity" ;
+    rdfs:comment "A prov:Bundle is information content which is about entities."@en .
+    
 
 prov:Plan rdf:type owl:Class .
 []  rdf:type owl:Axiom ;
@@ -67,7 +76,7 @@ prov:Plan rdf:type owl:Class .
     owl:annotatedProperty rdfs:subClassOf ; 
     owl:annotatedTarget   cco:ont00000958 ;
     sssom:object_label    "Information Content Entity" ;
-    rdfs:comment "Plans are information content which are about entities. prov:Plan is similar to cco:ont00000974, except that PROV explicitly does not constrain the type of information content that prov:Plans consist of."@en .
+    rdfs:comment "A prov:Plan is information content which is about entities prov:Plan is similar to CCO Plan, except that PROV explicitly does not constrain the type of information content that PROV plans consist of."@en .
 
 
 prov:Start rdf:type owl:Class .

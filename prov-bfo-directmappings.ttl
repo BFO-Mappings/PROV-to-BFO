@@ -104,6 +104,15 @@ prov:InstantaneousEvent rdf:type owl:Class .
     rdfs:comment "A prov:InstantaneousEvent is equivalent to a process boundary because it is referred to as the boundary (start or end) of a prov:Activity as an occurrent."@en .
 
 
+prov:Bundle rdf:type owl:Class .
+[]  rdf:type owl:Axiom ;
+    owl:annotatedSource   prov:Bundle ;
+    owl:annotatedProperty rdfs:subClassOf ; 
+    owl:annotatedTarget   obo:BFO_0000031 ;
+    sssom:object_label    "generically dependent continuant" ;
+    rdfs:comment "A prov:Bundle exists in virtue of the fact that there is at least one of what may be multiple copies; it is the content or the pattern that the multiple copies share."@en .
+
+
 prov:Plan rdf:type owl:Class .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:Plan ;
@@ -167,11 +176,11 @@ prov:DictionaryInvolvement rdf:type owl:Class .
 
 
 # PROV object property mappings
-prov:hadMember rdf:type owl:ObjectProperty . obo:BFO_00000178 rdf:type owl:ObjectProperty .
+prov:hadMember rdf:type owl:ObjectProperty . obo:BFO_0000178 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:hadMember ;
     owl:annotatedProperty rdfs:subPropertyOf ;
-    owl:annotatedTarget   obo:BFO_00000178 ;
+    owl:annotatedTarget   obo:BFO_0000178 ;
     sssom:object_label    "has continuant part" ;
     rdfs:comment "A prov:Collection that has member some prov:Entity also has it as a continuant part."@en .
 
@@ -294,11 +303,11 @@ prov:hadUsage rdf:type owl:ObjectProperty . obo:BFO_0000121 rdf:type owl:ObjectP
 
 
 # PROV-Dictionary object property mappings
-prov:hadDictionaryMember rdf:type owl:ObjectProperty . obo:BFO_00000178 rdf:type owl:ObjectProperty .
+prov:hadDictionaryMember rdf:type owl:ObjectProperty . obo:BFO_0000178 rdf:type owl:ObjectProperty .
 []  rdf:type owl:Axiom ;
     owl:annotatedSource   prov:hadDictionaryMember ;
     owl:annotatedProperty rdfs:subPropertyOf ;
-    owl:annotatedTarget   obo:BFO_00000178 ;
+    owl:annotatedTarget   obo:BFO_0000178 ;
     sssom:object_label    "has continuant part (at some time)" ;
     rdfs:comment "A prov:Dictionary has a prov:Key-Entity Pair as a member, then it has it as a continuant part."@en .
 

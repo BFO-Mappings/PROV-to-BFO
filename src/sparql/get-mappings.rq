@@ -26,6 +26,11 @@ SELECT DISTINCT ?subject_id	?subject_label ?predicate_id ?object_id ?object_labe
     # mapping destination
     FILTER( STRSTARTS( STR(?object_id), str(bfo:) ) || STRSTARTS( STR(?object_id), str(ro:) ) ) .
 
+    # mapping justification 
+    VALUES (?mapping_justification) {
+        ("https://w3id.org/semapv/vocab/ManualMappingCuration")
+    }
+
     OPTIONAL { ?subject_id rdfs:label ?subject_label } .
     OPTIONAL { ?object_id rdfs:label ?object_label } . 
 }
