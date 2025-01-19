@@ -1,0 +1,2732 @@
+@prefix : <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/build/artifacts/all-entailed-mappings.ttl#> .
+@prefix cco: <http://www.ontologyrepository.com/CommonCoreOntologies/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/build/artifacts/all-entailed-mappings.ttl> .
+
+<https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/build/artifacts/all-entailed-mappings.ttl> rdf:type owl:Ontology ;
+                                                                                                             owl:versionIRI <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/build/artifacts/all-entailed-mappings.ttl> ;
+                                                                                                             rdfs:comment "This file was generated using ROBOT and the HermiT reasoner from the PROV-BFO alignments" ;
+                                                                                                             owl:versionInfo "2025-01-18" ;
+                                                                                                             prov:wasDerivedFrom "https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/src/prov-mappings-edit.ttl" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2000/01/rdf-schema#comment:
+rdfs:comment: rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#relatedMatch
+<http://www.w3.org/2004/02/skos/core#relatedMatch> rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/sssom/object_label
+<https://w3id.org/sssom/object_label> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000054
+obo:BFO_0000054 rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000056
+obo:BFO_0000056 rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000057
+obo:BFO_0000057 rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000117
+obo:BFO_0000117 rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000121
+obo:BFO_0000121 rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000132
+obo:BFO_0000132 rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000139
+obo:BFO_0000139 rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000176
+obo:BFO_0000176 rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000178
+obo:BFO_0000178 rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000196
+obo:BFO_0000196 rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000056
+obo:RO_0000056 rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000057
+obo:RO_0000057 rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000087
+obo:RO_0000087 rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002351
+obo:RO_0002351 rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002410
+obo:RO_0002410 rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002501
+obo:RO_0002501 rdf:type owl:ObjectProperty .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002559
+obo:RO_0002559 rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/prov#actedOnBehalfOf
+prov:actedOnBehalfOf rdf:type owl:ObjectProperty ;
+                     owl:equivalentProperty [ owl:inverseOf prov:hadDelegate
+                                            ] ;
+                     rdfs:subPropertyOf obo:RO_0002410 ,
+                                        owl:topObjectProperty ,
+                                        [ owl:inverseOf obo:RO_0002410
+                                        ] ,
+                                        [ owl:inverseOf prov:influenced
+                                        ] .
+
+
+###  http://www.w3.org/ns/prov#activity
+prov:activity rdf:type owl:ObjectProperty ;
+              owl:equivalentProperty [ owl:inverseOf prov:activityOfInfluence
+                                     ] ;
+              rdfs:subPropertyOf obo:RO_0002410 ,
+                                 obo:RO_0002501 ,
+                                 owl:topObjectProperty ,
+                                 [ owl:inverseOf prov:hadInfluence
+                                 ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:activity ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0002501 ;
+   rdfs:comment "An Activity is causally related to its ActivityInfluence, where these are both occurrents. Although an ActivityInfluence may be a process boundary, the domain and range of 'causal relation between processes' is occurrent."@en ;
+   <https://w3id.org/sssom/object_label> "causal relation between processes"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#activityOfInfluence
+prov:activityOfInfluence rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf owl:topObjectProperty ,
+                                            prov:hadInfluence ,
+                                            [ owl:inverseOf obo:RO_0002410
+                                            ] ,
+                                            [ owl:inverseOf obo:RO_0002501
+                                            ] ,
+                                            [ owl:inverseOf prov:influencer
+                                            ] .
+
+
+###  http://www.w3.org/ns/prov#agent
+prov:agent rdf:type owl:ObjectProperty ;
+           owl:equivalentProperty [ owl:inverseOf prov:agentOfInfluence
+                                  ] ;
+           rdfs:subPropertyOf obo:BFO_0000057 ,
+                              obo:RO_0002410 ,
+                              owl:topObjectProperty ,
+                              <https://www.commoncoreontologies.org/ont00001833> ,
+                              [ owl:inverseOf obo:BFO_0000056
+                              ] ,
+                              [ owl:inverseOf prov:hadInfluence
+                              ] ,
+                              [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001787>
+                              ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:agent ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00001833> ;
+   rdfs:comment "An AgentInfluence has_agent an Agent because the Agent is the agent of the AgentInfluence."@en ;
+   <https://w3id.org/sssom/object_label> "has agent"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#agentOfInfluence
+prov:agentOfInfluence rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf obo:BFO_0000056 ,
+                                         owl:topObjectProperty ,
+                                         prov:hadInfluence ,
+                                         <https://www.commoncoreontologies.org/ont00001787> ,
+                                         [ owl:inverseOf obo:BFO_0000057
+                                         ] ,
+                                         [ owl:inverseOf obo:RO_0002410
+                                         ] ,
+                                         [ owl:inverseOf prov:influencer
+                                         ] ,
+                                         [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001833>
+                                         ] .
+
+
+###  http://www.w3.org/ns/prov#alternateOf
+prov:alternateOf rdf:type owl:ObjectProperty ;
+                 owl:equivalentProperty [ owl:inverseOf prov:alternateOf
+                                        ] ;
+                 rdfs:subPropertyOf obo:RO_0002559 ,
+                                    owl:topObjectProperty ,
+                                    [ owl:inverseOf obo:RO_0002559
+                                    ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:alternateOf ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0002559 ;
+   rdfs:comment "An entity may be an alternate of an entity, and this is a causal relation."@en ;
+   <https://w3id.org/sssom/object_label> "causally influenced by"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#asInBundle
+prov:asInBundle rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ,
+                                   <https://www.commoncoreontologies.org/ont00001801> ,
+                                   [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001808>
+                                   ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:asInBundle ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00001801> ;
+   rdfs:comment "When :x prov:mentionOf :y and :y is described in Bundle :b, and :x prov:asInBundle :b, then :x is subject of :b"@en ;
+   <https://w3id.org/sssom/object_label> "is subject of"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#atLocation
+prov:atLocation rdf:type owl:ObjectProperty ;
+                owl:equivalentProperty [ owl:inverseOf prov:locationOf
+                                       ] ;
+                rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.w3.org/ns/prov#contributed
+prov:contributed rdf:type owl:ObjectProperty ;
+                 owl:equivalentProperty [ owl:inverseOf prov:wasAttributedTo
+                                        ] ;
+                 rdfs:subPropertyOf obo:RO_0002410 ,
+                                    owl:topObjectProperty ,
+                                    prov:influenced ,
+                                    [ owl:inverseOf obo:RO_0002410
+                                    ] ,
+                                    [ owl:inverseOf obo:RO_0002559
+                                    ] ,
+                                    [ owl:inverseOf prov:wasInfluencedBy
+                                    ] .
+
+
+###  http://www.w3.org/ns/prov#derivedByInsertionFrom
+prov:derivedByInsertionFrom rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf obo:RO_0002410 ,
+                                               obo:RO_0002559 ,
+                                               owl:topObjectProperty ,
+                                               prov:wasInfluencedBy ,
+                                               [ owl:inverseOf obo:RO_0002410
+                                               ] ,
+                                               [ owl:inverseOf prov:hadDerivation
+                                               ] ,
+                                               [ owl:inverseOf prov:influenced
+                                               ] .
+
+
+###  http://www.w3.org/ns/prov#derivedByRemovalFrom
+prov:derivedByRemovalFrom rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf obo:RO_0002410 ,
+                                             obo:RO_0002559 ,
+                                             owl:topObjectProperty ,
+                                             prov:wasInfluencedBy ,
+                                             [ owl:inverseOf obo:RO_0002410
+                                             ] ,
+                                             [ owl:inverseOf prov:hadDerivation
+                                             ] ,
+                                             [ owl:inverseOf prov:influenced
+                                             ] .
+
+
+###  http://www.w3.org/ns/prov#describesService
+prov:describesService rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf owl:topObjectProperty ;
+                      <http://www.w3.org/2004/02/skos/core#relatedMatch> <https://www.commoncoreontologies.org/ont00001808> .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:describesService ;
+   owl:annotatedProperty <http://www.w3.org/2004/02/skos/core#relatedMatch> ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00001808> ;
+   rdfs:comment """PROV-AQ documentation suggests that a prov:ServiceDescription is used to describe a service. 
+    However, prov:ServiceDescription is a prov:SoftwareAgent, which is an independent continuant. 
+    By contrast, only generically dependent continuants such as information can be about or describe something in CCO."""@en ;
+   <https://w3id.org/sssom/object_label> "is about"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#dictionary
+prov:dictionary rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:RO_0002410 ,
+                                   owl:topObjectProperty ,
+                                   prov:influencer ,
+                                   [ owl:inverseOf prov:entityOfInfluence
+                                   ] ,
+                                   [ owl:inverseOf prov:hadInfluence
+                                   ] .
+
+
+###  http://www.w3.org/ns/prov#ended
+prov:ended rdf:type owl:ObjectProperty ;
+           owl:equivalentProperty [ owl:inverseOf prov:wasEndedBy
+                                  ] ;
+           rdfs:subPropertyOf obo:BFO_0000056 ,
+                              obo:RO_0000056 ,
+                              obo:RO_0002410 ,
+                              owl:topObjectProperty ,
+                              prov:influenced ,
+                              [ owl:inverseOf obo:BFO_0000057
+                              ] ,
+                              [ owl:inverseOf obo:RO_0000057
+                              ] ,
+                              [ owl:inverseOf obo:RO_0002410
+                              ] ,
+                              [ owl:inverseOf prov:wasInfluencedBy
+                              ] .
+
+
+###  http://www.w3.org/ns/prov#entity
+prov:entity rdf:type owl:ObjectProperty ;
+            owl:equivalentProperty [ owl:inverseOf prov:entityOfInfluence
+                                   ] ;
+            rdfs:subPropertyOf obo:RO_0002410 ,
+                               owl:topObjectProperty ,
+                               [ owl:inverseOf prov:hadInfluence
+                               ] .
+
+
+###  http://www.w3.org/ns/prov#entityOfInfluence
+prov:entityOfInfluence rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf owl:topObjectProperty ,
+                                          prov:hadInfluence ,
+                                          [ owl:inverseOf obo:RO_0002410
+                                          ] ,
+                                          [ owl:inverseOf prov:influencer
+                                          ] .
+
+
+###  http://www.w3.org/ns/prov#generalizationOf
+prov:generalizationOf rdf:type owl:ObjectProperty ;
+                      owl:equivalentProperty [ owl:inverseOf prov:specializationOf
+                                             ] ;
+                      rdfs:subPropertyOf obo:RO_0002559 ,
+                                         owl:topObjectProperty ,
+                                         prov:alternateOf ,
+                                         [ owl:inverseOf obo:RO_0002559
+                                         ] ,
+                                         [ owl:inverseOf prov:alternateOf
+                                         ] .
+
+
+###  http://www.w3.org/ns/prov#generated
+prov:generated rdf:type owl:ObjectProperty ;
+               owl:equivalentProperty [ owl:inverseOf prov:wasGeneratedBy
+                                      ] ;
+               rdfs:subPropertyOf obo:BFO_0000057 ,
+                                  obo:RO_0000057 ,
+                                  obo:RO_0002410 ,
+                                  owl:topObjectProperty ,
+                                  <https://www.commoncoreontologies.org/ont00001986> ,
+                                  [ owl:inverseOf obo:BFO_0000056
+                                  ] ,
+                                  [ owl:inverseOf obo:RO_0000056
+                                  ] ,
+                                  [ owl:inverseOf obo:RO_0002410
+                                  ] ,
+                                  [ owl:inverseOf prov:wasInfluencedBy
+                                  ] ,
+                                  [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001816>
+                                  ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:generated ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:BFO_0000057 ;
+   rdfs:comment "An activity is a process that may be generated by a prov:Entity as a participant."@en ;
+   <https://w3id.org/sssom/object_label> "has participant (at some time)"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:generated ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0000057 ;
+   rdfs:comment "An activity is a process that may be generated by a prov:Entity as a participant."@en ,
+                "This mapping overlaps the same mapping to BFO's 'has participant at some time' but is included for increased interoperability." ;
+   <https://w3id.org/sssom/object_label> "has participant"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:generated ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00001986> ;
+   rdfs:comment "An Activity that generated an Entity has_output that Entity."@en ;
+   <https://w3id.org/sssom/object_label> "has output"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#generatedAsDerivation
+prov:generatedAsDerivation rdf:type owl:ObjectProperty ;
+                           owl:equivalentProperty [ owl:inverseOf prov:hadGeneration
+                                                  ] ;
+                           rdfs:subPropertyOf obo:BFO_0000132 ,
+                                              obo:BFO_0000139 ,
+                                              owl:topObjectProperty ,
+                                              [ owl:inverseOf obo:BFO_0000117
+                                              ] ,
+                                              [ owl:inverseOf obo:BFO_0000121
+                                              ] ,
+                                              [ owl:inverseOf obo:RO_0002410
+                                              ] ,
+                                              [ owl:inverseOf obo:RO_0002501
+                                              ] .
+
+
+###  http://www.w3.org/ns/prov#hadActivity
+prov:hadActivity rdf:type owl:ObjectProperty ;
+                 owl:equivalentProperty [ owl:inverseOf prov:wasActivityOfInfluence
+                                        ] ;
+                 rdfs:subPropertyOf obo:RO_0002410 ,
+                                    obo:RO_0002501 ,
+                                    owl:topObjectProperty .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:hadActivity ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0002501 ;
+   rdfs:comment "An influence that's related to an activity in this context is causally related to it, where both are processes."@en ;
+   <https://w3id.org/sssom/object_label> "causal relation between processes"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#hadDelegate
+prov:hadDelegate rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf obo:RO_0002410 ,
+                                    owl:topObjectProperty ,
+                                    prov:influenced ,
+                                    [ owl:inverseOf obo:RO_0002410
+                                    ] ,
+                                    [ owl:inverseOf prov:wasInfluencedBy
+                                    ] .
+
+
+###  http://www.w3.org/ns/prov#hadDerivation
+prov:hadDerivation rdf:type owl:ObjectProperty ;
+                   owl:equivalentProperty [ owl:inverseOf prov:wasDerivedFrom
+                                          ] ;
+                   rdfs:subPropertyOf obo:RO_0002410 ,
+                                      owl:topObjectProperty ,
+                                      prov:influenced ,
+                                      [ owl:inverseOf obo:RO_0002410
+                                      ] ,
+                                      [ owl:inverseOf obo:RO_0002559
+                                      ] ,
+                                      [ owl:inverseOf prov:wasInfluencedBy
+                                      ] .
+
+
+###  http://www.w3.org/ns/prov#hadDictionaryMember
+prov:hadDictionaryMember rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf obo:BFO_0000178 ,
+                                            owl:topObjectProperty ,
+                                            [ owl:inverseOf obo:BFO_0000176
+                                            ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:hadDictionaryMember ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:BFO_0000178 ;
+   rdfs:comment "A prov:Dictionary has a prov:Key-Entity Pair as a member, then it has it as a continuant part."@en ;
+   <https://w3id.org/sssom/object_label> "has continuant part (at some time)"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#hadGeneration
+prov:hadGeneration rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf obo:BFO_0000117 ,
+                                      obo:BFO_0000121 ,
+                                      obo:RO_0002410 ,
+                                      obo:RO_0002501 ,
+                                      owl:topObjectProperty ,
+                                      [ owl:inverseOf obo:BFO_0000132
+                                      ] ,
+                                      [ owl:inverseOf obo:BFO_0000139
+                                      ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:hadGeneration ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:BFO_0000121 ;
+   rdfs:comment "A prov:Derivation that has generation some prov:Generation also has it as a temporal part."@en ;
+   <https://w3id.org/sssom/object_label> "has temporal part"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:hadGeneration ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0002501 ;
+   rdfs:comment "An activity may generate another activity. Both are processes and this is a causal relation."@en ;
+   <https://w3id.org/sssom/object_label> "causal relation between processes"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#hadInfluence
+prov:hadInfluence rdf:type owl:ObjectProperty ;
+                  owl:equivalentProperty [ owl:inverseOf prov:influencer
+                                         ] ;
+                  rdfs:subPropertyOf owl:topObjectProperty ,
+                                     [ owl:inverseOf obo:RO_0002410
+                                     ] .
+
+
+###  http://www.w3.org/ns/prov#hadMember
+prov:hadMember rdf:type owl:ObjectProperty ;
+               owl:equivalentProperty [ owl:inverseOf prov:wasMemberOf
+                                      ] ;
+               rdfs:subPropertyOf obo:BFO_0000178 ,
+                                  obo:RO_0002351 ,
+                                  obo:RO_0002410 ,
+                                  owl:topObjectProperty ,
+                                  [ owl:inverseOf obo:BFO_0000176
+                                  ] ,
+                                  [ owl:inverseOf obo:RO_0002410
+                                  ] ,
+                                  [ owl:inverseOf prov:influenced
+                                  ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:hadMember ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:BFO_0000178 ;
+   rdfs:comment "A prov:Collection that has member some prov:Entity also has it as a continuant part."@en ;
+   <https://w3id.org/sssom/object_label> "has continuant part"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:hadMember ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0002351 ;
+   rdfs:comment "A relation of prov:hadMember between a prov:Collection and prov:Entity is also a relation of RO 'had member', but not vice versa. Whereas prov:hadMember is a subproperty of prov:wasInfluencedBy, RO 'had member' is not."@en ;
+   <https://w3id.org/sssom/object_label> "has member"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#hadPlan
+prov:hadPlan rdf:type owl:ObjectProperty ;
+             owl:equivalentProperty [ owl:inverseOf prov:wasPlanOf
+                                    ] ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             owl:propertyChainAxiom _:genid103 .
+
+_:genid103 rdf:type rdf:List ;
+            rdf:first [ owl:inverseOf prov:qualifiedAssociation
+                      ] ;
+            rdf:rest ( <https://www.commoncoreontologies.org/ont00001920>
+                     ) .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:hadPlan ;
+   owl:annotatedProperty owl:propertyChainAxiom ;
+   owl:annotatedTarget _:genid103 ;
+   rdfs:comment "If an Association is the qualified association of some Activity, and that Activity is prescribed by some Plan, then that Association 'had plan' that Plan."@en ;
+   <https://w3id.org/sssom/object_label> "qualified association of something prescribed by"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#hadPrimarySource
+prov:hadPrimarySource rdf:type owl:ObjectProperty ;
+                      owl:equivalentProperty [ owl:inverseOf prov:wasPrimarySourceOf
+                                             ] ;
+                      rdfs:subPropertyOf obo:RO_0002410 ,
+                                         obo:RO_0002559 ,
+                                         owl:topObjectProperty ,
+                                         prov:wasDerivedFrom ,
+                                         prov:wasInfluencedBy ,
+                                         [ owl:inverseOf obo:RO_0002410
+                                         ] ,
+                                         [ owl:inverseOf prov:hadDerivation
+                                         ] ,
+                                         [ owl:inverseOf prov:influenced
+                                         ] .
+
+
+###  http://www.w3.org/ns/prov#hadRevision
+prov:hadRevision rdf:type owl:ObjectProperty ;
+                 owl:equivalentProperty [ owl:inverseOf prov:wasRevisionOf
+                                        ] ;
+                 rdfs:subPropertyOf obo:RO_0002410 ,
+                                    owl:topObjectProperty ,
+                                    prov:hadDerivation ,
+                                    prov:influenced ,
+                                    [ owl:inverseOf obo:RO_0002410
+                                    ] ,
+                                    [ owl:inverseOf obo:RO_0002559
+                                    ] ,
+                                    [ owl:inverseOf prov:wasDerivedFrom
+                                    ] ,
+                                    [ owl:inverseOf prov:wasInfluencedBy
+                                    ] .
+
+
+###  http://www.w3.org/ns/prov#hadRole
+prov:hadRole rdf:type owl:ObjectProperty ;
+             owl:equivalentProperty [ owl:inverseOf prov:wasRoleIn
+                                    ] ;
+             rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.w3.org/ns/prov#hadUsage
+prov:hadUsage rdf:type owl:ObjectProperty ;
+              owl:equivalentProperty [ owl:inverseOf prov:wasUsedInDerivation
+                                     ] ;
+              rdfs:subPropertyOf obo:BFO_0000117 ,
+                                 obo:BFO_0000121 ,
+                                 obo:RO_0002410 ,
+                                 obo:RO_0002501 ,
+                                 owl:topObjectProperty ,
+                                 [ owl:inverseOf obo:BFO_0000132
+                                 ] ,
+                                 [ owl:inverseOf obo:BFO_0000139
+                                 ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:hadUsage ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:BFO_0000121 ;
+   rdfs:comment "A prov:Derivation that had usage some prov:Usage has it as a temporal part."@en ;
+   <https://w3id.org/sssom/object_label> "has temporal part"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:hadUsage ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0002501 ;
+   rdfs:comment "A derivation may use a usage. Both are processes and this is a causal relation."@en ;
+   <https://w3id.org/sssom/object_label> "causal relation between processes"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#has_anchor
+prov:has_anchor rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ,
+                                   <https://www.commoncoreontologies.org/ont00001801> ,
+                                   [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001808>
+                                   ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:has_anchor ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00001801> ;
+   rdfs:comment "A resource that has some anchor is the subject of that anchor"@en ;
+   <https://w3id.org/sssom/object_label> "is subject of"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#has_provenance
+prov:has_provenance rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ,
+                                       <https://www.commoncoreontologies.org/ont00001801> ,
+                                       [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001808>
+                                       ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:has_provenance ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00001801> ;
+   rdfs:comment "A resource that has some provenance resource is the subject of that provenance resource"@en ;
+   <https://w3id.org/sssom/object_label> "is subject of"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#has_query_service
+prov:has_query_service rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.w3.org/ns/prov#influenced
+prov:influenced rdf:type owl:ObjectProperty ;
+                owl:equivalentProperty [ owl:inverseOf prov:wasInfluencedBy
+                                       ] ;
+                rdfs:subPropertyOf obo:RO_0002410 ,
+                                   owl:topObjectProperty ,
+                                   [ owl:inverseOf obo:RO_0002410
+                                   ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:influenced ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0002410 ;
+   rdfs:comment "An entity may influence another entity and this is a causal relation."@en ;
+   <https://w3id.org/sssom/object_label> "casually related to"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#influencer
+prov:influencer rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:RO_0002410 ,
+                                   owl:topObjectProperty .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:influencer ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0002410 ;
+   rdfs:comment "An Agent, Activity, or Entity exerts an Influence and this is a causal relation."@en ;
+   <https://w3id.org/sssom/object_label> "casually related to"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#informed
+prov:informed rdf:type owl:ObjectProperty ;
+              owl:equivalentProperty [ owl:inverseOf prov:wasInformedBy
+                                     ] ;
+              rdfs:subPropertyOf obo:RO_0002410 ,
+                                 owl:topObjectProperty ,
+                                 prov:influenced ,
+                                 [ owl:inverseOf obo:RO_0002410
+                                 ] ,
+                                 [ owl:inverseOf obo:RO_0002501
+                                 ] ,
+                                 [ owl:inverseOf prov:wasInfluencedBy
+                                 ] .
+
+
+###  http://www.w3.org/ns/prov#insertedKeyEntityPair
+prov:insertedKeyEntityPair rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.w3.org/ns/prov#invalidated
+prov:invalidated rdf:type owl:ObjectProperty ;
+                 owl:equivalentProperty [ owl:inverseOf prov:wasInvalidatedBy
+                                        ] ;
+                 rdfs:subPropertyOf obo:BFO_0000057 ,
+                                    obo:RO_0000057 ,
+                                    obo:RO_0002410 ,
+                                    owl:topObjectProperty ,
+                                    <https://www.commoncoreontologies.org/ont00001834> ,
+                                    [ owl:inverseOf obo:BFO_0000056
+                                    ] ,
+                                    [ owl:inverseOf obo:RO_0000056
+                                    ] ,
+                                    [ owl:inverseOf obo:RO_0002410
+                                    ] ,
+                                    [ owl:inverseOf prov:wasInfluencedBy
+                                    ] ,
+                                    [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001886>
+                                    ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:invalidated ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:BFO_0000057 ;
+   rdfs:comment "A process has a (non spatial region) continuant as a participant. An activity is a process that may be invalidated by a prov:Entity as a participant."@en ;
+   <https://w3id.org/sssom/object_label> "has participant (at some time)"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:invalidated ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0000057 ;
+   rdfs:comment "A process has a (non spatial region) continuant as a participant. An activity is a process that may be invalidated by a prov:Entity as a participant."@en ,
+                "This mapping overlaps the same mapping to BFO's 'has participant at some time' but is included for increased interoperability." ;
+   <https://w3id.org/sssom/object_label> "has participant"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:invalidated ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00001834> ;
+   rdfs:comment "An Activity that invalidated an Entity also affects that Entity."@en ;
+   <https://w3id.org/sssom/object_label> "affects"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#locationOf
+prov:locationOf rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.w3.org/ns/prov#mentionOf
+prov:mentionOf rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:RO_0002559 ,
+                                  owl:topObjectProperty ,
+                                  prov:alternateOf ,
+                                  [ owl:inverseOf obo:RO_0002559
+                                  ] ,
+                                  [ owl:inverseOf prov:alternateOf
+                                  ] ,
+                                  [ owl:inverseOf prov:generalizationOf
+                                  ] .
+
+
+###  http://www.w3.org/ns/prov#pairEntity
+prov:pairEntity rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ,
+                                   <https://www.commoncoreontologies.org/ont00001808> ,
+                                   [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001801>
+                                   ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:pairEntity ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00001808> ;
+   rdfs:comment "A Key-Entity Pair is about an Entity because Key-Entity Pairs are Information Content Entities"@en ;
+   <https://w3id.org/sssom/object_label> "is about"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#pairKey
+prov:pairKey rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ,
+                                <https://www.commoncoreontologies.org/ont00001808> ,
+                                [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001801>
+                                ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:pairKey ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00001808> ;
+   rdfs:comment "A Key-Entity Pair is about a key because Key-Entity Pairs are Information Content Entities"@en ;
+   <https://w3id.org/sssom/object_label> "is about"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#pingback
+prov:pingback rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.w3.org/ns/prov#qualifiedAssociation
+prov:qualifiedAssociation rdf:type owl:ObjectProperty ;
+                          owl:equivalentProperty [ owl:inverseOf prov:qualifiedAssociationOf
+                                                 ] ;
+                          rdfs:subPropertyOf obo:BFO_0000117 ,
+                                             obo:RO_0002410 ,
+                                             obo:RO_0002501 ,
+                                             owl:topObjectProperty ,
+                                             <https://www.commoncoreontologies.org/ont00001777> ,
+                                             [ owl:inverseOf obo:BFO_0000132
+                                             ] ,
+                                             [ owl:inverseOf prov:qualifiedInfluenceOf
+                                             ] ,
+                                             [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001857>
+                                             ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:qualifiedAssociation ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0002501 ;
+   rdfs:comment "An activity may be associated with an activity. Both are processes and this is a causal relation."@en ;
+   <https://w3id.org/sssom/object_label> "causal relation between processes"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:qualifiedAssociation ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00001777> ;
+   rdfs:comment "An Activity that has an Association as its qualified association also has the Activity as its process part."@en ,
+                "If this Activity prov:wasAssociatedWith Agent :ag, then it can qualify the Association using prov:qualifiedAssociation [ a prov:Association;  prov:agent :ag; :foo :bar ]."@en ;
+   <https://w3id.org/sssom/object_label> "has process part"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedAssociationOf
+prov:qualifiedAssociationOf rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf obo:BFO_0000132 ,
+                                               owl:topObjectProperty ,
+                                               prov:qualifiedInfluenceOf ,
+                                               <https://www.commoncoreontologies.org/ont00001857> ,
+                                               [ owl:inverseOf obo:BFO_0000117
+                                               ] ,
+                                               [ owl:inverseOf obo:RO_0002410
+                                               ] ,
+                                               [ owl:inverseOf obo:RO_0002501
+                                               ] ,
+                                               [ owl:inverseOf prov:qualifiedInfluence
+                                               ] ,
+                                               [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001777>
+                                               ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedAttribution
+prov:qualifiedAttribution rdf:type owl:ObjectProperty ;
+                          owl:equivalentProperty [ owl:inverseOf prov:qualifiedAttributionOf
+                                                 ] ;
+                          rdfs:subPropertyOf obo:BFO_0000056 ,
+                                             obo:RO_0002410 ,
+                                             owl:topObjectProperty ,
+                                             <https://www.commoncoreontologies.org/ont00001886> ,
+                                             [ owl:inverseOf obo:BFO_0000057
+                                             ] ,
+                                             [ owl:inverseOf prov:qualifiedInfluenceOf
+                                             ] ,
+                                             [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001834>
+                                             ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:qualifiedAttribution ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00001886> ;
+   rdfs:comment "An Entity that is attributed to something is affected by that Attribution."@en ;
+   <https://w3id.org/sssom/object_label> "is affected by"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedAttributionOf
+prov:qualifiedAttributionOf rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf obo:BFO_0000057 ,
+                                               owl:topObjectProperty ,
+                                               prov:qualifiedInfluenceOf ,
+                                               <https://www.commoncoreontologies.org/ont00001834> ,
+                                               [ owl:inverseOf obo:BFO_0000056
+                                               ] ,
+                                               [ owl:inverseOf obo:RO_0002410
+                                               ] ,
+                                               [ owl:inverseOf prov:qualifiedInfluence
+                                               ] ,
+                                               [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001886>
+                                               ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedCommunication
+prov:qualifiedCommunication rdf:type owl:ObjectProperty ;
+                            owl:equivalentProperty [ owl:inverseOf prov:qualifiedCommunicationOf
+                                                   ] ;
+                            rdfs:subPropertyOf obo:RO_0002410 ,
+                                               obo:RO_0002501 ,
+                                               owl:topObjectProperty ,
+                                               [ owl:inverseOf prov:qualifiedInfluenceOf
+                                               ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:qualifiedCommunication ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0002501 ;
+   rdfs:comment "An activity may communicate another activity. Both are processes and this is a causal relation. For example: A wasInfomedBy B = A and B are both prov:activities, and A was causally related to B such that A utilizes a provenance_entity that wasGeneratedBy B"@en ;
+   <https://w3id.org/sssom/object_label> "causal relation between processes"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedCommunicationOf
+prov:qualifiedCommunicationOf rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf owl:topObjectProperty ,
+                                                 prov:qualifiedInfluenceOf ,
+                                                 [ owl:inverseOf obo:RO_0002410
+                                                 ] ,
+                                                 [ owl:inverseOf obo:RO_0002501
+                                                 ] ,
+                                                 [ owl:inverseOf prov:qualifiedInfluence
+                                                 ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedDelegation
+prov:qualifiedDelegation rdf:type owl:ObjectProperty ;
+                         owl:equivalentProperty [ owl:inverseOf prov:qualifiedDelegationOf
+                                                ] ;
+                         rdfs:subPropertyOf obo:BFO_0000056 ,
+                                            obo:RO_0002410 ,
+                                            owl:topObjectProperty ,
+                                            <https://www.commoncoreontologies.org/ont00001787> ,
+                                            [ owl:inverseOf obo:BFO_0000057
+                                            ] ,
+                                            [ owl:inverseOf prov:qualifiedInfluenceOf
+                                            ] ,
+                                            [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001833>
+                                            ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:qualifiedDelegation ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00001787> ;
+   rdfs:comment "If a Delegation is the qualified delegation of an Agent, then the Agent is agent in (namely causally active in) the Delegation."@en ;
+   <https://w3id.org/sssom/object_label> "agent in"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedDelegationOf
+prov:qualifiedDelegationOf rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf obo:BFO_0000057 ,
+                                              owl:topObjectProperty ,
+                                              prov:qualifiedInfluenceOf ,
+                                              <https://www.commoncoreontologies.org/ont00001833> ,
+                                              [ owl:inverseOf obo:BFO_0000056
+                                              ] ,
+                                              [ owl:inverseOf obo:RO_0002410
+                                              ] ,
+                                              [ owl:inverseOf prov:qualifiedInfluence
+                                              ] ,
+                                              [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001787>
+                                              ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedDerivation
+prov:qualifiedDerivation rdf:type owl:ObjectProperty ;
+                         owl:equivalentProperty [ owl:inverseOf prov:qualifiedDerivationOf
+                                                ] ;
+                         rdfs:subPropertyOf obo:BFO_0000056 ,
+                                            obo:RO_0002410 ,
+                                            owl:topObjectProperty ,
+                                            <https://www.commoncoreontologies.org/ont00001816> ,
+                                            [ owl:inverseOf obo:BFO_0000057
+                                            ] ,
+                                            [ owl:inverseOf prov:qualifiedInfluenceOf
+                                            ] ,
+                                            [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001986>
+                                            ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:qualifiedDerivation ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00001816> ;
+   rdfs:comment "If a Derivation is the qualified derivation of an Entity, then the Entity is output of the Derivation."@en ;
+   <https://w3id.org/sssom/object_label> "is output of"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedDerivationOf
+prov:qualifiedDerivationOf rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf obo:BFO_0000057 ,
+                                              owl:topObjectProperty ,
+                                              prov:qualifiedInfluenceOf ,
+                                              <https://www.commoncoreontologies.org/ont00001986> ,
+                                              [ owl:inverseOf obo:BFO_0000056
+                                              ] ,
+                                              [ owl:inverseOf obo:RO_0002410
+                                              ] ,
+                                              [ owl:inverseOf prov:qualifiedInfluence
+                                              ] ,
+                                              [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001816>
+                                              ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedEnd
+prov:qualifiedEnd rdf:type owl:ObjectProperty ;
+                  owl:equivalentProperty [ owl:inverseOf prov:qualifiedEndOf
+                                         ] ;
+                  rdfs:subPropertyOf obo:BFO_0000117 ,
+                                     obo:BFO_0000121 ,
+                                     obo:RO_0002410 ,
+                                     owl:topObjectProperty ,
+                                     [ owl:inverseOf obo:BFO_0000132
+                                     ] ,
+                                     [ owl:inverseOf obo:BFO_0000139
+                                     ] ,
+                                     [ owl:inverseOf prov:qualifiedInfluenceOf
+                                     ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:qualifiedEnd ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:BFO_0000121 ;
+   rdfs:comment "A prov:Activity whose qualified end is some prov:End has it as a temporal part."@en ;
+   <https://w3id.org/sssom/object_label> "has temporal part"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedEndOf
+prov:qualifiedEndOf rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf obo:BFO_0000132 ,
+                                       obo:BFO_0000139 ,
+                                       owl:topObjectProperty ,
+                                       prov:qualifiedInfluenceOf ,
+                                       [ owl:inverseOf obo:BFO_0000117
+                                       ] ,
+                                       [ owl:inverseOf obo:BFO_0000121
+                                       ] ,
+                                       [ owl:inverseOf obo:RO_0002410
+                                       ] ,
+                                       [ owl:inverseOf prov:qualifiedInfluence
+                                       ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedGeneration
+prov:qualifiedGeneration rdf:type owl:ObjectProperty ;
+                         owl:equivalentProperty [ owl:inverseOf prov:qualifiedGenerationOf
+                                                ] ;
+                         rdfs:subPropertyOf obo:RO_0002410 ,
+                                            owl:topObjectProperty ,
+                                            [ owl:inverseOf prov:qualifiedInfluenceOf
+                                            ] ;
+                         <http://www.w3.org/2004/02/skos/core#relatedMatch> <https://www.commoncoreontologies.org/ont00001816> .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:qualifiedGeneration ;
+   owl:annotatedProperty <http://www.w3.org/2004/02/skos/core#relatedMatch> ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00001816> ;
+   rdfs:comment "Generation is a prov:InstantaneousEvent, a process boundary. However, if it were a process, and some Generation was a qualified generation of an Entity, then that Entity would be the output of that Generation."@en ;
+   <https://w3id.org/sssom/object_label> "is output of"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedGenerationOf
+prov:qualifiedGenerationOf rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf owl:topObjectProperty ,
+                                              prov:qualifiedInfluenceOf ,
+                                              [ owl:inverseOf obo:RO_0002410
+                                              ] ,
+                                              [ owl:inverseOf prov:qualifiedInfluence
+                                              ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedInfluence
+prov:qualifiedInfluence rdf:type owl:ObjectProperty ;
+                        owl:equivalentProperty [ owl:inverseOf prov:qualifiedInfluenceOf
+                                               ] ;
+                        rdfs:subPropertyOf obo:RO_0002410 ,
+                                           owl:topObjectProperty .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:qualifiedInfluence ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0002410 ;
+   rdfs:comment "An Agent, Activity, or Entity may be causally related to an Influence."@en ;
+   <https://w3id.org/sssom/object_label> "casually related to"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedInfluenceOf
+prov:qualifiedInfluenceOf rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf owl:topObjectProperty ,
+                                             [ owl:inverseOf obo:RO_0002410
+                                             ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedInsertion
+prov:qualifiedInsertion rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf obo:BFO_0000056 ,
+                                           obo:RO_0002410 ,
+                                           owl:topObjectProperty ,
+                                           prov:qualifiedInfluence ,
+                                           <https://www.commoncoreontologies.org/ont00001816> ,
+                                           [ owl:inverseOf obo:BFO_0000057
+                                           ] ,
+                                           [ owl:inverseOf prov:qualifiedDerivationOf
+                                           ] ,
+                                           [ owl:inverseOf prov:qualifiedInfluenceOf
+                                           ] ,
+                                           [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001986>
+                                           ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedInvalidation
+prov:qualifiedInvalidation rdf:type owl:ObjectProperty ;
+                           owl:equivalentProperty [ owl:inverseOf prov:qualifiedInvalidationOf
+                                                  ] ;
+                           rdfs:subPropertyOf obo:RO_0002410 ,
+                                              owl:topObjectProperty ,
+                                              [ owl:inverseOf prov:qualifiedInfluenceOf
+                                              ] ;
+                           <http://www.w3.org/2004/02/skos/core#relatedMatch> <https://www.commoncoreontologies.org/ont00001886> .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:qualifiedInvalidation ;
+   owl:annotatedProperty <http://www.w3.org/2004/02/skos/core#relatedMatch> ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00001886> ;
+   rdfs:comment "Invalidation is a prov:InstantaneousEvent, a process boundary. However, if it were a process, and some Invalidation was a qualified invalidation of an Entity, then that Entity could be affected by that Invalidation."@en ;
+   <https://w3id.org/sssom/object_label> "is affected by"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedInvalidationOf
+prov:qualifiedInvalidationOf rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf owl:topObjectProperty ,
+                                                prov:qualifiedInfluenceOf ,
+                                                [ owl:inverseOf obo:RO_0002410
+                                                ] ,
+                                                [ owl:inverseOf prov:qualifiedInfluence
+                                                ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedPrimarySource
+prov:qualifiedPrimarySource rdf:type owl:ObjectProperty ;
+                            owl:equivalentProperty [ owl:inverseOf prov:qualifiedSourceOf
+                                                   ] ;
+                            rdfs:subPropertyOf obo:BFO_0000056 ,
+                                               obo:RO_0002410 ,
+                                               owl:topObjectProperty ,
+                                               <https://www.commoncoreontologies.org/ont00001816> ,
+                                               [ owl:inverseOf obo:BFO_0000057
+                                               ] ,
+                                               [ owl:inverseOf prov:qualifiedInfluenceOf
+                                               ] ,
+                                               [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001986>
+                                               ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:qualifiedPrimarySource ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00001816> ;
+   rdfs:comment "A Entity that has a Primary Source as its qualified primary source is output of that Primary Source."@en ;
+   <https://w3id.org/sssom/object_label> "is output of"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedQuotation
+prov:qualifiedQuotation rdf:type owl:ObjectProperty ;
+                        owl:equivalentProperty [ owl:inverseOf prov:qualifiedQuotationOf
+                                               ] ;
+                        rdfs:subPropertyOf obo:BFO_0000056 ,
+                                           obo:RO_0002410 ,
+                                           owl:topObjectProperty ,
+                                           <https://www.commoncoreontologies.org/ont00001816> ,
+                                           [ owl:inverseOf obo:BFO_0000057
+                                           ] ,
+                                           [ owl:inverseOf prov:qualifiedInfluenceOf
+                                           ] ,
+                                           [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001986>
+                                           ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:qualifiedQuotation ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00001816> ;
+   rdfs:comment "If a Quotation is the qualified quotation related to an Entity as the quote, then that Entity is output of that Quotation. See definition of prov:qualifiedQuotation."@en ;
+   <https://w3id.org/sssom/object_label> "is output of"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedQuotationOf
+prov:qualifiedQuotationOf rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf obo:BFO_0000057 ,
+                                             owl:topObjectProperty ,
+                                             prov:qualifiedInfluenceOf ,
+                                             <https://www.commoncoreontologies.org/ont00001986> ,
+                                             [ owl:inverseOf obo:BFO_0000056
+                                             ] ,
+                                             [ owl:inverseOf obo:RO_0002410
+                                             ] ,
+                                             [ owl:inverseOf prov:qualifiedInfluence
+                                             ] ,
+                                             [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001816>
+                                             ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedRemoval
+prov:qualifiedRemoval rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf obo:BFO_0000056 ,
+                                         obo:RO_0002410 ,
+                                         owl:topObjectProperty ,
+                                         prov:qualifiedInfluence ,
+                                         <https://www.commoncoreontologies.org/ont00001816> ,
+                                         [ owl:inverseOf obo:BFO_0000057
+                                         ] ,
+                                         [ owl:inverseOf prov:qualifiedDerivationOf
+                                         ] ,
+                                         [ owl:inverseOf prov:qualifiedInfluenceOf
+                                         ] ,
+                                         [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001986>
+                                         ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedRevision
+prov:qualifiedRevision rdf:type owl:ObjectProperty ;
+                       owl:equivalentProperty [ owl:inverseOf prov:revisedEntity
+                                              ] ;
+                       rdfs:subPropertyOf obo:BFO_0000056 ,
+                                          obo:RO_0002410 ,
+                                          owl:topObjectProperty ,
+                                          <https://www.commoncoreontologies.org/ont00001886> ,
+                                          [ owl:inverseOf obo:BFO_0000057
+                                          ] ,
+                                          [ owl:inverseOf prov:qualifiedInfluenceOf
+                                          ] ,
+                                          [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001834>
+                                          ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:qualifiedRevision ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00001886> ;
+   rdfs:comment "If a Revision is the qualified revision of an Entity, then the Entity is affected by the Revision."@en ;
+   <https://w3id.org/sssom/object_label> "is affected by"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedSourceOf
+prov:qualifiedSourceOf rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf obo:BFO_0000057 ,
+                                          owl:topObjectProperty ,
+                                          prov:qualifiedInfluenceOf ,
+                                          <https://www.commoncoreontologies.org/ont00001986> ,
+                                          [ owl:inverseOf obo:BFO_0000056
+                                          ] ,
+                                          [ owl:inverseOf obo:RO_0002410
+                                          ] ,
+                                          [ owl:inverseOf prov:qualifiedInfluence
+                                          ] ,
+                                          [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001816>
+                                          ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedStart
+prov:qualifiedStart rdf:type owl:ObjectProperty ;
+                    owl:equivalentProperty [ owl:inverseOf prov:qualifiedStartOf
+                                           ] ;
+                    rdfs:subPropertyOf obo:BFO_0000117 ,
+                                       obo:BFO_0000121 ,
+                                       obo:RO_0002410 ,
+                                       obo:RO_0002501 ,
+                                       owl:topObjectProperty ,
+                                       [ owl:inverseOf obo:BFO_0000132
+                                       ] ,
+                                       [ owl:inverseOf obo:BFO_0000139
+                                       ] ,
+                                       [ owl:inverseOf prov:qualifiedInfluenceOf
+                                       ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:qualifiedStart ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:BFO_0000121 ;
+   rdfs:comment "A prov:Activity whose qualified start is some prov:Start has it as a temporal part."@en ;
+   <https://w3id.org/sssom/object_label> "has temporal part"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:qualifiedStart ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0002501 ;
+   rdfs:comment "An activity may start an activity. Both are processes and this is a causal relation."@en ;
+   <https://w3id.org/sssom/object_label> "causal relation between processes"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedStartOf
+prov:qualifiedStartOf rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf obo:BFO_0000132 ,
+                                         obo:BFO_0000139 ,
+                                         owl:topObjectProperty ,
+                                         prov:qualifiedInfluenceOf ,
+                                         [ owl:inverseOf obo:BFO_0000117
+                                         ] ,
+                                         [ owl:inverseOf obo:BFO_0000121
+                                         ] ,
+                                         [ owl:inverseOf obo:RO_0002410
+                                         ] ,
+                                         [ owl:inverseOf obo:RO_0002501
+                                         ] ,
+                                         [ owl:inverseOf prov:qualifiedInfluence
+                                         ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedUsage
+prov:qualifiedUsage rdf:type owl:ObjectProperty ;
+                    owl:equivalentProperty [ owl:inverseOf prov:qualifiedUsingActivity
+                                           ] ;
+                    rdfs:subPropertyOf obo:BFO_0000117 ,
+                                       obo:BFO_0000121 ,
+                                       obo:RO_0002410 ,
+                                       owl:topObjectProperty ,
+                                       [ owl:inverseOf obo:BFO_0000132
+                                       ] ,
+                                       [ owl:inverseOf obo:BFO_0000139
+                                       ] ,
+                                       [ owl:inverseOf prov:qualifiedInfluenceOf
+                                       ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:qualifiedUsage ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:BFO_0000121 ;
+   rdfs:comment "A prov:Activity whose qualified usage is some prov:Usage has it as a temporal part."@en ;
+   <https://w3id.org/sssom/object_label> "has temporal part"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#qualifiedUsingActivity
+prov:qualifiedUsingActivity rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf obo:BFO_0000132 ,
+                                               obo:BFO_0000139 ,
+                                               owl:topObjectProperty ,
+                                               prov:qualifiedInfluenceOf ,
+                                               [ owl:inverseOf obo:BFO_0000117
+                                               ] ,
+                                               [ owl:inverseOf obo:BFO_0000121
+                                               ] ,
+                                               [ owl:inverseOf obo:RO_0002410
+                                               ] ,
+                                               [ owl:inverseOf prov:qualifiedInfluence
+                                               ] .
+
+
+###  http://www.w3.org/ns/prov#quotedAs
+prov:quotedAs rdf:type owl:ObjectProperty ;
+              owl:equivalentProperty [ owl:inverseOf prov:wasQuotedFrom
+                                     ] ;
+              rdfs:subPropertyOf obo:RO_0002410 ,
+                                 owl:topObjectProperty ,
+                                 prov:hadDerivation ,
+                                 prov:influenced ,
+                                 [ owl:inverseOf obo:RO_0002410
+                                 ] ,
+                                 [ owl:inverseOf obo:RO_0002559
+                                 ] ,
+                                 [ owl:inverseOf prov:wasDerivedFrom
+                                 ] ,
+                                 [ owl:inverseOf prov:wasInfluencedBy
+                                 ] .
+
+
+###  http://www.w3.org/ns/prov#revisedEntity
+prov:revisedEntity rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf obo:BFO_0000057 ,
+                                      owl:topObjectProperty ,
+                                      prov:qualifiedInfluenceOf ,
+                                      <https://www.commoncoreontologies.org/ont00001834> ,
+                                      [ owl:inverseOf obo:BFO_0000056
+                                      ] ,
+                                      [ owl:inverseOf obo:RO_0002410
+                                      ] ,
+                                      [ owl:inverseOf prov:qualifiedInfluence
+                                      ] ,
+                                      [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001886>
+                                      ] .
+
+
+###  http://www.w3.org/ns/prov#specializationOf
+prov:specializationOf rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf obo:RO_0002559 ,
+                                         [ owl:inverseOf obo:RO_0002559
+                                         ] ,
+                                         [ owl:inverseOf prov:alternateOf
+                                         ] .
+
+
+###  http://www.w3.org/ns/prov#started
+prov:started rdf:type owl:ObjectProperty ;
+             owl:equivalentProperty [ owl:inverseOf prov:wasStartedBy
+                                    ] ;
+             rdfs:subPropertyOf obo:BFO_0000056 ,
+                                obo:RO_0000056 ,
+                                obo:RO_0002410 ,
+                                owl:topObjectProperty ,
+                                prov:influenced ,
+                                [ owl:inverseOf obo:BFO_0000057
+                                ] ,
+                                [ owl:inverseOf obo:RO_0000057
+                                ] ,
+                                [ owl:inverseOf obo:RO_0002410
+                                ] ,
+                                [ owl:inverseOf prov:wasInfluencedBy
+                                ] .
+
+
+###  http://www.w3.org/ns/prov#used
+prov:used rdf:type owl:ObjectProperty ;
+          owl:equivalentProperty [ owl:inverseOf prov:wasUsedBy
+                                 ] ;
+          rdfs:subPropertyOf obo:BFO_0000057 ,
+                             obo:RO_0000057 ,
+                             obo:RO_0002410 ,
+                             owl:topObjectProperty ,
+                             <https://www.commoncoreontologies.org/ont00001834> ,
+                             [ owl:inverseOf obo:BFO_0000056
+                             ] ,
+                             [ owl:inverseOf obo:RO_0000056
+                             ] ,
+                             [ owl:inverseOf obo:RO_0002410
+                             ] ,
+                             [ owl:inverseOf prov:influenced
+                             ] ,
+                             [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001886>
+                             ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:used ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:BFO_0000057 ;
+   rdfs:comment "A process has a (non spatial region) continuant as a participant. An activity is a process that may use a prov:Entity as a participant."@en ;
+   <https://w3id.org/sssom/object_label> "has participant (at some time)"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:used ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0000057 ;
+   rdfs:comment "A process has a (non spatial region) continuant as a participant. An activity is a process that may use a prov:Entity as a participant."@en ,
+                "This mapping overlaps the same mapping to BFO's 'has participant at some time' but is included for increased interoperability." ;
+   <https://w3id.org/sssom/object_label> "has participant"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:used ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00001834> ;
+   rdfs:comment "An Activity that used an Entity affects the Entity."@en ;
+   <https://w3id.org/sssom/object_label> "affects"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#wasActivityOfInfluence
+prov:wasActivityOfInfluence rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf owl:topObjectProperty ,
+                                               [ owl:inverseOf obo:RO_0002410
+                                               ] ,
+                                               [ owl:inverseOf obo:RO_0002501
+                                               ] .
+
+
+###  http://www.w3.org/ns/prov#wasAssociateFor
+prov:wasAssociateFor rdf:type owl:ObjectProperty ;
+                     owl:equivalentProperty [ owl:inverseOf prov:wasAssociatedWith
+                                            ] ;
+                     rdfs:subPropertyOf obo:BFO_0000056 ,
+                                        obo:RO_0000056 ,
+                                        obo:RO_0002410 ,
+                                        owl:topObjectProperty ,
+                                        prov:influenced ,
+                                        <https://www.commoncoreontologies.org/ont00001787> ,
+                                        [ owl:inverseOf obo:BFO_0000057
+                                        ] ,
+                                        [ owl:inverseOf obo:RO_0000057
+                                        ] ,
+                                        [ owl:inverseOf obo:RO_0002410
+                                        ] ,
+                                        [ owl:inverseOf prov:wasInfluencedBy
+                                        ] ,
+                                        [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001833>
+                                        ] .
+
+
+###  http://www.w3.org/ns/prov#wasAssociatedWith
+prov:wasAssociatedWith rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf obo:BFO_0000057 ,
+                                          obo:RO_0000057 ,
+                                          obo:RO_0002410 ,
+                                          owl:topObjectProperty ,
+                                          <https://www.commoncoreontologies.org/ont00001833> ,
+                                          [ owl:inverseOf obo:BFO_0000056
+                                          ] ,
+                                          [ owl:inverseOf obo:RO_0000056
+                                          ] ,
+                                          [ owl:inverseOf obo:RO_0002410
+                                          ] ,
+                                          [ owl:inverseOf prov:influenced
+                                          ] ,
+                                          [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001787>
+                                          ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:wasAssociatedWith ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:BFO_0000057 ;
+   rdfs:comment "A process has a (non spatial region) continuant as a participant. An activity is a process that may be associated with a prov:Entity as a participant."@en ;
+   <https://w3id.org/sssom/object_label> "has participant (at some time)"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:wasAssociatedWith ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0000057 ;
+   rdfs:comment "A process has a (non spatial region) continuant as a participant. An activity is a process that may be associated with a prov:Entity as a participant."@en ,
+                "This mapping overlaps the same mapping to BFO's 'has participant at some time' but is included for increased interoperability." ;
+   <https://w3id.org/sssom/object_label> "has participant"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:wasAssociatedWith ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00001833> ;
+   rdfs:comment "An Activity that was associated with an Agent has the Agent as its agent."@en ;
+   <https://w3id.org/sssom/object_label> "has agent"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#wasAttributedTo
+prov:wasAttributedTo rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf obo:RO_0002410 ,
+                                        obo:RO_0002559 ,
+                                        owl:topObjectProperty ,
+                                        prov:wasInfluencedBy ,
+                                        [ owl:inverseOf obo:RO_0002410
+                                        ] ,
+                                        [ owl:inverseOf prov:influenced
+                                        ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:wasAttributedTo ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0002559 ;
+   rdfs:comment "An entity may be attributed to an agent, and this is a causal influence by the agent"@en ;
+   <https://w3id.org/sssom/object_label> "causally influenced by"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#wasDerivedFrom
+prov:wasDerivedFrom rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf obo:RO_0002410 ,
+                                       obo:RO_0002559 ,
+                                       owl:topObjectProperty ,
+                                       prov:wasInfluencedBy ,
+                                       [ owl:inverseOf obo:RO_0002410
+                                       ] ,
+                                       [ owl:inverseOf prov:influenced
+                                       ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:wasDerivedFrom ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0002559 ;
+   rdfs:comment "An entity may be derived from an entity, being causally influenced by it."@en ;
+   <https://w3id.org/sssom/object_label> "causally influenced by"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#wasEndedBy
+prov:wasEndedBy rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf obo:BFO_0000057 ,
+                                   obo:RO_0000057 ,
+                                   obo:RO_0002410 ,
+                                   owl:topObjectProperty ,
+                                   [ owl:inverseOf obo:BFO_0000056
+                                   ] ,
+                                   [ owl:inverseOf obo:RO_0000056
+                                   ] ,
+                                   [ owl:inverseOf obo:RO_0002410
+                                   ] ,
+                                   [ owl:inverseOf prov:influenced
+                                   ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:wasEndedBy ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:BFO_0000057 ;
+   rdfs:comment "A process has a (non spatial region) continuant as a participant. An activity is a process that may be ended by a prov:Entity as a participant."@en ;
+   <https://w3id.org/sssom/object_label> "has participant (at some time)"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:wasEndedBy ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0000057 ;
+   rdfs:comment "A process has a (non spatial region) continuant as a participant. An activity is a process that may be ended by a prov:Entity as a participant."@en ,
+                "This mapping overlaps the same mapping to BFO's 'has participant at some time' but is included for increased interoperability." ;
+   <https://w3id.org/sssom/object_label> "has participant"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#wasGeneratedBy
+prov:wasGeneratedBy rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf obo:BFO_0000056 ,
+                                       obo:RO_0000056 ,
+                                       obo:RO_0002410 ,
+                                       owl:topObjectProperty ,
+                                       <https://www.commoncoreontologies.org/ont00001816> ,
+                                       [ owl:inverseOf obo:BFO_0000057
+                                       ] ,
+                                       [ owl:inverseOf obo:RO_0000057
+                                       ] ,
+                                       [ owl:inverseOf obo:RO_0002410
+                                       ] ,
+                                       [ owl:inverseOf prov:influenced
+                                       ] ,
+                                       [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001986>
+                                       ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:wasGeneratedBy ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:BFO_0000056 ;
+   rdfs:comment "An entity (non-spatial region continuant) may participate in its generation by an activity (process)"@en ;
+   <https://w3id.org/sssom/object_label> "participates in (at some time)"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:wasGeneratedBy ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0000056 ;
+   rdfs:comment "An entity (non-spatial region continuant) may participate in its generation by an activity (process)"@en ,
+                "This mapping overlaps the same mapping to BFO's 'participates in at some time' but is included for increased interoperability." ;
+   <https://w3id.org/sssom/object_label> "participates in"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:wasGeneratedBy ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00001816> ;
+   rdfs:comment "An Entity that was generated by an Activity is output of that Activity."@en ;
+   <https://w3id.org/sssom/object_label> "is output of"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#wasInfluencedBy
+prov:wasInfluencedBy rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf obo:RO_0002410 ,
+                                        owl:topObjectProperty ,
+                                        [ owl:inverseOf obo:RO_0002410
+                                        ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:wasInfluencedBy ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0002410 ;
+   rdfs:comment "An Agent, Activity, or Entity that was influenced by an Influence was causally related to that Influence."@en ;
+   <https://w3id.org/sssom/object_label> "casually related to"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#wasInformedBy
+prov:wasInformedBy rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf obo:RO_0002410 ,
+                                      obo:RO_0002501 ,
+                                      owl:topObjectProperty ,
+                                      [ owl:inverseOf obo:RO_0002410
+                                      ] ,
+                                      [ owl:inverseOf prov:influenced
+                                      ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:wasInformedBy ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0002501 ;
+   rdfs:comment "An activity may inform an activity. Both are processes and this is a causal relation."@en ;
+   <https://w3id.org/sssom/object_label> "causal relation between processes"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#wasInvalidatedBy
+prov:wasInvalidatedBy rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf obo:BFO_0000056 ,
+                                         obo:RO_0000056 ,
+                                         obo:RO_0002410 ,
+                                         owl:topObjectProperty ,
+                                         <https://www.commoncoreontologies.org/ont00001886> ,
+                                         [ owl:inverseOf obo:BFO_0000057
+                                         ] ,
+                                         [ owl:inverseOf obo:RO_0000057
+                                         ] ,
+                                         [ owl:inverseOf obo:RO_0002410
+                                         ] ,
+                                         [ owl:inverseOf prov:influenced
+                                         ] ,
+                                         [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001834>
+                                         ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:wasInvalidatedBy ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:BFO_0000056 ;
+   rdfs:comment "An entity (non-spatial region continuant) may participate in its invalidation by an activity (process)"@en ;
+   <https://w3id.org/sssom/object_label> "participates in (at some time)"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:wasInvalidatedBy ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0000056 ;
+   rdfs:comment "An entity (non-spatial region continuant) may participate in its invalidation by an activity (process)"@en ,
+                "This mapping overlaps the same mapping to BFO's 'participates in at some time' but is included for increased interoperability." ;
+   <https://w3id.org/sssom/object_label> "participates in"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:wasInvalidatedBy ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00001886> ;
+   rdfs:comment "An Entity that was invalidated by an Activity is also affected by that Activity."@en ;
+   <https://w3id.org/sssom/object_label> "is affected by"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#wasMemberOf
+prov:wasMemberOf rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf obo:BFO_0000176 ,
+                                    obo:RO_0002410 ,
+                                    owl:topObjectProperty ,
+                                    prov:influenced ,
+                                    [ owl:inverseOf obo:BFO_0000178
+                                    ] ,
+                                    [ owl:inverseOf obo:RO_0002351
+                                    ] ,
+                                    [ owl:inverseOf obo:RO_0002410
+                                    ] ,
+                                    [ owl:inverseOf prov:wasInfluencedBy
+                                    ] .
+
+
+###  http://www.w3.org/ns/prov#wasPlanOf
+prov:wasPlanOf rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.w3.org/ns/prov#wasPrimarySourceOf
+prov:wasPrimarySourceOf rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf obo:RO_0002410 ,
+                                           owl:topObjectProperty ,
+                                           prov:hadDerivation ,
+                                           prov:influenced ,
+                                           [ owl:inverseOf obo:RO_0002410
+                                           ] ,
+                                           [ owl:inverseOf obo:RO_0002559
+                                           ] ,
+                                           [ owl:inverseOf prov:wasDerivedFrom
+                                           ] ,
+                                           [ owl:inverseOf prov:wasInfluencedBy
+                                           ] .
+
+
+###  http://www.w3.org/ns/prov#wasQuotedFrom
+prov:wasQuotedFrom rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf obo:RO_0002410 ,
+                                      obo:RO_0002559 ,
+                                      owl:topObjectProperty ,
+                                      prov:wasDerivedFrom ,
+                                      prov:wasInfluencedBy ,
+                                      [ owl:inverseOf obo:RO_0002410
+                                      ] ,
+                                      [ owl:inverseOf prov:hadDerivation
+                                      ] ,
+                                      [ owl:inverseOf prov:influenced
+                                      ] .
+
+
+###  http://www.w3.org/ns/prov#wasRevisionOf
+prov:wasRevisionOf rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf obo:RO_0002410 ,
+                                      obo:RO_0002559 ,
+                                      owl:topObjectProperty ,
+                                      prov:wasDerivedFrom ,
+                                      prov:wasInfluencedBy ,
+                                      [ owl:inverseOf obo:RO_0002410
+                                      ] ,
+                                      [ owl:inverseOf prov:hadDerivation
+                                      ] ,
+                                      [ owl:inverseOf prov:influenced
+                                      ] .
+
+
+###  http://www.w3.org/ns/prov#wasRoleIn
+prov:wasRoleIn rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.w3.org/ns/prov#wasStartedBy
+prov:wasStartedBy rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf obo:BFO_0000057 ,
+                                     obo:RO_0000057 ,
+                                     obo:RO_0002410 ,
+                                     owl:topObjectProperty ,
+                                     [ owl:inverseOf obo:BFO_0000056
+                                     ] ,
+                                     [ owl:inverseOf obo:RO_0000056
+                                     ] ,
+                                     [ owl:inverseOf obo:RO_0002410
+                                     ] ,
+                                     [ owl:inverseOf prov:influenced
+                                     ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:wasStartedBy ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:BFO_0000057 ;
+   rdfs:comment "A process has a (non spatial region) continuant as a participant. An activity is a process that may be started by a prov:Entity as a participant."@en ;
+   <https://w3id.org/sssom/object_label> "has participant (at some time)"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:wasStartedBy ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget obo:RO_0000057 ;
+   rdfs:comment "A process has a (non spatial region) continuant as a participant. An activity is a process that may be started by a prov:Entity as a participant."@en ,
+                "This mapping overlaps the same mapping to BFO's 'has participant at some time' but is included for increased interoperability." ;
+   <https://w3id.org/sssom/object_label> "has participant"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#wasUsedBy
+prov:wasUsedBy rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf obo:BFO_0000056 ,
+                                  obo:RO_0000056 ,
+                                  obo:RO_0002410 ,
+                                  owl:topObjectProperty ,
+                                  prov:influenced ,
+                                  <https://www.commoncoreontologies.org/ont00001886> ,
+                                  [ owl:inverseOf obo:BFO_0000057
+                                  ] ,
+                                  [ owl:inverseOf obo:RO_0000057
+                                  ] ,
+                                  [ owl:inverseOf obo:RO_0002410
+                                  ] ,
+                                  [ owl:inverseOf prov:wasInfluencedBy
+                                  ] ,
+                                  [ owl:inverseOf <https://www.commoncoreontologies.org/ont00001834>
+                                  ] .
+
+
+###  http://www.w3.org/ns/prov#wasUsedInDerivation
+prov:wasUsedInDerivation rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf obo:BFO_0000132 ,
+                                            obo:BFO_0000139 ,
+                                            owl:topObjectProperty ,
+                                            [ owl:inverseOf obo:BFO_0000117
+                                            ] ,
+                                            [ owl:inverseOf obo:BFO_0000121
+                                            ] ,
+                                            [ owl:inverseOf obo:RO_0002410
+                                            ] ,
+                                            [ owl:inverseOf obo:RO_0002501
+                                            ] .
+
+
+###  https://www.commoncoreontologies.org/ont00001777
+<https://www.commoncoreontologies.org/ont00001777> rdf:type owl:ObjectProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001787
+<https://www.commoncoreontologies.org/ont00001787> rdf:type owl:ObjectProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001801
+<https://www.commoncoreontologies.org/ont00001801> rdf:type owl:ObjectProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001808
+<https://www.commoncoreontologies.org/ont00001808> rdf:type owl:ObjectProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001816
+<https://www.commoncoreontologies.org/ont00001816> rdf:type owl:ObjectProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001833
+<https://www.commoncoreontologies.org/ont00001833> rdf:type owl:ObjectProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001834
+<https://www.commoncoreontologies.org/ont00001834> rdf:type owl:ObjectProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001857
+<https://www.commoncoreontologies.org/ont00001857> rdf:type owl:ObjectProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001886
+<https://www.commoncoreontologies.org/ont00001886> rdf:type owl:ObjectProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001920
+<https://www.commoncoreontologies.org/ont00001920> rdf:type owl:ObjectProperty .
+
+
+###  https://www.commoncoreontologies.org/ont00001986
+<https://www.commoncoreontologies.org/ont00001986> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000001
+obo:BFO_0000001 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000002
+obo:BFO_0000002 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000003
+obo:BFO_0000003 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000004
+obo:BFO_0000004 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000006
+obo:BFO_0000006 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000015
+obo:BFO_0000015 rdf:type owl:Class ;
+                owl:equivalentClass prov:Activity .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:BFO_0000015 ;
+   owl:annotatedProperty owl:equivalentClass ;
+   owl:annotatedTarget prov:Activity ;
+   rdfs:comment "A prov:Activity is equivalent to a process because it happens over time, while not being a temporal region itself."@en ;
+   <https://w3id.org/sssom/object_label> "process"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000017
+obo:BFO_0000017 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000020
+obo:BFO_0000020 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000023
+obo:BFO_0000023 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000027
+obo:BFO_0000027 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000029
+obo:BFO_0000029 rdf:type owl:Class ;
+                owl:equivalentClass prov:Location .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:BFO_0000029 ;
+   owl:annotatedProperty owl:equivalentClass ;
+   owl:annotatedTarget prov:Location ;
+   rdfs:comment "A prov:location is equivalent to a site because a prov:Location is a three-dimensional immaterial entity that is (partially or wholly) bounded by a material entity or it is a three-dimensional immaterial part), but adds specificity in that it can be an ISO 19112 geographic place or another location in which provenance occurs."@en ;
+   <https://w3id.org/sssom/object_label> "site"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000030
+obo:BFO_0000030 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000031
+obo:BFO_0000031 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000035
+obo:BFO_0000035 rdf:type owl:Class ;
+                owl:equivalentClass prov:InstantaneousEvent .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource obo:BFO_0000035 ;
+   owl:annotatedProperty owl:equivalentClass ;
+   owl:annotatedTarget prov:InstantaneousEvent ;
+   rdfs:comment "A prov:InstantaneousEvent is equivalent to a process boundary because it is referred to as the boundary (start or end) of a prov:Activity as an occurrent."@en ;
+   <https://w3id.org/sssom/object_label> "process boundary"
+ ] .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000040
+obo:BFO_0000040 rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000141
+obo:BFO_0000141 rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/prov#Accept
+prov:Accept rdf:type owl:Class ;
+            rdfs:subClassOf obo:BFO_0000001 ,
+                            obo:BFO_0000003 ,
+                            obo:BFO_0000015 .
+
+
+###  http://www.w3.org/ns/prov#Activity
+prov:Activity rdf:type owl:Class ;
+              rdfs:subClassOf obo:BFO_0000001 ,
+                              obo:BFO_0000003 .
+
+
+###  http://www.w3.org/ns/prov#ActivityInfluence
+prov:ActivityInfluence rdf:type owl:Class ;
+                       rdfs:subClassOf obo:BFO_0000001 ,
+                                       obo:BFO_0000003 .
+
+
+###  http://www.w3.org/ns/prov#Agent
+prov:Agent rdf:type owl:Class ;
+           owl:equivalentClass _:genid397 ;
+           rdfs:subClassOf obo:BFO_0000001 ,
+                           obo:BFO_0000002 ,
+                           obo:BFO_0000004 ,
+                           obo:BFO_0000040 ,
+                           <https://www.commoncoreontologies.org/ont00001017> ,
+                           _:genid402 ,
+                           _:genid413 .
+
+_:genid397 owl:intersectionOf ( <https://www.commoncoreontologies.org/ont00001017>
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty <https://www.commoncoreontologies.org/ont00001787> ;
+                                   owl:someValuesFrom prov:Activity
+                                 ]
+                               ) ;
+            rdf:type owl:Class .
+
+_:genid402 owl:intersectionOf ( obo:BFO_0000040
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty obo:BFO_0000056 ;
+                                   owl:someValuesFrom prov:Activity
+                                 ]
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty obo:BFO_0000196 ;
+                                   owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000023
+                                                                             [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty obo:BFO_0000054 ;
+                                                                               owl:someValuesFrom prov:Activity
+                                                                             ]
+                                                                           ) ;
+                                                        rdf:type owl:Class
+                                                      ]
+                                 ]
+                               ) ;
+            rdf:type owl:Class .
+
+_:genid413 owl:intersectionOf ( obo:BFO_0000040
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty obo:BFO_0000056 ;
+                                   owl:someValuesFrom prov:Activity
+                                 ]
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty obo:RO_0000087 ;
+                                   owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000023
+                                                                             [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty obo:BFO_0000054 ;
+                                                                               owl:someValuesFrom prov:Activity
+                                                                             ]
+                                                                           ) ;
+                                                        rdf:type owl:Class
+                                                      ]
+                                 ]
+                               ) ;
+            rdf:type owl:Class .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:Agent ;
+   owl:annotatedProperty owl:equivalentClass ;
+   owl:annotatedTarget _:genid397 ;
+   rdfs:comment "An agent is an Agent that is an agent in some Activity. According to Requirement VI13 in 'Rationale of Prov', this could be a prov:Entity"@en ;
+   <https://w3id.org/sssom/object_label> "Agent that is an agent in some Activity"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:Agent ;
+   owl:annotatedProperty rdfs:subClassOf ;
+   owl:annotatedTarget _:genid402 ;
+   rdfs:comment "A prov:Agent is a material entity because always has some matter as a part that persists in time. A prov:Agent participates in (at some time) some prov:Activity and bears a role, that, if realized, is realized in a prov:Activity taking place. This axiomatizes the definition of agent as 'something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity'. According to Requirement VI13 in 'Rationale of Prov', this could be a prov:Entity. A prov:SoftwareAgent is a material entity because it is defined as 'running software', meaning a particular, material carrier of software, as opposed to, for example, its source code. A prov:SoftwareAgent is a particular instance of sofware running on a particular computer."@en ;
+   <https://w3id.org/sssom/object_label> "material entity that participates in (at some time) some Activity  and bears a role realized in that Activity"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:Agent ;
+   owl:annotatedProperty rdfs:subClassOf ;
+   owl:annotatedTarget _:genid413 ;
+   rdfs:comment "A prov:Agent is a material entity because always has some matter as a part that persists in time. A prov:Agent participates in (at some time) some prov:Activity and has a role, that, if realized, is realized in a prov:Activity taking place. This axiomatizes the definition of agent as 'something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity'. According to Requirement VI13 in 'Rationale of Prov', this could be a prov:Entity. A prov:SoftwareAgent is a material entity because it is defined as 'running software', meaning a particular, material carrier of software, as opposed to, for example, its source code. A prov:SoftwareAgent is a particular instance of sofware running on a particular computer."@en ;
+   <https://w3id.org/sssom/object_label> "material entity that participates in some Activity at some time and has a role realized in that Activity"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#AgentInfluence
+prov:AgentInfluence rdf:type owl:Class ;
+                    rdfs:subClassOf obo:BFO_0000001 ,
+                                    obo:BFO_0000003 .
+
+
+###  http://www.w3.org/ns/prov#Association
+prov:Association rdf:type owl:Class ;
+                 rdfs:subClassOf obo:BFO_0000001 ,
+                                 obo:BFO_0000003 ,
+                                 prov:Influence .
+
+
+###  http://www.w3.org/ns/prov#Attribution
+prov:Attribution rdf:type owl:Class ;
+                 rdfs:subClassOf obo:BFO_0000001 ,
+                                 obo:BFO_0000003 ,
+                                 prov:Influence .
+
+
+###  http://www.w3.org/ns/prov#Bundle
+prov:Bundle rdf:type owl:Class ;
+            rdfs:subClassOf obo:BFO_0000001 ,
+                            obo:BFO_0000002 ,
+                            obo:BFO_0000031 ,
+                            <https://www.commoncoreontologies.org/ont00000958> .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:Bundle ;
+   owl:annotatedProperty rdfs:subClassOf ;
+   owl:annotatedTarget obo:BFO_0000031 ;
+   rdfs:comment "A prov:Bundle exists in virtue of the fact that there is at least one of what may be multiple copies; it is the content or the pattern that the multiple copies share."@en ;
+   <https://w3id.org/sssom/object_label> "generically dependent continuant"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:Bundle ;
+   owl:annotatedProperty rdfs:subClassOf ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00000958> ;
+   rdfs:comment "A prov:Bundle is information content which is about entities."@en ;
+   <https://w3id.org/sssom/object_label> "Information Content Entity"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#Collection
+prov:Collection rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000001 ,
+                                obo:BFO_0000002 .
+
+
+###  http://www.w3.org/ns/prov#Communication
+prov:Communication rdf:type owl:Class ;
+                   rdfs:subClassOf obo:BFO_0000001 ,
+                                   obo:BFO_0000003 ,
+                                   prov:Influence .
+
+
+###  http://www.w3.org/ns/prov#Contribute
+prov:Contribute rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000001 ,
+                                obo:BFO_0000003 ,
+                                obo:BFO_0000015 .
+
+
+###  http://www.w3.org/ns/prov#Contributor
+prov:Contributor rdf:type owl:Class ;
+                 rdfs:subClassOf obo:BFO_0000001 ,
+                                 obo:BFO_0000002 ,
+                                 obo:BFO_0000017 ,
+                                 obo:BFO_0000020 ,
+                                 obo:BFO_0000023 .
+
+
+###  http://www.w3.org/ns/prov#Copyright
+prov:Copyright rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000001 ,
+                               obo:BFO_0000003 ,
+                               obo:BFO_0000015 .
+
+
+###  http://www.w3.org/ns/prov#Create
+prov:Create rdf:type owl:Class ;
+            rdfs:subClassOf obo:BFO_0000001 ,
+                            obo:BFO_0000003 ,
+                            obo:BFO_0000015 ,
+                            prov:Activity .
+
+
+###  http://www.w3.org/ns/prov#Creator
+prov:Creator rdf:type owl:Class ;
+             rdfs:subClassOf obo:BFO_0000001 ,
+                             obo:BFO_0000002 ,
+                             obo:BFO_0000017 ,
+                             obo:BFO_0000020 ,
+                             obo:BFO_0000023 ,
+                             prov:Role .
+
+
+###  http://www.w3.org/ns/prov#Delegation
+prov:Delegation rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000001 ,
+                                obo:BFO_0000003 ,
+                                prov:Influence .
+
+
+###  http://www.w3.org/ns/prov#Derivation
+prov:Derivation rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000001 ,
+                                obo:BFO_0000003 ,
+                                prov:Influence .
+
+
+###  http://www.w3.org/ns/prov#Dictionary
+prov:Dictionary rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000001 ,
+                                obo:BFO_0000002 ,
+                                obo:BFO_0000031 ,
+                                <https://www.commoncoreontologies.org/ont00000958> .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:Dictionary ;
+   owl:annotatedProperty rdfs:subClassOf ;
+   owl:annotatedTarget obo:BFO_0000031 ;
+   rdfs:comment "A prov:Dictionary exists in virtue of the fact that there is at least one of what may be multiple copies; it is the content or the pattern that the multiple copies share."@en ;
+   <https://w3id.org/sssom/object_label> "generically dependent continuant"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:Dictionary ;
+   owl:annotatedProperty rdfs:subClassOf ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00000958> ;
+   rdfs:comment "A prov:Dictionary exists in virtue of the fact that there is at least one of what may be multiple copies; it is the content or the pattern that the multiple copies share."@en ;
+   <https://w3id.org/sssom/object_label> "Information Content Entity"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#DictionaryInvolvement
+prov:DictionaryInvolvement rdf:type owl:Class ;
+                           rdfs:subClassOf obo:BFO_0000001 ,
+                                           obo:BFO_0000003 .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:DictionaryInvolvement ;
+   owl:annotatedProperty rdfs:subClassOf ;
+   owl:annotatedTarget obo:BFO_0000003 ;
+   rdfs:comment "prov:DictionaryInvolvement is undefined and only used in two canonical examples from PROV-Dictionary. Nevertheless, the example instances of prov:DictionaryInvolvement are instances of prov:Removal, which is an occurrent, which suggests that prov:DictionaryInvolvement should also be an occurrent."@en ;
+   <https://w3id.org/sssom/object_label> "occurrent"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#DirectQueryService
+prov:DirectQueryService rdf:type owl:Class ;
+                        rdfs:subClassOf obo:BFO_0000001 ,
+                                        obo:BFO_0000002 ,
+                                        obo:BFO_0000004 ,
+                                        obo:BFO_0000040 ,
+                                        prov:Agent ,
+                                        <https://www.commoncoreontologies.org/ont00001017> .
+
+
+###  http://www.w3.org/ns/prov#EmptyCollection
+prov:EmptyCollection rdf:type owl:Class ;
+                     rdfs:subClassOf obo:BFO_0000001 ,
+                                     obo:BFO_0000002 ,
+                                     prov:Entity .
+
+
+###  http://www.w3.org/ns/prov#EmptyDictionary
+prov:EmptyDictionary rdf:type owl:Class ;
+                     rdfs:subClassOf obo:BFO_0000001 ,
+                                     obo:BFO_0000002 ,
+                                     obo:BFO_0000031 ,
+                                     prov:Collection ,
+                                     prov:Entity ,
+                                     <https://www.commoncoreontologies.org/ont00000958> .
+
+
+###  http://www.w3.org/ns/prov#End
+prov:End rdf:type owl:Class ;
+         owl:equivalentClass <https://www.commoncoreontologies.org/ont00000083> ;
+         rdfs:subClassOf obo:BFO_0000001 ,
+                         obo:BFO_0000003 ,
+                         obo:BFO_0000035 ,
+                         prov:Influence .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:End ;
+   owl:annotatedProperty owl:equivalentClass ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00000083> ;
+   rdfs:comment "PROV-O treats a PROV End as an instantaneous event connected to a particular activity via the Qualification Property PROV qualifiedEnd, subject to further restrictions by particular triggering entities, locations, time data, and so on. So, PROV End can be matched to CCO process ending. A process ending is a process boundary occurring on the ending instant of the temporal period occupied by a process that is equivalent to PROV Activity"@en ;
+   <https://w3id.org/sssom/object_label> "Process Ending"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#Entity
+prov:Entity rdf:type owl:Class ;
+            rdfs:subClassOf obo:BFO_0000001 ,
+                            obo:BFO_0000002 ,
+                            _:genid430 .
+
+_:genid430 rdf:type owl:Class ;
+            owl:unionOf ( obo:BFO_0000020
+                          obo:BFO_0000031
+                          [ owl:intersectionOf ( obo:BFO_0000004
+                                                 [ rdf:type owl:Class ;
+                                                   owl:complementOf obo:BFO_0000006
+                                                 ]
+                                               ) ;
+                            rdf:type owl:Class
+                          ]
+                        ) .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:Entity ;
+   owl:annotatedProperty rdfs:subClassOf ;
+   owl:annotatedTarget _:genid430 ;
+   rdfs:comment "A prov:Entity is a continuant because it entirely exists at different times. However, a prov:Entity is not a spatial region because spatial regions are causally inert and may not particpate in processes."@en ;
+   <https://w3id.org/sssom/object_label> "independent continuant except for spatial region OR generically dependent continuant OR specifically dependent continuant"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#EntityInfluence
+prov:EntityInfluence rdf:type owl:Class ;
+                     rdfs:subClassOf obo:BFO_0000001 ,
+                                     obo:BFO_0000003 .
+
+
+###  http://www.w3.org/ns/prov#Generation
+prov:Generation rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000001 ,
+                                obo:BFO_0000003 ,
+                                obo:BFO_0000035 ,
+                                prov:Influence .
+
+
+###  http://www.w3.org/ns/prov#Influence
+prov:Influence rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000001 ,
+                               obo:BFO_0000003 ,
+                               _:genid439 .
+
+_:genid439 owl:intersectionOf ( [ rdf:type owl:Class ;
+                                   owl:unionOf ( obo:BFO_0000015
+                                                 obo:BFO_0000035
+                                               )
+                                 ]
+                                 [ rdf:type owl:Class ;
+                                   owl:complementOf [ owl:intersectionOf ( obo:BFO_0000015
+                                                                           obo:BFO_0000035
+                                                                         ) ;
+                                                      rdf:type owl:Class
+                                                    ]
+                                 ]
+                               ) ;
+            rdf:type owl:Class .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:Influence ;
+   owl:annotatedProperty rdfs:subClassOf ;
+   owl:annotatedTarget _:genid439 ;
+   rdfs:comment "A prov:Influence is either a process or process boundary, but not both at once, because it occurs over time or at an instant in time. Although prov:Influence is defined as a capacity, all of its subclasses are clearly defined as occurring over time or at an instant. For example, a prov:Generation is a prov:InstantaneousEvent, while a prov:Derivation is a not a prov:InstantaneousEvent, yet both are subclasses of prov:Influence."@en ;
+   rdfs:comment: "This is not a disjoint union because while every Influence is either a process or process boundary, some processes & process boundaries are not Influences."@en ;
+   <https://w3id.org/sssom/object_label> "process or process boundary but not both at once"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#Insertion
+prov:Insertion rdf:type owl:Class ;
+               owl:equivalentClass prov:Removal ;
+               rdfs:subClassOf obo:BFO_0000001 ,
+                               obo:BFO_0000003 ,
+                               prov:EntityInfluence ,
+                               prov:Influence .
+
+
+###  http://www.w3.org/ns/prov#InstantaneousEvent
+prov:InstantaneousEvent rdf:type owl:Class ;
+                        rdfs:subClassOf obo:BFO_0000001 ,
+                                        obo:BFO_0000003 .
+
+
+###  http://www.w3.org/ns/prov#Invalidation
+prov:Invalidation rdf:type owl:Class ;
+                  rdfs:subClassOf obo:BFO_0000001 ,
+                                  obo:BFO_0000003 ,
+                                  obo:BFO_0000035 ,
+                                  prov:Influence .
+
+
+###  http://www.w3.org/ns/prov#KeyEntityPair
+prov:KeyEntityPair rdf:type owl:Class ;
+                   rdfs:subClassOf obo:BFO_0000001 ,
+                                   obo:BFO_0000002 ,
+                                   obo:BFO_0000031 ,
+                                   <https://www.commoncoreontologies.org/ont00000958> .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:KeyEntityPair ;
+   owl:annotatedProperty rdfs:subClassOf ;
+   owl:annotatedTarget obo:BFO_0000031 ;
+   rdfs:comment "A prov:KeyEntityPair exists in virtue of the fact that there is at least one of what may be multiple copies; it is the content or the pattern that the multiple copies share."@en ;
+   <https://w3id.org/sssom/object_label> "generically dependent continuant"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:KeyEntityPair ;
+   owl:annotatedProperty rdfs:subClassOf ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00000958> ;
+   rdfs:comment "A prov:KeyEntityPair exists in virtue of the fact that there is at least one of what may be multiple copies; it is the content or the pattern that the multiple copies share."@en ;
+   <https://w3id.org/sssom/object_label> "Information Content Entity"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#Location
+prov:Location rdf:type owl:Class ;
+              rdfs:subClassOf obo:BFO_0000001 ,
+                              obo:BFO_0000002 ,
+                              obo:BFO_0000004 ,
+                              obo:BFO_0000141 .
+
+
+###  http://www.w3.org/ns/prov#Modify
+prov:Modify rdf:type owl:Class ;
+            rdfs:subClassOf obo:BFO_0000001 ,
+                            obo:BFO_0000003 ,
+                            obo:BFO_0000015 .
+
+
+###  http://www.w3.org/ns/prov#Organization
+prov:Organization rdf:type owl:Class ;
+                  owl:equivalentClass _:genid452 ;
+                  rdfs:subClassOf obo:BFO_0000001 ,
+                                  obo:BFO_0000002 ,
+                                  obo:BFO_0000004 ,
+                                  obo:BFO_0000027 ,
+                                  obo:BFO_0000040 ,
+                                  <https://www.commoncoreontologies.org/ont00000300> ,
+                                  <https://www.commoncoreontologies.org/ont00001017> ,
+                                  <https://www.commoncoreontologies.org/ont00001180> .
+
+_:genid452 owl:intersectionOf ( prov:Agent
+                                 <https://www.commoncoreontologies.org/ont00001180>
+                               ) ;
+            rdf:type owl:Class .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:Organization ;
+   owl:annotatedProperty owl:equivalentClass ;
+   owl:annotatedTarget _:genid452 ;
+   rdfs:comment "Every prov:Organization is both a prov:Agent and a CCO Organization. However, not every CCO Organization is a prov:Agent or CCO Agent. So, prov:Organization and CCO Organization are not coextensive."@en ;
+   <https://w3id.org/sssom/object_label> "Organization"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#Person
+prov:Person rdf:type owl:Class ;
+            owl:equivalentClass _:genid456 ;
+            rdfs:subClassOf obo:BFO_0000001 ,
+                            obo:BFO_0000002 ,
+                            obo:BFO_0000004 ,
+                            obo:BFO_0000030 ,
+                            obo:BFO_0000040 ,
+                            <https://www.commoncoreontologies.org/ont00000551> ,
+                            <https://www.commoncoreontologies.org/ont00000562> ,
+                            <https://www.commoncoreontologies.org/ont00001017> ,
+                            <https://www.commoncoreontologies.org/ont00001262> .
+
+_:genid456 owl:intersectionOf ( prov:Agent
+                                 <https://www.commoncoreontologies.org/ont00001262>
+                               ) ;
+            rdf:type owl:Class .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:Person ;
+   owl:annotatedProperty owl:equivalentClass ;
+   owl:annotatedTarget _:genid456 ;
+   rdfs:comment "Every prov:Person is both a prov:Agent and a CCO Person. However, not every CCO Person is a prov:Agent or CCO Agent. So, prov:Person and CCO Person are not coextensive."@en ;
+   <https://w3id.org/sssom/object_label> "Person"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#Plan
+prov:Plan rdf:type owl:Class ;
+          rdfs:subClassOf obo:BFO_0000001 ,
+                          obo:BFO_0000002 ,
+                          obo:BFO_0000031 ,
+                          <https://www.commoncoreontologies.org/ont00000958> .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:Plan ;
+   owl:annotatedProperty rdfs:subClassOf ;
+   owl:annotatedTarget obo:BFO_0000031 ;
+   rdfs:comment "A prov:Plan exists in virtue of the fact that there is at least one of what may be multiple copies; it is the content or the pattern that the multiple copies share."@en ;
+   <https://w3id.org/sssom/object_label> "generically dependent continuant"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:Plan ;
+   owl:annotatedProperty rdfs:subClassOf ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00000958> ;
+   rdfs:comment "A prov:Plan is information content which is about entities. prov:Plan is similar to CCO Plan, except that PROV explicitly does not constrain the type of information content that PROV plans consist of."@en ;
+   <https://w3id.org/sssom/object_label> "Information Content Entity"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#PrimarySource
+prov:PrimarySource rdf:type owl:Class ;
+                   rdfs:subClassOf obo:BFO_0000001 ,
+                                   obo:BFO_0000003 ,
+                                   prov:EntityInfluence ,
+                                   prov:Influence .
+
+
+###  http://www.w3.org/ns/prov#Publish
+prov:Publish rdf:type owl:Class ;
+             rdfs:subClassOf obo:BFO_0000001 ,
+                             obo:BFO_0000003 ,
+                             obo:BFO_0000015 .
+
+
+###  http://www.w3.org/ns/prov#Publisher
+prov:Publisher rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000001 ,
+                               obo:BFO_0000002 ,
+                               obo:BFO_0000017 ,
+                               obo:BFO_0000020 ,
+                               obo:BFO_0000023 .
+
+
+###  http://www.w3.org/ns/prov#Quotation
+prov:Quotation rdf:type owl:Class ;
+               rdfs:subClassOf obo:BFO_0000001 ,
+                               obo:BFO_0000003 ,
+                               prov:EntityInfluence ,
+                               prov:Influence .
+
+
+###  http://www.w3.org/ns/prov#Removal
+prov:Removal rdf:type owl:Class ;
+             rdfs:subClassOf obo:BFO_0000001 ,
+                             obo:BFO_0000003 ,
+                             prov:EntityInfluence ,
+                             prov:Influence .
+
+
+###  http://www.w3.org/ns/prov#Replace
+prov:Replace rdf:type owl:Class ;
+             rdfs:subClassOf obo:BFO_0000001 ,
+                             obo:BFO_0000003 ,
+                             obo:BFO_0000015 .
+
+
+###  http://www.w3.org/ns/prov#Revision
+prov:Revision rdf:type owl:Class ;
+              rdfs:subClassOf obo:BFO_0000001 ,
+                              obo:BFO_0000003 ,
+                              prov:EntityInfluence ,
+                              prov:Influence .
+
+
+###  http://www.w3.org/ns/prov#RightsAssignment
+prov:RightsAssignment rdf:type owl:Class ;
+                      rdfs:subClassOf obo:BFO_0000001 ,
+                                      obo:BFO_0000003 ,
+                                      obo:BFO_0000015 .
+
+
+###  http://www.w3.org/ns/prov#RightsHolder
+prov:RightsHolder rdf:type owl:Class ;
+                  rdfs:subClassOf obo:BFO_0000001 ,
+                                  obo:BFO_0000002 ,
+                                  obo:BFO_0000017 ,
+                                  obo:BFO_0000020 ,
+                                  obo:BFO_0000023 .
+
+
+###  http://www.w3.org/ns/prov#Role
+prov:Role rdf:type owl:Class ;
+          rdfs:subClassOf obo:BFO_0000001 ,
+                          obo:BFO_0000002 ,
+                          obo:BFO_0000017 ,
+                          obo:BFO_0000020 ,
+                          obo:BFO_0000023 .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:Role ;
+   owl:annotatedProperty rdfs:subClassOf ;
+   owl:annotatedTarget obo:BFO_0000023 ;
+   rdfs:comment "A prov:Role is a bfo:role because its externally determined by the context in which the bearer plays the role."@en ;
+   <https://w3id.org/sssom/object_label> "role"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#ServiceDescription
+prov:ServiceDescription rdf:type owl:Class ;
+                        rdfs:subClassOf obo:BFO_0000001 ,
+                                        obo:BFO_0000002 ,
+                                        obo:BFO_0000004 ,
+                                        obo:BFO_0000040 ,
+                                        prov:Agent ,
+                                        <https://www.commoncoreontologies.org/ont00001017> ;
+                        <http://www.w3.org/2004/02/skos/core#relatedMatch> <https://www.commoncoreontologies.org/ont00000958> .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:ServiceDescription ;
+   owl:annotatedProperty <http://www.w3.org/2004/02/skos/core#relatedMatch> ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00000958> ;
+   rdfs:comment """PROV-AQ documentation suggests that a prov:ServiceDescription is used to describe a service. 
+    However, prov:ServiceDescription is a prov:SoftwareAgent, which is an independent continuant. 
+    By contrast, only generically dependent continuants such as information can be about or describe something in CCO."""@en ;
+   <https://w3id.org/sssom/object_label> "Information Content Entity"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#SoftwareAgent
+prov:SoftwareAgent rdf:type owl:Class ;
+                   rdfs:subClassOf obo:BFO_0000001 ,
+                                   obo:BFO_0000002 ,
+                                   obo:BFO_0000004 ,
+                                   obo:BFO_0000040 ,
+                                   <https://www.commoncoreontologies.org/ont00001017> .
+
+
+###  http://www.w3.org/ns/prov#Start
+prov:Start rdf:type owl:Class ;
+           owl:equivalentClass <https://www.commoncoreontologies.org/ont00000197> ;
+           rdfs:subClassOf obo:BFO_0000001 ,
+                           obo:BFO_0000003 ,
+                           obo:BFO_0000035 ,
+                           prov:Influence .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource prov:Start ;
+   owl:annotatedProperty owl:equivalentClass ;
+   owl:annotatedTarget <https://www.commoncoreontologies.org/ont00000197> ;
+   rdfs:comment "PROV-O treats a PROV Start as an instantaneous event connected to a particular activity via the Qualification Property PROV qualifiedStart, subject to further restrictions by particular triggering entities, locations, time data, and so on. So, PROV Start can be matched to CCO process beginning. A process beginning is a process boundary occurring on the starting instant of the temporal period occupied by a process that is equivalent to PROV Activity"@en ;
+   <https://w3id.org/sssom/object_label> "Process Beginning"
+ ] .
+
+
+###  http://www.w3.org/ns/prov#Submit
+prov:Submit rdf:type owl:Class ;
+            rdfs:subClassOf obo:BFO_0000001 ,
+                            obo:BFO_0000003 ,
+                            obo:BFO_0000015 .
+
+
+###  http://www.w3.org/ns/prov#Usage
+prov:Usage rdf:type owl:Class ;
+           rdfs:subClassOf obo:BFO_0000001 ,
+                           obo:BFO_0000003 ,
+                           obo:BFO_0000035 ,
+                           prov:Influence .
+
+
+###  https://www.commoncoreontologies.org/ont00000083
+<https://www.commoncoreontologies.org/ont00000083> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000197
+<https://www.commoncoreontologies.org/ont00000197> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000300
+<https://www.commoncoreontologies.org/ont00000300> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000551
+<https://www.commoncoreontologies.org/ont00000551> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000562
+<https://www.commoncoreontologies.org/ont00000562> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00000958
+<https://www.commoncoreontologies.org/ont00000958> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00001017
+<https://www.commoncoreontologies.org/ont00001017> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00001180
+<https://www.commoncoreontologies.org/ont00001180> rdf:type owl:Class .
+
+
+###  https://www.commoncoreontologies.org/ont00001262
+<https://www.commoncoreontologies.org/ont00001262> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi

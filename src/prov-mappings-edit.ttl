@@ -4,55 +4,54 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix obo:  <http://purl.obolibrary.org/obo/> .
 @prefix cco:  <http://www.ontologyrepository.com/CommonCoreOntologies/> .
-@base <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/PROV/prov-mappings-edit.ttl> .
+@base <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/src/prov-mappings-edit.ttl> .
 
-<https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-mappings-edit.ttl>
-   a owl:Ontology;
-   rdfs:label "Editor's file for PROV-BFO Mappings."@en ;
-   rdfs:comment "Open this in Protege to view the full mapping in context. Test the mapping with the imports in this file. This keeps imports out of the release version."@en ;
-   owl:versionIRI        <https://github.com/BFO-Mappings/PROV-to-BFO/releases/tag/v2024-11-23> ;
-   owl:imports <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-bfo-directmappings.ttl> , # Release version of PROV-BFO containing actual mappings
-               <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-ro-directmappings.ttl> , # Release version of PROV-RO containing actual mappings
-               <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-cco-directmappings.ttl> , # Release version of PROV-CCO containing actual mappings
+<https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/src/prov-mappings-edit.ttl>
+   a                 owl:Ontology;
+   rdfs:label        "Editor's file for PROV-BFO Mappings."@en ;
+   rdfs:comment      "Open this in Protege to view the full mapping in context. Test the mapping with the imports in this file. This keeps imports out of the release version."@en ;
+   owl:versionIRI    <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/refs/tags/v2025-01-19/src/prov-mappings-edit.ttl> ;
+   owl:imports       <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-bfo-directmappings.ttl> , # Release version of PROV-BFO containing actual mappings
+                     <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-ro-directmappings.ttl> , # Release version of PROV-RO containing actual mappings
+                     <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-cco-directmappings.ttl> , # Release version of PROV-CCO containing actual mappings
 
-               # Source ontologies for alignment
-               # <https://www.w3.org/ns/prov> , # PROV importing this causes errors because it both imports and contains the same ontologies
-               <https://www.w3.org/ns/prov-o-20130430>, # PROV Ontology, version 2013-04-30
-               <http://www.w3.org/ns/prov-aq>, # PROV Access and Query
-               <http://www.w3.org/ns/prov-dictionary>, # PROV Data Dictionary
-               <http://www.w3.org/ns/prov-links>, # PROV Linking Across Provenance Bundles
-               <http://www.w3.org/ns/prov-o-inverses>, # PROV Inverses
-               <http://www.w3.org/ns/prov-dc>, # PROV Dublin Core
+                     # Source ontologies for alignment
+                     # <https://www.w3.org/ns/prov> , # PROV importing this causes errors because it both imports and contains the same ontologies
+                     <https://www.w3.org/ns/prov-o-20130430>, # PROV Ontology, version 2013-04-30
+                     <http://www.w3.org/ns/prov-aq>, # PROV Access and Query
+                     <http://www.w3.org/ns/prov-dictionary>, # PROV Data Dictionary
+                     <http://www.w3.org/ns/prov-links>, # PROV Linking Across Provenance Bundles
+                     <http://www.w3.org/ns/prov-o-inverses>, # PROV Inverses
+                     <http://www.w3.org/ns/prov-dc>, # PROV Dublin Core
 
-               <http://purl.obolibrary.org/obo/bfo/2020/bfo-core.ttl>, # BFO Core
-               # <http://purl.obolibrary.org/obo/bfo/2020/bfo.owl> , # BFO temporalized relations
+                     <http://purl.obolibrary.org/obo/bfo/2020/bfo-core.ttl>, # BFO Core
+                     # <http://purl.obolibrary.org/obo/bfo/2020/bfo.owl> , # BFO temporalized relations
 
-               # <http://purl.obolibrary.org/obo/ro/releases/2024-02-13/ro.owl> , # Don't import all of RO, only import dependent terms below:
-               <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/src/imports/RO-imports-extracted.ttl>, # RO imports
+                     # <http://purl.obolibrary.org/obo/ro/releases/2024-02-13/ro.owl> , # Don't import all of RO, only import dependent terms below:
+                     <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/src/imports/RO-imports-extracted.ttl>, # RO imports
 
-               <https://www.commoncoreontologies.org/2024-11-06/CommonCoreOntologiesMerged> , # CCO
+                     <https://www.commoncoreontologies.org/2024-11-06/CommonCoreOntologiesMerged> , # CCO
 
-               # Test instances
-               <https://www.w3.org/TR/prov-o/example-1.ttl> ,
-               <https://www.w3.org/TR/prov-o/example-2.ttl> ,
-               <https://www.w3.org/TR/prov-o/example-3.ttl> ,
-               # <https://www.w3.org/TR/prov-o/example-4.ttl> , # IGNORE: inconsistent with PROV-O itself: <:publicationActivity1124, prov:wasAttributedTo, :postEditor> because Activity and Entity are disjoint, but prov:wasAttributedTo has domain Entity, while :publicationActivity1124 is an Activity
-               <https://www.w3.org/TR/prov-o/example-5.ttl> ,
-               <https://www.w3.org/TR/prov-o/example-6.ttl> ,
-               <https://www.w3.org/TR/prov-o/example-7.ttl> ,
-               <https://www.w3.org/TR/prov-o/example-8.ttl> ,
-               <https://www.w3.org/TR/prov-o/example-9.ttl> ,
-               <https://www.w3.org/TR/prov-o/example-10.ttl> ,
-               <https://www.w3.org/TR/prov-o/example-11.ttl> ,
-               <https://www.w3.org/TR/prov-o/other-examples.ttl> ,
-               <https://www.w3.org/TR/prov-aq/examples.ttl> ,
-               <https://www.w3.org/TR/prov-dictionary/examples.ttl> ,
-               <https://www.w3.org/TR/prov-links/examples.ttl> ,
-               <https://www.w3.org/TR/prov-dc/examples.ttl> ;
+                     # Test instances
+                     <https://www.w3.org/TR/prov-o/example-1.ttl> ,
+                     <https://www.w3.org/TR/prov-o/example-2.ttl> ,
+                     <https://www.w3.org/TR/prov-o/example-3.ttl> ,
+                     # <https://www.w3.org/TR/prov-o/example-4.ttl> , # IGNORE: inconsistent with PROV-O itself: <:publicationActivity1124, prov:wasAttributedTo, :postEditor> because Activity and Entity are disjoint, but prov:wasAttributedTo has domain Entity, while :publicationActivity1124 is an Activity
+                     <https://www.w3.org/TR/prov-o/example-5.ttl> ,
+                     <https://www.w3.org/TR/prov-o/example-6.ttl> ,
+                     <https://www.w3.org/TR/prov-o/example-7.ttl> ,
+                     <https://www.w3.org/TR/prov-o/example-8.ttl> ,
+                     <https://www.w3.org/TR/prov-o/example-9.ttl> ,
+                     <https://www.w3.org/TR/prov-o/example-10.ttl> ,
+                     <https://www.w3.org/TR/prov-o/example-11.ttl> ,
+                     <https://www.w3.org/TR/prov-o/other-examples.ttl> ,
+                     <https://www.w3.org/TR/prov-aq/examples.ttl> ,
+                     <https://www.w3.org/TR/prov-dictionary/examples.ttl> ,
+                     <https://www.w3.org/TR/prov-links/examples.ttl> ,
+                     <https://www.w3.org/TR/prov-dc/examples.ttl> ;
 
-               # Other test data
-               # <http://www.w3.org/ns/sosa/prov> ,
-               # <http://www.w3.org/ns/sosa/> ,
-               # <http://example.org/om-20> ;
-               
+                     # Other test data
+                     # <http://www.w3.org/ns/sosa/prov> ,
+                     # <http://www.w3.org/ns/sosa/> ,
+                     # <http://example.org/om-20> ;      
 .

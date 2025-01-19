@@ -1,5 +1,8 @@
 ?provTerm	?termType
+<http://www.w3.org/ns/prov#pairKey>	<http://www.w3.org/2002/07/owl#AnnotationProperty>
 <http://www.w3.org/ns/prov#specializationOf>	<http://www.w3.org/2002/07/owl#AnnotationProperty>
+<http://www.w3.org/ns/prov#wasAssociatedWith>	<http://www.w3.org/2002/07/owl#AnnotationProperty>
+<http://www.w3.org/ns/prov#wasDerivedFrom>	<http://www.w3.org/2002/07/owl#AnnotationProperty>
 <http://www.w3.org/ns/prov#wasRevisionOf>	<http://www.w3.org/2002/07/owl#AnnotationProperty>
 <http://www.w3.org/ns/prov#Accept>	<http://www.w3.org/2002/07/owl#Class>
 <http://www.w3.org/ns/prov#Activity>	<http://www.w3.org/2002/07/owl#Class>
@@ -19,6 +22,7 @@
 <http://www.w3.org/ns/prov#Delegation>	<http://www.w3.org/2002/07/owl#Class>
 <http://www.w3.org/ns/prov#Derivation>	<http://www.w3.org/2002/07/owl#Class>
 <http://www.w3.org/ns/prov#Dictionary>	<http://www.w3.org/2002/07/owl#Class>
+<http://www.w3.org/ns/prov#DictionaryInvolvement>	<http://www.w3.org/2002/07/owl#Class>
 <http://www.w3.org/ns/prov#DirectQueryService>	<http://www.w3.org/2002/07/owl#Class>
 <http://www.w3.org/ns/prov#EmptyCollection>	<http://www.w3.org/2002/07/owl#Class>
 <http://www.w3.org/ns/prov#EmptyDictionary>	<http://www.w3.org/2002/07/owl#Class>
@@ -97,6 +101,7 @@
 <http://www.w3.org/ns/prov#locationOf>	<http://www.w3.org/2002/07/owl#ObjectProperty>
 <http://www.w3.org/ns/prov#mentionOf>	<http://www.w3.org/2002/07/owl#ObjectProperty>
 <http://www.w3.org/ns/prov#pairEntity>	<http://www.w3.org/2002/07/owl#ObjectProperty>
+<http://www.w3.org/ns/prov#pairKey>	<http://www.w3.org/2002/07/owl#ObjectProperty>
 <http://www.w3.org/ns/prov#pingback>	<http://www.w3.org/2002/07/owl#ObjectProperty>
 <http://www.w3.org/ns/prov#qualifiedAssociation>	<http://www.w3.org/2002/07/owl#ObjectProperty>
 <http://www.w3.org/ns/prov#qualifiedAssociationOf>	<http://www.w3.org/2002/07/owl#ObjectProperty>

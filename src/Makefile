@@ -9,12 +9,13 @@
 # --------------------------------------------------------------------------------
 #### Configuration / details about our project
 # Project essentials
-config.ONTOLOGY_FILE	:= prov-mappings-edit.ttl
-config.ONTOLOGY_PREFIX	:= prov-bfo-directmappings
-config.ONTOLOGY-IRI		:= https://github.com/BFO-Mappings/PROV-to-BFO
-config.BASE_IRI			:= $(config.ONTOLOGY-IRI)_
-config.DEV_IRI			:= $(config.ONTOLOGY-IRI)/dev
-config.MODULES_IRI		:= $(config.DEV_IRI)/modules
+config.ONTOLOGY_FILE		:= prov-mappings-edit.ttl
+config.ONTOLOGY_PREFIX		:= prov-bfo-directmappings
+config.ONTOLOGY_IRI			:= https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main
+config.BASE_IRI				:= $(config.ONTOLOGY_IRI)_
+config.DEV_IRI				:= $(config.ONTOLOGY_IRI)/dev
+config.MODULES_IRI			:= $(config.DEV_IRI)/modules
+config.ALIGNMENT_FILES		:= prov-bfo-directmappings.ttl prov-ro-directmappings.ttl prov-cco-directmappings.ttl
 
 # Local project directories
 config.SOURCE_DIR				:= /
@@ -51,9 +52,10 @@ REQUIRED_DIRS = $(config.TEMP_DIR) $(config.LIBRARY_DIR) $(config.SOURCE_DIR) $(
 
 # --------------------------------------------------------------------------------
 #### Custom targets
-MAPPINGS_FILE			:= prov-bfo-mappings.sssom.csv # csv for importing into google sheets
-mappings: 
-	$(ROBOT) query --input $(EDITOR_BUILD_FILE) -q $(config.QUERIES_DIR)/get-mappings.rq $(MAPPINGS_FILE) --use-graphs true
+SSSOM_FILE			:= $(config.TEMP_DIR)/prov-bfo-mappings.sssom.csv # csv for importing into google sheets
+SSSOM: 
+	$(ROBOT) relax --input $(EDITOR_BUILD_FILE) --include-subclass-of true \
+	query -q $(config.QUERIES_DIR)/SSSOM-mappings.rq $(SSSOM_FILE) --use-graphs true
 
 candidates:
 	$(ROBOT) query --input $(EDITOR_BUILD_FILE) -q $(config.QUERIES_DIR)/candidate-superproperties.rq $(config.TEMP_DIR)/candidate-superproperties.tsv --use-graphs true ;
@@ -65,25 +67,33 @@ candidates-complex:
 # Axioms to materialize in reasoning
 AXIOM_GENERATORS = "SubClass EquivalentClass SubObjectProperty EquivalentObjectProperty InverseObjectProperties"
 
-# Check for unmapped terms after materializing inferred mappings (after removing individuals)
+# Check for unmapped terms after materializing entailed mappings (after removing individuals)
 unmapped:
 	$(ROBOT) remove --input $(EDITOR_BUILD_FILE) --select individuals \
 	reason --reasoner HermiT --axiom-generators "SubClass SubObjectProperty InverseObjectProperties" --include-indirect true \
 	query --output-dir $(config.TEMP_DIR) --queries $(config.QUERIES_DIR)/unmapped-terms.rq --use-graph true
 
-# Materialize all mappings as a list
-inferred-mappings:
+# Materialize all entailed mappings
+# TODO: Make ROBOT filter SWRL rules
+ENTAILED_MAPPINGS_FILENAME = $(config.ONTOLOGY_IRI)/$(config.TEMP_DIR)/all-entailed-mappings
+entailed-mappings:
 	$(ROBOT) remove --input $(EDITOR_BUILD_FILE) --select individuals \
-	reason --reasoner HermiT --axiom-generators $(AXIOM_GENERATORS) --include-indirect true \
-	query --output-dir $(config.TEMP_DIR) --queries $(config.QUERIES_DIR)/inferred-mappings.rq --use-graph true
+	reason --reasoner HermiT --axiom-generators $(AXIOM_GENERATORS) --include-indirect true --remove-redundant-subclass-axioms false --exclude-duplicate-axioms true \
+	merge --catalog catalog-v001.xml --collapse-import-closure false --input "../prov-bfo-directmappings.ttl" --input "../prov-cco-directmappings.ttl" --input "../prov-ro-directmappings.ttl" \
+	remove --axioms external --base-iri http://www.w3.org/ns/prov# --base-iri http://www.w3.org/2003/11/swrl# --base-iri http://swrl.stanford.edu/ontologies/3.3/swrla.owl# --select "imports ontology" --trim false \
+	annotate --ontology-iri $(ENTAILED_MAPPINGS_FILENAME).ttl --version-iri $(ENTAILED_MAPPINGS_FILENAME).ttl --annotation owl:versionInfo $(TODAY) \
+	--annotation rdfs:comment "This file was generated using ROBOT and the HermiT reasoner from the PROV-BFO alignments" \
+	--annotation rdfs:comment "Note that this does not include SWRL rules but may in future versions." \
+	--annotation prov:wasDerivedFrom $(config.ONTOLOGY_IRI)/src/prov-mappings-edit.ttl \
+	--output $(config.TEMP_DIR)/all-entailed-mappings.ttl 
 
 # Materialize old and new entailments, then compare the differences. This doesn't include disjoint axioms.
 deductive-diff:
 	$(ROBOT) remove --input $(EDITOR_BUILD_FILE) --select individuals \
-	reason --reasoner HermiT --axiom-generators $(AXIOM_GENERATORS) --include-indirect true \
+	reason --reasoner HermiT --axiom-generators $(AXIOM_GENERATORS) --include-indirect true --equivalent-classes-allowed all \
 	query --query $(config.CONSTRUCT_QUERIES_DIR)/prov-triples.rq $(config.TEMP_DIR)/new-prov-triples.ttl --use-graph true 
 	
-	$(ROBOT) reason --input $(config.IMPORTS_DIR)/PROV/prov-ontologies.ttl --reasoner HermiT --axiom-generators $(AXIOM_GENERATORS) --include-indirect true \
+	$(ROBOT) reason --input $(config.IMPORTS_DIR)/PROV/prov-ontologies.ttl --reasoner HermiT --axiom-generators $(AXIOM_GENERATORS) --include-indirect true --equivalent-classes-allowed all \
 	query --query $(config.CONSTRUCT_QUERIES_DIR)/prov-triples.rq $(config.TEMP_DIR)/old-prov-triples.ttl --use-graph true 
 	$(ROBOT) diff --left $(config.TEMP_DIR)/old-prov-triples.ttl --right $(config.TEMP_DIR)/new-prov-triples.ttl --output $(config.TEMP_DIR)/deductive-diff.txt
 
@@ -180,8 +190,8 @@ $(RELEASE_BUILD_FILE): $(EDITOR_BUILD_FILE)
 
 # Function (aka "canned recipe") using parameters to build arguments for `annnotate`
 define annotation-inputs
-	--ontology-iri "$(config.ONTOLOGY-IRI)/$1" \
-	--version-iri "$(config.ONTOLOGY-IRI)/$(TODAY)/$1" \
+	--ontology-iri "$(config.ONTOLOGY_IRI)/$1" \
+	--version-iri "$(config.ONTOLOGY_IRI)/$(TODAY)/$1" \
 	--annotation owl:versionInfo "$(TODAY)" \
 	--output $2
 endef

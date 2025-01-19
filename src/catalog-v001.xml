@@ -4,6 +4,11 @@
     <uri name="https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-bfo-directmappings.ttl" uri="../prov-bfo-directmappings.ttl"/>
     <uri name="https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-ro-directmappings.ttl" uri="../prov-ro-directmappings.ttl"/>
     <uri name="https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-cco-directmappings.ttl" uri="../prov-cco-directmappings.ttl"/>
+
+    <!-- Versioned mappings used in versioned imports -->
+    <uri name="https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/refs/tags/v2025-01-19/prov-bfo-directmappings.ttl" uri="../prov-bfo-directmappings.ttl"/>
+    <uri name="https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/refs/tags/v2025-01-19/prov-ro-directmappings.ttl" uri="../prov-ro-directmappings.ttl"/>
+    <uri name="https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/refs/tags/v2025-01-19/prov-cco-directmappings.ttl" uri="../prov-cco-directmappings.ttl"/>
     
     <!-- Cached ontologies -->
     <uri name="https://www.commoncoreontologies.org/2024-11-06/CommonCoreOntologiesMerged" uri="imports/BFO/CommonCoreOntologiesMerged.ttl"/>
