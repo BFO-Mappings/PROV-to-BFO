@@ -14,13 +14,16 @@
   a                     owl:Ontology;
   rdfs:label            "Common Core Ontologies (CCO) mappings for W3C PROVenance Interchange Ontology (PROV-O)"@en ;
   owl:versionIRI        <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/refs/tags/v2025-01-19/prov-cco-directmappings.ttl> ;
-  owl:imports           <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/refs/tags/v2025-01-19/prov-bfo-directmappings.ttl> ;
-  rdfs:comment          "This mapping depends on the imported PROV-O to BFO mapping" ;
   dc:contributor        "Tim Prudhomme", "Giacomo De Colle" , "Austin Liebers" , "Alec Sculley" , "Peihong Karl Xie", "Sydney Cohen", "John Beverley" ;
   dc:license            <https://creativecommons.org/publicdomain/zero/1.0/> ;
-  prov:wasDerivedFrom   <http://www.w3.org/ns/prov> ,
-                        <https://github.com/CommonCoreOntology/CommonCoreOntologies> ;
-  rdfs:seeAlso          <https://basic-formal-ontology.org/> ,
+  prov:wasDerivedFrom   <https://www.w3.org/ns/prov-o-20130430> ,
+                        <https://raw.githubusercontent.com/BFO-ontology/BFO-2020/release-2024-01-29/src/owl/bfo-core.ttl> ,
+                        <https://raw.githubusercontent.com/CommonCoreOntology/CommonCoreOntologies/refs/tags/v2.0-2024-11-06/src/cco-merged/CommonCoreOntologiesMerged.ttl> ;
+  rdfs:comment          "This mapping depends on the imported PROV-O to BFO mapping" ;
+  owl:imports           <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/refs/tags/v2025-01-19/prov-bfo-directmappings.ttl> ;
+  rdfs:seeAlso          <https://www.w3.org/TR/prov-o/>,
+                        <https://basic-formal-ontology.org/> ,
+                        <https://github.com/CommonCoreOntology/CommonCoreOntologies> ,
                         <https://github.com/BFO-Mappings/PROV-to-BFO> ;
 .
 

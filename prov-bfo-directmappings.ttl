@@ -14,9 +14,10 @@
   owl:versionIRI        <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/refs/tags/v2025-01-19/prov-bfo-directmappings.ttl> ;
   dc:contributor        "Tim Prudhomme", "Giacomo De Colle" , "Austin Liebers" , "Alec Sculley" , "Peihong Karl Xie", "Sydney Cohen", "John Beverley" ;
   dc:license            <https://creativecommons.org/publicdomain/zero/1.0/> ;
-  prov:wasDerivedFrom   <http://www.w3.org/ns/prov> ,
-                        <https://github.com/bfo-ontology/bfo-2020> ;
-  rdfs:seeAlso          <https://basic-formal-ontology.org/> ,
+  prov:wasDerivedFrom   <https://www.w3.org/ns/prov-o-20130430> ,
+                        <https://raw.githubusercontent.com/BFO-ontology/BFO-2020/release-2024-01-29/src/owl/bfo-core.ttl> ;
+  rdfs:seeAlso          <https://www.w3.org/TR/prov-o/>,
+                        <https://basic-formal-ontology.org/> ,
                         <https://github.com/BFO-Mappings/PROV-to-BFO> ;
 .
 
