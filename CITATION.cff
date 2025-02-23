@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+title: PROV-to-BFO
+doi: 10.5281/zenodo.11338700
+preferred-citation:
+  type: article
+  doi: 10.1038/s41597-025-04580-1
+  title: A semantic approach to mapping the Provenance Ontology to Basic Formal Ontology
+  journal: Sci Data
+  volume: 12
+  number: 282
+  year: 2025
+  authors:
+  - given-names: Tim
+    family-names: Prudhomme
+    orcid: 'https://orcid.org/0000-0003-4143-6524'
+  - given-names: Giacomo
+    family-names: De Colle
+    orcid: 'https://orcid.org/0000-0002-3600-6506'
+  - given-names: Austin
+    family-names: Liebers
+    orcid: 'https://orcid.org/0009-0004-1692-3309'
+  - given-names: Alec
+    family-names: Sculley
+    orcid: 'https://orcid.org/0000-0002-0369-1965'
+  - given-names: Peihong
+    family-names: Xie
+    orcid: 'https://orcid.org/0009-0003-4542-1917'
+  - given-names: Sydney
+    family-names: Cohen
+  - given-names: John
+    family-names: Beverley
+    orcid: 'https://orcid.org/0000-0002-1118-1738'

@@ -1,6 +1,8 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11338700.svg)](https://doi.org/10.5281/zenodo.11338700) [![Test PROV-BFO Mapping Changes](https://github.com/BFO-Mappings/PROV-to-BFO/actions/workflows/test-mappings.yml/badge.svg)](https://github.com/BFO-Mappings/PROV-to-BFO/actions/workflows/test-mappings.yml)
 # PROV - BFO, RO, CCO Mappings
-[PROV Ontology (PROV-O)](https://www.w3.org/TR/prov-o/) is a World Wide Web Consortium (W3C) recommended ontology used to structure data about provenance across a wide variety of domains. [Basic Formal Ontology (BFO)](https://basic-formal-ontology.org/) is a top-level ontology ISO/IEC standard used to structure a wide variety of ontologies, including the [Relation Ontology (RO)](https://oborel.github.io/) and the [Common Core Ontologies (CCO)](https://github.com/CommonCoreOntology/CommonCoreOntologies). To enhance interoperability between these ontologies, their extensions, and data organized by them, this repo includes a set of mappings that were created according to a criteria and methodology which prioritizes structural and semantic principles. 
+The [Provenance Ontology (PROV-O)](https://www.w3.org/TR/prov-o/) is a World Wide Web Consortium (W3C) recommended ontology used to structure data about provenance across a wide variety of domains. [Basic Formal Ontology (BFO)](https://basic-formal-ontology.org/) is a top-level ontology ISO/IEC standard used to structure a wide variety of ontologies, such as [Relation Ontology (RO)](https://oborel.github.io/) and the [Common Core Ontologies (CCO)](https://github.com/CommonCoreOntology/CommonCoreOntologies). To enhance interoperability between these two ontologies, their extensions, and data organized by them, this repo includes a set of alignments that were created according to specific criteria which prioritize semantic and logical principles.
+
+For more information, read: ["A semantic approach to mapping the Provenance Ontology to Basic Formal Ontology"](https://doi.org/10.1038/s41597-025-04580-1).
 
 # Usage
 ### PROV-BFO
@@ -27,13 +29,13 @@
 * The mappings use subsumption and equivalence relations either directly with RDFS and OWL, or indirectly with SWRL rules and property chain axioms. Additional SKOS mappings are provided for extra commentary.
 
 * The following PROV namespaces have been (1) mapped in the mapping files, (2) imported in the editors file, and (3) all Turtle-serialized canonical examples from each have been loaded as instances in the editors file for testing:
-    * PROV-O [Ontology](https://www.w3.org/TR/2013/REC-prov-o-20130430/)
-    * PROV Access and Query [Ontology](http://www.w3.org/ns/prov-aq) & [Examples](PROV/examples/prov-aq-examples.ttl)
-    * PROV Data Dictionary [Ontology](http://www.w3.org/ns/prov-dictionary) & [Examples](PROV/examples/prov-dictionary-examples.ttl)
-    * PROV Linking Across Provenance Bundles [Ontology](http://www.w3.org/ns/prov-links) & [Examples](PROV/examples/prov-links-examples.ttl)
-    * PROV Inverses [Ontology](http://www.w3.org/ns/prov-o-inverses)
+    * [PROV-O](https://www.w3.org/TR/prov-o/) - [Ontology](https://www.w3.org/ns/prov-o)
+    * [PROV Access and Query](https://www.w3.org/TR/prov-aq/) - [Ontology](http://www.w3.org/ns/prov-aq) & [Examples](src/examples/prov-aq-examples.ttl)
+    * [PROV Data Dictionary](https://www.w3.org/TR/prov-dictionary) - [Ontology](http://www.w3.org/ns/prov-dictionary) & [Examples](src/examples/prov-dictionary-examples.ttl)
+    * [PROV Linking Across Provenance Bundles](https://www.w3.org/TR/prov-links/) - [Ontology](http://www.w3.org/ns/prov-links) & [Examples](src/examples/prov-links-examples.ttl)
+    * PROV Inverses - [Ontology](http://www.w3.org/ns/prov-o-inverses)
         * Automated entailment of mappings for inverse object properties is supported by OWL-DL and OWL-QL. For example, `prov:wasMemberOf` may be automatically inferred as a subproperty of BFO "part of" because `prov:hadMember` is a subproperty of BFO "has part" and these PROV terms are inverses of each other.
-    * PROV Dublin Core <http://www.w3.org/ns/prov-dc#> [Ontology](http://www.w3.org/ns/prov-dc) & [Examples](PROV/examples/prov-dc-examples.ttl)
+    * [PROV Dublin Core](https://www.w3.org/TR/prov-dc) - [Ontology](http://www.w3.org/ns/prov-dc) & [Examples](src/examples/prov-dc-examples.ttl)
 
 * Bonus mappings between BFO and the [SOSA (Sensor, Observation, Sample, and Actuator)](https://www.w3.org/TR/vocab-ssn/) ontology are possible, due to the [SOSA-PROV Mapping](https://www.w3.org/TR/vocab-ssn/#PROV_Alignment). 
 
@@ -59,10 +61,7 @@
 ### Development Process
 1. A separate RDF Turtle file is created to extend each ontology with a set of mappings.
 
-2. All mappings and ontologies are imported into the editor's file `prov-mappings-edit.ttl` to help visualize the mappings using Protege.
-    * For testing and reasoning, only terms that are used in a mapping are extracted from RO -- plus their logical dependencies using the [MIREOT](https://www.nature.com/articles/npre.2009.3576.1.pdf) strategy. 
-    * The list of RO terms to import is generated in the imports folder.
-    * The subset of extracted terms is stored locally and is imported into the editor's file.
+2. All mappings and ontologies are imported into the editor's file `prov-mappings-edit.ttl` to help visualize the mappings using Protege. To ensure tractability of reasoning, RO terms that are referenced, along with their logical dependencies, are extracted and imported separately.
 
 3. A mapping file adds triples which relate terms from each ontology using the following "mapping" predicates: `rdfs:subClassOf`, `rdfs:subPropertyOf`, `owl:equivalentClass`, and `owl:equivalentProperty`.
     * SWRL rules and property chain axioms are used to represent more complex, indirect relations.
@@ -90,8 +89,12 @@
 * Turtle (.ttl) versions of the release are currently *not* built automatically in order to ensure precise formatting, but RDF/XML versions could be automatically built from the Turtle versions.
 * Release files do *not* include imports of the ontologies they map. Why? First, because many terms in the BFO ontologies are not used or relevant to the mappings. Second, because users should not need to import irrelevant terms from any ontology (including PROV ontologies) for their use cases.
 
-# Contributors
-Tim Prudhomme, Giacomo De Colle, Austin Liebers, Alec Sculley, Karl Xie, Sydney Cohen, and John Beverley
-
 # How to cite
-Please cite "Mapping the Provenance Ontology to Basic Formal Ontology" using the DOI https://doi.org/10.5281/zenodo.11338700.
+Please cite with the following reference:
+```
+Prudhomme, T., De Colle, G., Liebers, A., Sculley, A., Xie, P., Cohen, S., & Beverley, J. 
+A semantic approach to mapping the Provenance Ontology to Basic Formal Ontology.
+Sci Data 12, 282 (2025). https://doi.org/10.1038/s41597-025-04580-1
+```
+
+An archive of this repository can be referenced with: https://doi.org/10.5281/zenodo.11338700
