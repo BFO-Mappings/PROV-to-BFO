@@ -144,7 +144,7 @@ prov:Influence rdf:type owl:Class .
                             ] ;
     sssom:object_label    "process or process boundary but not both at once" ;
     rdfs:comment "A prov:Influence is either a process or process boundary, but not both at once, because it occurs over time or at an instant in time. Although prov:Influence is defined as a capacity, all of its subclasses are clearly defined as occurring over time or at an instant. For example, a prov:Generation is a prov:InstantaneousEvent, while a prov:Derivation is a not a prov:InstantaneousEvent, yet both are subclasses of prov:Influence."@en ;
-    rdfs:comment: "This is not a disjoint union because while every Influence is either a process or process boundary, some processes & process boundaries are not Influences."@en .
+    rdfs:comment "This is not a disjoint union because while every Influence is either a process or process boundary, some processes & process boundaries are not Influences."@en .
 
 
 # PROV-Dictionary class mappings
