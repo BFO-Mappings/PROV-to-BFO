@@ -6,6 +6,8 @@
 @prefix obo:    <http://purl.obolibrary.org/obo/> .
 @prefix dc:     <http://purl.org/dc/elements/1.1/> .
 @prefix sssom:  <https://w3id.org/sssom/> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix :      <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-bfo-directmappings.ttl#> .
 @base <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-bfo-directmappings.ttl> .
 
 <https://raw.githubusercontent.com/BFO-Mappings/PROV-to-BFO/main/prov-bfo-directmappings.ttl>

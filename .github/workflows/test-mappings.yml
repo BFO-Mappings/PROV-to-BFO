@@ -10,6 +10,27 @@ env:
   cache-key:  build-cache-dependencies
 
 jobs:
+  turtle_syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install RDFLib
+        run: python -m pip install rdflib==7.2.1
+
+      - name: Parse standalone PROV-BFO mapping and serialize as RDF/XML
+        run: |
+          python - <<'PY'
+          from rdflib import Graph
+
+          graph = Graph().parse("prov-bfo-directmappings.ttl", format="turtle")
+          graph.serialize(format="xml")
+          PY
+
   ontology_test:
     runs-on: ubuntu-latest
     steps:
